@@ -80,7 +80,7 @@ Zbw.PF2.ContactManager/
 ### Schritte
 1. Repository klonen
    ```bash
-   git clone https://github.com/<org>/Zbw.PF2.ContactManager.git
+   git clone https://github.com/malinovic/Zbw.PF2.ContactManager.git
    ```
 2. Lösung `ContactManager.sln` in Visual Studio öffnen
 3. NuGet-Pakete werden beim Build automatisch wiederhergestellt

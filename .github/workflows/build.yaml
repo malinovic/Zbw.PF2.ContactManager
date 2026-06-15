@@ -1,7 +1,6 @@
 name: Build ContactManager
 
 on:
-  push:
   pull_request:
     branches: [ "master" ]
 
@@ -25,9 +24,9 @@ jobs:
 
     # Restore the application
     - name: Restore the application
-      run: dotnet restore .\Minesweeper\Minesweeper.csproj
+      run: dotnet restore .\Zbw.PF2.ContactManager\Zbw.PF2.ContactManager.csproj
 
     # Compile the application using Publish-Profiles
     - name: Compile the application
-      run: dotnet publish .\Minesweeper\Minesweeper.csproj -p:PublishProfile=LocalBuild_Portable
+      run: dotnet publish .\Zbw.PF2.ContactManager\Zbw.PF2.ContactManager.csproj -p:PublishProfile=LocalBuild_Portable
 
