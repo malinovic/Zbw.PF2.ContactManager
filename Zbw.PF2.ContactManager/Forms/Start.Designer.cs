@@ -1,6 +1,6 @@
 ﻿namespace Zbw.PF2.ContactManager
 {
-    partial class Form1
+    partial class Start
     {
         /// <summary>
         ///  Required designer variable.
@@ -23,15 +23,23 @@
         #region Windows Form Designer generated code
 
         /// <summary>
-        ///  Required method for Designer support - do not modify
-        ///  the contents of this method with the code editor.
+        /// Required method for Designer support - do not modify
+        /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent()
         {
-            components = new System.ComponentModel.Container();
-            AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
-            Text = "Form1";
+            SuspendLayout();
+            // 
+            // Start
+            // 
+            AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
+            AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            ClientSize = new System.Drawing.Size(895, 556);
+            Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            Padding = new System.Windows.Forms.Padding(4, 80, 4, 4);
+            Text = "ContactManager";
+            WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            ResumeLayout(false);
         }
 
         #endregion
