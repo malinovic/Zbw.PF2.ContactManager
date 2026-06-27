@@ -1,0 +1,32 @@
+name: Build ContactManager
+
+on:
+  pull_request:
+    branches: [ "master" ]
+
+jobs:
+
+  build:
+
+    runs-on: windows-latest
+    
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v3
+      with:
+        fetch-depth: 0
+
+    # Install the .NET Core workload
+    - name: Install .NET Core
+      uses: actions/setup-dotnet@v3
+      with:
+        dotnet-version: 7.0.x
+
+    # Restore the application
+    - name: Restore the application
+      run: dotnet restore .\Zbw.PF2.ContactManager\Zbw.PF2.ContactManager.csproj
+
+    # Compile the application using Publish-Profiles
+    - name: Compile the application
+      run: dotnet publish .\Zbw.PF2.ContactManager\Zbw.PF2.ContactManager.csproj -p:PublishProfile=LocalBuild_Portable
+
