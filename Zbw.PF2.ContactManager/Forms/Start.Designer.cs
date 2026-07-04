@@ -28,20 +28,34 @@
         /// </summary>
         private void InitializeComponent()
         {
+            button1 = new Button();
             SuspendLayout();
+            // 
+            // button1
+            // 
+            button1.Location = new Point(234, 183);
+            button1.Name = "button1";
+            button1.Size = new Size(131, 40);
+            button1.TabIndex = 0;
+            button1.Text = "button1";
+            button1.UseVisualStyleBackColor = true;
             // 
             // Start
             // 
-            AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
-            AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            ClientSize = new System.Drawing.Size(895, 556);
-            Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            Padding = new System.Windows.Forms.Padding(4, 80, 4, 4);
+            AutoScaleDimensions = new SizeF(12F, 30F);
+            AutoScaleMode = AutoScaleMode.Font;
+            ClientSize = new Size(1074, 667);
+            Controls.Add(button1);
+            Margin = new Padding(5, 5, 5, 5);
+            Name = "Start";
+            Padding = new Padding(5, 96, 5, 5);
             Text = "ContactManager";
-            WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            WindowState = FormWindowState.Maximized;
             ResumeLayout(false);
         }
 
         #endregion
+
+        private Button button1;
     }
 }
