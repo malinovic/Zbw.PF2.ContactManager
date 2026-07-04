@@ -14,6 +14,8 @@ namespace Zbw.PF2.ContactManager
                 MaterialSkin.Primary.BlueGrey800, MaterialSkin.Primary.BlueGrey900,
                 MaterialSkin.Primary.BlueGrey500, MaterialSkin.Accent.Pink200,
                 MaterialSkin.TextShade.WHITE
+
+                // Das ist ein Testkommentar
             );
         }
     }
