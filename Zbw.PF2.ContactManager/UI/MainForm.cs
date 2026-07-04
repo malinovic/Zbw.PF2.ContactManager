@@ -1,0 +1,22 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Text;
+using System.Windows.Forms;
+
+using Zbw.PF2.ContactManager.Core.Theme;
+
+namespace Zbw.PF2.ContactManager.UI;
+
+public partial class MainForm : Form
+{
+    public MainForm()
+    {
+        InitializeComponent();
+
+        ThemeManager.ApplyButtonStyles(BtnTest);
+        ThemeManager.ApplyButtonStyles(button1);
+    }
+}
