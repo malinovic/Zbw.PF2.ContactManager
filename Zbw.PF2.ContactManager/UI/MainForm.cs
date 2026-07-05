@@ -16,7 +16,10 @@ public partial class MainForm : Form
     {
         InitializeComponent();
 
-        ThemeManager.ApplyButtonStyles(BtnTest);
-        ThemeManager.ApplyButtonStyles(button1);
+        Font = FontManager.InterRegular;
+
+        BtnNavKunden.Font = new Font(FontManager.InterRegular.FontFamily, 12F, FontStyle.Bold);
+
+        //ThemeManager.ApplyButtonStyles(BtnTest);
     }
 }

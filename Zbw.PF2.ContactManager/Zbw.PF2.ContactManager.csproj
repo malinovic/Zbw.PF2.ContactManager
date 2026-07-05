@@ -8,5 +8,15 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <StartupObject>Zbw.PF2.ContactManager.Program</StartupObject>
   </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Inter.ttf" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="Inter.ttf">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
   
 </Project>

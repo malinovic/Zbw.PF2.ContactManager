@@ -30,30 +30,49 @@ partial class MainForm
     /// </summary>
     private void InitializeComponent()
     {
-        BtnTest = new Button();
+        BtnNavKunden = new Button();
+        button2 = new Button();
         SuspendLayout();
         // 
-        // BtnTest
+        // BtnNavKunden
         // 
-        BtnTest.Location = new Point(321, 827);
-        BtnTest.Name = "BtnTest";
-        BtnTest.Size = new Size(200, 60);
-        BtnTest.TabIndex = 0;
-        BtnTest.Text = "Speichern";
-        BtnTest.UseVisualStyleBackColor = true;
+        BtnNavKunden.BackColor = Color.FromArgb(193, 117, 43);
+        BtnNavKunden.FlatStyle = FlatStyle.Flat;
+        BtnNavKunden.ForeColor = Color.White;
+        BtnNavKunden.Location = new Point(30, 35);
+        BtnNavKunden.Name = "BtnNavKunden";
+        BtnNavKunden.Size = new Size(440, 77);
+        BtnNavKunden.TabIndex = 0;
+        BtnNavKunden.Text = "Kunden";
+        BtnNavKunden.UseVisualStyleBackColor = false;
+        // 
+        // button2
+        // 
+        button2.FlatStyle = FlatStyle.Popup;
+        button2.Location = new Point(30, 148);
+        button2.Name = "button2";
+        button2.Size = new Size(440, 77);
+        button2.TabIndex = 1;
+        button2.Text = "button2";
+        button2.UseVisualStyleBackColor = true;
         // 
         // MainForm
         // 
-        AutoScaleDimensions = new SizeF(12F, 30F);
+        AutoScaleDimensions = new SizeF(14F, 36F);
         AutoScaleMode = AutoScaleMode.Font;
-        ClientSize = new Size(1598, 918);
-        Controls.Add(BtnTest);
+        ClientSize = new Size(2339, 1445);
+        Controls.Add(button2);
+        Controls.Add(BtnNavKunden);
+        Font = new Font("Segoe UI", 11F);
+        Margin = new Padding(4);
         Name = "MainForm";
-        Text = "MainForm";
+        ShowIcon = false;
+        Text = "Contact Manager";
         ResumeLayout(false);
     }
 
     #endregion
 
-    private Button BtnTest;
+    private Button BtnNavKunden;
+    private Button button2;
 }
