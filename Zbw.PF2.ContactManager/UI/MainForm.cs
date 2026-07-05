@@ -18,8 +18,8 @@ public partial class MainForm : Form
 
         Font = FontManager.InterRegular;
 
-        BtnNavKunden.Font = new Font(FontManager.InterRegular.FontFamily, 12F, FontStyle.Bold);
+        ThemeManager.ApplyNavButtonActiveStyles(BtnNavKunden);
+        ThemeManager.ApplyNavButtonStyles(BtnNavCoworkers);
 
-        //ThemeManager.ApplyButtonStyles(BtnTest);
     }
 }

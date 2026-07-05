@@ -31,7 +31,7 @@ partial class MainForm
     private void InitializeComponent()
     {
         BtnNavKunden = new Button();
-        button2 = new Button();
+        BtnNavCoworkers = new Button();
         SuspendLayout();
         // 
         // BtnNavKunden
@@ -46,33 +46,34 @@ partial class MainForm
         BtnNavKunden.Text = "Kunden";
         BtnNavKunden.UseVisualStyleBackColor = false;
         // 
-        // button2
+        // BtnNavCoworkers
         // 
-        button2.FlatStyle = FlatStyle.Popup;
-        button2.Location = new Point(30, 148);
-        button2.Name = "button2";
-        button2.Size = new Size(440, 77);
-        button2.TabIndex = 1;
-        button2.Text = "button2";
-        button2.UseVisualStyleBackColor = true;
+        BtnNavCoworkers.FlatStyle = FlatStyle.Popup;
+        BtnNavCoworkers.Location = new Point(30, 148);
+        BtnNavCoworkers.Name = "BtnNavCoworkers";
+        BtnNavCoworkers.Size = new Size(440, 77);
+        BtnNavCoworkers.TabIndex = 1;
+        BtnNavCoworkers.Text = "Mitarbeiter";
+        BtnNavCoworkers.UseVisualStyleBackColor = true;
         // 
         // MainForm
         // 
         AutoScaleDimensions = new SizeF(14F, 36F);
         AutoScaleMode = AutoScaleMode.Font;
         ClientSize = new Size(2339, 1445);
-        Controls.Add(button2);
+        Controls.Add(BtnNavCoworkers);
         Controls.Add(BtnNavKunden);
         Font = new Font("Segoe UI", 11F);
         Margin = new Padding(4);
         Name = "MainForm";
         ShowIcon = false;
         Text = "Contact Manager";
+        WindowState = FormWindowState.Maximized;
         ResumeLayout(false);
     }
 
     #endregion
 
     private Button BtnNavKunden;
-    private Button button2;
+    private Button BtnNavCoworkers;
 }
