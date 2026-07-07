@@ -10,7 +10,18 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="MaterialSkin.2" Version="2.3.1" />
+    <None Remove="Inter.ttf" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Content Include="Inter.ttf">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Data\" />
+    <Folder Include="Service\" />
+  </ItemGroup>
+  
 </Project>

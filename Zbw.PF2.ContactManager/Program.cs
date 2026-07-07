@@ -1,3 +1,6 @@
+using Zbw.PF2.ContactManager.Core.Theme;
+using Zbw.PF2.ContactManager.UI;
+
 namespace Zbw.PF2.ContactManager
 {
     internal static class Program
@@ -9,9 +12,13 @@ namespace Zbw.PF2.ContactManager
         static void Main()
         {
             // To customize application configuration such as set high DPI settings or default font,
-            // see https://aka.ms/applicationconfiguration.
+            // see https://aka.ms/applicationconfiguration
             ApplicationConfiguration.Initialize();
-            Application.Run(new Start());
+            Application.SetCompatibleTextRenderingDefault(false);
+
+            FontManager.InitializeFonts();
+
+            Application.Run(new MainForm());
         }
     }
 }
