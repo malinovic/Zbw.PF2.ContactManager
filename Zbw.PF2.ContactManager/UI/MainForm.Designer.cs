@@ -33,38 +33,38 @@ partial class MainForm
         components = new System.ComponentModel.Container();
         System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
         bindingSource1 = new BindingSource(components);
-        flowLayoutPanel1 = new FlowLayoutPanel();
-        panel1 = new Panel();
+        FlpSideNav = new FlowLayoutPanel();
+        PnlNavTitle = new Panel();
         NavTitle = new Label();
         BtnNavDashboard = new Button();
         BtnNavCustomers = new Button();
         BtnNavEmployees = new Button();
         PnlContentView = new Panel();
         ((System.ComponentModel.ISupportInitialize)bindingSource1).BeginInit();
-        flowLayoutPanel1.SuspendLayout();
-        panel1.SuspendLayout();
+        FlpSideNav.SuspendLayout();
+        PnlNavTitle.SuspendLayout();
         SuspendLayout();
         // 
-        // flowLayoutPanel1
+        // FlpSideNav
         // 
-        flowLayoutPanel1.BackColor = Color.White;
-        flowLayoutPanel1.Controls.Add(panel1);
-        flowLayoutPanel1.Controls.Add(BtnNavDashboard);
-        flowLayoutPanel1.Controls.Add(BtnNavCustomers);
-        flowLayoutPanel1.Controls.Add(BtnNavEmployees);
-        flowLayoutPanel1.Dock = DockStyle.Left;
-        flowLayoutPanel1.Location = new Point(0, 0);
-        flowLayoutPanel1.Name = "flowLayoutPanel1";
-        flowLayoutPanel1.Size = new Size(551, 1445);
-        flowLayoutPanel1.TabIndex = 0;
+        FlpSideNav.BackColor = Color.White;
+        FlpSideNav.Controls.Add(PnlNavTitle);
+        FlpSideNav.Controls.Add(BtnNavDashboard);
+        FlpSideNav.Controls.Add(BtnNavCustomers);
+        FlpSideNav.Controls.Add(BtnNavEmployees);
+        FlpSideNav.Dock = DockStyle.Left;
+        FlpSideNav.Location = new Point(0, 0);
+        FlpSideNav.Name = "FlpSideNav";
+        FlpSideNav.Size = new Size(551, 1445);
+        FlpSideNav.TabIndex = 0;
         // 
-        // panel1
+        // PnlNavTitle
         // 
-        panel1.Controls.Add(NavTitle);
-        panel1.Location = new Point(3, 3);
-        panel1.Name = "panel1";
-        panel1.Size = new Size(548, 133);
-        panel1.TabIndex = 4;
+        PnlNavTitle.Controls.Add(NavTitle);
+        PnlNavTitle.Location = new Point(3, 3);
+        PnlNavTitle.Name = "PnlNavTitle";
+        PnlNavTitle.Size = new Size(548, 133);
+        PnlNavTitle.TabIndex = 4;
         // 
         // NavTitle
         // 
@@ -140,7 +140,7 @@ partial class MainForm
         AutoScaleMode = AutoScaleMode.Font;
         ClientSize = new Size(2339, 1445);
         Controls.Add(PnlContentView);
-        Controls.Add(flowLayoutPanel1);
+        Controls.Add(FlpSideNav);
         Font = new Font("Segoe UI", 11F);
         Icon = (Icon)resources.GetObject("$this.Icon");
         Margin = new Padding(4);
@@ -148,19 +148,19 @@ partial class MainForm
         Text = "Contact Manager";
         WindowState = FormWindowState.Maximized;
         ((System.ComponentModel.ISupportInitialize)bindingSource1).EndInit();
-        flowLayoutPanel1.ResumeLayout(false);
-        panel1.ResumeLayout(false);
-        panel1.PerformLayout();
+        FlpSideNav.ResumeLayout(false);
+        PnlNavTitle.ResumeLayout(false);
+        PnlNavTitle.PerformLayout();
         ResumeLayout(false);
     }
 
     #endregion
     private BindingSource bindingSource1;
-    private FlowLayoutPanel flowLayoutPanel1;
+    private FlowLayoutPanel FlpSideNav;
     private Button BtnNavDashboard;
     private Panel PnlContentView;
     private Button BtnNavEmployees;
     private Button BtnNavCustomers;
-    private Panel panel1;
+    private Panel PnlNavTitle;
     private Label NavTitle;
 }
