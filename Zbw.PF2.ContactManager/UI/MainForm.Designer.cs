@@ -145,6 +145,7 @@ partial class MainForm
         Icon = (Icon)resources.GetObject("$this.Icon");
         Margin = new Padding(4);
         Name = "MainForm";
+        Text = "Contact Manager";
         WindowState = FormWindowState.Maximized;
         ((System.ComponentModel.ISupportInitialize)bindingSource1).EndInit();
         flowLayoutPanel1.ResumeLayout(false);
