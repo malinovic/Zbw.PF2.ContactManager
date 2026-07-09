@@ -73,9 +73,9 @@ public partial class MainForm : Form
 
         _activeForm = childForm;
 
-        childForm.TopLevel = false;
-        childForm.FormBorderStyle = FormBorderStyle.None;
-        childForm.Dock = DockStyle.Fill;
+        // TODO: move to thememanager for consistency
+
+        ThemeManager.ApplyFormStyles(childForm);
 
         PnlContentView.Controls.Add(childForm);
         PnlContentView.Tag = childForm;

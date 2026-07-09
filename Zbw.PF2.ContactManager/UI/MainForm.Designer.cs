@@ -30,9 +30,7 @@ partial class MainForm
     /// </summary>
     private void InitializeComponent()
     {
-        components = new System.ComponentModel.Container();
         System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
-        bindingSource1 = new BindingSource(components);
         FlpSideNav = new FlowLayoutPanel();
         PnlNavTitle = new Panel();
         NavTitle = new Label();
@@ -40,7 +38,6 @@ partial class MainForm
         BtnNavCustomers = new Button();
         BtnNavEmployees = new Button();
         PnlContentView = new Panel();
-        ((System.ComponentModel.ISupportInitialize)bindingSource1).BeginInit();
         FlpSideNav.SuspendLayout();
         PnlNavTitle.SuspendLayout();
         SuspendLayout();
@@ -147,7 +144,6 @@ partial class MainForm
         Name = "MainForm";
         Text = "Contact Manager";
         WindowState = FormWindowState.Maximized;
-        ((System.ComponentModel.ISupportInitialize)bindingSource1).EndInit();
         FlpSideNav.ResumeLayout(false);
         PnlNavTitle.ResumeLayout(false);
         PnlNavTitle.PerformLayout();
@@ -155,7 +151,6 @@ partial class MainForm
     }
 
     #endregion
-    private BindingSource bindingSource1;
     private FlowLayoutPanel FlpSideNav;
     private Button BtnNavDashboard;
     private Panel PnlContentView;
