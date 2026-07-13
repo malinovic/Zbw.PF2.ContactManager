@@ -73,8 +73,6 @@ public partial class MainForm : Form
 
         _activeForm = childForm;
 
-        // TODO: move to thememanager for consistency
-
         ThemeManager.ApplyFormStyles(childForm);
 
         PnlContentView.Controls.Add(childForm);
