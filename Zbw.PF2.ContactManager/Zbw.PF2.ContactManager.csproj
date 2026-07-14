@@ -7,6 +7,7 @@
     <UseWindowsForms>true</UseWindowsForms>
     <ImplicitUsings>enable</ImplicitUsings>
     <StartupObject>Zbw.PF2.ContactManager.Program</StartupObject>
+    <GenerateStronglyTypedResourceBuilderClasses>true</GenerateStronglyTypedResourceBuilderClasses>
   </PropertyGroup>
 
   <ItemGroup>
@@ -22,6 +23,12 @@
   <ItemGroup>
     <Folder Include="Data\" />
     <Folder Include="Service\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="Properties\Resources.resx">
+      <Generator></Generator>
+    </EmbeddedResource>
   </ItemGroup>
   
 </Project>
