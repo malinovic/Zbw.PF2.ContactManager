@@ -7,7 +7,7 @@ namespace Zbw.PF2.ContactManager.Models.Enums;
 internal static class CustomEnums
 {
     // Enums for class Person
-    public enum Salutation { Herr, Frau,};
+    public enum Salutation { Herr, Frau};
     public enum Sex {Mann, Frau };
     public enum Status { aktiv, passiv }
 
