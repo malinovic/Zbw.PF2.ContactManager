@@ -5,9 +5,8 @@ using System.Text;
 
 namespace Zbw.PF2.ContactManager.Models;
 
-internal class Address
+public class Address
 {
-    // Properties
 
     public string StreetName { get; private set; }
     public string StreetNumber { get; private set; }
@@ -16,8 +15,6 @@ internal class Address
 
     public string AddressInString { get; private set; }
 
-
-    // Methods
 
     public string AddressToString()
     {

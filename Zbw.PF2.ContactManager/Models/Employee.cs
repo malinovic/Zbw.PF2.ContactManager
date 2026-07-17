@@ -7,21 +7,20 @@ using Zbw.PF2.ContactManager.Models.Enums;
 
 namespace Zbw.PF2.ContactManager.Models;
 
-internal class Employee : Person
+public class Employee : Person
 
 {
-    // Properties
 
     public string EmployeeNumber {  get; private set; }
     public string Department { get; private set; }
     public string AhvNumber { get; private set; }
     public string Nationality { get; private set; } 
-    public CustomEnums.Status EmployeeStatus { get; private set; }
+    public EnumStatus.Status EmployeeStatus { get; private set; }
     protected string EmployeeStatusMessage => IsActive(EmployeeStatus);
     public DateOnly EmployeeDateOfHire { get; private set; }
     public int EmployeeEmploymentRate { get; private set; }
     public string Role { get; private set; }
-    public CustomEnums.EmployeeSeniorLevel EmployeeSeniorLevel {  get; private set; }
+    public EnumEmployeeSeniorLevel.EmployeeSeniorLevel EmployeeSeniorLevel {  get; private set; }
 
     public int EmployeeApprenticeshipYears { get; private set; }
     public Address WorkAddress { get; private set; }
@@ -29,7 +28,6 @@ internal class Employee : Person
 
 
 
-    // Methods
 
     public string EmployeeToString()
     {
@@ -41,15 +39,13 @@ internal class Employee : Person
 
 
 
-    // Constructor
-
     public Employee(
         string id,
-        CustomEnums.Salutation salutation,
+        EnumSalutation.Salutation salutation,
         string firstName,
         string lastName,
         DateOnly birthday,
-        CustomEnums.Sex sex,
+        EnumSex.Sex sex,
         string title,
         Address address,
         string phoneNumberCompany,
@@ -59,11 +55,11 @@ internal class Employee : Person
         string department,
         string ahvNumber,
         string nationality,
-        CustomEnums.Status employeeStatus,
+        EnumStatus.Status employeeStatus,
         string employeeDateOfHire,
         string employeeEmploymentRate,
         string role,
-        CustomEnums.EmployeeSeniorLevel employeeSeniorLevel,
+        EnumEmployeeSeniorLevel.EmployeeSeniorLevel employeeSeniorLevel,
         int employeeApprenticeShipYears,
         Address workAddress
         )

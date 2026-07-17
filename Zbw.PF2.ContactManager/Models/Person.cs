@@ -6,16 +6,15 @@ using Zbw.PF2.ContactManager.Models.Enums;
 
 namespace Zbw.PF2.ContactManager.Models;
 
-internal class Person
+public class Person
 {
-    // Properties
 
     public string Id { get; protected set; }
-    public CustomEnums.Salutation Salutation { get; protected set; }
+    public EnumSalutation.Salutation Salutation { get; protected set; }
     public string FirstName { get; protected set; }
     public string LastName { get; protected set; }
     public DateOnly Birthday { get; protected set; }
-    public CustomEnums.Sex Sex { get; protected set; }
+    public EnumSex.Sex Sex { get; protected set; }
     public string Title { get; protected set; }
     public Address Address {  get; protected set; }
     public string PhoneNumberCompany { get; protected set; }
@@ -23,11 +22,10 @@ internal class Person
     public string Email { get; protected set; }
 
 
-    // Methods
 
-    protected string IsActive(CustomEnums.Status status)
+    protected string IsActive(EnumStatus.Status status)
     {
-        if (status == CustomEnums.Status.aktiv)
+        if (status == EnumStatus.Status.Active)
         {
             return "Dieser Mitarbeiter ist aktiv";
         }

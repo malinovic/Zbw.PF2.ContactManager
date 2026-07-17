@@ -5,23 +5,18 @@ using System.Text;
 
 using Zbw.PF2.ContactManager.Models.Enums;
 
-using static Zbw.PF2.ContactManager.Models.Enums.CustomEnums;
-
 namespace Zbw.PF2.ContactManager.Models;
 
-internal class Customer : Person
+public class Customer : Person
 {
-    // Properties
 
     public string CustomerNumber { get; private set; }
-    public CustomEnums.CustomerType CustomerType { get; private set; }
+    public EnumCustomerType.CustomerType CustomerType { get; private set; }
     public string CustomerCompanyName { get; private set; }
-    public CustomEnums.Status CustomerStatus { get; private set; }
+    public EnumStatus.Status CustomerStatus { get; private set; }
     protected string CustomerStatusMessage => IsActive(CustomerStatus);
 
 
-
-    // Methods
 
     public void CheckType()
     {
@@ -37,24 +32,22 @@ internal class Customer : Person
 
 
 
-    // Costructor
-
     public Customer(
         string id,
-        CustomEnums.Salutation salutation,
+        EnumSalutation.Salutation salutation,
         string firstName,
         string lastName,
         DateOnly birthday,
-        CustomEnums.Sex sex,
+        EnumSex.Sex sex,
         string title,
         Address address,
         string phoneNumberCompany,
         string phoneNumberMobile,
         string email,
         string customerNumber,
-        CustomEnums.CustomerType customerType,
+        EnumCustomerType.CustomerType customerType,
         string customerCompanyName,
-        CustomEnums.Status customerStatus)
+        EnumStatus.Status customerStatus)
     {
         Id = id;
         Salutation = salutation;
