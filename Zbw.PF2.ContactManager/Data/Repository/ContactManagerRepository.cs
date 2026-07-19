@@ -1,4 +1,4 @@
-using Zbw.PF2.ContactManager.Data.DTO;
+using Zbw.PF2.ContactManager.Models;
 
 namespace Zbw.PF2.ContactManager.Data.Repository;
 
@@ -19,5 +19,10 @@ public class ContactManagerRepository(ICSVRepository csvRepository) : IContactMa
     public IList<Customer> GetCustomers()
     {
         return _csvRepository.GetRecords<Customer>();
+    }
+
+    public IList<Employee> GetEmployees()
+    {
+        return _csvRepository.GetRecords<Employee>();
     }
 }

@@ -1,4 +1,4 @@
-﻿using Zbw.PF2.ContactManager.Data.DTO;
+﻿using Zbw.PF2.ContactManager.Models;
 
 namespace Zbw.PF2.ContactManager.Data.Repository;
 
@@ -12,5 +12,6 @@ public interface IContactManagerRepository
     void AddCustomer(Customer customer);
     IList<Customer> GetCustomers();
     void AddEmployee(Employee employee);
+    IList<Employee> GetEmployees();
 
 }

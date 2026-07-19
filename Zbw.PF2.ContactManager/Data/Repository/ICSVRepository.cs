@@ -1,4 +1,4 @@
-﻿using Zbw.PF2.ContactManager.Data.DTO;
+﻿using Zbw.PF2.ContactManager.Models;
 
 namespace Zbw.PF2.ContactManager.Data.Repository;
 

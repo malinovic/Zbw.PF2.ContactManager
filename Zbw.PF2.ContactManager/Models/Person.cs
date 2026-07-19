@@ -5,7 +5,7 @@ namespace Zbw.PF2.ContactManager.Models;
 public class Person
 {
 
-    public string Id { get; set; }
+    public int Id { get; set; }
     public Salutation Salutation { get; set; }
     public string FirstName { get; set; }
     public string LastName { get; set; }

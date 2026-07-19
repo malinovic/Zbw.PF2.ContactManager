@@ -3,9 +3,9 @@ using System.Globalization;
 using CsvHelper;
 using CsvHelper.Configuration;
 
-using Zbw.PF2.ContactManager.Core.Config;
 using Zbw.PF2.ContactManager.Core.Errors;
-using Zbw.PF2.ContactManager.Data.DTO;
+using Zbw.PF2.ContactManager.Data.Maps;
+using Zbw.PF2.ContactManager.Models;
 
 namespace Zbw.PF2.ContactManager.Data.Repository;
 
@@ -21,7 +21,10 @@ public class CSVRepository : ICSVRepository
     /// </summary>
     public CSVRepository()
     {
-        _csvDataDirectory = Path.Join(ConfigManager.CSV_DIRECTORY);
+        string profilePath = Environment.GetFolderPath(Environment.SpecialFolder.UserProfile);
+        string contactManagerPath = Path.Combine(profilePath, ".contact_manager");
+
+        _csvDataDirectory = Path.Join(contactManagerPath);
         _customersCsvFile = Path.Join(_csvDataDirectory, "customers.csv");
         _employeesCsvFile = Path.Join(_csvDataDirectory, "employees.csv");
 
@@ -61,6 +64,7 @@ public class CSVRepository : ICSVRepository
 
         using StreamReader reader = new(filePath);
         using CsvReader csv = new(reader, _csvConfig);
+        RegisterClassMap<T>(csv.Context);
 
         return csv.GetRecords<T>().ToList();
     }
@@ -70,6 +74,7 @@ public class CSVRepository : ICSVRepository
         string filePath = GetSourceFile<T>();
         using StreamWriter writer = new(filePath);
         using CsvWriter csvWriter = new(writer, _csvConfig);
+        RegisterClassMap<T>(csvWriter.Context);
 
         csvWriter.WriteRecord(person);
         csvWriter.Flush();
@@ -85,6 +90,8 @@ public class CSVRepository : ICSVRepository
         using (CsvReader csvReader = new(reader, CultureInfo.InvariantCulture))
         using (CsvWriter csvWriter = new(writer, CultureInfo.InvariantCulture))
         {
+            RegisterClassMap<T>(csvReader.Context);
+            RegisterClassMap<T>(csvWriter.Context);
             csvReader.Read();
             csvReader.ReadHeader();
             csvWriter.WriteHeader<T>();
@@ -116,6 +123,7 @@ public class CSVRepository : ICSVRepository
 
         using StreamReader reader = new(filePath);
         using CsvReader csv = new(reader, _csvConfig);
+        RegisterClassMap<T>(csv.Context);
 
         return csv.GetRecords<T>().FirstOrDefault(record => record.Id == id);
     }
@@ -171,6 +179,14 @@ public class CSVRepository : ICSVRepository
         return filePath;
     }
 
+    private static void RegisterClassMap<T>(CsvContext context) where T : Person
+    {
+        if (typeof(T) == typeof(Customer))
+            context.RegisterClassMap<CustomerMap>();
+        else if (typeof(T) == typeof(Employee))
+            context.RegisterClassMap<EmployeeMap>();
+    }
+
     /// <summary>
     ///     Creates the directory and files with headers if they do not exist.
     /// </summary>
@@ -190,12 +206,13 @@ public class CSVRepository : ICSVRepository
     /// </summary>
     /// <param name="filePath"></param>
     /// <typeparam name="T"></typeparam>
-    private void InitializeFileWithHeader<T>(string filePath)
+    private void InitializeFileWithHeader<T>(string filePath) where T : Person
     {
         if (!File.Exists(filePath))
         {
             using StreamWriter writer = new(filePath);
             using CsvWriter csv = new(writer, _csvConfig);
+            RegisterClassMap<T>(csv.Context);
             csv.WriteHeader<T>();
             csv.NextRecord();
         }
