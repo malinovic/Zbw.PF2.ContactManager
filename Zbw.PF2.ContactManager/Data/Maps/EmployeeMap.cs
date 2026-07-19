@@ -1,11 +1,20 @@
-﻿using CsvHelper.Configuration;
+using CsvHelper.Configuration;
 
 using Zbw.PF2.ContactManager.Models;
 
 namespace Zbw.PF2.ContactManager.Data.Maps;
 
+/// <summary>
+///     CsvHelper class map for <see cref="Employee" />.
+///     Defines the mapping between CSV column names and all properties inherited from
+///     <see cref="Person" /> as well as the employee-specific properties, including
+///     both the personal <see cref="Person.Address" /> and the <see cref="Employee.WorkAddress" />.
+/// </summary>
 public class EmployeeMap : ClassMap<Employee>
 {
+    /// <summary>
+    ///     Initializes a new instance of <see cref="EmployeeMap" /> and registers all column mappings.
+    /// </summary>
     public EmployeeMap()
     {
         // Person

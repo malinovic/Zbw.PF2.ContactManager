@@ -69,6 +69,11 @@ public class CSVRepository : ICSVRepository
         return csv.GetRecords<T>().ToList();
     }
 
+    /// <summary>
+    ///     Appends a new record to the CSV file that corresponds to type <typeparamref name="T" />.
+    /// </summary>
+    /// <typeparam name="T">The person-derived type to persist.</typeparam>
+    /// <param name="person">The record to write.</param>
     public void CreateRecord<T>(T person) where T : Person
     {
         string filePath = GetSourceFile<T>();
@@ -117,6 +122,12 @@ public class CSVRepository : ICSVRepository
         File.Move(tempFilePath, filePath);
     }
 
+    /// <summary>
+    ///     Retrieves a single record by its unique identifier from the corresponding CSV file.
+    /// </summary>
+    /// <typeparam name="T">The person-derived type to look up.</typeparam>
+    /// <param name="id">The unique identifier of the record to find.</param>
+    /// <returns>The matching record, or <c>null</c> if no record with that id exists.</returns>
     public T? GetRecord<T>(int id) where T : Person
     {
         string filePath = GetSourceFile<T>();
@@ -128,6 +139,12 @@ public class CSVRepository : ICSVRepository
         return csv.GetRecords<T>().FirstOrDefault(record => record.Id == id);
     }
 
+    /// <summary>
+    ///     Removes the record with the given identifier from the corresponding CSV file
+    ///     by rewriting the file without the matching row.
+    /// </summary>
+    /// <typeparam name="T">The person-derived type whose record should be deleted.</typeparam>
+    /// <param name="id">The unique identifier of the record to remove.</param>
     public void DeleteRecord<T>(int id) where T : Person
     {
         string tempFilePath = Path.GetTempFileName();
@@ -187,6 +204,13 @@ public class CSVRepository : ICSVRepository
     }
 
 
+    /// <summary>
+    ///     Resolves and returns the CSV file path for the given type after verifying repository health.
+    /// </summary>
+    /// <typeparam name="T">The person-derived type whose file path is needed.</typeparam>
+    /// <returns>The absolute path to the corresponding CSV file.</returns>
+    /// <exception cref="InvalidOperationException">Thrown when the repository health check fails.</exception>
+    /// <exception cref="ArgumentException">Thrown when <typeparamref name="T" /> is not a supported type.</exception>
     private string GetSourceFile<T>() where T : Person
     {
         CSVErrorStates? health = CheckRepositoryHealth();
@@ -212,6 +236,13 @@ public class CSVRepository : ICSVRepository
         return filePath;
     }
 
+    /// <summary>
+    ///     Registers the CsvHelper class map for <typeparamref name="T" /> on the given context
+    ///     so that column names defined in <see cref="Maps.CustomerMap" /> or <see cref="Maps.EmployeeMap" />
+    ///     are used during reading and writing.
+    /// </summary>
+    /// <typeparam name="T">The person-derived type whose map should be registered.</typeparam>
+    /// <param name="context">The CsvHelper context to register the map on.</param>
     private static void RegisterClassMap<T>(CsvContext context) where T : Person
     {
         if (typeof(T) == typeof(Customer))

@@ -4,8 +4,16 @@ using Zbw.PF2.ContactManager.Models;
 
 namespace Zbw.PF2.ContactManager.Data.Maps;
 
+/// <summary>
+///     CsvHelper class map for <see cref="Customer" />.
+///     Defines the mapping between CSV column names and all properties inherited from
+///     <see cref="Person" /> as well as the customer-specific properties.
+/// </summary>
 public class CustomerMap : ClassMap<Customer>
 {
+    /// <summary>
+    ///     Initializes a new instance of <see cref="CustomerMap" /> and registers all column mappings.
+    /// </summary>
     public CustomerMap()
     {
         // Person
