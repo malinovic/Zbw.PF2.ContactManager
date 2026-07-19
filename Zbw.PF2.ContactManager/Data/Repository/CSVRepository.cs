@@ -128,6 +128,39 @@ public class CSVRepository : ICSVRepository
         return csv.GetRecords<T>().FirstOrDefault(record => record.Id == id);
     }
 
+    public void DeleteRecord<T>(int id) where T : Person
+    {
+        string tempFilePath = Path.GetTempFileName();
+        string filePath = GetSourceFile<T>();
+
+        using (StreamReader reader = new(filePath))
+        using (StreamWriter writer = new(tempFilePath))
+        using (CsvReader csvReader = new(reader, CultureInfo.InvariantCulture))
+        using (CsvWriter csvWriter = new(writer, CultureInfo.InvariantCulture))
+        {
+            RegisterClassMap<T>(csvReader.Context);
+            RegisterClassMap<T>(csvWriter.Context);
+            csvReader.Read();
+            csvReader.ReadHeader();
+            csvWriter.WriteHeader<T>();
+            csvWriter.NextRecord();
+
+            while (csvReader.Read())
+            {
+                T record = csvReader.GetRecord<T>() ?? throw new ArgumentNullException("csvReader.GetRecord<T>()");
+
+                if (record.Id != id)
+                {
+                    csvWriter.WriteRecord(record);
+                    csvWriter.NextRecord();
+                }
+            }
+        }
+
+        File.Delete(filePath);
+        File.Move(tempFilePath, filePath);
+    }
+
 
     /// <summary>
     ///     Checks if the required repository directories and files exist.
@@ -154,7 +187,7 @@ public class CSVRepository : ICSVRepository
     }
 
 
-    private string GetSourceFile<T>()
+    private string GetSourceFile<T>() where T : Person
     {
         CSVErrorStates? health = CheckRepositoryHealth();
         if (health != null)

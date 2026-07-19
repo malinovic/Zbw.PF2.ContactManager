@@ -9,9 +9,17 @@ namespace Zbw.PF2.ContactManager.Data.Repository;
 /// </summary>
 public interface IContactManagerRepository
 {
+    // Customer CRUD
     void AddCustomer(Customer customer);
     IList<Customer> GetCustomers();
+    Customer? GetCustomer(int id);
+    void UpdateCustomer(Customer customer);
+    void DeleteCustomer(int id);
+
+    // Employee CRUD
     void AddEmployee(Employee employee);
     IList<Employee> GetEmployees();
-
+    Employee? GetEmployee(int id);
+    void UpdateEmployee(Employee employee);
+    void DeleteEmployee(int id);
 }

@@ -13,4 +13,6 @@ public interface ICSVRepository
     void CreateRecord<T>(T person) where T : Person;
 
     void UpdateRecord<T>(T person) where T : Person;
+
+    void DeleteRecord<T>(int id) where T : Person;
 }
