@@ -28,18 +28,7 @@ partial class FormDashboardPartial
     /// </summary>
     private void InitializeComponent()
     {
-        button1 = new Button();
         SuspendLayout();
-        // 
-        // button1
-        // 
-        button1.Location = new Point(708, 233);
-        button1.Name = "button1";
-        button1.Size = new Size(558, 242);
-        button1.TabIndex = 0;
-        button1.Text = "button1";
-        button1.UseVisualStyleBackColor = true;
-        button1.Click += button1_Click;
         // 
         // FormDashboardPartial
         // 
@@ -47,7 +36,6 @@ partial class FormDashboardPartial
         AutoScaleMode = AutoScaleMode.Font;
         BackColor = Color.Brown;
         ClientSize = new Size(2291, 1317);
-        Controls.Add(button1);
         FormBorderStyle = FormBorderStyle.None;
         Name = "FormDashboardPartial";
         Text = "FormDashboardPartial";
@@ -55,6 +43,4 @@ partial class FormDashboardPartial
     }
 
     #endregion
-
-    private Button button1;
 }

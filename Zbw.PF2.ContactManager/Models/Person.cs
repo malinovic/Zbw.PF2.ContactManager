@@ -11,7 +11,7 @@ public class Person
     public string LastName { get; set; }
     public DateOnly Birthday { get; set; }
     public Sex Sex { get; set; }
-    public string Title { get; set; }
+    public Title Title { get; set; }
     public Address Address { get; set; }
     public string PhoneNumberCompany { get; set; }
     public string PhoneNumberMobile { get; set; }
