@@ -25,8 +25,6 @@ Windows-Forms-Anwendung (C# .NET) zur Verwaltung von Mitarbeiter- und Kundendate
 - Automatisches Speichern und Laden des Datenstamms auf der Festplatte
 
 ### Optional
-- [ ] Mutationshistorie von Kontaktdaten
-- [ ] Login
 - [ ] Dashboard
 - [ ] CSV-/VCard-Import
 
@@ -55,27 +53,27 @@ Person (abstrakt)
 - **Sprache:** C#
 - **Framework:** .NET / Windows Forms
 - **UI:** [MaterialSkin.2](https://www.nuget.org/packages/MaterialSkin.2)
-- **Persistenz:** Serialisierung in Datei (z. B. JSON/Binär)
-
+- **Persistenz:** Serialisierung in Dateien (CSV)
 ## Projektstruktur
 
 ```
 Zbw.PF2.ContactManager/
 ├── ContactManager.sln
 ├── ContactManager/
-│   ├── Models/          # Person, Kunde, Mitarbeiter, Kontaktnotiz
-│   ├── Services/         # Datenzugriff, Speichern/Laden, Suche
-│   ├── Forms/             # Windows-Forms (UI)
+│   ├── Core/          # Kerndaten und -funktionen, keine Businesslogik
+│   ├── Models/        # Person, Kunde, Mitarbeiter, Kontaktnotiz
+│   ├── Data/          # Datenzugriff, Speichern/Laden
+│   ├── Services/      # Business Logik
+│   ├── Forms/         # Windows-Forms (UI)
 │   └── Program.cs
-├── docs/                  # Konzept, Klassendiagramm
 └── README.md
 ```
 
 ## Installation & Ausführung
 
 ### Voraussetzungen
-- Visual Studio 2022 (oder neuer)
-- .NET SDK (Version siehe `global.json` / Projektdatei)
+- Visual Studio 2026 (oder neuer)
+- .NET SDK 10
 
 ### Schritte
 1. Repository klonen
@@ -86,11 +84,9 @@ Zbw.PF2.ContactManager/
 3. NuGet-Pakete werden beim Build automatisch wiederhergestellt
 4. Projekt starten (F5)
 
-Beim ersten Start wird der Datenstamm automatisch angelegt; bei jedem weiteren Start automatisch geladen.
-
 ## Status
 
-Aktueller Bearbeitungsstand und offene Punkte: siehe `STATUS.md` bzw. GitHub Projects Board.
+Aktueller Bearbeitungsstand und offene Punkte: siehe bzw. GitHub Projects Board.
 
 ## Abgabe
 
