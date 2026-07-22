@@ -28,7 +28,8 @@ No abbreviations except common ones (`Id`, `No`). Prefer descriptive names over 
 - Inheritance hierarchy is **mandatory**: `Person` (abstract) → `Customer`, `Employee`
 - Clear separation into layers:
   - **Models** – pure data classes (no UI logic)
-  - **Services** – business logic, data access, save/load, search
+  - **Data** - data access, save/load
+  - **Services** – business logic, search
   - **Forms** – UI logic only, calls into services
 - Each class has a single, clear responsibility (Single Responsibility). No "god classes".
 - No direct file/persistence logic inside the Forms.
@@ -56,6 +57,8 @@ public class Customer : Person
 }
 ```
 
+Do not document interface methods. The documentation should be on the implementation.
+
 ## 5. Formatting
 
 - Standard C# conventions (Visual Studio default formatting, `Ctrl+K, Ctrl+D` before every commit)
@@ -73,17 +76,10 @@ public class Customer : Person
 
 ## 7. Git Workflow
 
-- **main**: always in a working state
-- **Feature branches**: `feature/<short-description>` (e.g. `feature/customer-crud`)
-- Commit messages in English, imperative mood: `Add customer search`, `Fix saving when data store is empty`
-- Pull request before merging into `main`, at least 1 review by another team member
+- **master**: always in a working state
+- **Feature branches**: `feature/<short-description>` (e.g. `feature/customer-crud`) -> for all features
+- **Bugfix branches**: `bugfix/<short-description>` -> for bug fixes of existing functionality
+- **Chore branches**: `chore/<short-description>` -> for code refactorings, documentation, setting things up... NO NEW FUNCTIONALITY AND NO REGRESSION
+- Commit messages in English, imperative mood: `fead: add customer search`, `fix: saving when data store is empty`, `chore: update docs`
+- Pull request before merging into `master`, at least 1 review by another team member
 - Small, frequent commits instead of large bulk commits
-
-## 8. Code Review Checklist
-
-- [ ] Compiles without warnings
-- [ ] Naming conventions followed
-- [ ] XML documentation present for public members
-- [ ] No magic numbers / hardcoded strings (use constants)
-- [ ] Input is validated
-- [ ] No dead code / commented-out code left behind
