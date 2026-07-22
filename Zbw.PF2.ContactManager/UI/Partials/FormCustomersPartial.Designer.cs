@@ -28,7 +28,14 @@ partial class FormCustomersPartial
     /// </summary>
     private void InitializeComponent()
     {
+        components = new System.ComponentModel.Container();
+        contactManagerRepositoryBindingSource = new BindingSource(components);
+        ((System.ComponentModel.ISupportInitialize)contactManagerRepositoryBindingSource).BeginInit();
         SuspendLayout();
+        // 
+        // contactManagerRepositoryBindingSource
+        // 
+        contactManagerRepositoryBindingSource.DataSource = typeof(Data.Repository.ContactManagerRepository);
         // 
         // FormCustomersPartial
         // 
@@ -39,8 +46,10 @@ partial class FormCustomersPartial
         FormBorderStyle = FormBorderStyle.None;
         Name = "FormCustomersPartial";
         Text = "FormCustomersPartial";
+        ((System.ComponentModel.ISupportInitialize)contactManagerRepositoryBindingSource).EndInit();
         ResumeLayout(false);
     }
 
     #endregion
+    private BindingSource contactManagerRepositoryBindingSource;
 }

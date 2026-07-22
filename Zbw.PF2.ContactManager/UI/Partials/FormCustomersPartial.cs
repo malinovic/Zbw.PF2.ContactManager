@@ -1,17 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Text;
-using System.Windows.Forms;
+﻿using Zbw.PF2.ContactManager.Data.Repository;
 
 namespace Zbw.PF2.ContactManager.UI.Partials;
 
 public partial class FormCustomersPartial : Form
 {
-    public FormCustomersPartial()
+    private readonly IContactManagerRepository _repository;
+
+    public FormCustomersPartial(IContactManagerRepository repository)
     {
         InitializeComponent();
+
+        _repository = repository;
     }
 }

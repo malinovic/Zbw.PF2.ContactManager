@@ -1,20 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Text;
-using System.Windows.Forms;
-
-using Zbw.PF2.ContactManager.Core.Theme;
+﻿using Zbw.PF2.ContactManager.Core.Theme;
+using Zbw.PF2.ContactManager.Data.Repository;
 using Zbw.PF2.ContactManager.UI.Partials;
 
 namespace Zbw.PF2.ContactManager.UI;
 
 public partial class MainForm : Form
 {
-    private Button _activeNavigationButton;
+    private readonly ICSVRepository _repository = new CSVRepository();
     private Form _activeForm;
+    private Button _activeNavigationButton;
 
     public MainForm()
     {
@@ -36,6 +30,8 @@ public partial class MainForm : Form
         OpenChildForm(new FormDashboardPartial());
     }
 
+    #region Navigation
+
     private void BtnNavDashboard_Click(object sender, EventArgs e)
     {
         OpenChildForm(new FormDashboardPartial());
@@ -44,7 +40,7 @@ public partial class MainForm : Form
 
     private void BtnNavCustomers_Click(object sender, EventArgs e)
     {
-        OpenChildForm(new FormCustomersPartial());
+        OpenChildForm(new FormCustomersPartial(new ContactManagerRepository(_repository)));
         SetActiveNavigationButton(BtnNavCustomers);
     }
 
@@ -60,6 +56,7 @@ public partial class MainForm : Form
         {
             ThemeManager.ApplyNavButtonStyles(_activeNavigationButton);
         }
+
         _activeNavigationButton = button;
         ThemeManager.ApplyNavButtonActiveStyles(_activeNavigationButton);
     }
@@ -81,4 +78,6 @@ public partial class MainForm : Form
         childForm.BringToFront();
         childForm.Show();
     }
+
+    #endregion
 }
