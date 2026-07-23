@@ -80,6 +80,6 @@ Do not document interface methods. The documentation should be on the implementa
 - **Feature branches**: `feature/<short-description>` (e.g. `feature/customer-crud`) -> for all features
 - **Bugfix branches**: `bugfix/<short-description>` -> for bug fixes of existing functionality
 - **Chore branches**: `chore/<short-description>` -> for code refactorings, documentation, setting things up... NO NEW FUNCTIONALITY AND NO REGRESSION
-- Commit messages in English, imperative mood: `fead: add customer search`, `fix: saving when data store is empty`, `chore: update docs`
+- Commit messages in English, imperative mood: `feat: add customer search`, `fix: saving when data store is empty`, `chore: update docs`
 - Pull request before merging into `master`, at least 1 review by another team member
 - Small, frequent commits instead of large bulk commits
