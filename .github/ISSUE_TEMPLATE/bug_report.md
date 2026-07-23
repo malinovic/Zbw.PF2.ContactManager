@@ -18,16 +18,5 @@ Eine klare und präzise Beschreibung des Fehlers.
 ## Erwartetes Verhalten
 Eine klare Beschreibung dessen, was eigentlich passieren sollte.
 
-## Tatsächliches Verhalten
-Was stattdessen passiert ist.
-
 ## Screenshots
-Falls zutreffend, füge Screenshots hinzu, um das Problem zu veranschaulichen.
-
-## Umgebung
-- OS: [z. B. Windows 11]
-- .NET-Version: [z. B. .NET 10]
-- Anwendungsversion: [z. B. 1.0.0]
-
-## Zusätzliche Informationen
-Weitere Informationen oder Kontext zum Problem.
+Falls zutreffend, füge Screenshots hinzu, um das Problem zu veranschaulichen
