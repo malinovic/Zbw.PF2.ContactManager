@@ -14,4 +14,11 @@ public partial class FormEmployeesPartial : Form
     {
         InitializeComponent();
     }
+
+    private void btnCreateNewEmployee_Click(object sender, EventArgs e)
+    {
+        var f = new FormAddEmployee();
+
+        f.Show();
+    }
 }

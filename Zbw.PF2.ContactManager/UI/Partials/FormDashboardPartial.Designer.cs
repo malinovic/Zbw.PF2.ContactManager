@@ -32,10 +32,10 @@ partial class FormDashboardPartial
         // 
         // FormDashboardPartial
         // 
-        AutoScaleDimensions = new SizeF(12F, 30F);
+        AutoScaleDimensions = new SizeF(13F, 32F);
         AutoScaleMode = AutoScaleMode.Font;
         BackColor = Color.Brown;
-        ClientSize = new Size(2115, 1235);
+        ClientSize = new Size(2291, 1317);
         FormBorderStyle = FormBorderStyle.None;
         Name = "FormDashboardPartial";
         Text = "FormDashboardPartial";
