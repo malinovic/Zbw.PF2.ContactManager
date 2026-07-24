@@ -11,7 +11,7 @@ public class Person
     public required string LastName { get; set; }
     public required DateOnly Birthday { get; set; }
     public required Sex Sex { get; set; }
-    public required string Title { get; set; }
+    public required Title Title { get; set; }
     public required Address Address { get; set; }
     public required string PhoneNumberCompany { get; set; }
     public required string PhoneNumberMobile { get; set; }
