@@ -7,14 +7,14 @@ public class Person
 
     public int Id { get; set; }
     public Salutation Salutation { get; set; }
-    public string FirstName { get; set; }
-    public string LastName { get; set; }
-    public DateOnly Birthday { get; set; }
-    public Sex Sex { get; set; }
-    public Title Title { get; set; }
-    public Address Address { get; set; }
-    public string PhoneNumberCompany { get; set; }
-    public string PhoneNumberMobile { get; set; }
-    public string Email { get; set; }
+    public required string FirstName { get; set; }
+    public required string LastName { get; set; }
+    public required DateOnly Birthday { get; set; }
+    public required Sex Sex { get; set; }
+    public required string Title { get; set; }
+    public required Address Address { get; set; }
+    public required string PhoneNumberCompany { get; set; }
+    public required string PhoneNumberMobile { get; set; }
+    public required string Email { get; set; }
 
 }
