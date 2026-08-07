@@ -4,7 +4,6 @@ namespace Zbw.PF2.ContactManager.Models;
 
 public class Person
 {
-
     public int Id { get; set; }
     public Salutation Salutation { get; set; }
     public required string FirstName { get; set; }
@@ -16,5 +15,4 @@ public class Person
     public required string PhoneNumberCompany { get; set; }
     public required string PhoneNumberMobile { get; set; }
     public required string Email { get; set; }
-
 }

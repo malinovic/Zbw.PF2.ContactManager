@@ -4,6 +4,9 @@
     <File Path=".github/ISSUE_TEMPLATE/bug_report.md" />
     <File Path=".github/ISSUE_TEMPLATE/feature_request.md" />
   </Folder>
+  <Folder Name="/.github/PULL_REQUEST_TEMPLATE/">
+    <File Path=".github/pull_request_template.md" />
+  </Folder>
   <Folder Name="/.github/workflows/">
     <File Path=".github/workflows/build.yaml" />
   </Folder>

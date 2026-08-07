@@ -1,23 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Security.Cryptography.Pkcs;
-using System.Text;
-
-namespace Zbw.PF2.ContactManager.Models;
+﻿namespace Zbw.PF2.ContactManager.Models;
 
 public class Address
 {
 
-    public string StreetName { get; set; }
-    public string StreetNumber { get; set; }
-    public int ZipCode { get; set; }
-    public string City { get;  set; }
-    public string AddressInString
+    public required string StreetName { get; set; }
+    public required string StreetNumber { get; set; }
+    public required int ZipCode { get; set; }
+    public required string City { get; set; }
+    public override string ToString()
     {
-        get
-        {
-            return $"{StreetName} {StreetNumber}, {ZipCode} {City} ";
-        }
+        return $"{StreetName} {StreetNumber}, {ZipCode} {City}";
     }
-
 }
