@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace Zbw.PF2.ContactManager.Core.Theme;
+﻿namespace Zbw.PF2.ContactManager.Core.Theme;
 
 using System;
 using System.Drawing;
@@ -12,9 +8,12 @@ using System.Windows.Forms;
 
 public static class FontManager
 {
-    private static PrivateFontCollection _fontCollection = new PrivateFontCollection();
+    private static readonly PrivateFontCollection FontCollection = new();
 
-    public static Font InterRegular { get; private set; }
+    /// <summary>
+    /// Gets the Inter Regular font. If the Inter font is not available, it falls back to Segoe UI.
+    /// </summary>
+    public static Font InterRegular { get; private set; } = new Font("Segoe UI", 11f, FontStyle.Regular);
 
     /// <summary>
     /// Initializes the custom fonts by loading them from the specified font files.
@@ -23,11 +22,11 @@ public static class FontManager
     {
         string regularPath = Path.Combine(Application.StartupPath, "Inter.ttf");
 
-        if (File.Exists(regularPath)) _fontCollection.AddFontFile(regularPath);
+        if (File.Exists(regularPath)) FontCollection.AddFontFile(regularPath);
 
-        if (_fontCollection.Families.Length > 0)
+        if (FontCollection.Families.Length > 0)
         {
-            foreach (var family in _fontCollection.Families)
+            foreach (var family in FontCollection.Families)
             {
                 if (family.Name.Equals("Inter", StringComparison.OrdinalIgnoreCase))
                 {
@@ -36,7 +35,5 @@ public static class FontManager
                 }
             }
         }
-
-        InterRegular = new Font("Segoe UI", 11f, FontStyle.Regular);
     }
 }

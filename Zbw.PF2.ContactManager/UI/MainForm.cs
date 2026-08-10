@@ -7,8 +7,8 @@ namespace Zbw.PF2.ContactManager.UI;
 public partial class MainForm : Form
 {
     private readonly ICSVRepository _repository = new CSVRepository();
-    private Form _activeForm;
-    private Button _activeNavigationButton;
+    private Form? _activeForm;
+    private Button? _activeNavigationButton;
 
     public MainForm()
     {

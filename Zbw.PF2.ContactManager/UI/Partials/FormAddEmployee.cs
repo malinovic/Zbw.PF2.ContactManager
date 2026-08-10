@@ -158,17 +158,40 @@ public partial class FormAddEmployee : Form
 
         if (!result.IsValid)
         {
-            string message = string.Join(
-                Environment.NewLine,
-                result.Errors.Select(error => error.Message));
-
-            MessageBox.Show(message,
-                "Ungültige Eingaben",
-                MessageBoxButtons.OK,
-                MessageBoxIcon.Warning);
-
-            return;
-        }
+            Salutation = selectedSalutation,
+            FirstName = boxFirstName.Text,
+            LastName = boxLastName.Text,
+            Birthday = DateOnly.Parse(boxBirthday.Text),
+            Sex = selectedSex,
+            Title = selectedTitle,
+            Address = new Address()
+            {
+                StreetName = boxStreet.Text,
+                StreetNumber = boxStreetNumber.Text,
+                ZipCode = int.Parse(boxZipCode.Text),
+                City = boxCity.Text,
+            },
+            PhoneNumberCompany = boxPhoneNumberCompany.Text,
+            PhoneNumberMobile = boxPhoneNumberMobile.Text,
+            Email = boxEmail.Text,
+            EmployeeNumber = string.Empty,
+            Department = string.Empty,
+            AhvNumber = string.Empty,
+            Nationality = string.Empty,
+            EmployeeStatusMessage = string.Empty,
+            EmployeeEmploymentRate = 0,
+            Role = string.Empty,
+            EmployeeApprenticeshipYears = 0,
+            WorkAddress = new Address()
+            {
+                StreetName = boxStreet.Text,
+                StreetNumber = boxStreetNumber.Text,
+                ZipCode = int.Parse(boxZipCode.Text),
+                City = boxCity.Text,
+            },
+            EmployeeStatus = Status.Active,
+            EmployeeSeniorLevel = EmployeeSeniorLevel.Level0,
+            EmployeeDateOfHire = DateOnly.FromDateTime(DateTime.Today),
 
 
         DialogResult = DialogResult.OK;
