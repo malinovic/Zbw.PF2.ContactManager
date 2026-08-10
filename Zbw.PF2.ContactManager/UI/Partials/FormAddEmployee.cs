@@ -130,6 +130,24 @@ public partial class FormAddEmployee : Form
             PhoneNumberCompany = boxPhoneNumberCompany.Text,
             PhoneNumberMobile = boxPhoneNumberMobile.Text,
             Email = boxEmail.Text,
+            EmployeeNumber = string.Empty,
+            Department = string.Empty,
+            AhvNumber = string.Empty,
+            Nationality = string.Empty,
+            EmployeeStatusMessage = string.Empty,
+            EmployeeEmploymentRate = 0,
+            Role = string.Empty,
+            EmployeeApprenticeshipYears = 0,
+            WorkAddress = new Address()
+            {
+                StreetName = boxStreet.Text,
+                StreetNumber = boxStreetNumber.Text,
+                ZipCode = int.Parse(boxZipCode.Text),
+                City = boxCity.Text,
+            },
+            EmployeeStatus = Status.Active,
+            EmployeeSeniorLevel = EmployeeSeniorLevel.Level0,
+            EmployeeDateOfHire = DateOnly.FromDateTime(DateTime.Today),
 
         };
 
