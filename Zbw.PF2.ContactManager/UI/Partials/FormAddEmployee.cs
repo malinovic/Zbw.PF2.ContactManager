@@ -1,18 +1,23 @@
-﻿using Microsoft.VisualBasic;
-
+﻿
 using Zbw.PF2.ContactManager.Core.Constants;
 using Zbw.PF2.ContactManager.Core.Theme;
 using Zbw.PF2.ContactManager.Models;
+using Zbw.PF2.ContactManager.Validation;
+using Zbw.PF2.ContactManager.Validation.ValidationEmployee;
+using Zbw.PF2.ContactManager.Data.Repository;
 
 namespace Zbw.PF2.ContactManager.UI.Partials;
 
 public partial class FormAddEmployee : Form
 {
+    private readonly EmployeeValidator _employeeValidator;
+    private readonly IContactManagerRepository _repository;
 
     public FormAddEmployee()
     {
         InitializeComponent();
 
+        _employeeValidator = new EmployeeValidator();
 
 
         SetupView();
@@ -103,42 +108,76 @@ public partial class FormAddEmployee : Form
     }
 
 
+    private EmployeeInput ReadInput()
+    {
+
+        return new EmployeeInput
+        {
+            Salutation =
+            boxSalutation.SelectedItem is Salutation salutation
+                ? salutation
+                : null,
+
+            FirstName = boxFirstName.Text.Trim(),
+            LastName = boxLastName.Text.Trim(),
+            Birthday = boxBirthday.Text.Trim(),
+
+            Sex =
+            boxSex.SelectedItem is Sex sex
+                ? sex
+                : null,
+
+            Title =
+            boxTitle.SelectedItem is Title title
+                ? title
+                : null,
+
+            PrivateStreetName = boxStreet.Text.Trim(),
+            PrivateStreetNumber = boxStreetNumber.Text.Trim(),
+            PrivateZipCode = boxZipCode.Text.Trim(),
+            PrivateCity = boxCity.Text.Trim(),
+
+            PhoneNumberCompany =
+            boxPhoneNumberCompany.Text.Trim(),
+
+            PhoneNumberMobile =
+            boxPhoneNumberMobile.Text.Trim(),
+
+            Email = boxEmail.Text.Trim()
+        };
+    }
+
 
 
     private void buttonSave_Click(object sender, EventArgs e)
     {
 
-        Salutation selectedSalutation = (Salutation)boxSalutation.SelectedItem;
-        Sex selectedSex = (Sex)boxSex.SelectedItem;
-        Title selectedTitle = (Title)boxTitle.SelectedItem;
+        EmployeeInput input = ReadInput();
 
-        Employee employee = new Employee()
+        ValidationResult result = _employeeValidator.Validate(input);
+
+        if (!result.IsValid)
         {
-            Salutation = selectedSalutation,
-            FirstName = boxFirstName.Text,
-            LastName = boxLastName.Text,
-            Birthday = DateOnly.Parse(boxBirthday.Text),
-            Sex = selectedSex,
-            Title = selectedTitle,
-            Address = new Address()
-            {
-                StreetName = boxStreet.Text,
-                StreetNumber = boxStreetNumber.Text,
-                ZipCode = int.Parse(boxZipCode.Text),
-                City = boxCity.Text,
-            },
-            PhoneNumberCompany = boxPhoneNumberCompany.Text,
-            PhoneNumberMobile = boxPhoneNumberMobile.Text,
-            Email = boxEmail.Text,
+            string message = string.Join(
+                Environment.NewLine,
+                result.Errors.Select(error => error.Message));
 
-        };
+            MessageBox.Show(message,
+                "Ungültige Eingaben",
+                MessageBoxButtons.OK,
+                MessageBoxIcon.Warning);
 
-        FormAddEmployee.ActiveForm.Close();
+            return;
+        }
+
+
+        DialogResult = DialogResult.OK;
+        Close();
     }
 
     private void buttonCancel_Click(object sender, EventArgs e)
     {
-        FormAddEmployee.ActiveForm.Close();
+        Close();
     }
 
 

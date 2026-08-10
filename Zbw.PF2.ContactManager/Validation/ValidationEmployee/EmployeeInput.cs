@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-using Zbw.PF2.ContactManager.Core.Constants;
+﻿using Zbw.PF2.ContactManager.Core.Constants;
 
 namespace Zbw.PF2.ContactManager.Validation.ValidationEmployee;
 
@@ -11,10 +7,9 @@ public sealed class EmployeeInput
     public Salutation? Salutation { get; init; }
     public string FirstName { get; init; } = string.Empty;
     public string LastName {  get; init; } = string.Empty;
-    public DateTime Birthday {  get; init; } = DateTime.Today;
+    public string? Birthday {  get; init; }
     public Sex? Sex { get; init; }
-    public string Title {  get; init; } = string.Empty;
-
+    public Title? Title {  get; init; }
     public string PhoneNumberCompany { get; init; } = string.Empty;
     public string PhoneNumberMobile { get; init; } = string.Empty;
     public string Email { get; init; } = string.Empty;
@@ -33,7 +28,7 @@ public sealed class EmployeeInput
     public string Role { get; init; } = string.Empty;
     public int ApprenticeshipYears { get; init; }
     public Status? EmployeeStatus { get; init; }
-    public EmployeeSeniorLevel? SeniorLevel { get; init; }
+    public EmployeeSeniorLevel? EmployeeSeniorLevel { get; init; }
     public DateTime DateOfHire { get; init; } = DateTime.Today;
 
     public string WorkStreetName { get; init; } = string.Empty;

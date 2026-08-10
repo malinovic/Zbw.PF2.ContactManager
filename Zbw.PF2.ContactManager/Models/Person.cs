@@ -9,7 +9,7 @@ public class Person
     public Salutation Salutation { get; set; }
     public required string FirstName { get; set; }
     public required string LastName { get; set; }
-    public required DateOnly Birthday { get; set; }
+    public required string Birthday { get; set; }
     public required Sex Sex { get; set; }
     public required Title Title { get; set; }
     public required Address Address { get; set; }

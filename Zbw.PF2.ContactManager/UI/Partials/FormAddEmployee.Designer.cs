@@ -93,37 +93,37 @@ partial class FormAddEmployee : Form
         boxSalutation.Items.AddRange(new object[] { "Herr", "Frau" });
         boxSalutation.Location = new Point(214, 112);
         boxSalutation.Name = "boxSalutation";
-        boxSalutation.Size = new Size(242, 33);
+        boxSalutation.Size = new Size(242, 38);
         boxSalutation.TabIndex = 2;
         // 
         // boxFirstName
         // 
         boxFirstName.Location = new Point(214, 189);
         boxFirstName.Name = "boxFirstName";
-        boxFirstName.Size = new Size(242, 31);
+        boxFirstName.Size = new Size(242, 35);
         boxFirstName.TabIndex = 4;
         // 
         // boxLastName
         // 
         boxLastName.Location = new Point(214, 272);
         boxLastName.Name = "boxLastName";
-        boxLastName.Size = new Size(242, 31);
+        boxLastName.Size = new Size(242, 35);
         boxLastName.TabIndex = 6;
         // 
         // boxBirthday
         // 
         boxBirthday.Location = new Point(214, 371);
         boxBirthday.Name = "boxBirthday";
-        boxBirthday.Size = new Size(242, 31);
-        boxBirthday.TabIndex = 8;
         boxBirthday.PlaceholderText = "z.B. 01.02.2003";
+        boxBirthday.Size = new Size(242, 35);
+        boxBirthday.TabIndex = 8;
         // 
         // boxSex
         // 
         boxSex.FormattingEnabled = true;
         boxSex.Location = new Point(214, 457);
         boxSex.Name = "boxSex";
-        boxSex.Size = new Size(242, 33);
+        boxSex.Size = new Size(242, 38);
         boxSex.TabIndex = 10;
         // 
         // boxTitle
@@ -131,35 +131,35 @@ partial class FormAddEmployee : Form
         boxTitle.FormattingEnabled = true;
         boxTitle.Location = new Point(214, 540);
         boxTitle.Name = "boxTitle";
-        boxTitle.Size = new Size(242, 33);
+        boxTitle.Size = new Size(242, 38);
         boxTitle.TabIndex = 12;
         // 
         // boxStreet
         // 
         boxStreet.Location = new Point(214, 694);
         boxStreet.Name = "boxStreet";
-        boxStreet.Size = new Size(242, 31);
+        boxStreet.Size = new Size(242, 35);
         boxStreet.TabIndex = 14;
         // 
         // boxStreetNumber
         // 
         boxStreetNumber.Location = new Point(214, 777);
         boxStreetNumber.Name = "boxStreetNumber";
-        boxStreetNumber.Size = new Size(242, 31);
+        boxStreetNumber.Size = new Size(242, 35);
         boxStreetNumber.TabIndex = 16;
         // 
         // boxZipCode
         // 
         boxZipCode.Location = new Point(214, 865);
         boxZipCode.Name = "boxZipCode";
-        boxZipCode.Size = new Size(242, 31);
+        boxZipCode.Size = new Size(242, 35);
         boxZipCode.TabIndex = 18;
         // 
         // boxCity
         // 
         boxCity.Location = new Point(214, 955);
         boxCity.Name = "boxCity";
-        boxCity.Size = new Size(242, 31);
+        boxCity.Size = new Size(242, 35);
         boxCity.TabIndex = 20;
         // 
         // buttonCancel
@@ -186,21 +186,21 @@ partial class FormAddEmployee : Form
         // 
         boxPhoneNumberCompany.Location = new Point(839, 112);
         boxPhoneNumberCompany.Name = "boxPhoneNumberCompany";
-        boxPhoneNumberCompany.Size = new Size(242, 31);
+        boxPhoneNumberCompany.Size = new Size(242, 35);
         boxPhoneNumberCompany.TabIndex = 24;
         // 
         // boxPhoneNumberMobile
         // 
         boxPhoneNumberMobile.Location = new Point(839, 189);
         boxPhoneNumberMobile.Name = "boxPhoneNumberMobile";
-        boxPhoneNumberMobile.Size = new Size(242, 31);
+        boxPhoneNumberMobile.Size = new Size(242, 35);
         boxPhoneNumberMobile.TabIndex = 26;
         // 
         // boxEmail
         // 
         boxEmail.Location = new Point(839, 272);
         boxEmail.Name = "boxEmail";
-        boxEmail.Size = new Size(242, 31);
+        boxEmail.Size = new Size(242, 35);
         boxEmail.TabIndex = 28;
         // 
         // panelSalutation
@@ -216,7 +216,7 @@ partial class FormAddEmployee : Form
         labelSalutation.AutoSize = true;
         labelSalutation.Location = new Point(21, 15);
         labelSalutation.Name = "labelSalutation";
-        labelSalutation.Size = new Size(69, 25);
+        labelSalutation.Size = new Size(80, 30);
         labelSalutation.TabIndex = 1;
         labelSalutation.Text = "Anrede";
         // 
@@ -233,7 +233,7 @@ partial class FormAddEmployee : Form
         labelFirstName.AutoSize = true;
         labelFirstName.Location = new Point(21, 15);
         labelFirstName.Name = "labelFirstName";
-        labelFirstName.Size = new Size(83, 25);
+        labelFirstName.Size = new Size(96, 30);
         labelFirstName.TabIndex = 1;
         labelFirstName.Text = "Vorname";
         // 
@@ -250,7 +250,7 @@ partial class FormAddEmployee : Form
         labelLastName.AutoSize = true;
         labelLastName.Location = new Point(9, 15);
         labelLastName.Name = "labelLastName";
-        labelLastName.Size = new Size(96, 25);
+        labelLastName.Size = new Size(114, 30);
         labelLastName.TabIndex = 1;
         labelLastName.Text = "Nachname";
         // 
@@ -267,7 +267,7 @@ partial class FormAddEmployee : Form
         labelBirthday.AutoSize = true;
         labelBirthday.Location = new Point(7, 15);
         labelBirthday.Name = "labelBirthday";
-        labelBirthday.Size = new Size(100, 25);
+        labelBirthday.Size = new Size(115, 30);
         labelBirthday.TabIndex = 1;
         labelBirthday.Text = "Geburtstag";
         // 
@@ -284,7 +284,7 @@ partial class FormAddEmployee : Form
         labelSex.AutoSize = true;
         labelSex.Location = new Point(8, 15);
         labelSex.Name = "labelSex";
-        labelSex.Size = new Size(96, 25);
+        labelSex.Size = new Size(114, 30);
         labelSex.TabIndex = 1;
         labelSex.Text = "Geschlecht";
         // 
@@ -301,7 +301,7 @@ partial class FormAddEmployee : Form
         labelTitle.AutoSize = true;
         labelTitle.Location = new Point(21, 15);
         labelTitle.Name = "labelTitle";
-        labelTitle.Size = new Size(44, 25);
+        labelTitle.Size = new Size(52, 30);
         labelTitle.TabIndex = 1;
         labelTitle.Text = "Titel";
         // 
@@ -318,7 +318,7 @@ partial class FormAddEmployee : Form
         labelStreet.AutoSize = true;
         labelStreet.Location = new Point(21, 15);
         labelStreet.Name = "labelStreet";
-        labelStreet.Size = new Size(67, 25);
+        labelStreet.Size = new Size(77, 30);
         labelStreet.TabIndex = 1;
         labelStreet.Text = "Strasse";
         // 
@@ -335,7 +335,7 @@ partial class FormAddEmployee : Form
         labelStreetNumber.AutoSize = true;
         labelStreetNumber.Location = new Point(21, 15);
         labelStreetNumber.Name = "labelStreetNumber";
-        labelStreetNumber.Size = new Size(40, 25);
+        labelStreetNumber.Size = new Size(47, 30);
         labelStreetNumber.TabIndex = 1;
         labelStreetNumber.Text = "Nr. ";
         // 
@@ -352,7 +352,7 @@ partial class FormAddEmployee : Form
         labelZipCode.AutoSize = true;
         labelZipCode.Location = new Point(21, 15);
         labelZipCode.Name = "labelZipCode";
-        labelZipCode.Size = new Size(100, 25);
+        labelZipCode.Size = new Size(118, 30);
         labelZipCode.TabIndex = 1;
         labelZipCode.Text = "Postleitzahl";
         // 
@@ -369,7 +369,7 @@ partial class FormAddEmployee : Form
         labelCity.AutoSize = true;
         labelCity.Location = new Point(21, 15);
         labelCity.Name = "labelCity";
-        labelCity.Size = new Size(38, 25);
+        labelCity.Size = new Size(43, 30);
         labelCity.TabIndex = 1;
         labelCity.Text = "Ort";
         // 
@@ -386,7 +386,7 @@ partial class FormAddEmployee : Form
         labelPhoneNumberCompany.AutoSize = true;
         labelPhoneNumberCompany.Location = new Point(21, 15);
         labelPhoneNumberCompany.Name = "labelPhoneNumberCompany";
-        labelPhoneNumberCompany.Size = new Size(109, 25);
+        labelPhoneNumberCompany.Size = new Size(130, 30);
         labelPhoneNumberCompany.TabIndex = 1;
         labelPhoneNumberCompany.Text = "Tel. Geschäft";
         // 
@@ -403,7 +403,7 @@ partial class FormAddEmployee : Form
         labelPhoneNumberMobile.AutoSize = true;
         labelPhoneNumberMobile.Location = new Point(21, 15);
         labelPhoneNumberMobile.Name = "labelPhoneNumberMobile";
-        labelPhoneNumberMobile.Size = new Size(87, 25);
+        labelPhoneNumberMobile.Size = new Size(102, 30);
         labelPhoneNumberMobile.TabIndex = 1;
         labelPhoneNumberMobile.Text = "Tel. Mobil";
         // 
@@ -420,7 +420,7 @@ partial class FormAddEmployee : Form
         labelEmail.AutoSize = true;
         labelEmail.Location = new Point(21, 15);
         labelEmail.Name = "labelEmail";
-        labelEmail.Size = new Size(61, 25);
+        labelEmail.Size = new Size(72, 30);
         labelEmail.TabIndex = 1;
         labelEmail.Text = "E-Mail";
         // 
