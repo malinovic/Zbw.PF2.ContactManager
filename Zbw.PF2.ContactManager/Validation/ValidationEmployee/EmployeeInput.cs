@@ -26,11 +26,11 @@ public sealed class EmployeeInput
     public string EmployeeStatusMessage { get; init; } = string.Empty;
     public int EmploymentRate { get; init; }
     public string Role { get; init; } = string.Empty;
-    public int ApprenticeshipYears { get; init; }
+    public int? ApprenticeshipYears { get; init; }
     public Status? EmployeeStatus { get; init; }
     public EmployeeSeniorLevel? EmployeeSeniorLevel { get; init; }
-    public DateTime DateOfHire { get; init; } = DateTime.Today;
-
+    public string? DateOfHire { get; init; } = string.Empty;
+    public string? DateOfTermination { get; init; } = string.Empty;
     public string WorkStreetName { get; init; } = string.Empty;
     public string WorkStreetNumber { get; init; } = string.Empty;
     public string WorkZipCode { get; init; } = string.Empty;

@@ -72,6 +72,48 @@ partial class FormAddEmployee : Form
         labelPhoneNumberMobile = new Label();
         panelEmail = new Panel();
         labelEmail = new Label();
+        panelEmployeeNumber = new Panel();
+        labelEmployeeNumber = new Label();
+        boxEmployeeNumber = new TextBox();
+        panelDepartment = new Panel();
+        labelDepartment = new Label();
+        boxDepartment = new TextBox();
+        panelAhvNumber = new Panel();
+        labelAhvNumber = new Label();
+        boxAhvNumber = new TextBox();
+        panelNationality = new Panel();
+        labelNationality = new Label();
+        boxNationality = new TextBox();
+        panelEmploymentRate = new Panel();
+        labelEmploymentRate = new Label();
+        boxEmploymentRate = new TextBox();
+        panelRole = new Panel();
+        labelRole = new Label();
+        boxRole = new TextBox();
+        panelApprenticeshipYears = new Panel();
+        labelApprenticeshipYears = new Label();
+        boxApprenticeshipYears = new TextBox();
+        panelSeniorLevel = new Panel();
+        labelSeniorLevel = new Label();
+        boxSeniorLevel = new TextBox();
+        panelWorkStreet = new Panel();
+        labelWorkStreet = new Label();
+        boxWorkStreet = new TextBox();
+        panelWorkStreetNumber = new Panel();
+        labelWorkStreetNumber = new Label();
+        boxWorkStreetNumber = new TextBox();
+        panelWorkZipCode = new Panel();
+        labelWorkZipCode = new Label();
+        boxWorkZipCode = new TextBox();
+        panelWorkCity = new Panel();
+        labelWorkCity = new Label();
+        boxWorkCity = new TextBox();
+        panelDateOfHire = new Panel();
+        labelDateOfHire = new Label();
+        boxDateOfHire = new TextBox();
+        panelStatus = new Panel();
+        labelStatus = new Label();
+        boxStatus = new ComboBox();
         panelSalutation.SuspendLayout();
         panelFirstName.SuspendLayout();
         panelLastName.SuspendLayout();
@@ -85,6 +127,20 @@ partial class FormAddEmployee : Form
         panelPhoneNumberCompany.SuspendLayout();
         panelPhoneNumberMobile.SuspendLayout();
         panelEmail.SuspendLayout();
+        panelEmployeeNumber.SuspendLayout();
+        panelDepartment.SuspendLayout();
+        panelAhvNumber.SuspendLayout();
+        panelNationality.SuspendLayout();
+        panelEmploymentRate.SuspendLayout();
+        panelRole.SuspendLayout();
+        panelApprenticeshipYears.SuspendLayout();
+        panelSeniorLevel.SuspendLayout();
+        panelWorkStreet.SuspendLayout();
+        panelWorkStreetNumber.SuspendLayout();
+        panelWorkZipCode.SuspendLayout();
+        panelWorkCity.SuspendLayout();
+        panelDateOfHire.SuspendLayout();
+        panelStatus.SuspendLayout();
         SuspendLayout();
         // 
         // boxSalutation
@@ -164,41 +220,41 @@ partial class FormAddEmployee : Form
         // 
         // buttonCancel
         // 
-        buttonCancel.Location = new Point(1384, 937);
+        buttonCancel.Location = new Point(1381, 1246);
         buttonCancel.Name = "buttonCancel";
-        buttonCancel.Size = new Size(150, 46);
-        buttonCancel.TabIndex = 21;
+        buttonCancel.Size = new Size(167, 46);
+        buttonCancel.TabIndex = 57;
         buttonCancel.Text = "Abbrechen";
         buttonCancel.UseVisualStyleBackColor = true;
         buttonCancel.Click += buttonCancel_Click;
         // 
         // buttonSave
         // 
-        buttonSave.Location = new Point(1601, 937);
+        buttonSave.Location = new Point(1598, 1246);
         buttonSave.Name = "buttonSave";
         buttonSave.Size = new Size(150, 46);
-        buttonSave.TabIndex = 22;
+        buttonSave.TabIndex = 56;
         buttonSave.Text = "Speichern";
         buttonSave.UseVisualStyleBackColor = true;
         buttonSave.Click += buttonSave_Click;
         // 
         // boxPhoneNumberCompany
         // 
-        boxPhoneNumberCompany.Location = new Point(839, 112);
+        boxPhoneNumberCompany.Location = new Point(232, 1102);
         boxPhoneNumberCompany.Name = "boxPhoneNumberCompany";
         boxPhoneNumberCompany.Size = new Size(242, 35);
         boxPhoneNumberCompany.TabIndex = 24;
         // 
         // boxPhoneNumberMobile
         // 
-        boxPhoneNumberMobile.Location = new Point(839, 189);
+        boxPhoneNumberMobile.Location = new Point(232, 1179);
         boxPhoneNumberMobile.Name = "boxPhoneNumberMobile";
         boxPhoneNumberMobile.Size = new Size(242, 35);
         boxPhoneNumberMobile.TabIndex = 26;
         // 
         // boxEmail
         // 
-        boxEmail.Location = new Point(839, 272);
+        boxEmail.Location = new Point(232, 1262);
         boxEmail.Name = "boxEmail";
         boxEmail.Size = new Size(242, 35);
         boxEmail.TabIndex = 28;
@@ -376,7 +432,7 @@ partial class FormAddEmployee : Form
         // panelPhoneNumberCompany
         // 
         panelPhoneNumberCompany.Controls.Add(labelPhoneNumberCompany);
-        panelPhoneNumberCompany.Location = new Point(657, 90);
+        panelPhoneNumberCompany.Location = new Point(50, 1080);
         panelPhoneNumberCompany.Name = "panelPhoneNumberCompany";
         panelPhoneNumberCompany.Size = new Size(111, 55);
         panelPhoneNumberCompany.TabIndex = 30;
@@ -393,7 +449,7 @@ partial class FormAddEmployee : Form
         // panelPhoneNumberMobile
         // 
         panelPhoneNumberMobile.Controls.Add(labelPhoneNumberMobile);
-        panelPhoneNumberMobile.Location = new Point(657, 178);
+        panelPhoneNumberMobile.Location = new Point(50, 1168);
         panelPhoneNumberMobile.Name = "panelPhoneNumberMobile";
         panelPhoneNumberMobile.Size = new Size(111, 55);
         panelPhoneNumberMobile.TabIndex = 31;
@@ -410,7 +466,7 @@ partial class FormAddEmployee : Form
         // panelEmail
         // 
         panelEmail.Controls.Add(labelEmail);
-        panelEmail.Location = new Point(657, 257);
+        panelEmail.Location = new Point(50, 1247);
         panelEmail.Name = "panelEmail";
         panelEmail.Size = new Size(111, 55);
         panelEmail.TabIndex = 32;
@@ -424,10 +480,375 @@ partial class FormAddEmployee : Form
         labelEmail.TabIndex = 1;
         labelEmail.Text = "E-Mail";
         // 
+        // panelEmployeeNumber
+        // 
+        panelEmployeeNumber.Controls.Add(labelEmployeeNumber);
+        panelEmployeeNumber.Location = new Point(651, 90);
+        panelEmployeeNumber.Name = "panelEmployeeNumber";
+        panelEmployeeNumber.Size = new Size(111, 55);
+        panelEmployeeNumber.TabIndex = 34;
+        // 
+        // labelEmployeeNumber
+        // 
+        labelEmployeeNumber.AutoSize = true;
+        labelEmployeeNumber.Location = new Point(21, 15);
+        labelEmployeeNumber.Name = "labelEmployeeNumber";
+        labelEmployeeNumber.Size = new Size(139, 30);
+        labelEmployeeNumber.TabIndex = 1;
+        labelEmployeeNumber.Text = "Mitarbeiternr.";
+        // 
+        // boxEmployeeNumber
+        // 
+        boxEmployeeNumber.Location = new Point(833, 105);
+        boxEmployeeNumber.Name = "boxEmployeeNumber";
+        boxEmployeeNumber.Size = new Size(242, 35);
+        boxEmployeeNumber.TabIndex = 33;
+        // 
+        // panelDepartment
+        // 
+        panelDepartment.Controls.Add(labelDepartment);
+        panelDepartment.Location = new Point(651, 185);
+        panelDepartment.Name = "panelDepartment";
+        panelDepartment.Size = new Size(111, 55);
+        panelDepartment.TabIndex = 36;
+        // 
+        // labelDepartment
+        // 
+        labelDepartment.AutoSize = true;
+        labelDepartment.Location = new Point(21, 15);
+        labelDepartment.Name = "labelDepartment";
+        labelDepartment.Size = new Size(103, 30);
+        labelDepartment.TabIndex = 1;
+        labelDepartment.Text = "Abteilung";
+        // 
+        // boxDepartment
+        // 
+        boxDepartment.Location = new Point(833, 200);
+        boxDepartment.Name = "boxDepartment";
+        boxDepartment.Size = new Size(242, 35);
+        boxDepartment.TabIndex = 35;
+        // 
+        // panelAhvNumber
+        // 
+        panelAhvNumber.Controls.Add(labelAhvNumber);
+        panelAhvNumber.Location = new Point(651, 339);
+        panelAhvNumber.Name = "panelAhvNumber";
+        panelAhvNumber.Size = new Size(111, 55);
+        panelAhvNumber.TabIndex = 38;
+        // 
+        // labelAhvNumber
+        // 
+        labelAhvNumber.AutoSize = true;
+        labelAhvNumber.Location = new Point(21, 15);
+        labelAhvNumber.Name = "labelAhvNumber";
+        labelAhvNumber.Size = new Size(145, 30);
+        labelAhvNumber.TabIndex = 1;
+        labelAhvNumber.Text = "AHV-Nummer";
+        // 
+        // boxAhvNumber
+        // 
+        boxAhvNumber.Location = new Point(833, 354);
+        boxAhvNumber.Name = "boxAhvNumber";
+        boxAhvNumber.Size = new Size(242, 35);
+        boxAhvNumber.TabIndex = 37;
+        // 
+        // panelNationality
+        // 
+        panelNationality.Controls.Add(labelNationality);
+        panelNationality.Location = new Point(651, 447);
+        panelNationality.Name = "panelNationality";
+        panelNationality.Size = new Size(111, 55);
+        panelNationality.TabIndex = 40;
+        // 
+        // labelNationality
+        // 
+        labelNationality.AutoSize = true;
+        labelNationality.Location = new Point(21, 15);
+        labelNationality.Name = "labelNationality";
+        labelNationality.Size = new Size(122, 30);
+        labelNationality.TabIndex = 1;
+        labelNationality.Text = "Nationalität";
+        // 
+        // boxNationality
+        // 
+        boxNationality.Location = new Point(833, 462);
+        boxNationality.Name = "boxNationality";
+        boxNationality.Size = new Size(242, 35);
+        boxNationality.TabIndex = 39;
+        // 
+        // panelEmploymentRate
+        // 
+        panelEmploymentRate.Controls.Add(labelEmploymentRate);
+        panelEmploymentRate.Location = new Point(651, 630);
+        panelEmploymentRate.Name = "panelEmploymentRate";
+        panelEmploymentRate.Size = new Size(111, 55);
+        panelEmploymentRate.TabIndex = 44;
+        // 
+        // labelEmploymentRate
+        // 
+        labelEmploymentRate.AutoSize = true;
+        labelEmploymentRate.Location = new Point(21, 15);
+        labelEmploymentRate.Name = "labelEmploymentRate";
+        labelEmploymentRate.Size = new Size(196, 30);
+        labelEmploymentRate.TabIndex = 1;
+        labelEmploymentRate.Text = "Beschäftigungsgrad";
+        // 
+        // boxEmploymentRate
+        // 
+        boxEmploymentRate.Location = new Point(833, 645);
+        boxEmploymentRate.Name = "boxEmploymentRate";
+        boxEmploymentRate.Size = new Size(242, 35);
+        boxEmploymentRate.TabIndex = 43;
+        // 
+        // panelRole
+        // 
+        panelRole.Controls.Add(labelRole);
+        panelRole.Location = new Point(651, 730);
+        panelRole.Name = "panelRole";
+        panelRole.Size = new Size(111, 55);
+        panelRole.TabIndex = 46;
+        // 
+        // labelRole
+        // 
+        labelRole.AutoSize = true;
+        labelRole.Location = new Point(21, 15);
+        labelRole.Name = "labelRole";
+        labelRole.Size = new Size(58, 30);
+        labelRole.TabIndex = 1;
+        labelRole.Text = "Rolle";
+        // 
+        // boxRole
+        // 
+        boxRole.Location = new Point(833, 745);
+        boxRole.Name = "boxRole";
+        boxRole.Size = new Size(242, 35);
+        boxRole.TabIndex = 45;
+        // 
+        // panelApprenticeshipYears
+        // 
+        panelApprenticeshipYears.Controls.Add(labelApprenticeshipYears);
+        panelApprenticeshipYears.Location = new Point(651, 830);
+        panelApprenticeshipYears.Name = "panelApprenticeshipYears";
+        panelApprenticeshipYears.Size = new Size(111, 55);
+        panelApprenticeshipYears.TabIndex = 48;
+        // 
+        // labelApprenticeshipYears
+        // 
+        labelApprenticeshipYears.AutoSize = true;
+        labelApprenticeshipYears.Location = new Point(21, 15);
+        labelApprenticeshipYears.Name = "labelApprenticeshipYears";
+        labelApprenticeshipYears.Size = new Size(142, 30);
+        labelApprenticeshipYears.TabIndex = 1;
+        labelApprenticeshipYears.Text = "Lehrlingsjahre";
+        // 
+        // boxApprenticeshipYears
+        // 
+        boxApprenticeshipYears.Location = new Point(833, 845);
+        boxApprenticeshipYears.Name = "boxApprenticeshipYears";
+        boxApprenticeshipYears.Size = new Size(242, 35);
+        boxApprenticeshipYears.TabIndex = 47;
+        // 
+        // panelSeniorLevel
+        // 
+        panelSeniorLevel.Controls.Add(labelSeniorLevel);
+        panelSeniorLevel.Location = new Point(651, 910);
+        panelSeniorLevel.Name = "panelSeniorLevel";
+        panelSeniorLevel.Size = new Size(111, 55);
+        panelSeniorLevel.TabIndex = 50;
+        // 
+        // labelSeniorLevel
+        // 
+        labelSeniorLevel.AutoSize = true;
+        labelSeniorLevel.Location = new Point(22, 15);
+        labelSeniorLevel.Name = "labelSeniorLevel";
+        labelSeniorLevel.Size = new Size(136, 30);
+        labelSeniorLevel.TabIndex = 1;
+        labelSeniorLevel.Text = "Seniorenlevel";
+        // 
+        // boxSeniorLevel
+        // 
+        boxSeniorLevel.Location = new Point(833, 925);
+        boxSeniorLevel.Name = "boxSeniorLevel";
+        boxSeniorLevel.Size = new Size(242, 35);
+        boxSeniorLevel.TabIndex = 49;
+        // 
+        // panelWorkStreet
+        // 
+        panelWorkStreet.Controls.Add(labelWorkStreet);
+        panelWorkStreet.Location = new Point(651, 1070);
+        panelWorkStreet.Name = "panelWorkStreet";
+        panelWorkStreet.Size = new Size(111, 55);
+        panelWorkStreet.TabIndex = 52;
+        // 
+        // labelWorkStreet
+        // 
+        labelWorkStreet.AutoSize = true;
+        labelWorkStreet.Location = new Point(21, 15);
+        labelWorkStreet.Name = "labelWorkStreet";
+        labelWorkStreet.Size = new Size(102, 30);
+        labelWorkStreet.TabIndex = 1;
+        labelWorkStreet.Text = "Strasse G.";
+        // 
+        // boxWorkStreet
+        // 
+        boxWorkStreet.Location = new Point(833, 1085);
+        boxWorkStreet.Name = "boxWorkStreet";
+        boxWorkStreet.Size = new Size(242, 35);
+        boxWorkStreet.TabIndex = 50;
+        // 
+        // panelWorkStreetNumber
+        // 
+        panelWorkStreetNumber.Controls.Add(labelWorkStreetNumber);
+        panelWorkStreetNumber.Location = new Point(651, 1159);
+        panelWorkStreetNumber.Name = "panelWorkStreetNumber";
+        panelWorkStreetNumber.Size = new Size(111, 55);
+        panelWorkStreetNumber.TabIndex = 54;
+        // 
+        // labelWorkStreetNumber
+        // 
+        labelWorkStreetNumber.AutoSize = true;
+        labelWorkStreetNumber.Location = new Point(21, 15);
+        labelWorkStreetNumber.Name = "labelWorkStreetNumber";
+        labelWorkStreetNumber.Size = new Size(168, 30);
+        labelWorkStreetNumber.TabIndex = 1;
+        labelWorkStreetNumber.Text = "Hausnummer. G.";
+        // 
+        // boxWorkStreetNumber
+        // 
+        boxWorkStreetNumber.Location = new Point(833, 1174);
+        boxWorkStreetNumber.Name = "boxWorkStreetNumber";
+        boxWorkStreetNumber.Size = new Size(242, 35);
+        boxWorkStreetNumber.TabIndex = 51;
+        // 
+        // panelWorkZipCode
+        // 
+        panelWorkZipCode.Controls.Add(labelWorkZipCode);
+        panelWorkZipCode.Location = new Point(651, 1247);
+        panelWorkZipCode.Name = "panelWorkZipCode";
+        panelWorkZipCode.Size = new Size(111, 55);
+        panelWorkZipCode.TabIndex = 56;
+        // 
+        // labelWorkZipCode
+        // 
+        labelWorkZipCode.AutoSize = true;
+        labelWorkZipCode.Location = new Point(21, 15);
+        labelWorkZipCode.Name = "labelWorkZipCode";
+        labelWorkZipCode.Size = new Size(143, 30);
+        labelWorkZipCode.TabIndex = 1;
+        labelWorkZipCode.Text = "Postleitzahl G.";
+        // 
+        // boxWorkZipCode
+        // 
+        boxWorkZipCode.Location = new Point(833, 1262);
+        boxWorkZipCode.Name = "boxWorkZipCode";
+        boxWorkZipCode.Size = new Size(242, 35);
+        boxWorkZipCode.TabIndex = 52;
+        // 
+        // panelWorkCity
+        // 
+        panelWorkCity.Controls.Add(labelWorkCity);
+        panelWorkCity.Location = new Point(651, 1331);
+        panelWorkCity.Name = "panelWorkCity";
+        panelWorkCity.Size = new Size(111, 55);
+        panelWorkCity.TabIndex = 58;
+        // 
+        // labelWorkCity
+        // 
+        labelWorkCity.AutoSize = true;
+        labelWorkCity.Location = new Point(21, 15);
+        labelWorkCity.Name = "labelWorkCity";
+        labelWorkCity.Size = new Size(68, 30);
+        labelWorkCity.TabIndex = 1;
+        labelWorkCity.Text = "Ort G.";
+        // 
+        // boxWorkCity
+        // 
+        boxWorkCity.Location = new Point(833, 1346);
+        boxWorkCity.Name = "boxWorkCity";
+        boxWorkCity.Size = new Size(242, 35);
+        boxWorkCity.TabIndex = 53;
+        // 
+        // panelDateOfHire
+        // 
+        panelDateOfHire.Controls.Add(labelDateOfHire);
+        panelDateOfHire.Location = new Point(651, 1405);
+        panelDateOfHire.Name = "panelDateOfHire";
+        panelDateOfHire.Size = new Size(176, 55);
+        panelDateOfHire.TabIndex = 52;
+        // 
+        // labelDateOfHire
+        // 
+        labelDateOfHire.AutoSize = true;
+        labelDateOfHire.Location = new Point(22, 15);
+        labelDateOfHire.Name = "labelDateOfHire";
+        labelDateOfHire.Size = new Size(154, 30);
+        labelDateOfHire.TabIndex = 1;
+        labelDateOfHire.Text = "Eingestellt am: ";
+        // 
+        // boxDateOfHire
+        // 
+        boxDateOfHire.Location = new Point(833, 1420);
+        boxDateOfHire.Name = "boxDateOfHire";
+        boxDateOfHire.Size = new Size(242, 35);
+        boxDateOfHire.TabIndex = 54;
+        // 
+        // panelStatus
+        // 
+        panelStatus.Controls.Add(labelStatus);
+        panelStatus.Location = new Point(1267, 339);
+        panelStatus.Name = "panelStatus";
+        panelStatus.Size = new Size(111, 55);
+        panelStatus.TabIndex = 54;
+        // 
+        // labelStatus
+        // 
+        labelStatus.AutoSize = true;
+        labelStatus.Location = new Point(22, 15);
+        labelStatus.Name = "labelStatus";
+        labelStatus.Size = new Size(69, 30);
+        labelStatus.TabIndex = 1;
+        labelStatus.Text = "Status";
+        // 
+        // boxStatus
+        // 
+        boxStatus.FormattingEnabled = true;
+        boxStatus.Location = new Point(1434, 351);
+        boxStatus.Name = "boxStatus";
+        boxStatus.Size = new Size(242, 38);
+        boxStatus.TabIndex = 55;
+        // 
         // FormAddEmployee
         // 
         BackColor = Color.White;
-        ClientSize = new Size(1924, 1156);
+        ClientSize = new Size(1924, 1495);
+        Controls.Add(boxStatus);
+        Controls.Add(panelStatus);
+        Controls.Add(panelDateOfHire);
+        Controls.Add(boxDateOfHire);
+        Controls.Add(panelWorkCity);
+        Controls.Add(boxWorkCity);
+        Controls.Add(panelWorkZipCode);
+        Controls.Add(boxWorkZipCode);
+        Controls.Add(panelWorkStreetNumber);
+        Controls.Add(boxWorkStreetNumber);
+        Controls.Add(panelWorkStreet);
+        Controls.Add(boxWorkStreet);
+        Controls.Add(panelSeniorLevel);
+        Controls.Add(boxSeniorLevel);
+        Controls.Add(panelApprenticeshipYears);
+        Controls.Add(boxApprenticeshipYears);
+        Controls.Add(panelRole);
+        Controls.Add(boxRole);
+        Controls.Add(panelEmploymentRate);
+        Controls.Add(boxEmploymentRate);
+        Controls.Add(panelNationality);
+        Controls.Add(boxNationality);
+        Controls.Add(panelAhvNumber);
+        Controls.Add(boxAhvNumber);
+        Controls.Add(panelDepartment);
+        Controls.Add(boxDepartment);
+        Controls.Add(panelEmployeeNumber);
+        Controls.Add(boxEmployeeNumber);
         Controls.Add(panelEmail);
         Controls.Add(panelPhoneNumberMobile);
         Controls.Add(panelPhoneNumberCompany);
@@ -484,6 +905,34 @@ partial class FormAddEmployee : Form
         panelPhoneNumberMobile.PerformLayout();
         panelEmail.ResumeLayout(false);
         panelEmail.PerformLayout();
+        panelEmployeeNumber.ResumeLayout(false);
+        panelEmployeeNumber.PerformLayout();
+        panelDepartment.ResumeLayout(false);
+        panelDepartment.PerformLayout();
+        panelAhvNumber.ResumeLayout(false);
+        panelAhvNumber.PerformLayout();
+        panelNationality.ResumeLayout(false);
+        panelNationality.PerformLayout();
+        panelEmploymentRate.ResumeLayout(false);
+        panelEmploymentRate.PerformLayout();
+        panelRole.ResumeLayout(false);
+        panelRole.PerformLayout();
+        panelApprenticeshipYears.ResumeLayout(false);
+        panelApprenticeshipYears.PerformLayout();
+        panelSeniorLevel.ResumeLayout(false);
+        panelSeniorLevel.PerformLayout();
+        panelWorkStreet.ResumeLayout(false);
+        panelWorkStreet.PerformLayout();
+        panelWorkStreetNumber.ResumeLayout(false);
+        panelWorkStreetNumber.PerformLayout();
+        panelWorkZipCode.ResumeLayout(false);
+        panelWorkZipCode.PerformLayout();
+        panelWorkCity.ResumeLayout(false);
+        panelWorkCity.PerformLayout();
+        panelDateOfHire.ResumeLayout(false);
+        panelDateOfHire.PerformLayout();
+        panelStatus.ResumeLayout(false);
+        panelStatus.PerformLayout();
         ResumeLayout(false);
         PerformLayout();
 
@@ -535,4 +984,46 @@ partial class FormAddEmployee : Form
     private Label labelPhoneNumberMobile;
     private Panel panelEmail;
     private Label labelEmail;
+    private Panel panelEmployeeNumber;
+    private Label labelEmployeeNumber;
+    private TextBox boxEmployeeNumber;
+    private Panel panelDepartment;
+    private Label labelDepartment;
+    private TextBox boxDepartment;
+    private Panel panelAhvNumber;
+    private Label labelAhvNumber;
+    private TextBox boxAhvNumber;
+    private Panel panelNationality;
+    private Label labelNationality;
+    private TextBox boxNationality;
+    private Panel panelEmploymentRate;
+    private Label labelEmploymentRate;
+    private TextBox boxEmploymentRate;
+    private Panel panelRole;
+    private Label labelRole;
+    private TextBox boxRole;
+    private Panel panelApprenticeshipYears;
+    private Label labelApprenticeshipYears;
+    private TextBox boxApprenticeshipYears;
+    private Panel panelSeniorLevel;
+    private Label labelSeniorLevel;
+    private TextBox boxSeniorLevel;
+    private Panel panelWorkStreet;
+    private Label labelWorkStreet;
+    private TextBox boxWorkStreet;
+    private Panel panelWorkStreetNumber;
+    private Label labelWorkStreetNumber;
+    private TextBox boxWorkStreetNumber;
+    private Panel panelWorkZipCode;
+    private Label labelWorkZipCode;
+    private TextBox boxWorkZipCode;
+    private Panel panelWorkCity;
+    private Label labelWorkCity;
+    private TextBox boxWorkCity;
+    private Panel panelDateOfHire;
+    private Label labelDateOfHire;
+    private TextBox boxDateOfHire;
+    private Panel panelStatus;
+    private Label labelStatus;
+    private ComboBox boxStatus;
 }

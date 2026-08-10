@@ -38,7 +38,6 @@ public class EmployeeMap : ClassMap<Employee>
         Map(m => m.Department).Name("department");
         Map(m => m.AhvNumber).Name("ahv_number");
         Map(m => m.Nationality).Name("nationality");
-        Map(m => m.EmployeeStatusMessage).Name("employee_status_message");
         Map(m => m.EmployeeEmploymentRate).Name("employee_employment_rate");
         Map(m => m.Role).Name("role");
         Map(m => m.EmployeeApprenticeshipYears).Name("employee_apprenticeship_years");

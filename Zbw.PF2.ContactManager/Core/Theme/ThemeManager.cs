@@ -1,5 +1,6 @@
 ﻿using System.ComponentModel;
 using System.Drawing.Drawing2D;
+using Zbw.PF2.ContactManager.Core.Constants;
 
 namespace Zbw.PF2.ContactManager.Core.Theme;
 
@@ -52,20 +53,32 @@ internal static class ThemeManager
 
 
 
-    internal static void ApplyAddEmployeeLabelAndPanelStyles(Label label, Panel panel)
+    internal static void ApplyAddEmployeeLabelAndPanelStyles(Label label,Panel panel)
     {
-
         label.FlatStyle = FlatStyle.Flat;
-        label.Font = new Font(FontManager.InterRegular.FontFamily, 12F, FontStyle.Regular);
+        label.Font = new Font(
+            FontManager.InterRegular.FontFamily,
+            12F,
+            FontStyle.Regular);
+
         label.ForeColor = Color.Black;
         label.BackColor = Color.Transparent;
         label.Padding = Padding.Empty;
         label.AutoSize = true;
+
         panel.BackColor = Color.Gainsboro;
+
         ResizePanelToLabel(label, panel, 1, 1);
         CenterLabelInPanel(label, panel);
+    }
 
-
+    internal static void ApplyAddEmployeeLabelAndPanelStyles(
+    params (Label label, Panel panel)[] controls)
+    {
+        foreach ((Label label, Panel panel) in controls)
+        {
+            ApplyAddEmployeeLabelAndPanelStyles(label, panel);
+        }
     }
 
     private static void ResizePanelToLabel(
@@ -173,6 +186,23 @@ internal static class ThemeManager
         {
             comboBox.Left = leftPosition;
             comboBox.Top = panel.Top;
+        }
+    }
+
+    public static void ApplyStatusColor(ComboBox boxStatus)
+    {
+        if (boxStatus.SelectedItem is Status status)
+        {
+            boxStatus.BackColor = status switch
+            {
+                Status.Active => Color.LightGreen,
+                Status.Passive => Color.LightCoral,
+                _ => Color.White
+            };
+        }
+        else
+        {
+            boxStatus.BackColor = Color.White;
         }
     }
 
