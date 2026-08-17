@@ -1,10 +1,10 @@
 ﻿
 using Zbw.PF2.ContactManager.Core.Constants;
 using Zbw.PF2.ContactManager.Core.Theme;
+using Zbw.PF2.ContactManager.Data.Repository;
 using Zbw.PF2.ContactManager.Models;
 using Zbw.PF2.ContactManager.Validation;
 using Zbw.PF2.ContactManager.Validation.ValidationEmployee;
-using Zbw.PF2.ContactManager.Data.Repository;
 
 namespace Zbw.PF2.ContactManager.UI.Partials;
 
@@ -25,6 +25,8 @@ public partial class FormAddEmployee : Form
         RegisterEvents();
         SetupView();
 
+
+        _repository = new ContactManagerRepository(new CSVRepository());
     }
 
     private void InitializeComboBoxes()
@@ -58,59 +60,7 @@ public partial class FormAddEmployee : Form
 
     private void SetupPersonalSection()
     {
-        ThemeManager.AlignPanelsVertically(
-            25,
-            panelSalutation,
-            panelFirstName,
-            panelLastName,
-            panelBirthday,
-            panelSex,
-            panelTitle,
-            panelStreet,
-            panelStreetNumber,
-            panelZipCode,
-            panelCity,
-            panelPhoneNumberCompany,
-            panelPhoneNumberMobile,
-            panelEmail
-            );
 
-        ThemeManager.AlignTextBoxesVertically(
-            100,
-            (boxFirstName, panelFirstName),
-            (boxLastName, panelLastName),
-            (boxBirthday, panelBirthday),
-            (boxStreet, panelStreet),
-            (boxStreetNumber, panelStreetNumber),
-            (boxZipCode, panelZipCode),
-            (boxCity, panelCity),
-            (boxPhoneNumberCompany,panelPhoneNumberCompany),
-            (boxPhoneNumberMobile, panelPhoneNumberMobile),
-            (boxEmail, panelEmail)
-        );
-
-        ThemeManager.AlignComboBoxesVertically(
-            100,
-            (boxSalutation, panelSalutation),
-            (boxSex, panelSex),
-            (boxTitle, panelTitle)
-        );
-
-        ThemeManager.ApplyAddEmployeeLabelAndPanelStyles(
-            (labelSalutation, panelSalutation),
-            (labelFirstName, panelFirstName),
-            (labelLastName, panelLastName),
-            (labelBirthday, panelBirthday),
-            (labelSex, panelSex),
-            (labelTitle, panelTitle),
-            (labelStreet, panelStreet),
-            (labelStreetNumber, panelStreetNumber),
-            (labelZipCode, panelZipCode),
-            (labelCity, panelCity),
-            (labelPhoneNumberCompany, panelPhoneNumberCompany),
-            (labelPhoneNumberMobile, panelPhoneNumberMobile),
-            (labelEmail, panelEmail)
-        );
     }
 
     private void SetupEmployeeSection()
@@ -170,7 +120,7 @@ public partial class FormAddEmployee : Form
 
     private void SetupStatusSection()
     {
-      
+
         panelStatus.Top = panelSalutation.Top;
         boxStatus.Top = boxSalutation.Top;
 
@@ -218,7 +168,7 @@ public partial class FormAddEmployee : Form
             AhvNumber = boxAhvNumber.Text.Trim(),
             Nationality = boxNationality.Text.Trim(),
 
-            EmploymentRate =int.TryParse(boxEmploymentRate.Text.Trim(), out int employmentRate)
+            EmploymentRate = int.TryParse(boxEmploymentRate.Text.Trim(), out int employmentRate)
                 ? employmentRate
                 : 0,
 
@@ -295,7 +245,7 @@ public partial class FormAddEmployee : Form
     {
         string messages = string.Join(Environment.NewLine, result.Errors.Select(error => $"• {error.Message}"));
 
-        MessageBox.Show( messages, "Validation", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+        MessageBox.Show(messages, "Validation", MessageBoxButtons.OK, MessageBoxIcon.Warning);
     }
 
     private void boxStatus_SelectedIndexChanged(
@@ -321,6 +271,10 @@ public partial class FormAddEmployee : Form
 
             return;
         }
+
+        var newEmployee = CreateEmployee(input);
+
+        _repository.AddEmployee(newEmployee);
     }
 
 

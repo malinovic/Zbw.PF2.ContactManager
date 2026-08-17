@@ -47,6 +47,7 @@ partial class FormAddEmployee : Form
         boxPhoneNumberMobile = new TextBox();
         boxEmail = new TextBox();
         panelSalutation = new Panel();
+        panelSalutationLabel = new Panel();
         labelSalutation = new Label();
         panelFirstName = new Panel();
         labelFirstName = new Label();
@@ -114,7 +115,9 @@ partial class FormAddEmployee : Form
         panelStatus = new Panel();
         labelStatus = new Label();
         boxStatus = new ComboBox();
+        groupBox1 = new GroupBox();
         panelSalutation.SuspendLayout();
+        panelSalutationLabel.SuspendLayout();
         panelFirstName.SuspendLayout();
         panelLastName.SuspendLayout();
         panelBirthday.SuspendLayout();
@@ -145,16 +148,18 @@ partial class FormAddEmployee : Form
         // 
         // boxSalutation
         // 
+        boxSalutation.Dock = DockStyle.Bottom;
+        boxSalutation.FlatStyle = FlatStyle.Flat;
         boxSalutation.FormattingEnabled = true;
         boxSalutation.Items.AddRange(new object[] { "Herr", "Frau" });
-        boxSalutation.Location = new Point(214, 112);
+        boxSalutation.Location = new Point(0, 63);
         boxSalutation.Name = "boxSalutation";
-        boxSalutation.Size = new Size(242, 38);
+        boxSalutation.Size = new Size(468, 38);
         boxSalutation.TabIndex = 2;
         // 
         // boxFirstName
         // 
-        boxFirstName.Location = new Point(214, 189);
+        boxFirstName.Location = new Point(214, 208);
         boxFirstName.Name = "boxFirstName";
         boxFirstName.Size = new Size(242, 35);
         boxFirstName.TabIndex = 4;
@@ -261,16 +266,27 @@ partial class FormAddEmployee : Form
         // 
         // panelSalutation
         // 
-        panelSalutation.Controls.Add(labelSalutation);
+        panelSalutation.Controls.Add(panelSalutationLabel);
+        panelSalutation.Controls.Add(boxSalutation);
         panelSalutation.Location = new Point(41, 90);
         panelSalutation.Name = "panelSalutation";
-        panelSalutation.Size = new Size(111, 55);
+        panelSalutation.Size = new Size(468, 101);
         panelSalutation.TabIndex = 29;
+        // 
+        // panelSalutationLabel
+        // 
+        panelSalutationLabel.Controls.Add(labelSalutation);
+        panelSalutationLabel.Dock = DockStyle.Top;
+        panelSalutationLabel.Location = new Point(0, 0);
+        panelSalutationLabel.Name = "panelSalutationLabel";
+        panelSalutationLabel.Size = new Size(468, 46);
+        panelSalutationLabel.TabIndex = 3;
         // 
         // labelSalutation
         // 
         labelSalutation.AutoSize = true;
-        labelSalutation.Location = new Point(21, 15);
+        labelSalutation.Dock = DockStyle.Fill;
+        labelSalutation.Location = new Point(0, 0);
         labelSalutation.Name = "labelSalutation";
         labelSalutation.Size = new Size(80, 30);
         labelSalutation.TabIndex = 1;
@@ -279,7 +295,7 @@ partial class FormAddEmployee : Form
         // panelFirstName
         // 
         panelFirstName.Controls.Add(labelFirstName);
-        panelFirstName.Location = new Point(41, 178);
+        panelFirstName.Location = new Point(41, 197);
         panelFirstName.Name = "panelFirstName";
         panelFirstName.Size = new Size(111, 55);
         panelFirstName.TabIndex = 30;
@@ -287,7 +303,7 @@ partial class FormAddEmployee : Form
         // labelFirstName
         // 
         labelFirstName.AutoSize = true;
-        labelFirstName.Location = new Point(21, 15);
+        labelFirstName.Location = new Point(21, 34);
         labelFirstName.Name = "labelFirstName";
         labelFirstName.Size = new Size(96, 30);
         labelFirstName.TabIndex = 1;
@@ -483,7 +499,7 @@ partial class FormAddEmployee : Form
         // panelEmployeeNumber
         // 
         panelEmployeeNumber.Controls.Add(labelEmployeeNumber);
-        panelEmployeeNumber.Location = new Point(651, 90);
+        panelEmployeeNumber.Location = new Point(826, 90);
         panelEmployeeNumber.Name = "panelEmployeeNumber";
         panelEmployeeNumber.Size = new Size(111, 55);
         panelEmployeeNumber.TabIndex = 34;
@@ -491,7 +507,7 @@ partial class FormAddEmployee : Form
         // labelEmployeeNumber
         // 
         labelEmployeeNumber.AutoSize = true;
-        labelEmployeeNumber.Location = new Point(21, 15);
+        labelEmployeeNumber.Location = new Point(4, 15);
         labelEmployeeNumber.Name = "labelEmployeeNumber";
         labelEmployeeNumber.Size = new Size(139, 30);
         labelEmployeeNumber.TabIndex = 1;
@@ -499,7 +515,7 @@ partial class FormAddEmployee : Form
         // 
         // boxEmployeeNumber
         // 
-        boxEmployeeNumber.Location = new Point(833, 105);
+        boxEmployeeNumber.Location = new Point(1008, 105);
         boxEmployeeNumber.Name = "boxEmployeeNumber";
         boxEmployeeNumber.Size = new Size(242, 35);
         boxEmployeeNumber.TabIndex = 33;
@@ -507,7 +523,7 @@ partial class FormAddEmployee : Form
         // panelDepartment
         // 
         panelDepartment.Controls.Add(labelDepartment);
-        panelDepartment.Location = new Point(651, 185);
+        panelDepartment.Location = new Point(826, 185);
         panelDepartment.Name = "panelDepartment";
         panelDepartment.Size = new Size(111, 55);
         panelDepartment.TabIndex = 36;
@@ -523,7 +539,7 @@ partial class FormAddEmployee : Form
         // 
         // boxDepartment
         // 
-        boxDepartment.Location = new Point(833, 200);
+        boxDepartment.Location = new Point(1008, 200);
         boxDepartment.Name = "boxDepartment";
         boxDepartment.Size = new Size(242, 35);
         boxDepartment.TabIndex = 35;
@@ -531,7 +547,7 @@ partial class FormAddEmployee : Form
         // panelAhvNumber
         // 
         panelAhvNumber.Controls.Add(labelAhvNumber);
-        panelAhvNumber.Location = new Point(651, 339);
+        panelAhvNumber.Location = new Point(826, 339);
         panelAhvNumber.Name = "panelAhvNumber";
         panelAhvNumber.Size = new Size(111, 55);
         panelAhvNumber.TabIndex = 38;
@@ -539,7 +555,7 @@ partial class FormAddEmployee : Form
         // labelAhvNumber
         // 
         labelAhvNumber.AutoSize = true;
-        labelAhvNumber.Location = new Point(21, 15);
+        labelAhvNumber.Location = new Point(13, 15);
         labelAhvNumber.Name = "labelAhvNumber";
         labelAhvNumber.Size = new Size(145, 30);
         labelAhvNumber.TabIndex = 1;
@@ -547,7 +563,7 @@ partial class FormAddEmployee : Form
         // 
         // boxAhvNumber
         // 
-        boxAhvNumber.Location = new Point(833, 354);
+        boxAhvNumber.Location = new Point(1008, 354);
         boxAhvNumber.Name = "boxAhvNumber";
         boxAhvNumber.Size = new Size(242, 35);
         boxAhvNumber.TabIndex = 37;
@@ -555,7 +571,7 @@ partial class FormAddEmployee : Form
         // panelNationality
         // 
         panelNationality.Controls.Add(labelNationality);
-        panelNationality.Location = new Point(651, 447);
+        panelNationality.Location = new Point(826, 447);
         panelNationality.Name = "panelNationality";
         panelNationality.Size = new Size(111, 55);
         panelNationality.TabIndex = 40;
@@ -571,7 +587,7 @@ partial class FormAddEmployee : Form
         // 
         // boxNationality
         // 
-        boxNationality.Location = new Point(833, 462);
+        boxNationality.Location = new Point(1008, 462);
         boxNationality.Name = "boxNationality";
         boxNationality.Size = new Size(242, 35);
         boxNationality.TabIndex = 39;
@@ -579,7 +595,7 @@ partial class FormAddEmployee : Form
         // panelEmploymentRate
         // 
         panelEmploymentRate.Controls.Add(labelEmploymentRate);
-        panelEmploymentRate.Location = new Point(651, 630);
+        panelEmploymentRate.Location = new Point(826, 630);
         panelEmploymentRate.Name = "panelEmploymentRate";
         panelEmploymentRate.Size = new Size(111, 55);
         panelEmploymentRate.TabIndex = 44;
@@ -595,7 +611,7 @@ partial class FormAddEmployee : Form
         // 
         // boxEmploymentRate
         // 
-        boxEmploymentRate.Location = new Point(833, 645);
+        boxEmploymentRate.Location = new Point(1008, 645);
         boxEmploymentRate.Name = "boxEmploymentRate";
         boxEmploymentRate.Size = new Size(242, 35);
         boxEmploymentRate.TabIndex = 43;
@@ -603,7 +619,7 @@ partial class FormAddEmployee : Form
         // panelRole
         // 
         panelRole.Controls.Add(labelRole);
-        panelRole.Location = new Point(651, 730);
+        panelRole.Location = new Point(826, 730);
         panelRole.Name = "panelRole";
         panelRole.Size = new Size(111, 55);
         panelRole.TabIndex = 46;
@@ -619,7 +635,7 @@ partial class FormAddEmployee : Form
         // 
         // boxRole
         // 
-        boxRole.Location = new Point(833, 745);
+        boxRole.Location = new Point(1008, 745);
         boxRole.Name = "boxRole";
         boxRole.Size = new Size(242, 35);
         boxRole.TabIndex = 45;
@@ -627,7 +643,7 @@ partial class FormAddEmployee : Form
         // panelApprenticeshipYears
         // 
         panelApprenticeshipYears.Controls.Add(labelApprenticeshipYears);
-        panelApprenticeshipYears.Location = new Point(651, 830);
+        panelApprenticeshipYears.Location = new Point(826, 830);
         panelApprenticeshipYears.Name = "panelApprenticeshipYears";
         panelApprenticeshipYears.Size = new Size(111, 55);
         panelApprenticeshipYears.TabIndex = 48;
@@ -643,7 +659,7 @@ partial class FormAddEmployee : Form
         // 
         // boxApprenticeshipYears
         // 
-        boxApprenticeshipYears.Location = new Point(833, 845);
+        boxApprenticeshipYears.Location = new Point(1008, 845);
         boxApprenticeshipYears.Name = "boxApprenticeshipYears";
         boxApprenticeshipYears.Size = new Size(242, 35);
         boxApprenticeshipYears.TabIndex = 47;
@@ -651,7 +667,7 @@ partial class FormAddEmployee : Form
         // panelSeniorLevel
         // 
         panelSeniorLevel.Controls.Add(labelSeniorLevel);
-        panelSeniorLevel.Location = new Point(651, 910);
+        panelSeniorLevel.Location = new Point(826, 910);
         panelSeniorLevel.Name = "panelSeniorLevel";
         panelSeniorLevel.Size = new Size(111, 55);
         panelSeniorLevel.TabIndex = 50;
@@ -667,7 +683,7 @@ partial class FormAddEmployee : Form
         // 
         // boxSeniorLevel
         // 
-        boxSeniorLevel.Location = new Point(833, 925);
+        boxSeniorLevel.Location = new Point(1008, 925);
         boxSeniorLevel.Name = "boxSeniorLevel";
         boxSeniorLevel.Size = new Size(242, 35);
         boxSeniorLevel.TabIndex = 49;
@@ -675,7 +691,7 @@ partial class FormAddEmployee : Form
         // panelWorkStreet
         // 
         panelWorkStreet.Controls.Add(labelWorkStreet);
-        panelWorkStreet.Location = new Point(651, 1070);
+        panelWorkStreet.Location = new Point(826, 1070);
         panelWorkStreet.Name = "panelWorkStreet";
         panelWorkStreet.Size = new Size(111, 55);
         panelWorkStreet.TabIndex = 52;
@@ -691,7 +707,7 @@ partial class FormAddEmployee : Form
         // 
         // boxWorkStreet
         // 
-        boxWorkStreet.Location = new Point(833, 1085);
+        boxWorkStreet.Location = new Point(1008, 1085);
         boxWorkStreet.Name = "boxWorkStreet";
         boxWorkStreet.Size = new Size(242, 35);
         boxWorkStreet.TabIndex = 50;
@@ -699,7 +715,7 @@ partial class FormAddEmployee : Form
         // panelWorkStreetNumber
         // 
         panelWorkStreetNumber.Controls.Add(labelWorkStreetNumber);
-        panelWorkStreetNumber.Location = new Point(651, 1159);
+        panelWorkStreetNumber.Location = new Point(826, 1159);
         panelWorkStreetNumber.Name = "panelWorkStreetNumber";
         panelWorkStreetNumber.Size = new Size(111, 55);
         panelWorkStreetNumber.TabIndex = 54;
@@ -715,7 +731,7 @@ partial class FormAddEmployee : Form
         // 
         // boxWorkStreetNumber
         // 
-        boxWorkStreetNumber.Location = new Point(833, 1174);
+        boxWorkStreetNumber.Location = new Point(1008, 1174);
         boxWorkStreetNumber.Name = "boxWorkStreetNumber";
         boxWorkStreetNumber.Size = new Size(242, 35);
         boxWorkStreetNumber.TabIndex = 51;
@@ -723,7 +739,7 @@ partial class FormAddEmployee : Form
         // panelWorkZipCode
         // 
         panelWorkZipCode.Controls.Add(labelWorkZipCode);
-        panelWorkZipCode.Location = new Point(651, 1247);
+        panelWorkZipCode.Location = new Point(826, 1247);
         panelWorkZipCode.Name = "panelWorkZipCode";
         panelWorkZipCode.Size = new Size(111, 55);
         panelWorkZipCode.TabIndex = 56;
@@ -739,7 +755,7 @@ partial class FormAddEmployee : Form
         // 
         // boxWorkZipCode
         // 
-        boxWorkZipCode.Location = new Point(833, 1262);
+        boxWorkZipCode.Location = new Point(1008, 1262);
         boxWorkZipCode.Name = "boxWorkZipCode";
         boxWorkZipCode.Size = new Size(242, 35);
         boxWorkZipCode.TabIndex = 52;
@@ -747,7 +763,7 @@ partial class FormAddEmployee : Form
         // panelWorkCity
         // 
         panelWorkCity.Controls.Add(labelWorkCity);
-        panelWorkCity.Location = new Point(651, 1331);
+        panelWorkCity.Location = new Point(826, 1331);
         panelWorkCity.Name = "panelWorkCity";
         panelWorkCity.Size = new Size(111, 55);
         panelWorkCity.TabIndex = 58;
@@ -763,7 +779,7 @@ partial class FormAddEmployee : Form
         // 
         // boxWorkCity
         // 
-        boxWorkCity.Location = new Point(833, 1346);
+        boxWorkCity.Location = new Point(1008, 1346);
         boxWorkCity.Name = "boxWorkCity";
         boxWorkCity.Size = new Size(242, 35);
         boxWorkCity.TabIndex = 53;
@@ -771,7 +787,7 @@ partial class FormAddEmployee : Form
         // panelDateOfHire
         // 
         panelDateOfHire.Controls.Add(labelDateOfHire);
-        panelDateOfHire.Location = new Point(651, 1405);
+        panelDateOfHire.Location = new Point(826, 1405);
         panelDateOfHire.Name = "panelDateOfHire";
         panelDateOfHire.Size = new Size(176, 55);
         panelDateOfHire.TabIndex = 52;
@@ -787,7 +803,7 @@ partial class FormAddEmployee : Form
         // 
         // boxDateOfHire
         // 
-        boxDateOfHire.Location = new Point(833, 1420);
+        boxDateOfHire.Location = new Point(1008, 1420);
         boxDateOfHire.Name = "boxDateOfHire";
         boxDateOfHire.Size = new Size(242, 35);
         boxDateOfHire.TabIndex = 54;
@@ -817,10 +833,23 @@ partial class FormAddEmployee : Form
         boxStatus.Size = new Size(242, 38);
         boxStatus.TabIndex = 55;
         // 
+        // groupBox1
+        // 
+        groupBox1.FlatStyle = FlatStyle.Flat;
+        groupBox1.Location = new Point(12, 15);
+        groupBox1.Name = "groupBox1";
+        groupBox1.Size = new Size(550, 1468);
+        groupBox1.TabIndex = 59;
+        groupBox1.TabStop = false;
+        groupBox1.Text = "Kontaktdaten";
+        // 
         // FormAddEmployee
         // 
         BackColor = Color.White;
         ClientSize = new Size(1924, 1495);
+        Controls.Add(boxFirstName);
+        Controls.Add(panelFirstName);
+        Controls.Add(panelSalutation);
         Controls.Add(boxStatus);
         Controls.Add(panelStatus);
         Controls.Add(panelDateOfHire);
@@ -860,8 +889,6 @@ partial class FormAddEmployee : Form
         Controls.Add(panelSex);
         Controls.Add(panelBirthday);
         Controls.Add(panelLastName);
-        Controls.Add(panelFirstName);
-        Controls.Add(panelSalutation);
         Controls.Add(boxEmail);
         Controls.Add(boxPhoneNumberMobile);
         Controls.Add(boxPhoneNumberCompany);
@@ -875,12 +902,12 @@ partial class FormAddEmployee : Form
         Controls.Add(boxSex);
         Controls.Add(boxBirthday);
         Controls.Add(boxLastName);
-        Controls.Add(boxFirstName);
-        Controls.Add(boxSalutation);
+        Controls.Add(groupBox1);
         Name = "FormAddEmployee";
         Load += FormAddEmployee_Load;
         panelSalutation.ResumeLayout(false);
-        panelSalutation.PerformLayout();
+        panelSalutationLabel.ResumeLayout(false);
+        panelSalutationLabel.PerformLayout();
         panelFirstName.ResumeLayout(false);
         panelFirstName.PerformLayout();
         panelLastName.ResumeLayout(false);
@@ -1026,4 +1053,6 @@ partial class FormAddEmployee : Form
     private Panel panelStatus;
     private Label labelStatus;
     private ComboBox boxStatus;
+    private GroupBox groupBox1;
+    private Panel panelSalutationLabel;
 }
