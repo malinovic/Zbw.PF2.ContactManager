@@ -22,7 +22,6 @@ public partial class FormEmployeesPartial : Form
         ConfigureRowContextMenu();
 
         dgvEmployees.CellDoubleClick += DataGridView1_CellDoubleClick;
-        dgvEmployees.Resize += (_, _) => FillRowsToAvailableHeight();
 
         cmbStatusFilter.Items.Add("Alle");
         foreach (Status status in Enum.GetValues<Status>())
@@ -37,11 +36,9 @@ public partial class FormEmployeesPartial : Form
 
     private void BtnCreateNewEmployee_Click(object sender, EventArgs e)
     {
-        using FormAddEmployee formAddEmployee = new();
+        FormAddEmployee formAddEmployee = new();
 
         formAddEmployee.Show();
-
-        _employees = _repository.GetEmployees();
     }
 
     private void TxtSearchEmployee_TextChanged(object sender, EventArgs e)
@@ -214,28 +211,14 @@ public partial class FormEmployeesPartial : Form
         }
 
         contactManagerRepositoryBindingSource.DataSource = filtered.ToList();
-        FillRowsToAvailableHeight();
     }
 
-    /// <summary>
-    ///     DataGridView has no built-in "fill" mode for row height (unlike
-    ///     <see cref="DataGridViewAutoSizeColumnsMode.Fill" /> for columns), so with few results it
-    ///     would otherwise leave empty space below the last row. This stretches rows to consume the
-    ///     grid's full available height, never shrinking below the normal row height.
-    /// </summary>
-    private void FillRowsToAvailableHeight()
+    private void btnCreateNewEmployee_Click(object sender, EventArgs e)
     {
-        if (dgvEmployees.Rows.Count == 0)
-        {
-            return;
-        }
+        using var form = new FormAddEmployee();
+        form.ShowDialog(this);
 
-        int availableHeight = dgvEmployees.ClientSize.Height - dgvEmployees.ColumnHeadersHeight;
-        int rowHeight = Math.Max(dgvEmployees.RowTemplate.Height, availableHeight / dgvEmployees.Rows.Count);
-
-        foreach (DataGridViewRow row in dgvEmployees.Rows)
-        {
-            row.Height = rowHeight;
-        }
+        _employees = _repository.GetEmployees();
+        ApplyFilter();
     }
 }

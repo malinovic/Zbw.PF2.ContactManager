@@ -1,5 +1,4 @@
-﻿
-using Zbw.PF2.ContactManager.Core.Constants;
+﻿using Zbw.PF2.ContactManager.Core.Constants;
 using Zbw.PF2.ContactManager.Core.Theme;
 using Zbw.PF2.ContactManager.Core.Validation;
 using Zbw.PF2.ContactManager.Data.Repository;
@@ -120,6 +119,7 @@ public partial class FormAddEmployee : Form
     }
 
     private const float FieldFontSize = 9.5F;
+    private const float LabelFontSize = 8F;
 
     /// <summary>
     ///     Recursively applies a flat, modern look (borders, fonts, colors) to every input field,
@@ -143,6 +143,7 @@ public partial class FormAddEmployee : Form
                     break;
                 case Label label:
                     label.ForeColor = Color.DimGray;
+                    label.Font = new Font(FontManager.InterRegular.FontFamily, LabelFontSize, FontStyle.Regular);
                     break;
                 case GroupBox groupBox:
                     groupBox.FlatStyle = FlatStyle.Flat;
@@ -296,7 +297,7 @@ public partial class FormAddEmployee : Form
             EmploymentRate = input.EmploymentRate,
             Role = input.Role,
             ApprenticeshipYears = input.ApprenticeshipYears,
-            DateOfTermination = input.DateOfTermination != null ? DateOnly.Parse(input.DateOfTermination) : null,
+            DateOfTermination = input.DateOfTermination != null && input.DateOfTermination != "" ? DateOnly.Parse(input.DateOfTermination) : null,
 
             WorkAddress = new Address()
             {
@@ -305,18 +306,10 @@ public partial class FormAddEmployee : Form
                 ZipCode = int.Parse(input.WorkZipCode),
                 City = input.WorkCity,
             },
-
             Status = input.EmployeeStatus!.Value,
             SeniorLevel = input.EmployeeSeniorLevel!.Value,
             DateOfHire = DateOnly.Parse(input.DateOfHire!),
         };
-    }
-
-    private static void ShowValidationErrors(ValidationResult result)
-    {
-        string messages = string.Join(Environment.NewLine, result.Errors.Select(error => $"• {error.Message}"));
-
-        MessageBox.Show(messages, "Validation", MessageBoxButtons.OK, MessageBoxIcon.Warning);
     }
 
     private void boxStatus_SelectedIndexChanged(

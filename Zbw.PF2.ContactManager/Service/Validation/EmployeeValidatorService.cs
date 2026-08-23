@@ -179,7 +179,7 @@ public sealed class EmployeeValidatorService
         // Kontaktdaten
 
         if (!string.IsNullOrWhiteSpace(input.PhoneNumberCompany)
-            && !input.PhoneNumberCompany.All(char.IsDigit))
+            && !ValidationFormats.PhoneRegex.IsMatch(input.PhoneNumberCompany))
         {
             result.Add(
                 nameof(input.PhoneNumberCompany),
@@ -187,7 +187,7 @@ public sealed class EmployeeValidatorService
         }
 
         if (!string.IsNullOrWhiteSpace(input.PhoneNumberMobile)
-            && !input.PhoneNumberMobile.All(char.IsDigit))
+            && !ValidationFormats.PhoneRegex.IsMatch(input.PhoneNumberMobile))
         {
             result.Add(
                 nameof(input.PhoneNumberMobile),
@@ -200,7 +200,7 @@ public sealed class EmployeeValidatorService
                 nameof(input.Email),
                 "Die E-Mail-Adresse ist erforderlich.");
         }
-        else if (!input.Email.Contains('@'))
+        else if (!ValidationFormats.EmailRegex.IsMatch(input.Email))
         {
             result.Add(
                 nameof(input.Email),
