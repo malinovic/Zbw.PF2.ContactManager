@@ -20,6 +20,7 @@ partial class FormEmployeesPartial
         base.Dispose(disposing);
     }
 
+
     #region Windows Form Designer generated code
 
     /// <summary>
@@ -28,14 +29,26 @@ partial class FormEmployeesPartial
     /// </summary>
     private void InitializeComponent()
     {
+        btnCreateNewEmployee = new Button();
         SuspendLayout();
+        // 
+        // btnCreateNewEmployee
+        // 
+        btnCreateNewEmployee.Location = new Point(65, 1241);
+        btnCreateNewEmployee.Name = "btnCreateNewEmployee";
+        btnCreateNewEmployee.Size = new Size(424, 62);
+        btnCreateNewEmployee.TabIndex = 1;
+        btnCreateNewEmployee.Text = "Neuer Mitarbeiter";
+        btnCreateNewEmployee.UseVisualStyleBackColor = true;
+        btnCreateNewEmployee.Click += btnCreateNewEmployee_Click;
         // 
         // FormEmployeesPartial
         // 
-        AutoScaleDimensions = new SizeF(12F, 30F);
+        AutoScaleDimensions = new SizeF(13F, 32F);
         AutoScaleMode = AutoScaleMode.Font;
         BackColor = Color.White;
-        ClientSize = new Size(2000, 1258);
+        ClientSize = new Size(2167, 1342);
+        Controls.Add(btnCreateNewEmployee);
         FormBorderStyle = FormBorderStyle.None;
         Name = "FormEmployeesPartial";
         Text = "FormEmployeesPartial";
@@ -43,4 +56,6 @@ partial class FormEmployeesPartial
     }
 
     #endregion
+
+    private Button btnCreateNewEmployee;
 }

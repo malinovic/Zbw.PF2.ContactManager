@@ -4,9 +4,10 @@ using System.Text;
 
 namespace Zbw.PF2.ContactManager.Core.Constants;
 
-public enum Sex
+public enum Title
 {
-    Male, 
-    Female,
+    None,
+    Dr,
+    Prof,
+    ProfDr
 }
-    
