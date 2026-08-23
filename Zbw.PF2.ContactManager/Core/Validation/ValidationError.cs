@@ -1,10 +1,10 @@
-﻿
-namespace Zbw.PF2.ContactManager.Validation;
+﻿namespace Zbw.PF2.ContactManager.Core.Validation;
 
 
 public sealed record ValidationError
 
-{    public string PropertyName { get; }
+{
+    public string PropertyName { get; }
 
     public string Message { get; }
 

@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace Zbw.PF2.ContactManager.Validation;
+﻿namespace Zbw.PF2.ContactManager.Core.Validation;
 
 public sealed class ValidationResult
 {

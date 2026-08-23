@@ -32,20 +32,16 @@ partial class MainForm
     {
         System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
         FlpSideNav = new FlowLayoutPanel();
-        PnlNavTitle = new Panel();
-        NavTitle = new Label();
         BtnNavDashboard = new Button();
         BtnNavCustomers = new Button();
         BtnNavEmployees = new Button();
         PnlContentView = new Panel();
         FlpSideNav.SuspendLayout();
-        PnlNavTitle.SuspendLayout();
         SuspendLayout();
         // 
         // FlpSideNav
         // 
         FlpSideNav.BackColor = Color.White;
-        FlpSideNav.Controls.Add(PnlNavTitle);
         FlpSideNav.Controls.Add(BtnNavDashboard);
         FlpSideNav.Controls.Add(BtnNavCustomers);
         FlpSideNav.Controls.Add(BtnNavEmployees);
@@ -55,23 +51,6 @@ partial class MainForm
         FlpSideNav.Size = new Size(551, 1445);
         FlpSideNav.TabIndex = 0;
         // 
-        // PnlNavTitle
-        // 
-        PnlNavTitle.Controls.Add(NavTitle);
-        PnlNavTitle.Location = new Point(3, 3);
-        PnlNavTitle.Name = "PnlNavTitle";
-        PnlNavTitle.Size = new Size(548, 133);
-        PnlNavTitle.TabIndex = 4;
-        // 
-        // NavTitle
-        // 
-        NavTitle.AutoSize = true;
-        NavTitle.Location = new Point(31, 50);
-        NavTitle.Name = "NavTitle";
-        NavTitle.Size = new Size(213, 36);
-        NavTitle.TabIndex = 0;
-        NavTitle.Text = "Contact Manager";
-        // 
         // BtnNavDashboard
         // 
         BtnNavDashboard.BackColor = Color.White;
@@ -79,7 +58,7 @@ partial class MainForm
         BtnNavDashboard.ForeColor = SystemColors.ControlText;
         BtnNavDashboard.Image = Properties.Resources.home;
         BtnNavDashboard.ImageAlign = ContentAlignment.MiddleLeft;
-        BtnNavDashboard.Location = new Point(3, 142);
+        BtnNavDashboard.Location = new Point(3, 3);
         BtnNavDashboard.Name = "BtnNavDashboard";
         BtnNavDashboard.Padding = new Padding(50, 0, 0, 0);
         BtnNavDashboard.Size = new Size(545, 92);
@@ -96,7 +75,7 @@ partial class MainForm
         BtnNavCustomers.ForeColor = SystemColors.ControlText;
         BtnNavCustomers.Image = (Image)resources.GetObject("BtnNavCustomers.Image");
         BtnNavCustomers.ImageAlign = ContentAlignment.MiddleLeft;
-        BtnNavCustomers.Location = new Point(3, 240);
+        BtnNavCustomers.Location = new Point(3, 101);
         BtnNavCustomers.Name = "BtnNavCustomers";
         BtnNavCustomers.Padding = new Padding(50, 0, 0, 0);
         BtnNavCustomers.Size = new Size(545, 92);
@@ -113,7 +92,7 @@ partial class MainForm
         BtnNavEmployees.ForeColor = SystemColors.ControlText;
         BtnNavEmployees.Image = (Image)resources.GetObject("BtnNavEmployees.Image");
         BtnNavEmployees.ImageAlign = ContentAlignment.MiddleLeft;
-        BtnNavEmployees.Location = new Point(3, 338);
+        BtnNavEmployees.Location = new Point(3, 199);
         BtnNavEmployees.Name = "BtnNavEmployees";
         BtnNavEmployees.Padding = new Padding(50, 0, 0, 0);
         BtnNavEmployees.Size = new Size(545, 92);
@@ -133,7 +112,7 @@ partial class MainForm
         // 
         // MainForm
         // 
-        AutoScaleDimensions = new SizeF(14F, 36F);
+        AutoScaleDimensions = new SizeF(16F, 40F);
         AutoScaleMode = AutoScaleMode.Font;
         ClientSize = new Size(2339, 1445);
         Controls.Add(PnlContentView);
@@ -145,8 +124,6 @@ partial class MainForm
         Text = "Contact Manager";
         WindowState = FormWindowState.Maximized;
         FlpSideNav.ResumeLayout(false);
-        PnlNavTitle.ResumeLayout(false);
-        PnlNavTitle.PerformLayout();
         ResumeLayout(false);
     }
 
@@ -156,6 +133,4 @@ partial class MainForm
     private Panel PnlContentView;
     private Button BtnNavEmployees;
     private Button BtnNavCustomers;
-    private Panel PnlNavTitle;
-    private Label NavTitle;
 }

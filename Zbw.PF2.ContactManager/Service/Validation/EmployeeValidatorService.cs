@@ -1,8 +1,11 @@
 ﻿using System.Globalization;
 
-namespace Zbw.PF2.ContactManager.Validation.ValidationEmployee;
+using Zbw.PF2.ContactManager.Core.Validation;
+using Zbw.PF2.ContactManager.Validation.ValidationEmployee;
 
-public sealed class EmployeeValidator
+namespace Zbw.PF2.ContactManager.Service.Validation;
+
+public sealed class EmployeeValidatorService
 {
     private static void ValidateBirthday(
         EmployeeInput input,

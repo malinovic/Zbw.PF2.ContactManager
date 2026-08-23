@@ -6,10 +6,10 @@ public sealed class EmployeeInput
 {
     public Salutation? Salutation { get; init; }
     public string FirstName { get; init; } = string.Empty;
-    public string LastName {  get; init; } = string.Empty;
-    public string? Birthday {  get; init; }
+    public string LastName { get; init; } = string.Empty;
+    public string? Birthday { get; init; }
     public Sex? Sex { get; init; }
-    public Title? Title {  get; init; }
+    public Title? Title { get; init; }
     public string PhoneNumberCompany { get; init; } = string.Empty;
     public string PhoneNumberMobile { get; init; } = string.Empty;
     public string Email { get; init; } = string.Empty;
@@ -23,7 +23,6 @@ public sealed class EmployeeInput
     public string Department { get; init; } = string.Empty;
     public string AhvNumber { get; init; } = string.Empty;
     public string Nationality { get; init; } = string.Empty;
-    public string EmployeeStatusMessage { get; init; } = string.Empty;
     public int EmploymentRate { get; init; }
     public string Role { get; init; } = string.Empty;
     public int? ApprenticeshipYears { get; init; }

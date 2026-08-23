@@ -1,23 +1,33 @@
 ﻿
 using Zbw.PF2.ContactManager.Core.Constants;
 using Zbw.PF2.ContactManager.Core.Theme;
+using Zbw.PF2.ContactManager.Core.Validation;
 using Zbw.PF2.ContactManager.Data.Repository;
 using Zbw.PF2.ContactManager.Models;
-using Zbw.PF2.ContactManager.Validation;
+using Zbw.PF2.ContactManager.Service.Validation;
 using Zbw.PF2.ContactManager.Validation.ValidationEmployee;
 
 namespace Zbw.PF2.ContactManager.UI.Partials;
 
 public partial class FormAddEmployee : Form
 {
-    private readonly EmployeeValidator _employeeValidator;
+    private readonly EmployeeValidatorService _employeeValidator;
     private readonly IContactManagerRepository _repository;
+    private readonly Employee? _editingEmployee;
 
-    public FormAddEmployee()
+    public FormAddEmployee() : this(null)
+    {
+    }
+
+    /// <summary>
+    ///     Opens the form pre-filled for editing an existing employee. Passing <c>null</c> keeps
+    ///     the original "create new employee" behavior.
+    /// </summary>
+    public FormAddEmployee(Employee? employee)
     {
         InitializeComponent();
 
-        _employeeValidator = new EmployeeValidator();
+        _employeeValidator = new();
         boxStatus.SelectedIndexChanged += boxStatus_SelectedIndexChanged;
 
 
@@ -27,6 +37,49 @@ public partial class FormAddEmployee : Form
 
 
         _repository = new ContactManagerRepository(new CSVRepository());
+
+        _editingEmployee = employee;
+        if (employee is not null)
+        {
+            PopulateFields(employee);
+            Text = "Mitarbeiter bearbeiten";
+        }
+    }
+
+    private void PopulateFields(Employee employee)
+    {
+        boxSalutation.SelectedItem = employee.Salutation;
+        boxFirstName.Text = employee.FirstName;
+        boxLastName.Text = employee.LastName;
+        boxBirthday.Text = employee.Birthday.ToShortDateString();
+        boxSex.SelectedItem = employee.Sex;
+        boxTitle.SelectedItem = employee.Title;
+
+        boxStreet.Text = employee.Address.StreetName;
+        boxStreetNumber.Text = employee.Address.StreetNumber;
+        boxZipCode.Text = employee.Address.ZipCode.ToString();
+        boxCity.Text = employee.Address.City;
+
+        boxPhoneNumberCompany.Text = employee.PhoneNumberCompany;
+        boxPhoneNumberMobile.Text = employee.PhoneNumberMobile;
+        boxEmail.Text = employee.Email;
+
+        boxEmployeeNumber.Text = employee.EmployeeNumber;
+        boxDepartment.Text = employee.Department;
+        boxAhvNumber.Text = employee.AhvNumber;
+        boxNationality.Text = employee.Nationality;
+        boxEmploymentRate.Text = employee.EmploymentRate.ToString();
+        boxRole.Text = employee.Role;
+        boxApprenticeshipYears.Text = employee.ApprenticeshipYears?.ToString() ?? string.Empty;
+        boxSeniorLevel.Text = employee.SeniorLevel.ToString();
+
+        boxWorkStreet.Text = employee.WorkAddress.StreetName;
+        boxWorkStreetNumber.Text = employee.WorkAddress.StreetNumber;
+        boxWorkZipCode.Text = employee.WorkAddress.ZipCode.ToString();
+        boxWorkCity.Text = employee.WorkAddress.City;
+
+        boxDateOfHire.Text = employee.DateOfHire.ToShortDateString();
+        boxStatus.SelectedItem = employee.Status;
     }
 
     private void InitializeComboBoxes()
@@ -35,6 +88,11 @@ public partial class FormAddEmployee : Form
         boxSex.DataSource = Enum.GetValues<Sex>();
         boxTitle.DataSource = Enum.GetValues<Title>();
         boxStatus.DataSource = Enum.GetValues<Status>();
+
+        boxSalutation.Format += (_, e) => e.Value = ((Salutation)e.ListItem!).ToGerman();
+        boxSex.Format += (_, e) => e.Value = ((Sex)e.ListItem!).ToGerman();
+        boxTitle.Format += (_, e) => e.Value = ((Title)e.ListItem!).ToGerman();
+        boxStatus.Format += (_, e) => e.Value = ((Status)e.ListItem!).ToGerman();
 
         boxSalutation.SelectedIndex = -1;
         boxSex.SelectedIndex = -1;
@@ -51,11 +109,80 @@ public partial class FormAddEmployee : Form
     {
         Font = FontManager.InterRegular;
 
+        ApplyModernFieldStyles(this);
 
         SetupPersonalSection();
         SetupEmployeeSection();
         SetupStatusSection();
 
+        ThemeManager.ApplyButtonStyles(buttonSave);
+        ThemeManager.ApplyButtonStyles(buttonCancel);
+    }
+
+    private const float FieldFontSize = 9.5F;
+
+    /// <summary>
+    ///     Recursively applies a flat, modern look (borders, fonts, colors) to every input field,
+    ///     label, and group box on the form. Field text is shrunk slightly and the input boxes are
+    ///     grown to fill the space reserved for them so more text (e.g. a street name) fits on screen.
+    /// </summary>
+    private static void ApplyModernFieldStyles(Control root)
+    {
+        foreach (Control control in root.Controls)
+        {
+            switch (control)
+            {
+                case TextBox textBox:
+                    textBox.BorderStyle = BorderStyle.FixedSingle;
+                    textBox.Font = new Font(FontManager.InterRegular.FontFamily, FieldFontSize);
+                    EnlargeField(textBox);
+                    break;
+                case ComboBox comboBox:
+                    comboBox.FlatStyle = FlatStyle.Flat;
+                    comboBox.Font = new Font(FontManager.InterRegular.FontFamily, FieldFontSize);
+                    break;
+                case Label label:
+                    label.ForeColor = Color.DimGray;
+                    break;
+                case GroupBox groupBox:
+                    groupBox.FlatStyle = FlatStyle.Flat;
+                    groupBox.Font = new Font(FontManager.InterRegular.FontFamily, 13F, FontStyle.Bold);
+                    break;
+            }
+
+            ApplyModernFieldStyles(control);
+        }
+    }
+
+    /// <summary>
+    ///     Grows a bottom-docked field to fill the remaining space in its parent panel (i.e. the
+    ///     panel height minus whatever is reserved by a top-docked label), instead of leaving a gap.
+    /// </summary>
+    private static void EnlargeField(Control field)
+    {
+        if (field.Dock != DockStyle.Bottom || field.Parent is null)
+        {
+            return;
+        }
+
+        int reservedTop = field.Parent.Controls
+            .Cast<Control>()
+            .Where(sibling => sibling != field && sibling.Dock == DockStyle.Top)
+            .Sum(sibling => sibling.Height);
+
+        int availableHeight = field.Parent.ClientSize.Height - reservedTop;
+
+        if (availableHeight <= field.Height)
+        {
+            return;
+        }
+
+        if (field is TextBox textBox)
+        {
+            textBox.AutoSize = false;
+        }
+
+        field.Height = availableHeight;
     }
 
     private void SetupPersonalSection()
@@ -65,69 +192,11 @@ public partial class FormAddEmployee : Form
 
     private void SetupEmployeeSection()
     {
-        ThemeManager.AlignPanelsVertically(
-            25,
-            panelEmployeeNumber,
-            panelDepartment,
-            panelAhvNumber,
-            panelNationality,
-            panelEmploymentRate,
-            panelRole,
-            panelApprenticeshipYears,
-            panelSeniorLevel,
-            panelWorkStreet,
-            panelWorkStreetNumber,
-            panelWorkZipCode,
-            panelWorkCity,
-            panelDateOfHire
-        );
 
-
-        ThemeManager.AlignTextBoxesVertically(
-            200,
-            (boxEmployeeNumber, panelEmployeeNumber),
-            (boxDepartment, panelDepartment),
-            (boxAhvNumber, panelAhvNumber),
-            (boxNationality, panelNationality),
-            (boxEmploymentRate, panelEmploymentRate),
-            (boxRole, panelRole),
-            (boxApprenticeshipYears, panelApprenticeshipYears),
-            (boxSeniorLevel, panelSeniorLevel),
-            (boxWorkStreet, panelWorkStreet),
-            (boxWorkStreetNumber, panelWorkStreetNumber),
-            (boxWorkZipCode, panelWorkZipCode),
-            (boxWorkCity, panelWorkCity),
-            (boxDateOfHire, panelDateOfHire)
-        );
-
-
-        ThemeManager.ApplyAddEmployeeLabelAndPanelStyles(
-            (labelEmployeeNumber, panelEmployeeNumber),
-            (labelDepartment, panelDepartment),
-            (labelAhvNumber, panelAhvNumber),
-            (labelNationality, panelNationality),
-            (labelEmploymentRate, panelEmploymentRate),
-            (labelRole, panelRole),
-            (labelApprenticeshipYears, panelApprenticeshipYears),
-            (labelSeniorLevel, panelSeniorLevel),
-            (labelWorkStreet, panelWorkStreet),
-            (labelWorkStreetNumber, panelWorkStreetNumber),
-            (labelWorkZipCode, panelWorkZipCode),
-            (labelWorkCity, panelWorkCity),
-            (labelDateOfHire, panelDateOfHire)
-        );
     }
 
     private void SetupStatusSection()
     {
-
-        panelStatus.Top = panelSalutation.Top;
-        boxStatus.Top = boxSalutation.Top;
-
-        ThemeManager.ApplyAddEmployeeLabelAndPanelStyles(
-            labelStatus,
-            panelStatus);
-
         ThemeManager.ApplyStatusColor(boxStatus);
     }
 
@@ -178,7 +247,8 @@ public partial class FormAddEmployee : Form
                  ? apprenticeshipYears
                  : null,
 
-            EmployeeStatus = Enum.TryParse<Status>(boxStatus.Text, true, out Status status)
+            EmployeeStatus =
+            boxStatus.SelectedItem is Status status
                 ? status
                 : null,
 
@@ -195,15 +265,16 @@ public partial class FormAddEmployee : Form
     }
 
 
-    private static Employee CreateEmployee(EmployeeInput input)
+    private static Employee CreateEmployee(EmployeeInput input, int id)
     {
         return new Employee
         {
+            Id = id,
 
             Salutation = input.Salutation!.Value,
             FirstName = input.FirstName,
             LastName = input.LastName,
-            Birthday = input.Birthday!,
+            Birthday = DateOnly.Parse(input.Birthday!),
             Sex = input.Sex!.Value,
             Title = input.Title!.Value,
 
@@ -222,22 +293,22 @@ public partial class FormAddEmployee : Form
             Department = input.Department,
             AhvNumber = input.AhvNumber,
             Nationality = input.Nationality,
-            EmployeeEmploymentRate = input.EmploymentRate,
+            EmploymentRate = input.EmploymentRate,
             Role = input.Role,
-            EmployeeApprenticeshipYears = input.ApprenticeshipYears,
-            EmployeeDateOfTermination = input.DateOfTermination,
+            ApprenticeshipYears = input.ApprenticeshipYears,
+            DateOfTermination = input.DateOfTermination != null ? DateOnly.Parse(input.DateOfTermination) : null,
 
             WorkAddress = new Address()
             {
-                StreetName = input.PrivateStreetName,
-                StreetNumber = input.PrivateStreetNumber,
-                ZipCode = int.Parse(input.PrivateZipCode),
-                City = input.PrivateCity,
+                StreetName = input.WorkStreetName,
+                StreetNumber = input.WorkStreetNumber,
+                ZipCode = int.Parse(input.WorkZipCode),
+                City = input.WorkCity,
             },
 
-            EmployeeStatus = input.EmployeeStatus!.Value,
-            EmployeeSeniorLevel = input.EmployeeSeniorLevel!.Value,
-            EmployeeDateOfHire = input.DateOfHire!,
+            Status = input.EmployeeStatus!.Value,
+            SeniorLevel = input.EmployeeSeniorLevel!.Value,
+            DateOfHire = DateOnly.Parse(input.DateOfHire!),
         };
     }
 
@@ -272,24 +343,38 @@ public partial class FormAddEmployee : Form
             return;
         }
 
-        var newEmployee = CreateEmployee(input);
+        int id = _editingEmployee?.Id ?? 0;
+        var employee = CreateEmployee(input, id);
 
-        _repository.AddEmployee(newEmployee);
+        if (_editingEmployee is null)
+        {
+            _repository.AddEmployee(employee);
+            MessageBox.Show("Mitarbeiter wurde erfolgreich gespeichert");
+        }
+        else
+        {
+            _repository.UpdateEmployee(employee);
+            MessageBox.Show("Mitarbeiter wurde erfolgreich aktualisiert");
+        }
+
+        Close();
     }
 
 
     private void buttonCancel_Click(object sender, EventArgs e)
     {
+        DialogResult confirmation = MessageBox.Show(
+            $"Wollen sie wirklich abbrechen? Ungespeicherte Änderungen gehen verloren.",
+            "Abbrechen?",
+            MessageBoxButtons.YesNo,
+            MessageBoxIcon.Warning);
+
+        if (confirmation != DialogResult.Yes)
+        {
+            return;
+        }
+
         Close();
     }
-
-    private void FormAddEmployee_Load(object sender, EventArgs e)
-    {
-
-    }
-
-
-
-
 }
 

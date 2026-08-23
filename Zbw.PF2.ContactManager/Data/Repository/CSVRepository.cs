@@ -77,12 +77,12 @@ public class CSVRepository : ICSVRepository
     public void CreateRecord<T>(T person) where T : Person
     {
         string filePath = GetSourceFile<T>();
-        using StreamWriter writer = new(filePath);
+        using StreamWriter writer = new(filePath, append: true);
         using CsvWriter csvWriter = new(writer, _csvConfig);
         RegisterClassMap<T>(csvWriter.Context);
 
         csvWriter.WriteRecord(person);
-        csvWriter.Flush();
+        csvWriter.NextRecord();
     }
 
     public void UpdateRecord<T>(T person) where T : Person

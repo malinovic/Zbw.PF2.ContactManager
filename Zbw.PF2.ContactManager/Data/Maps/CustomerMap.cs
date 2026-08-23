@@ -17,25 +17,25 @@ public class CustomerMap : ClassMap<Customer>
     public CustomerMap()
     {
         // Person
-        Map(m => m.Id).Name("id");
-        Map(m => m.Salutation).Name("salutation");
-        Map(m => m.FirstName).Name("first_name");
-        Map(m => m.LastName).Name("last_name");
-        Map(m => m.Birthday).Name("birthday");
-        Map(m => m.Sex).Name("sex");
-        Map(m => m.Title).Name("title");
-        Map(m => m.Address.StreetName).Name("street_name");
-        Map(m => m.Address.StreetNumber).Name("street_number");
-        Map(m => m.Address.ZipCode).Name("zip_code");
-        Map(m => m.Address.City).Name("city");
-        Map(m => m.PhoneNumberCompany).Name("phone_number_company");
-        Map(m => m.PhoneNumberMobile).Name("phone_number_mobile");
-        Map(m => m.Email).Name("email");
+        Map(m => m.Id).Index(0).Name("id");
+        Map(m => m.Salutation).Index(1).Name("salutation");
+        Map(m => m.FirstName).Index(2).Name("first_name");
+        Map(m => m.LastName).Index(3).Name("last_name");
+        Map(m => m.Birthday).Index(4).Name("birthday").TypeConverter<CsvHelper.TypeConversion.DateOnlyConverter>().TypeConverterOption.Format("dd.MM.yyyy");
+        Map(m => m.Sex).Index(5).Name("sex");
+        Map(m => m.Title).Index(6).Name("title");
+        Map(m => m.Address.StreetName).Index(7).Name("street_name");
+        Map(m => m.Address.StreetNumber).Index(8).Name("street_number");
+        Map(m => m.Address.ZipCode).Index(9).Name("zip_code");
+        Map(m => m.Address.City).Index(10).Name("city");
+        Map(m => m.PhoneNumberCompany).Index(11).Name("phone_number_company");
+        Map(m => m.PhoneNumberMobile).Index(12).Name("phone_number_mobile");
+        Map(m => m.Email).Index(13).Name("email");
 
         // Customer
-        Map(m => m.CustomerNumber).Name("customer_number");
-        Map(m => m.CustomerCompanyName).Name("customer_company_name");
-        Map(m => m.CustomerStatus).Name("customer_status");
-        Map(m => m.CustomerType).Name("customer_type");
+        Map(m => m.CustomerNumber).Index(14).Name("customer_number");
+        Map(m => m.CustomerCompanyName).Index(15).Name("customer_company_name");
+        Map(m => m.CustomerStatus).Index(16).Name("customer_status");
+        Map(m => m.CustomerType).Index(17).Name("customer_type");
     }
 }
