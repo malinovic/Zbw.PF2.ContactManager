@@ -178,8 +178,7 @@ public sealed class EmployeeValidatorService
 
         // Kontaktdaten
 
-        if (!string.IsNullOrWhiteSpace(input.PhoneNumberCompany)
-            && !ValidationFormats.PhoneRegex.IsMatch(input.PhoneNumberCompany))
+        if (input.PhoneNumberCompany != string.Empty && !ValidationFormats.PhoneRegex.IsMatch(input.PhoneNumberCompany))
         {
             result.Add(
                 nameof(input.PhoneNumberCompany),
