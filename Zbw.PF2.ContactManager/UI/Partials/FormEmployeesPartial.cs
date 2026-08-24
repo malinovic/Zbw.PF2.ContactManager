@@ -2,6 +2,7 @@
 using Zbw.PF2.ContactManager.Core.Theme;
 using Zbw.PF2.ContactManager.Data.Repository;
 using Zbw.PF2.ContactManager.Models;
+using Zbw.PF2.ContactManager.Service.Search;
 
 namespace Zbw.PF2.ContactManager.UI.Partials;
 
@@ -9,6 +10,7 @@ public partial class FormEmployeesPartial : Form
 {
     private readonly IContactManagerRepository _repository;
     private IList<Employee> _employees = [];
+    private ISearchService _searchService = new SearchService();
 
     public FormEmployeesPartial(IContactManagerRepository contactManagerRepository)
     {
@@ -36,9 +38,9 @@ public partial class FormEmployeesPartial : Form
 
     private void BtnCreateNewEmployee_Click(object sender, EventArgs e)
     {
-        FormAddEmployee formAddEmployee = new();
+        FormEmployeeDetail formEmployeeDetail = new();
 
-        formAddEmployee.Show();
+        formEmployeeDetail.Show();
     }
 
     private void TxtSearchEmployee_TextChanged(object sender, EventArgs e)
@@ -58,7 +60,7 @@ public partial class FormEmployeesPartial : Form
             return;
         }
 
-        using var form = new FormAddEmployee(employee);
+        using var form = new FormEmployeeDetail(employee);
         form.ShowDialog(this);
 
         _employees = _repository.GetEmployees();
@@ -67,7 +69,7 @@ public partial class FormEmployeesPartial : Form
 
     /// <summary>
     ///     Builds the grid's columns from just the fields most useful for scanning the employee
-    ///     list at a glance; double-clicking a row opens <see cref="FormAddEmployee" /> for the
+    ///     list at a glance; double-clicking a row opens <see cref="FormEmployeeDetailPartial" /> for the
     ///     full set of details and editing. Defined in code (rather than the Designer file) so it
     ///     survives the WinForms designer regenerating <c>InitializeComponent</c>.
     /// </summary>
@@ -82,8 +84,8 @@ public partial class FormEmployeesPartial : Form
             CreateColumn("Department", "Abteilung", 150),
             CreateColumn("Role", "Rolle", 140),
             CreateColumn("Email", "E-Mail", 220),
-            CreateColumn("EmployeeStatus", "Status", 120),
-            CreateColumn("EmployeeDateOfHire", "Eingestellt am", 150));
+            CreateColumn("Status", "Status", 120),
+            CreateColumn("DateOfHire", "Eingestellt am", 150));
 
         // Stretch the columns to always fill the grid's full width instead of leaving empty
         // space on wide windows; the basic widths above become the relative fill proportions.
@@ -147,7 +149,7 @@ public partial class FormEmployeesPartial : Form
             return;
         }
 
-        using var form = new FormAddEmployee(employee);
+        using var form = new FormEmployeeDetail(employee);
         form.ShowDialog(this);
 
         _employees = _repository.GetEmployees();
@@ -193,29 +195,12 @@ public partial class FormEmployeesPartial : Form
 
     private void ApplyFilter()
     {
-        IEnumerable<Employee> filtered = _employees;
-
-        string search = txtSearchEmployee.Text.Trim();
-        if (!string.IsNullOrEmpty(search))
-        {
-            filtered = filtered.Where(employee =>
-                employee.FirstName.Contains(search, StringComparison.OrdinalIgnoreCase) ||
-                employee.LastName.Contains(search, StringComparison.OrdinalIgnoreCase) ||
-                employee.EmployeeNumber.Contains(search, StringComparison.OrdinalIgnoreCase) ||
-                employee.Department.Contains(search, StringComparison.OrdinalIgnoreCase));
-        }
-
-        if (cmbStatusFilter.SelectedItem is Status status)
-        {
-            filtered = filtered.Where(employee => employee.Status == status);
-        }
-
-        contactManagerRepositoryBindingSource.DataSource = filtered.ToList();
+        contactManagerRepositoryBindingSource.DataSource = _searchService.SearchEmployees(_employees, txtSearchEmployee.Text, cmbStatusFilter.SelectedItem);
     }
 
     private void btnCreateNewEmployee_Click(object sender, EventArgs e)
     {
-        using var form = new FormAddEmployee();
+        using var form = new FormEmployeeDetail();
         form.ShowDialog(this);
 
         _employees = _repository.GetEmployees();

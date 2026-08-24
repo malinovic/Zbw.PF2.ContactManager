@@ -3,7 +3,7 @@
 
 namespace Zbw.PF2.ContactManager.UI.Partials;
 
-partial class FormAddEmployee : Form
+partial class FormEmployeeDetail : Form
 {
     /// <summary>
     /// Required designer variable.

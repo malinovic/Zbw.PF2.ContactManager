@@ -61,7 +61,7 @@ public class CSVRepository : ICSVRepository
         {
             throw new ArgumentException($"Unsupported record type: {typeof(T).FullName}");
         }
-
+        
         using StreamReader reader = new(filePath);
         using CsvReader csv = new(reader, _csvConfig);
         RegisterClassMap<T>(csv.Context);

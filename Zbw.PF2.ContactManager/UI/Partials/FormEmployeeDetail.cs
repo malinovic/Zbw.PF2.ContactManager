@@ -3,18 +3,20 @@ using Zbw.PF2.ContactManager.Core.Theme;
 using Zbw.PF2.ContactManager.Core.Validation;
 using Zbw.PF2.ContactManager.Data.Repository;
 using Zbw.PF2.ContactManager.Models;
+using Zbw.PF2.ContactManager.Service.Identity;
 using Zbw.PF2.ContactManager.Service.Validation;
 using Zbw.PF2.ContactManager.Validation.ValidationEmployee;
 
 namespace Zbw.PF2.ContactManager.UI.Partials;
 
-public partial class FormAddEmployee : Form
+public partial class FormEmployeeDetail : Form
 {
     private readonly EmployeeValidatorService _employeeValidator;
     private readonly IContactManagerRepository _repository;
+    private readonly IIdentityService _identityService;
     private readonly Employee? _editingEmployee;
 
-    public FormAddEmployee() : this(null)
+    public FormEmployeeDetail() : this(null)
     {
     }
 
@@ -22,7 +24,7 @@ public partial class FormAddEmployee : Form
     ///     Opens the form pre-filled for editing an existing employee. Passing <c>null</c> keeps
     ///     the original "create new employee" behavior.
     /// </summary>
-    public FormAddEmployee(Employee? employee)
+    public FormEmployeeDetail(Employee? employee)
     {
         InitializeComponent();
 
@@ -36,12 +38,17 @@ public partial class FormAddEmployee : Form
 
 
         _repository = new ContactManagerRepository(new CSVRepository());
+        _identityService = new IdentityService();
 
         _editingEmployee = employee;
         if (employee is not null)
         {
             PopulateFields(employee);
             Text = "Mitarbeiter bearbeiten";
+        }
+        else
+        {
+            boxEmployeeNumber.Text = _identityService.GenerateEmployeeId(_repository.GetEmployees());
         }
     }
 
