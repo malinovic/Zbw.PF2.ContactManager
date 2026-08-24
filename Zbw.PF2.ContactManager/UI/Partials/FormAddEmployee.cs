@@ -109,9 +109,6 @@ public partial class FormAddEmployee : Form
         Font = FontManager.InterRegular;
 
         ApplyModernFieldStyles(this);
-
-        SetupPersonalSection();
-        SetupEmployeeSection();
         SetupStatusSection();
 
         ThemeManager.ApplyButtonStyles(buttonSave);
@@ -184,16 +181,6 @@ public partial class FormAddEmployee : Form
         }
 
         field.Height = availableHeight;
-    }
-
-    private void SetupPersonalSection()
-    {
-
-    }
-
-    private void SetupEmployeeSection()
-    {
-
     }
 
     private void SetupStatusSection()

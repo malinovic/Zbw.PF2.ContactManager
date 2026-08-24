@@ -28,19 +28,30 @@ partial class FormDashboardPartial
     /// </summary>
     private void InitializeComponent()
     {
+        label1 = new System.Windows.Forms.Label();
         SuspendLayout();
+        // 
+        // label1
+        // 
+        label1.Location = new System.Drawing.Point(140, 205);
+        label1.Name = "label1";
+        label1.Size = new System.Drawing.Size(221, 103);
+        label1.TabIndex = 0;
+        label1.Text = "label1";
         // 
         // FormDashboardPartial
         // 
-        AutoScaleDimensions = new SizeF(13F, 32F);
-        AutoScaleMode = AutoScaleMode.Font;
-        BackColor = Color.Brown;
-        ClientSize = new Size(2291, 1317);
-        FormBorderStyle = FormBorderStyle.None;
-        Name = "FormDashboardPartial";
+        AutoScaleDimensions = new System.Drawing.SizeF(12F, 30F);
+        AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+        BackColor = System.Drawing.Color.Brown;
+        ClientSize = new System.Drawing.Size(2291, 1317);
+        Controls.Add(label1);
+        FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
         Text = "FormDashboardPartial";
         ResumeLayout(false);
     }
+
+    private System.Windows.Forms.Label label1;
 
     #endregion
 }
