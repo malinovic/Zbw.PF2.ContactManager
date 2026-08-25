@@ -97,19 +97,4 @@ public partial class FormDashboardPartial : Form
             ? new object[] { "Keine Einträge" }
             : duplicates.ToArray());
     }
-
-    private void labelMissingPhoneTitle_Click(object sender, EventArgs e)
-    {
-
-    }
-
-    private void listBoxRecentContacts_SelectedIndexChanged(object sender, EventArgs e)
-    {
-
-    }
-
-    private void listBoxMissingPhone_SelectedIndexChanged(object sender, EventArgs e)
-    {
-
-    }
 }
