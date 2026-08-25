@@ -10,6 +10,9 @@ public partial class MainForm : Form
     private Form? _activeForm;
     private Button? _activeNavigationButton;
 
+    /// <summary>
+    ///     Initializes a new instance of <see cref="MainForm" /> and shows the dashboard view.
+    /// </summary>
     public MainForm()
     {
         InitializeComponent();

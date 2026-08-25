@@ -9,6 +9,10 @@ using Zbw.PF2.ContactManager.Models;
 
 namespace Zbw.PF2.ContactManager.Data.Repository;
 
+/// <summary>
+///     Implements <see cref="ICSVRepository" /> by persisting <see cref="Customer" /> and
+///     <see cref="Employee" /> records to CSV files under the current user's profile directory.
+/// </summary>
 public class CSVRepository : ICSVRepository
 {
     private readonly CsvConfiguration _csvConfig;
@@ -85,6 +89,12 @@ public class CSVRepository : ICSVRepository
         csvWriter.NextRecord();
     }
 
+    /// <summary>
+    ///     Updates an existing record matched by <see cref="Person.Id" /> by rewriting the CSV file
+    ///     that corresponds to type <typeparamref name="T" /> with the updated record in place.
+    /// </summary>
+    /// <typeparam name="T">The person-derived type to update.</typeparam>
+    /// <param name="person">The record containing the updated values.</param>
     public void UpdateRecord<T>(T person) where T : Person
     {
         string tempFilePath = Path.GetTempFileName();

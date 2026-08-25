@@ -16,6 +16,9 @@ public partial class FormEmployeeDetail : Form
     private readonly IIdentityService _identityService;
     private readonly Employee? _editingEmployee;
 
+    /// <summary>
+    ///     Opens the form for creating a new employee.
+    /// </summary>
     public FormEmployeeDetail() : this(null)
     {
     }

@@ -12,6 +12,10 @@ public partial class FormEmployeesPartial : Form
     private IList<Employee> _employees = [];
     private ISearchService _searchService = new SearchService();
 
+    /// <summary>
+    ///     Initializes a new instance of <see cref="FormEmployeesPartial" /> and loads the employee list.
+    /// </summary>
+    /// <param name="contactManagerRepository">The repository used to load and persist employees.</param>
     public FormEmployeesPartial(IContactManagerRepository contactManagerRepository)
     {
         InitializeComponent();

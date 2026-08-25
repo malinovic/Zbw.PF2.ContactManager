@@ -5,6 +5,9 @@ using Zbw.PF2.ContactManager.Validation.ValidationEmployee;
 
 namespace Zbw.PF2.ContactManager.Service.Validation;
 
+/// <summary>
+///     Validates an <see cref="EmployeeInput" /> and collects any validation failures.
+/// </summary>
 public sealed class EmployeeValidatorService
 {
     private static void ValidateBirthday(
@@ -97,6 +100,12 @@ public sealed class EmployeeValidatorService
         }
     }
 
+    /// <summary>
+    ///     Validates all fields of the given employee input.
+    /// </summary>
+    /// <param name="input">The employee input to validate.</param>
+    /// <returns>A <see cref="ValidationResult" /> containing any validation failures.</returns>
+    /// <exception cref="ArgumentNullException">Thrown when <paramref name="input" /> is <c>null</c>.</exception>
     public ValidationResult Validate(EmployeeInput input)
     {
         ArgumentNullException.ThrowIfNull(input);
