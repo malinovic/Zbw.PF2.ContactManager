@@ -216,6 +216,7 @@ partial class FormEmployeeDetail : Form
         // boxFirstName
         // 
         boxFirstName.Dock = System.Windows.Forms.DockStyle.Bottom;
+        boxFirstName.Font = new System.Drawing.Font("Segoe UI", 11F);
         boxFirstName.Location = new System.Drawing.Point(0, 63);
         boxFirstName.Name = "boxFirstName";
         boxFirstName.Size = new System.Drawing.Size(250, 35);
@@ -224,6 +225,7 @@ partial class FormEmployeeDetail : Form
         // boxLastName
         // 
         boxLastName.Dock = System.Windows.Forms.DockStyle.Bottom;
+        boxLastName.Font = new System.Drawing.Font("Segoe UI", 11F);
         boxLastName.Location = new System.Drawing.Point(0, 63);
         boxLastName.Name = "boxLastName";
         boxLastName.Size = new System.Drawing.Size(250, 35);
@@ -233,6 +235,7 @@ partial class FormEmployeeDetail : Form
         // 
         boxBirthday.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
         boxBirthday.Dock = System.Windows.Forms.DockStyle.Bottom;
+        boxBirthday.Font = new System.Drawing.Font("Segoe UI", 11F);
         boxBirthday.Location = new System.Drawing.Point(0, 66);
         boxBirthday.Name = "boxBirthday";
         boxBirthday.PlaceholderText = "dd.MM.yyyy";
@@ -260,6 +263,7 @@ partial class FormEmployeeDetail : Form
         // boxStreet
         // 
         boxStreet.Dock = System.Windows.Forms.DockStyle.Bottom;
+        boxStreet.Font = new System.Drawing.Font("Segoe UI", 11F);
         boxStreet.Location = new System.Drawing.Point(0, 63);
         boxStreet.Name = "boxStreet";
         boxStreet.Size = new System.Drawing.Size(250, 35);
@@ -268,6 +272,7 @@ partial class FormEmployeeDetail : Form
         // boxStreetNumber
         // 
         boxStreetNumber.Dock = System.Windows.Forms.DockStyle.Bottom;
+        boxStreetNumber.Font = new System.Drawing.Font("Segoe UI", 11F);
         boxStreetNumber.Location = new System.Drawing.Point(0, 63);
         boxStreetNumber.Name = "boxStreetNumber";
         boxStreetNumber.PlaceholderText = "11a";
@@ -277,6 +282,7 @@ partial class FormEmployeeDetail : Form
         // boxZipCode
         // 
         boxZipCode.Dock = System.Windows.Forms.DockStyle.Bottom;
+        boxZipCode.Font = new System.Drawing.Font("Segoe UI", 11F);
         boxZipCode.Location = new System.Drawing.Point(0, 63);
         boxZipCode.Name = "boxZipCode";
         boxZipCode.PlaceholderText = "XXXX";
@@ -286,6 +292,7 @@ partial class FormEmployeeDetail : Form
         // boxCity
         // 
         boxCity.Dock = System.Windows.Forms.DockStyle.Bottom;
+        boxCity.Font = new System.Drawing.Font("Segoe UI", 11F);
         boxCity.Location = new System.Drawing.Point(0, 63);
         boxCity.Name = "boxCity";
         boxCity.Size = new System.Drawing.Size(250, 35);
@@ -314,6 +321,7 @@ partial class FormEmployeeDetail : Form
         // boxPhoneNumberCompany
         // 
         boxPhoneNumberCompany.Dock = System.Windows.Forms.DockStyle.Bottom;
+        boxPhoneNumberCompany.Font = new System.Drawing.Font("Segoe UI", 11F);
         boxPhoneNumberCompany.Location = new System.Drawing.Point(0, 63);
         boxPhoneNumberCompany.Name = "boxPhoneNumberCompany";
         boxPhoneNumberCompany.PlaceholderText = "0761234567";
@@ -323,6 +331,7 @@ partial class FormEmployeeDetail : Form
         // boxPhoneNumberMobile
         // 
         boxPhoneNumberMobile.Dock = System.Windows.Forms.DockStyle.Bottom;
+        boxPhoneNumberMobile.Font = new System.Drawing.Font("Segoe UI", 11F);
         boxPhoneNumberMobile.Location = new System.Drawing.Point(0, 63);
         boxPhoneNumberMobile.Name = "boxPhoneNumberMobile";
         boxPhoneNumberMobile.PlaceholderText = "0761234567";
@@ -332,6 +341,7 @@ partial class FormEmployeeDetail : Form
         // boxEmail
         // 
         boxEmail.Dock = System.Windows.Forms.DockStyle.Bottom;
+        boxEmail.Font = new System.Drawing.Font("Segoe UI", 11F);
         boxEmail.Location = new System.Drawing.Point(0, 63);
         boxEmail.Name = "boxEmail";
         boxEmail.PlaceholderText = "maxmustermann@gmail.com";
@@ -734,6 +744,7 @@ partial class FormEmployeeDetail : Form
         // 
         boxEmployeeNumber.Dock = System.Windows.Forms.DockStyle.Bottom;
         boxEmployeeNumber.Enabled = false;
+        boxEmployeeNumber.Font = new System.Drawing.Font("Segoe UI", 11F);
         boxEmployeeNumber.Location = new System.Drawing.Point(0, 63);
         boxEmployeeNumber.Name = "boxEmployeeNumber";
         boxEmployeeNumber.Size = new System.Drawing.Size(250, 35);
@@ -770,6 +781,7 @@ partial class FormEmployeeDetail : Form
         // boxDepartment
         // 
         boxDepartment.Dock = System.Windows.Forms.DockStyle.Bottom;
+        boxDepartment.Font = new System.Drawing.Font("Segoe UI", 11F);
         boxDepartment.Location = new System.Drawing.Point(0, 63);
         boxDepartment.Name = "boxDepartment";
         boxDepartment.Size = new System.Drawing.Size(250, 35);
@@ -806,6 +818,7 @@ partial class FormEmployeeDetail : Form
         // boxAhvNumber
         // 
         boxAhvNumber.Dock = System.Windows.Forms.DockStyle.Bottom;
+        boxAhvNumber.Font = new System.Drawing.Font("Segoe UI", 11F);
         boxAhvNumber.Location = new System.Drawing.Point(0, 63);
         boxAhvNumber.Name = "boxAhvNumber";
         boxAhvNumber.PlaceholderText = "756.XXXX.XXXX.XXXX";
@@ -843,6 +856,7 @@ partial class FormEmployeeDetail : Form
         // boxNationality
         // 
         boxNationality.Dock = System.Windows.Forms.DockStyle.Bottom;
+        boxNationality.Font = new System.Drawing.Font("Segoe UI", 11F);
         boxNationality.Location = new System.Drawing.Point(0, 63);
         boxNationality.Name = "boxNationality";
         boxNationality.Size = new System.Drawing.Size(250, 35);
@@ -879,6 +893,7 @@ partial class FormEmployeeDetail : Form
         // boxEmploymentRate
         // 
         boxEmploymentRate.Dock = System.Windows.Forms.DockStyle.Bottom;
+        boxEmploymentRate.Font = new System.Drawing.Font("Segoe UI", 11F);
         boxEmploymentRate.Location = new System.Drawing.Point(0, 63);
         boxEmploymentRate.Name = "boxEmploymentRate";
         boxEmploymentRate.Size = new System.Drawing.Size(250, 35);
@@ -915,6 +930,7 @@ partial class FormEmployeeDetail : Form
         // boxRole
         // 
         boxRole.Dock = System.Windows.Forms.DockStyle.Bottom;
+        boxRole.Font = new System.Drawing.Font("Segoe UI", 11F);
         boxRole.Location = new System.Drawing.Point(0, 63);
         boxRole.Name = "boxRole";
         boxRole.Size = new System.Drawing.Size(250, 35);
@@ -951,6 +967,7 @@ partial class FormEmployeeDetail : Form
         // boxApprenticeshipYears
         // 
         boxApprenticeshipYears.Dock = System.Windows.Forms.DockStyle.Bottom;
+        boxApprenticeshipYears.Font = new System.Drawing.Font("Segoe UI", 11F);
         boxApprenticeshipYears.Location = new System.Drawing.Point(0, 63);
         boxApprenticeshipYears.Name = "boxApprenticeshipYears";
         boxApprenticeshipYears.Size = new System.Drawing.Size(250, 35);
@@ -987,6 +1004,7 @@ partial class FormEmployeeDetail : Form
         // boxSeniorLevel
         // 
         boxSeniorLevel.Dock = System.Windows.Forms.DockStyle.Bottom;
+        boxSeniorLevel.Font = new System.Drawing.Font("Segoe UI", 11F);
         boxSeniorLevel.Location = new System.Drawing.Point(0, 63);
         boxSeniorLevel.Name = "boxSeniorLevel";
         boxSeniorLevel.Size = new System.Drawing.Size(250, 35);
@@ -1023,6 +1041,7 @@ partial class FormEmployeeDetail : Form
         // boxWorkStreet
         // 
         boxWorkStreet.Dock = System.Windows.Forms.DockStyle.Bottom;
+        boxWorkStreet.Font = new System.Drawing.Font("Segoe UI", 11F);
         boxWorkStreet.Location = new System.Drawing.Point(0, 63);
         boxWorkStreet.Name = "boxWorkStreet";
         boxWorkStreet.Size = new System.Drawing.Size(250, 35);
@@ -1059,6 +1078,7 @@ partial class FormEmployeeDetail : Form
         // boxWorkStreetNumber
         // 
         boxWorkStreetNumber.Dock = System.Windows.Forms.DockStyle.Bottom;
+        boxWorkStreetNumber.Font = new System.Drawing.Font("Segoe UI", 11F);
         boxWorkStreetNumber.Location = new System.Drawing.Point(0, 63);
         boxWorkStreetNumber.Name = "boxWorkStreetNumber";
         boxWorkStreetNumber.Size = new System.Drawing.Size(250, 35);
@@ -1095,6 +1115,7 @@ partial class FormEmployeeDetail : Form
         // boxWorkZipCode
         // 
         boxWorkZipCode.Dock = System.Windows.Forms.DockStyle.Bottom;
+        boxWorkZipCode.Font = new System.Drawing.Font("Segoe UI", 11F);
         boxWorkZipCode.Location = new System.Drawing.Point(0, 63);
         boxWorkZipCode.Name = "boxWorkZipCode";
         boxWorkZipCode.Size = new System.Drawing.Size(250, 35);
@@ -1131,6 +1152,7 @@ partial class FormEmployeeDetail : Form
         // boxWorkCity
         // 
         boxWorkCity.Dock = System.Windows.Forms.DockStyle.Bottom;
+        boxWorkCity.Font = new System.Drawing.Font("Segoe UI", 11F);
         boxWorkCity.Location = new System.Drawing.Point(0, 63);
         boxWorkCity.Name = "boxWorkCity";
         boxWorkCity.Size = new System.Drawing.Size(250, 35);
@@ -1167,6 +1189,7 @@ partial class FormEmployeeDetail : Form
         // boxDateOfHire
         // 
         boxDateOfHire.Dock = System.Windows.Forms.DockStyle.Bottom;
+        boxDateOfHire.Font = new System.Drawing.Font("Segoe UI", 11F);
         boxDateOfHire.Location = new System.Drawing.Point(0, 66);
         boxDateOfHire.Name = "boxDateOfHire";
         boxDateOfHire.PlaceholderText = "dd.MM.yyyy";

@@ -125,7 +125,7 @@ public partial class FormEmployeeDetail : Form
         ThemeManager.ApplyButtonStyles(buttonCancel);
     }
 
-    private const float FieldFontSize = 9.5F;
+    private const float FieldFontSize = 11F;
     private const float LabelFontSize = 8F;
 
     /// <summary>
