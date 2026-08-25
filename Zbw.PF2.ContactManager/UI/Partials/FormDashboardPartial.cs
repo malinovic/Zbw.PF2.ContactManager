@@ -5,12 +5,13 @@ using Zbw.PF2.ContactManager.Models;
 namespace Zbw.PF2.ContactManager.UI.Partials;
 
 /// <summary>
-/// Displays an overview of the currently stored customers and employees,
-/// including how many of each are active/inactive and the most recently added entries.
+/// Displays an overview of the currently stored customers and employees:
+/// summary statistics, recently added contacts and data-quality hints
+/// (missing phone numbers, possible duplicates).
 /// </summary>
 public partial class FormDashboardPartial : Form
 {
-    private const int RecentEntriesCount = 5;
+    private const int RecentEntriesCount = 7;
 
     private readonly IContactManagerRepository _repository;
 
@@ -29,77 +30,86 @@ public partial class FormDashboardPartial : Form
 
     /// <summary>
     /// Reads the current customer and employee data from the repository
-    /// and displays counts and recently added entries on the dashboard.
+    /// and fills the dashboard with statistics, recent entries and data-quality hints.
     /// </summary>
     private void LoadDashboardData()
     {
         IList<Customer> customers = _repository.GetCustomers();
         IList<Employee> employees = _repository.GetEmployees();
 
-        LoadEmployeeStats(employees);
-        LoadCustomerStats(customers);
+        int activeCustomers = customers.Count(c => c.CustomerStatus == Status.Active);
+        int activeEmployees = employees.Count(e => e.EmployeeStatus == Status.Active);
+        int inactiveCustomers = customers.Count - activeCustomers;
+        int inactiveEmployees = employees.Count - activeEmployees;
 
-        LoadRecentEmployees(employees);
-        LoadRecentCustomers(customers);
+        labelStatTotalValue.Text = (customers.Count + employees.Count).ToString();
+        labelStatCustomersValue.Text = activeCustomers.ToString();
+        labelStatEmployeesValue.Text = activeEmployees.ToString();
+        labelStatInactiveValue.Text = (inactiveCustomers + inactiveEmployees).ToString();
+
+        LoadRecentContacts(customers, employees);
+        LoadNeedsAttention(customers, employees);
     }
 
-    private void LoadEmployeeStats(IList<Employee> employees)
+    private void LoadRecentContacts(IList<Customer> customers, IList<Employee> employees)
     {
-        int total = employees.Count;
-        int active = employees.Count(e => e.EmployeeStatus == Status.Active);
-        int inactive = total - active;
+        listBoxRecentContacts.Items.Clear();
 
-        labelEmployeesTotal.Text = $"Gesamt: {total}";
-        labelEmployeesActive.Text = $"Aktiv: {active}";
-        labelEmployeesInactive.Text = $"Inaktiv: {inactive}";
-    }
-
-    private void LoadCustomerStats(IList<Customer> customers)
-    {
-        int total = customers.Count;
-        int active = customers.Count(c => c.CustomerStatus == Status.Active);
-        int inactive = total - active;
-
-        labelCustomersTotal.Text = $"Gesamt: {total}";
-        labelCustomersActive.Text = $"Aktiv: {active}";
-        labelCustomersInactive.Text = $"Inaktiv: {inactive}";
-    }
-
-    private void LoadRecentEmployees(IList<Employee> employees)
-    {
-        listBoxRecentEmployees.Items.Clear();
-
-        var recentEmployees = employees
-            .OrderByDescending(e => e.Id)
+        var recent = customers
+            .Select(c => (Name: $"{c.FirstName} {c.LastName}", Type: "Kunde", c.Id))
+            .Concat(employees.Select(e => (Name: $"{e.FirstName} {e.LastName}", Type: "Mitarbeiter", e.Id)))
+            .OrderByDescending(x => x.Id)
             .Take(RecentEntriesCount);
 
-        foreach (Employee employee in recentEmployees)
+        foreach (var entry in recent)
         {
-            listBoxRecentEmployees.Items.Add($"{employee.FirstName} {employee.LastName}");
+            listBoxRecentContacts.Items.Add($"{entry.Name}   —   {entry.Type}");
         }
 
-        if (listBoxRecentEmployees.Items.Count == 0)
+        if (listBoxRecentContacts.Items.Count == 0)
         {
-            listBoxRecentEmployees.Items.Add("Keine Mitarbeiter erfasst");
+            listBoxRecentContacts.Items.Add("Keine Kontakte erfasst");
         }
     }
 
-    private void LoadRecentCustomers(IList<Customer> customers)
+    private void LoadNeedsAttention(IList<Customer> customers, IList<Employee> employees)
     {
-        listBoxRecentCustomers.Items.Clear();
+        var allContacts = customers.Cast<Person>().Concat(employees.Cast<Person>()).ToList();
 
-        var recentCustomers = customers
-            .OrderByDescending(c => c.Id)
-            .Take(RecentEntriesCount);
+        List<string> missingPhone = allContacts
+            .Where(p => string.IsNullOrWhiteSpace(p.PhoneNumberMobile) && string.IsNullOrWhiteSpace(p.PhoneNumberCompany))
+            .Select(p => $"{p.FirstName} {p.LastName}")
+            .ToList();
 
-        foreach (Customer customer in recentCustomers)
-        {
-            listBoxRecentCustomers.Items.Add($"{customer.FirstName} {customer.LastName}");
-        }
+        List<string> duplicates = allContacts
+            .GroupBy(p => (p.FirstName.Trim().ToLower(), p.LastName.Trim().ToLower()))
+            .Where(g => g.Count() > 1)
+            .Select(g => $"{g.Key.Item1} {g.Key.Item2} ({g.Count()}x erfasst)")
+            .ToList();
 
-        if (listBoxRecentCustomers.Items.Count == 0)
-        {
-            listBoxRecentCustomers.Items.Add("Keine Kunden erfasst");
-        }
+        listBoxMissingPhone.Items.Clear();
+        listBoxMissingPhone.Items.AddRange(missingPhone.Count == 0
+            ? new object[] { "Keine Einträge" }
+            : missingPhone.ToArray());
+
+        listBoxDuplicates.Items.Clear();
+        listBoxDuplicates.Items.AddRange(duplicates.Count == 0
+            ? new object[] { "Keine Einträge" }
+            : duplicates.ToArray());
+    }
+
+    private void labelMissingPhoneTitle_Click(object sender, EventArgs e)
+    {
+
+    }
+
+    private void listBoxRecentContacts_SelectedIndexChanged(object sender, EventArgs e)
+    {
+
+    }
+
+    private void listBoxMissingPhone_SelectedIndexChanged(object sender, EventArgs e)
+    {
+
     }
 }
