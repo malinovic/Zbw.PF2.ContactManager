@@ -101,12 +101,30 @@ public partial class FormEmployeesPartial : Form
         var menuEdit = new ToolStripMenuItem("Bearbeiten");
         menuEdit.Click += (_, _) => EditSelectedEmployee();
 
+        var menuToggleStatus = new ToolStripMenuItem();
+        menuToggleStatus.Click += (_, _) => ToggleSelectedEmployeeStatus();
+
         var menuDelete = new ToolStripMenuItem("Löschen");
         menuDelete.Click += (_, _) => DeleteSelectedEmployee();
 
         var contextMenu = new ContextMenuStrip();
         contextMenu.Items.Add(menuEdit);
+        contextMenu.Items.Add(menuToggleStatus);
         contextMenu.Items.Add(menuDelete);
+
+        contextMenu.Opening += (_, e) =>
+        {
+            Employee? employee = GetSelectedEmployee();
+            if (employee is null)
+            {
+                e.Cancel = true;
+                return;
+            }
+
+            menuToggleStatus.Text = employee.Status == Status.Active
+                ? "Deaktivieren"
+                : "Aktivieren";
+        };
 
         dgvEmployees.CellMouseDown += (_, e) =>
         {
@@ -151,6 +169,24 @@ public partial class FormEmployeesPartial : Form
 
         using var form = new FormEmployeeDetail(employee);
         form.ShowDialog(this);
+
+        _employees = _repository.GetEmployees();
+        ApplyFilter();
+    }
+
+    private void ToggleSelectedEmployeeStatus()
+    {
+        Employee? employee = GetSelectedEmployee();
+        if (employee is null)
+        {
+            return;
+        }
+
+        employee.Status = employee.Status == Status.Active
+            ? Status.Passive
+            : Status.Active;
+
+        _repository.UpdateEmployee(employee);
 
         _employees = _repository.GetEmployees();
         ApplyFilter();
