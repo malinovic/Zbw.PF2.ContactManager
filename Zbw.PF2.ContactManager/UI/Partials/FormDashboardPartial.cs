@@ -97,4 +97,9 @@ public partial class FormDashboardPartial : Form
             ? new object[] { "Keine Einträge" }
             : duplicates.ToArray());
     }
+<<<<<<< Updated upstream
 }
+=======
+}
+
+>>>>>>> Stashed changes

@@ -1,4 +1,6 @@
-﻿namespace Zbw.PF2.ContactManager.UI.Partials;
+﻿using Zbw.PF2.ContactManager.Core.Theme;
+
+namespace Zbw.PF2.ContactManager.UI.Partials;
 
 partial class FormDashboardPartial
 {
@@ -18,7 +20,10 @@ partial class FormDashboardPartial
     private void InitializeComponent()
     {
         mainLayout = new TableLayoutPanel();
+<<<<<<< Updated upstream
 
+=======
+>>>>>>> Stashed changes
         statsLayout = new TableLayoutPanel();
 
         panelStatTotal = new Panel();
@@ -79,9 +84,12 @@ partial class FormDashboardPartial
         duplicatesLayout.SuspendLayout();
         SuspendLayout();
 
+<<<<<<< Updated upstream
         //
         // mainLayout — äusserstes Raster: Zeile 1 = Statistik-Kacheln, Zeile 2 = Rest
         //
+=======
+>>>>>>> Stashed changes
         mainLayout.Dock = DockStyle.Fill;
         mainLayout.ColumnCount = 1;
         mainLayout.RowCount = 2;
@@ -92,9 +100,12 @@ partial class FormDashboardPartial
         mainLayout.Controls.Add(bottomLayout, 0, 1);
         mainLayout.Name = "mainLayout";
 
+<<<<<<< Updated upstream
         //
         // statsLayout — 4 gleich breite Kacheln nebeneinander
         //
+=======
+>>>>>>> Stashed changes
         statsLayout.Dock = DockStyle.Fill;
         statsLayout.ColumnCount = 4;
         statsLayout.RowCount = 1;
@@ -108,9 +119,12 @@ partial class FormDashboardPartial
         statsLayout.Controls.Add(panelStatInactive, 3, 0);
         statsLayout.Name = "statsLayout";
 
+<<<<<<< Updated upstream
         //
         // panelStatTotal
         //
+=======
+>>>>>>> Stashed changes
         panelStatTotal.BackColor = Color.White;
         panelStatTotal.Dock = DockStyle.Fill;
         panelStatTotal.Margin = new Padding(10);
@@ -125,21 +139,32 @@ partial class FormDashboardPartial
         accentStatTotal.Name = "accentStatTotal";
 
         labelStatTotalTitle.AutoSize = true;
+<<<<<<< Updated upstream
         labelStatTotalTitle.Font = new Font("Segoe UI", 11F);
+=======
+        labelStatTotalTitle.Font = new Font(FontManager.InterRegular.FontFamily, 11F);
+>>>>>>> Stashed changes
         labelStatTotalTitle.ForeColor = Color.Gray;
         labelStatTotalTitle.Location = new Point(20, 20);
         labelStatTotalTitle.Name = "labelStatTotalTitle";
         labelStatTotalTitle.Text = "KONTAKTE GESAMT";
 
         labelStatTotalValue.AutoSize = true;
+<<<<<<< Updated upstream
         labelStatTotalValue.Font = new Font("Segoe UI", 28F, FontStyle.Bold);
+=======
+        labelStatTotalValue.Font = new Font(FontManager.InterRegular.FontFamily, 28F, FontStyle.Bold);
+>>>>>>> Stashed changes
         labelStatTotalValue.Location = new Point(20, 48);
         labelStatTotalValue.Name = "labelStatTotalValue";
         labelStatTotalValue.Text = "0";
 
+<<<<<<< Updated upstream
         //
         // panelStatCustomers
         //
+=======
+>>>>>>> Stashed changes
         panelStatCustomers.BackColor = Color.White;
         panelStatCustomers.Dock = DockStyle.Fill;
         panelStatCustomers.Margin = new Padding(10);
@@ -154,21 +179,32 @@ partial class FormDashboardPartial
         accentStatCustomers.Name = "accentStatCustomers";
 
         labelStatCustomersTitle.AutoSize = true;
+<<<<<<< Updated upstream
         labelStatCustomersTitle.Font = new Font("Segoe UI", 11F);
+=======
+        labelStatCustomersTitle.Font = new Font(FontManager.InterRegular.FontFamily, 11F);
+>>>>>>> Stashed changes
         labelStatCustomersTitle.ForeColor = Color.Gray;
         labelStatCustomersTitle.Location = new Point(20, 20);
         labelStatCustomersTitle.Name = "labelStatCustomersTitle";
         labelStatCustomersTitle.Text = "AKTIVE KUNDEN";
 
         labelStatCustomersValue.AutoSize = true;
+<<<<<<< Updated upstream
         labelStatCustomersValue.Font = new Font("Segoe UI", 28F, FontStyle.Bold);
+=======
+        labelStatCustomersValue.Font = new Font(FontManager.InterRegular.FontFamily, 28F, FontStyle.Bold);
+>>>>>>> Stashed changes
         labelStatCustomersValue.Location = new Point(20, 48);
         labelStatCustomersValue.Name = "labelStatCustomersValue";
         labelStatCustomersValue.Text = "0";
 
+<<<<<<< Updated upstream
         //
         // panelStatEmployees
         //
+=======
+>>>>>>> Stashed changes
         panelStatEmployees.BackColor = Color.White;
         panelStatEmployees.Dock = DockStyle.Fill;
         panelStatEmployees.Margin = new Padding(10);
@@ -183,21 +219,32 @@ partial class FormDashboardPartial
         accentStatEmployees.Name = "accentStatEmployees";
 
         labelStatEmployeesTitle.AutoSize = true;
+<<<<<<< Updated upstream
         labelStatEmployeesTitle.Font = new Font("Segoe UI", 11F);
+=======
+        labelStatEmployeesTitle.Font = new Font(FontManager.InterRegular.FontFamily, 11F);
+>>>>>>> Stashed changes
         labelStatEmployeesTitle.ForeColor = Color.Gray;
         labelStatEmployeesTitle.Location = new Point(20, 20);
         labelStatEmployeesTitle.Name = "labelStatEmployeesTitle";
         labelStatEmployeesTitle.Text = "AKTIVE MITARBEITER";
 
         labelStatEmployeesValue.AutoSize = true;
+<<<<<<< Updated upstream
         labelStatEmployeesValue.Font = new Font("Segoe UI", 28F, FontStyle.Bold);
+=======
+        labelStatEmployeesValue.Font = new Font(FontManager.InterRegular.FontFamily, 28F, FontStyle.Bold);
+>>>>>>> Stashed changes
         labelStatEmployeesValue.Location = new Point(20, 48);
         labelStatEmployeesValue.Name = "labelStatEmployeesValue";
         labelStatEmployeesValue.Text = "0";
 
+<<<<<<< Updated upstream
         //
         // panelStatInactive
         //
+=======
+>>>>>>> Stashed changes
         panelStatInactive.BackColor = Color.White;
         panelStatInactive.Dock = DockStyle.Fill;
         panelStatInactive.Margin = new Padding(10);
@@ -212,21 +259,32 @@ partial class FormDashboardPartial
         accentStatInactive.Name = "accentStatInactive";
 
         labelStatInactiveTitle.AutoSize = true;
+<<<<<<< Updated upstream
         labelStatInactiveTitle.Font = new Font("Segoe UI", 11F);
+=======
+        labelStatInactiveTitle.Font = new Font(FontManager.InterRegular.FontFamily, 11F);
+>>>>>>> Stashed changes
         labelStatInactiveTitle.ForeColor = Color.Gray;
         labelStatInactiveTitle.Location = new Point(20, 20);
         labelStatInactiveTitle.Name = "labelStatInactiveTitle";
         labelStatInactiveTitle.Text = "INAKTIV";
 
         labelStatInactiveValue.AutoSize = true;
+<<<<<<< Updated upstream
         labelStatInactiveValue.Font = new Font("Segoe UI", 28F, FontStyle.Bold);
+=======
+        labelStatInactiveValue.Font = new Font(FontManager.InterRegular.FontFamily, 28F, FontStyle.Bold);
+>>>>>>> Stashed changes
         labelStatInactiveValue.Location = new Point(20, 48);
         labelStatInactiveValue.Name = "labelStatInactiveValue";
         labelStatInactiveValue.Text = "0";
 
+<<<<<<< Updated upstream
         //
         // bottomLayout — links: zuletzt hinzugefügt, rechts: Bedarf an Überprüfung
         //
+=======
+>>>>>>> Stashed changes
         bottomLayout.Dock = DockStyle.Fill;
         bottomLayout.ColumnCount = 2;
         bottomLayout.RowCount = 1;
@@ -236,9 +294,12 @@ partial class FormDashboardPartial
         bottomLayout.Controls.Add(panelNeedsAttention, 1, 0);
         bottomLayout.Name = "bottomLayout";
 
+<<<<<<< Updated upstream
         //
         // panelRecentContacts — enthält ein 2-zeiliges Raster: Titel (fest) + Liste (füllt Rest)
         //
+=======
+>>>>>>> Stashed changes
         panelRecentContacts.BackColor = Color.White;
         panelRecentContacts.Dock = DockStyle.Fill;
         panelRecentContacts.Margin = new Padding(10);
@@ -255,7 +316,11 @@ partial class FormDashboardPartial
         recentContactsLayout.Name = "recentContactsLayout";
 
         labelRecentContactsTitle.Dock = DockStyle.Fill;
+<<<<<<< Updated upstream
         labelRecentContactsTitle.Font = new Font("Segoe UI", 14F, FontStyle.Bold);
+=======
+        labelRecentContactsTitle.Font = new Font(FontManager.InterRegular.FontFamily, 14F, FontStyle.Bold);
+>>>>>>> Stashed changes
         labelRecentContactsTitle.Padding = new Padding(20, 15, 0, 0);
         labelRecentContactsTitle.Name = "labelRecentContactsTitle";
         labelRecentContactsTitle.Text = "Zuletzt hinzugefügte Kontakte";
@@ -263,6 +328,7 @@ partial class FormDashboardPartial
         listBoxRecentContacts.Dock = DockStyle.Fill;
         listBoxRecentContacts.Margin = new Padding(20, 0, 20, 20);
         listBoxRecentContacts.BorderStyle = BorderStyle.None;
+<<<<<<< Updated upstream
         listBoxRecentContacts.Font = new Font("Segoe UI", 12F);
         listBoxRecentContacts.ItemHeight = 32;
         listBoxRecentContacts.Name = "listBoxRecentContacts";
@@ -270,6 +336,12 @@ partial class FormDashboardPartial
         //
         // panelNeedsAttention — enthält ein 3-zeiliges Raster: Titel (fest), MissingPhone (50%), Duplicates (50%)
         //
+=======
+        listBoxRecentContacts.Font = new Font(FontManager.InterRegular.FontFamily, 12F);
+        listBoxRecentContacts.ItemHeight = 32;
+        listBoxRecentContacts.Name = "listBoxRecentContacts";
+
+>>>>>>> Stashed changes
         panelNeedsAttention.BackColor = Color.White;
         panelNeedsAttention.Dock = DockStyle.Fill;
         panelNeedsAttention.Margin = new Padding(10);
@@ -288,14 +360,21 @@ partial class FormDashboardPartial
         needsAttentionLayout.Name = "needsAttentionLayout";
 
         labelNeedsAttentionTitle.Dock = DockStyle.Fill;
+<<<<<<< Updated upstream
         labelNeedsAttentionTitle.Font = new Font("Segoe UI", 14F, FontStyle.Bold);
+=======
+        labelNeedsAttentionTitle.Font = new Font(FontManager.InterRegular.FontFamily, 14F, FontStyle.Bold);
+>>>>>>> Stashed changes
         labelNeedsAttentionTitle.Padding = new Padding(20, 15, 0, 0);
         labelNeedsAttentionTitle.Name = "labelNeedsAttentionTitle";
         labelNeedsAttentionTitle.Text = "Bedarf an Überprüfung";
 
+<<<<<<< Updated upstream
         //
         // panelMissingPhone — 2-zeiliges Raster: Titel (fest) + Liste (füllt Rest)
         //
+=======
+>>>>>>> Stashed changes
         panelMissingPhone.Dock = DockStyle.Fill;
         panelMissingPhone.Padding = new Padding(20, 5, 20, 10);
         panelMissingPhone.Controls.Add(missingPhoneLayout);
@@ -311,12 +390,17 @@ partial class FormDashboardPartial
         missingPhoneLayout.Name = "missingPhoneLayout";
 
         labelMissingPhoneTitle.Dock = DockStyle.Fill;
+<<<<<<< Updated upstream
         labelMissingPhoneTitle.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
+=======
+        labelMissingPhoneTitle.Font = new Font(FontManager.InterRegular.FontFamily, 12F, FontStyle.Bold);
+>>>>>>> Stashed changes
         labelMissingPhoneTitle.Name = "labelMissingPhoneTitle";
         labelMissingPhoneTitle.Text = "Kontakte ohne Telefonnummer";
 
         listBoxMissingPhone.Dock = DockStyle.Fill;
         listBoxMissingPhone.BorderStyle = BorderStyle.FixedSingle;
+<<<<<<< Updated upstream
         listBoxMissingPhone.Font = new Font("Segoe UI", 11F);
         listBoxMissingPhone.ItemHeight = 28;
         listBoxMissingPhone.Name = "listBoxMissingPhone";
@@ -324,6 +408,12 @@ partial class FormDashboardPartial
         //
         // panelDuplicates — 2-zeiliges Raster: Titel (fest) + Liste (füllt Rest)
         //
+=======
+        listBoxMissingPhone.Font = new Font(FontManager.InterRegular.FontFamily, 11F);
+        listBoxMissingPhone.ItemHeight = 28;
+        listBoxMissingPhone.Name = "listBoxMissingPhone";
+
+>>>>>>> Stashed changes
         panelDuplicates.Dock = DockStyle.Fill;
         panelDuplicates.Padding = new Padding(20, 5, 20, 20);
         panelDuplicates.Controls.Add(duplicatesLayout);
@@ -339,12 +429,17 @@ partial class FormDashboardPartial
         duplicatesLayout.Name = "duplicatesLayout";
 
         labelDuplicatesTitle.Dock = DockStyle.Fill;
+<<<<<<< Updated upstream
         labelDuplicatesTitle.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
+=======
+        labelDuplicatesTitle.Font = new Font(FontManager.InterRegular.FontFamily, 12F, FontStyle.Bold);
+>>>>>>> Stashed changes
         labelDuplicatesTitle.Name = "labelDuplicatesTitle";
         labelDuplicatesTitle.Text = "Mögliche Duplikate erkannt";
 
         listBoxDuplicates.Dock = DockStyle.Fill;
         listBoxDuplicates.BorderStyle = BorderStyle.FixedSingle;
+<<<<<<< Updated upstream
         listBoxDuplicates.Font = new Font("Segoe UI", 11F);
         listBoxDuplicates.ItemHeight = 28;
         listBoxDuplicates.Name = "listBoxDuplicates";
@@ -352,6 +447,12 @@ partial class FormDashboardPartial
         //
         // FormDashboardPartial
         //
+=======
+        listBoxDuplicates.Font = new Font(FontManager.InterRegular.FontFamily, 11F);
+        listBoxDuplicates.ItemHeight = 28;
+        listBoxDuplicates.Name = "listBoxDuplicates";
+
+>>>>>>> Stashed changes
         AutoScaleDimensions = new SizeF(13F, 32F);
         AutoScaleMode = AutoScaleMode.Font;
         BackColor = Color.FromArgb(240, 240, 240);
