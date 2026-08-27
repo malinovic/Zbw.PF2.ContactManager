@@ -38,7 +38,7 @@ public partial class FormDashboardPartial : Form
         IList<Employee> employees = _repository.GetEmployees();
 
         int activeCustomers = customers.Count(c => c.CustomerStatus == Status.Active);
-        int activeEmployees = employees.Count(e => e.EmployeeStatus == Status.Active);
+        int activeEmployees = employees.Count(e => e.Status == Status.Active);
         int inactiveCustomers = customers.Count - activeCustomers;
         int inactiveEmployees = employees.Count - activeEmployees;
 
