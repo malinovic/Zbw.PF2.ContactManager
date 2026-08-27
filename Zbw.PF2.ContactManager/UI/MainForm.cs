@@ -27,14 +27,14 @@ public partial class MainForm : Form
         ThemeManager.ApplyNavButtonStyles(BtnNavEmployees);
         ThemeManager.ApplyNavButtonStyles(BtnNavCustomers);
 
-        OpenChildForm(new FormDashboardPartial());
+        OpenChildForm(new FormDashboardPartial(new ContactManagerRepository(_repository)));
     }
 
     #region Navigation
 
     private void BtnNavDashboard_Click(object sender, EventArgs e)
     {
-        OpenChildForm(new FormDashboardPartial());
+        OpenChildForm(new FormDashboardPartial(new ContactManagerRepository(_repository)));
         SetActiveNavigationButton(BtnNavDashboard);
     }
 
