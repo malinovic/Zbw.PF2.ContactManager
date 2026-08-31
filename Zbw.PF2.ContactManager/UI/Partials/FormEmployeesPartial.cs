@@ -1,4 +1,4 @@
-﻿using Zbw.PF2.ContactManager.Core.Constants;
+using Zbw.PF2.ContactManager.Core.Constants;
 using Zbw.PF2.ContactManager.Core.Theme;
 using Zbw.PF2.ContactManager.Data.Repository;
 using Zbw.PF2.ContactManager.Models;
@@ -22,6 +22,7 @@ public partial class FormEmployeesPartial : Form
 
         _repository = contactManagerRepository;
 
+        ThemeManager.ApplyButtonStyles(btnImportEmployee);
         ThemeManager.ApplyDataGridViewStyles(dgvEmployees);
 
         ConfigureGridColumns();
@@ -36,39 +37,7 @@ public partial class FormEmployeesPartial : Form
         }
         cmbStatusFilter.SelectedIndex = 0;
 
-        _employees = _repository.GetEmployees();
-        ApplyFilter();
-    }
-
-    private void BtnCreateNewEmployee_Click(object sender, EventArgs e)
-    {
-        FormEmployeeDetail formEmployeeDetail = new();
-
-        formEmployeeDetail.Show();
-    }
-
-    private void TxtSearchEmployee_TextChanged(object sender, EventArgs e)
-    {
-        ApplyFilter();
-    }
-
-    private void CmbStatusFilter_SelectedIndexChanged(object sender, EventArgs e)
-    {
-        ApplyFilter();
-    }
-
-    private void DataGridView1_CellDoubleClick(object? sender, DataGridViewCellEventArgs e)
-    {
-        if (e.RowIndex < 0 || dgvEmployees.Rows[e.RowIndex].DataBoundItem is not Employee employee)
-        {
-            return;
-        }
-
-        using var form = new FormEmployeeDetail(employee);
-        form.ShowDialog(this);
-
-        _employees = _repository.GetEmployees();
-        ApplyFilter();
+        _loadEmployees();
     }
 
     /// <summary>
@@ -158,6 +127,56 @@ public partial class FormEmployeesPartial : Form
         };
     }
 
+    private void DataGridView1_CellDoubleClick(object? sender, DataGridViewCellEventArgs e)
+    {
+        if (e.RowIndex < 0 || dgvEmployees.Rows[e.RowIndex].DataBoundItem is not Employee employee)
+        {
+            return;
+        }
+
+        using var form = new FormEmployeeDetail(employee);
+        form.ShowDialog(this);
+
+        _loadEmployees();
+    }
+
+    private void TxtSearchEmployee_TextChanged(object sender, EventArgs e)
+    {
+        ApplyFilter();
+    }
+
+    private void CmbStatusFilter_SelectedIndexChanged(object sender, EventArgs e)
+    {
+        ApplyFilter();
+    }
+
+    private void BtnCreateNewEmployee_Click(object sender, EventArgs e)
+    {
+        FormEmployeeDetail formEmployeeDetail = new();
+
+        formEmployeeDetail.Show();
+    }
+
+    // NOTE: not wired to any control — btnCreateNewEmployee.Click is bound to
+    // BtnCreateNewEmployee_Click above. Left in place, unchanged, pending confirmation
+    // of which handler should actually be used.
+    private void btnCreateNewEmployee_Click(object sender, EventArgs e)
+    {
+        using var form = new FormEmployeeDetail();
+        form.ShowDialog(this);
+
+        _loadEmployees();
+    }
+
+    private void btnImportEmployee_Click(object sender, EventArgs e)
+    {
+        FormImport formImport = new();
+
+        formImport.ShowDialog(this);
+
+        _loadEmployees();
+    }
+
     private Employee? GetSelectedEmployee()
     {
         return dgvEmployees.CurrentRow?.DataBoundItem as Employee;
@@ -174,8 +193,7 @@ public partial class FormEmployeesPartial : Form
         using var form = new FormEmployeeDetail(employee);
         form.ShowDialog(this);
 
-        _employees = _repository.GetEmployees();
-        ApplyFilter();
+        _loadEmployees();
     }
 
     private void ToggleSelectedEmployeeStatus()
@@ -192,8 +210,7 @@ public partial class FormEmployeesPartial : Form
 
         _repository.UpdateEmployee(employee);
 
-        _employees = _repository.GetEmployees();
-        ApplyFilter();
+        _loadEmployees();
     }
 
     private void DeleteSelectedEmployee()
@@ -217,8 +234,18 @@ public partial class FormEmployeesPartial : Form
 
         _repository.DeleteEmployee(employee.Id);
 
+        _loadEmployees();
+    }
+
+    private void _loadEmployees()
+    {
         _employees = _repository.GetEmployees();
         ApplyFilter();
+    }
+
+    private void ApplyFilter()
+    {
+        contactManagerRepositoryBindingSource.DataSource = _searchService.SearchEmployees(_employees, txtSearchEmployee.Text, cmbStatusFilter.SelectedItem);
     }
 
     private static DataGridViewTextBoxColumn CreateColumn(string dataPropertyName, string headerText, int width)
@@ -231,19 +258,5 @@ public partial class FormEmployeesPartial : Form
             ReadOnly = true,
             FillWeight = width
         };
-    }
-
-    private void ApplyFilter()
-    {
-        contactManagerRepositoryBindingSource.DataSource = _searchService.SearchEmployees(_employees, txtSearchEmployee.Text, cmbStatusFilter.SelectedItem);
-    }
-
-    private void btnCreateNewEmployee_Click(object sender, EventArgs e)
-    {
-        using var form = new FormEmployeeDetail();
-        form.ShowDialog(this);
-
-        _employees = _repository.GetEmployees();
-        ApplyFilter();
     }
 }

@@ -16,5 +16,8 @@
     <File Path="CODE_GUIDELINES.md" />
     <File Path="README.md" />
   </Folder>
+  <Folder Name="/Projektmappenelemente/MockData/">
+    <File Path="employees_for_import.csv" />
+  </Folder>
   <Project Path="Zbw.PF2.ContactManager/Zbw.PF2.ContactManager.csproj" />
 </Solution>

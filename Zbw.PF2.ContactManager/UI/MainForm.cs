@@ -71,7 +71,7 @@ public partial class MainForm : Form
 
         _activeForm = childForm;
 
-        ThemeManager.ApplyFormStyles(childForm);
+        ThemeManager.ApplyEmbeddedFormStyles(childForm);
 
         PnlContentView.Controls.Add(childForm);
         PnlContentView.Tag = childForm;
