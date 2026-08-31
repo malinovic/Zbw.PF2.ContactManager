@@ -52,7 +52,6 @@ Person (abstrakt)
 
 - **Sprache:** C#
 - **Framework:** .NET / Windows Forms
-- **UI:** [MaterialSkin.2](https://www.nuget.org/packages/MaterialSkin.2)
 - **Persistenz:** Serialisierung in Dateien (CSV)
 ## Projektstruktur
 
@@ -64,7 +63,7 @@ Zbw.PF2.ContactManager/
 │   ├── Models/        # Person, Kunde, Mitarbeiter, Kontaktnotiz
 │   ├── Data/          # Datenzugriff, Speichern/Laden
 │   ├── Services/      # Business Logik
-│   ├── Forms/         # Windows-Forms (UI)
+│   ├── UI/            # Windows-Forms (UI)
 │   └── Program.cs
 └── README.md
 ```
@@ -80,13 +79,13 @@ Zbw.PF2.ContactManager/
    ```bash
    git clone https://github.com/malinovic/Zbw.PF2.ContactManager.git
    ```
-2. Lösung `ContactManager.sln` in Visual Studio öffnen
+2. Lösung `ZBW.PF2.ContactManager.sln` in Visual Studio öffnen
 3. NuGet-Pakete werden beim Build automatisch wiederhergestellt
 4. Projekt starten (F5)
 
 ## Status
 
-Aktueller Bearbeitungsstand und offene Punkte: siehe bzw. GitHub Projects Board.
+Aktueller Bearbeitungsstand und offene Punkte: siehe GitHub Projects Board.
 
 ## Abgabe
 

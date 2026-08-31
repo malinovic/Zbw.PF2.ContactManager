@@ -71,7 +71,19 @@ public class ContactManagerRepository(ICSVRepository csvRepository) : IContactMa
     /// <returns>A list of all employees.</returns>
     public IList<Employee> GetEmployees()
     {
-        return _csvRepository.GetRecords<Employee>();
+        IList<Employee> employees = [];
+
+        try
+        {
+            employees = _csvRepository.GetRecords<Employee>();
+        }
+        catch (IOException ex)
+        {
+            Console.WriteLine(ex.Message);
+            MessageBox.Show("Achtung, Datenstamm ist korrupt.");
+        }
+        
+        return employees;
     }
 
     /// <summary>

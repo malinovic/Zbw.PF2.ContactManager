@@ -6,10 +6,13 @@ namespace Zbw.PF2.ContactManager.UI;
 
 public partial class MainForm : Form
 {
-    private readonly ICSVRepository _repository = new CSVRepository();
+    private readonly IContactManagerRepository _contactManagerRepository = new ContactManagerRepository(new CSVRepository());
     private Form? _activeForm;
     private Button? _activeNavigationButton;
 
+    /// <summary>
+    ///     Initializes a new instance of <see cref="MainForm" /> and shows the dashboard view.
+    /// </summary>
     public MainForm()
     {
         InitializeComponent();
@@ -21,32 +24,30 @@ public partial class MainForm : Form
     {
         Font = FontManager.InterRegular;
 
-        ThemeManager.ApplyNavLabelStyles(NavTitle);
-
         SetActiveNavigationButton(BtnNavDashboard);
         ThemeManager.ApplyNavButtonStyles(BtnNavEmployees);
         ThemeManager.ApplyNavButtonStyles(BtnNavCustomers);
 
-        OpenChildForm(new FormDashboardPartial(new ContactManagerRepository(_repository)));
+        OpenChildForm(new FormDashboardPartial(_contactManagerRepository));
     }
 
     #region Navigation
 
     private void BtnNavDashboard_Click(object sender, EventArgs e)
     {
-        OpenChildForm(new FormDashboardPartial(new ContactManagerRepository(_repository)));
+        OpenChildForm(new FormDashboardPartial(_contactManagerRepository));
         SetActiveNavigationButton(BtnNavDashboard);
     }
 
     private void BtnNavCustomers_Click(object sender, EventArgs e)
     {
-        OpenChildForm(new FormCustomersPartial(new ContactManagerRepository(_repository)));
+        OpenChildForm(new FormCustomersPartial(_contactManagerRepository));
         SetActiveNavigationButton(BtnNavCustomers);
     }
 
     private void BtnNavEmployees_Click(object sender, EventArgs e)
     {
-        OpenChildForm(new FormEmployeesPartial());
+        OpenChildForm(new FormEmployeesPartial(_contactManagerRepository));
         SetActiveNavigationButton(BtnNavEmployees);
     }
 
