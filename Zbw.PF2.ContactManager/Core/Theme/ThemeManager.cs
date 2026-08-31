@@ -8,11 +8,16 @@ namespace Zbw.PF2.ContactManager.Core.Theme;
 /// </summary>
 internal static class ThemeManager
 {
+    internal static void ApplyFormStyles(Form form)
+    {
+        form.BackColor = Color.White;
+    }
+
     /// <summary>
     ///     Configures a child form to be hosted embedded inside another form's content panel.
     /// </summary>
     /// <param name="form">The form to configure.</param>
-    internal static void ApplyFormStyles(Form form)
+    internal static void ApplyEmbeddedFormStyles(Form form)
     {
         form.TopLevel = false;
         form.FormBorderStyle = FormBorderStyle.None;
