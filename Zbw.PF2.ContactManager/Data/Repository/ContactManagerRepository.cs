@@ -116,6 +116,43 @@ public class ContactManagerRepository(ICSVRepository csvRepository) : IContactMa
     }
 
     /// <summary>
+    ///     Retrieves all users from the data store.
+    /// </summary>
+    /// <returns>A list of all users.</returns>
+    public IList<User> GetUsers()
+    {
+        return csvRepository.GetRecords<User>();
+    }
+
+    /// <summary>
+    ///     Retrieves a single user by their unique identifier.
+    /// </summary>
+    /// <param name="id">The unique identifier of the user.</param>
+    /// <returns>The matching user, or <c>null</c> if not found.</returns>
+    public User? GetUser(int id)
+    {
+        return csvRepository.GetRecord<User>(id);
+    }
+
+    /// <summary>
+    ///     Updates an existing user record matched by their identifier.
+    /// </summary>
+    /// <param name="user">The user containing the updated values.</param>
+    public void UpdateUser(User user)
+    {
+        csvRepository.UpdateRecord(user);
+    }
+
+    /// <summary>
+    ///     Removes the user with the given identifier from the data store.
+    /// </summary>
+    /// <param name="id">The unique identifier of the user to remove.</param>
+    public void DeleteUser(int id)
+    {
+        csvRepository.DeleteRecord<User>(id);
+    }
+
+    /// <summary>
     /// Creates a contact manager user
     /// </summary>
     /// <param name="username">Username of the user</param>

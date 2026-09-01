@@ -35,6 +35,7 @@ partial class MainForm
         BtnNavDashboard = new Button();
         BtnNavCustomers = new Button();
         BtnNavEmployees = new Button();
+        BtnNavUsers = new Button();
         PnlContentView = new Panel();
         FlpSideNav.SuspendLayout();
         SuspendLayout();
@@ -45,10 +46,11 @@ partial class MainForm
         FlpSideNav.Controls.Add(BtnNavDashboard);
         FlpSideNav.Controls.Add(BtnNavCustomers);
         FlpSideNav.Controls.Add(BtnNavEmployees);
+        FlpSideNav.Controls.Add(BtnNavUsers);
         FlpSideNav.Dock = DockStyle.Left;
         FlpSideNav.Location = new Point(0, 0);
         FlpSideNav.Name = "FlpSideNav";
-        FlpSideNav.Size = new Size(551, 1445);
+        FlpSideNav.Size = new Size(451, 1421);
         FlpSideNav.TabIndex = 0;
         // 
         // BtnNavDashboard
@@ -102,19 +104,36 @@ partial class MainForm
         BtnNavEmployees.UseVisualStyleBackColor = false;
         BtnNavEmployees.Click += BtnNavEmployees_Click;
         // 
+        // BtnNavUsers
+        // 
+        BtnNavUsers.BackColor = Color.White;
+        BtnNavUsers.FlatStyle = FlatStyle.Flat;
+        BtnNavUsers.ForeColor = SystemColors.ControlText;
+        BtnNavUsers.Image = (Image)resources.GetObject("BtnNavUsers.Image");
+        BtnNavUsers.ImageAlign = ContentAlignment.MiddleLeft;
+        BtnNavUsers.Location = new Point(3, 297);
+        BtnNavUsers.Name = "BtnNavUsers";
+        BtnNavUsers.Padding = new Padding(50, 0, 0, 0);
+        BtnNavUsers.Size = new Size(545, 92);
+        BtnNavUsers.TabIndex = 4;
+        BtnNavUsers.Text = "          Benutzer";
+        BtnNavUsers.TextAlign = ContentAlignment.MiddleLeft;
+        BtnNavUsers.UseVisualStyleBackColor = false;
+        BtnNavUsers.Click += BtnNavUsers_Click;
+        // 
         // PnlContentView
         // 
         PnlContentView.Dock = DockStyle.Fill;
-        PnlContentView.Location = new Point(551, 0);
+        PnlContentView.Location = new Point(451, 0);
         PnlContentView.Name = "PnlContentView";
-        PnlContentView.Size = new Size(1788, 1445);
+        PnlContentView.Size = new Size(1888, 1421);
         PnlContentView.TabIndex = 1;
         // 
         // MainForm
         // 
-        AutoScaleDimensions = new SizeF(16F, 40F);
+        AutoScaleDimensions = new SizeF(14F, 36F);
         AutoScaleMode = AutoScaleMode.Font;
-        ClientSize = new Size(2339, 1445);
+        ClientSize = new Size(2339, 1421);
         Controls.Add(PnlContentView);
         Controls.Add(FlpSideNav);
         Font = new Font("Segoe UI", 11F);
@@ -133,4 +152,5 @@ partial class MainForm
     private Panel PnlContentView;
     private Button BtnNavEmployees;
     private Button BtnNavCustomers;
+    private Button BtnNavUsers;
 }
