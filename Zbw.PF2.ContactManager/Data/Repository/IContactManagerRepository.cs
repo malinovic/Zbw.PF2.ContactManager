@@ -73,4 +73,10 @@ public interface IContactManagerRepository
     /// </summary>
     /// <param name="id">The unique identifier of the employee to remove.</param>
     void DeleteEmployee(int id);
+
+    bool CheckLoginForUser(string username, string password);
+
+    void CreateUser(string username, string password, string name);
+
+    bool HasAdminUser();
 }

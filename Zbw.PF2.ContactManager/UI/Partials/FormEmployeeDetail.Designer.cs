@@ -31,119 +31,120 @@ partial class FormEmployeeDetail : Form
     /// </summary>
     private void InitializeComponent()
     {
-        boxSalutation = new System.Windows.Forms.ComboBox();
-        boxFirstName = new System.Windows.Forms.TextBox();
-        boxLastName = new System.Windows.Forms.TextBox();
-        boxBirthday = new System.Windows.Forms.TextBox();
-        boxSex = new System.Windows.Forms.ComboBox();
-        boxTitle = new System.Windows.Forms.ComboBox();
-        boxStreet = new System.Windows.Forms.TextBox();
-        boxStreetNumber = new System.Windows.Forms.TextBox();
-        boxZipCode = new System.Windows.Forms.TextBox();
-        boxCity = new System.Windows.Forms.TextBox();
-        buttonCancel = new System.Windows.Forms.Button();
-        buttonSave = new System.Windows.Forms.Button();
-        boxPhoneNumberCompany = new System.Windows.Forms.TextBox();
-        boxPhoneNumberMobile = new System.Windows.Forms.TextBox();
-        boxEmail = new System.Windows.Forms.TextBox();
-        panelSalutation = new System.Windows.Forms.Panel();
-        panelSalutationLabel = new System.Windows.Forms.Panel();
-        labelSalutation = new System.Windows.Forms.Label();
-        panelFirstName = new System.Windows.Forms.Panel();
-        panelFirstNameLabel = new System.Windows.Forms.Panel();
-        labelFirstName = new System.Windows.Forms.Label();
-        panelLastName = new System.Windows.Forms.Panel();
-        panelLastNameLabel = new System.Windows.Forms.Panel();
-        labelLastName = new System.Windows.Forms.Label();
-        panelBirthday = new System.Windows.Forms.Panel();
-        panelBirthdayLabel = new System.Windows.Forms.Panel();
-        labelBirthday = new System.Windows.Forms.Label();
-        panelSex = new System.Windows.Forms.Panel();
-        panelSexLabel = new System.Windows.Forms.Panel();
-        labelSex = new System.Windows.Forms.Label();
-        panelTitle = new System.Windows.Forms.Panel();
-        panelTitleLabel = new System.Windows.Forms.Panel();
-        labelTitle = new System.Windows.Forms.Label();
-        panelStreet = new System.Windows.Forms.Panel();
-        panelStreetLabel = new System.Windows.Forms.Panel();
-        labelStreet = new System.Windows.Forms.Label();
-        panelStreetNumber = new System.Windows.Forms.Panel();
-        panelStreetNumberLabel = new System.Windows.Forms.Panel();
-        labelStreetNumber = new System.Windows.Forms.Label();
-        panelZipCode = new System.Windows.Forms.Panel();
-        panelZipCodeLabel = new System.Windows.Forms.Panel();
-        labelZipCode = new System.Windows.Forms.Label();
-        panelCity = new System.Windows.Forms.Panel();
-        panelCityLabel = new System.Windows.Forms.Panel();
-        labelCity = new System.Windows.Forms.Label();
-        panelPhoneNumberCompany = new System.Windows.Forms.Panel();
-        panelPhoneNumberCompanyLabel = new System.Windows.Forms.Panel();
-        labelPhoneNumberCompany = new System.Windows.Forms.Label();
-        panelPhoneNumberMobile = new System.Windows.Forms.Panel();
-        panelPhoneNumberMobileLabel = new System.Windows.Forms.Panel();
-        labelPhoneNumberMobile = new System.Windows.Forms.Label();
-        panelEmail = new System.Windows.Forms.Panel();
-        panelEmailLabel = new System.Windows.Forms.Panel();
-        labelEmail = new System.Windows.Forms.Label();
-        panelEmployeeNumber = new System.Windows.Forms.Panel();
-        panelEmployeeNumberLabel = new System.Windows.Forms.Panel();
-        labelEmployeeNumber = new System.Windows.Forms.Label();
-        boxEmployeeNumber = new System.Windows.Forms.TextBox();
-        panelDepartment = new System.Windows.Forms.Panel();
-        panelDepartmentLabel = new System.Windows.Forms.Panel();
-        labelDepartment = new System.Windows.Forms.Label();
-        boxDepartment = new System.Windows.Forms.TextBox();
-        panelAhvNumber = new System.Windows.Forms.Panel();
-        panelAhvNumberLabel = new System.Windows.Forms.Panel();
-        labelAhvNumber = new System.Windows.Forms.Label();
-        boxAhvNumber = new System.Windows.Forms.TextBox();
-        panelNationality = new System.Windows.Forms.Panel();
-        panelNationalityLabel = new System.Windows.Forms.Panel();
-        labelNationality = new System.Windows.Forms.Label();
-        boxNationality = new System.Windows.Forms.TextBox();
-        panelEmploymentRate = new System.Windows.Forms.Panel();
-        panelEmploymentRateLabel = new System.Windows.Forms.Panel();
-        labelEmploymentRate = new System.Windows.Forms.Label();
-        boxEmploymentRate = new System.Windows.Forms.TextBox();
-        panelRole = new System.Windows.Forms.Panel();
-        panelRoleLabel = new System.Windows.Forms.Panel();
-        labelRole = new System.Windows.Forms.Label();
-        boxRole = new System.Windows.Forms.TextBox();
-        panelApprenticeshipYears = new System.Windows.Forms.Panel();
-        panelApprenticeshipYearsLabel = new System.Windows.Forms.Panel();
-        labelApprenticeshipYears = new System.Windows.Forms.Label();
-        boxApprenticeshipYears = new System.Windows.Forms.TextBox();
-        panelSeniorLevel = new System.Windows.Forms.Panel();
-        panelSeniorLevelLabel = new System.Windows.Forms.Panel();
-        labelSeniorLevel = new System.Windows.Forms.Label();
-        boxSeniorLevel = new System.Windows.Forms.TextBox();
-        panelWorkStreet = new System.Windows.Forms.Panel();
-        panelWorkStreetLabel = new System.Windows.Forms.Panel();
-        labelWorkStreet = new System.Windows.Forms.Label();
-        boxWorkStreet = new System.Windows.Forms.TextBox();
-        panelWorkStreetNumber = new System.Windows.Forms.Panel();
-        panelWorkStreetNumberLabel = new System.Windows.Forms.Panel();
-        labelWorkStreetNumber = new System.Windows.Forms.Label();
-        boxWorkStreetNumber = new System.Windows.Forms.TextBox();
-        panelWorkZipCode = new System.Windows.Forms.Panel();
-        panelWorkZipCodeLabel = new System.Windows.Forms.Panel();
-        labelWorkZipCode = new System.Windows.Forms.Label();
-        boxWorkZipCode = new System.Windows.Forms.TextBox();
-        panelWorkCity = new System.Windows.Forms.Panel();
-        panelWorkCityLabel = new System.Windows.Forms.Panel();
-        labelWorkCity = new System.Windows.Forms.Label();
-        boxWorkCity = new System.Windows.Forms.TextBox();
-        panelDateOfHire = new System.Windows.Forms.Panel();
-        panelDateOfHireLabel = new System.Windows.Forms.Panel();
-        labelDateOfHire = new System.Windows.Forms.Label();
-        boxDateOfHire = new System.Windows.Forms.TextBox();
-        panelStatus = new System.Windows.Forms.Panel();
-        panelStatusLabel = new System.Windows.Forms.Panel();
-        labelStatus = new System.Windows.Forms.Label();
-        boxStatus = new System.Windows.Forms.ComboBox();
-        groupBox1 = new System.Windows.Forms.GroupBox();
-        groupBox2 = new System.Windows.Forms.GroupBox();
-        panel1 = new System.Windows.Forms.Panel();
+        System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormEmployeeDetail));
+        boxSalutation = new ComboBox();
+        boxFirstName = new TextBox();
+        boxLastName = new TextBox();
+        boxBirthday = new TextBox();
+        boxSex = new ComboBox();
+        boxTitle = new ComboBox();
+        boxStreet = new TextBox();
+        boxStreetNumber = new TextBox();
+        boxZipCode = new TextBox();
+        boxCity = new TextBox();
+        buttonCancel = new Button();
+        buttonSave = new Button();
+        boxPhoneNumberCompany = new TextBox();
+        boxPhoneNumberMobile = new TextBox();
+        boxEmail = new TextBox();
+        panelSalutation = new Panel();
+        panelSalutationLabel = new Panel();
+        labelSalutation = new Label();
+        panelFirstName = new Panel();
+        panelFirstNameLabel = new Panel();
+        labelFirstName = new Label();
+        panelLastName = new Panel();
+        panelLastNameLabel = new Panel();
+        labelLastName = new Label();
+        panelBirthday = new Panel();
+        panelBirthdayLabel = new Panel();
+        labelBirthday = new Label();
+        panelSex = new Panel();
+        panelSexLabel = new Panel();
+        labelSex = new Label();
+        panelTitle = new Panel();
+        panelTitleLabel = new Panel();
+        labelTitle = new Label();
+        panelStreet = new Panel();
+        panelStreetLabel = new Panel();
+        labelStreet = new Label();
+        panelStreetNumber = new Panel();
+        panelStreetNumberLabel = new Panel();
+        labelStreetNumber = new Label();
+        panelZipCode = new Panel();
+        panelZipCodeLabel = new Panel();
+        labelZipCode = new Label();
+        panelCity = new Panel();
+        panelCityLabel = new Panel();
+        labelCity = new Label();
+        panelPhoneNumberCompany = new Panel();
+        panelPhoneNumberCompanyLabel = new Panel();
+        labelPhoneNumberCompany = new Label();
+        panelPhoneNumberMobile = new Panel();
+        panelPhoneNumberMobileLabel = new Panel();
+        labelPhoneNumberMobile = new Label();
+        panelEmail = new Panel();
+        panelEmailLabel = new Panel();
+        labelEmail = new Label();
+        panelEmployeeNumber = new Panel();
+        panelEmployeeNumberLabel = new Panel();
+        labelEmployeeNumber = new Label();
+        boxEmployeeNumber = new TextBox();
+        panelDepartment = new Panel();
+        panelDepartmentLabel = new Panel();
+        labelDepartment = new Label();
+        boxDepartment = new TextBox();
+        panelAhvNumber = new Panel();
+        panelAhvNumberLabel = new Panel();
+        labelAhvNumber = new Label();
+        boxAhvNumber = new TextBox();
+        panelNationality = new Panel();
+        panelNationalityLabel = new Panel();
+        labelNationality = new Label();
+        boxNationality = new TextBox();
+        panelEmploymentRate = new Panel();
+        panelEmploymentRateLabel = new Panel();
+        labelEmploymentRate = new Label();
+        boxEmploymentRate = new TextBox();
+        panelRole = new Panel();
+        panelRoleLabel = new Panel();
+        labelRole = new Label();
+        boxRole = new TextBox();
+        panelApprenticeshipYears = new Panel();
+        panelApprenticeshipYearsLabel = new Panel();
+        labelApprenticeshipYears = new Label();
+        boxApprenticeshipYears = new TextBox();
+        panelSeniorLevel = new Panel();
+        panelSeniorLevelLabel = new Panel();
+        labelSeniorLevel = new Label();
+        boxSeniorLevel = new TextBox();
+        panelWorkStreet = new Panel();
+        panelWorkStreetLabel = new Panel();
+        labelWorkStreet = new Label();
+        boxWorkStreet = new TextBox();
+        panelWorkStreetNumber = new Panel();
+        panelWorkStreetNumberLabel = new Panel();
+        labelWorkStreetNumber = new Label();
+        boxWorkStreetNumber = new TextBox();
+        panelWorkZipCode = new Panel();
+        panelWorkZipCodeLabel = new Panel();
+        labelWorkZipCode = new Label();
+        boxWorkZipCode = new TextBox();
+        panelWorkCity = new Panel();
+        panelWorkCityLabel = new Panel();
+        labelWorkCity = new Label();
+        boxWorkCity = new TextBox();
+        panelDateOfHire = new Panel();
+        panelDateOfHireLabel = new Panel();
+        labelDateOfHire = new Label();
+        boxDateOfHire = new TextBox();
+        panelStatus = new Panel();
+        panelStatusLabel = new Panel();
+        labelStatus = new Label();
+        boxStatus = new ComboBox();
+        groupBox1 = new GroupBox();
+        groupBox2 = new GroupBox();
+        panel1 = new Panel();
         panelSalutation.SuspendLayout();
         panelSalutationLabel.SuspendLayout();
         panelFirstName.SuspendLayout();
@@ -204,105 +205,105 @@ partial class FormEmployeeDetail : Form
         // 
         // boxSalutation
         // 
-        boxSalutation.Dock = System.Windows.Forms.DockStyle.Bottom;
-        boxSalutation.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+        boxSalutation.Dock = DockStyle.Bottom;
+        boxSalutation.DropDownStyle = ComboBoxStyle.DropDownList;
         boxSalutation.FormattingEnabled = true;
         boxSalutation.Items.AddRange(new object[] { "Herr", "Frau" });
-        boxSalutation.Location = new System.Drawing.Point(0, 63);
+        boxSalutation.Location = new Point(0, 78);
         boxSalutation.Name = "boxSalutation";
-        boxSalutation.Size = new System.Drawing.Size(528, 38);
+        boxSalutation.Size = new Size(528, 23);
         boxSalutation.TabIndex = 1;
         // 
         // boxFirstName
         // 
-        boxFirstName.Dock = System.Windows.Forms.DockStyle.Bottom;
-        boxFirstName.Font = new System.Drawing.Font("Segoe UI", 11F);
-        boxFirstName.Location = new System.Drawing.Point(0, 63);
+        boxFirstName.Dock = DockStyle.Bottom;
+        boxFirstName.Font = new Font("Segoe UI", 11F);
+        boxFirstName.Location = new Point(0, 71);
         boxFirstName.Name = "boxFirstName";
-        boxFirstName.Size = new System.Drawing.Size(250, 35);
+        boxFirstName.Size = new Size(250, 27);
         boxFirstName.TabIndex = 1;
         // 
         // boxLastName
         // 
-        boxLastName.Dock = System.Windows.Forms.DockStyle.Bottom;
-        boxLastName.Font = new System.Drawing.Font("Segoe UI", 11F);
-        boxLastName.Location = new System.Drawing.Point(0, 63);
+        boxLastName.Dock = DockStyle.Bottom;
+        boxLastName.Font = new Font("Segoe UI", 11F);
+        boxLastName.Location = new Point(0, 71);
         boxLastName.Name = "boxLastName";
-        boxLastName.Size = new System.Drawing.Size(250, 35);
+        boxLastName.Size = new Size(250, 27);
         boxLastName.TabIndex = 1;
         // 
         // boxBirthday
         // 
-        boxBirthday.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-        boxBirthday.Dock = System.Windows.Forms.DockStyle.Bottom;
-        boxBirthday.Font = new System.Drawing.Font("Segoe UI", 11F);
-        boxBirthday.Location = new System.Drawing.Point(0, 66);
+        boxBirthday.BorderStyle = BorderStyle.FixedSingle;
+        boxBirthday.Dock = DockStyle.Bottom;
+        boxBirthday.Font = new Font("Segoe UI", 11F);
+        boxBirthday.Location = new Point(0, 74);
         boxBirthday.Name = "boxBirthday";
         boxBirthday.PlaceholderText = "dd.MM.yyyy";
-        boxBirthday.Size = new System.Drawing.Size(250, 35);
+        boxBirthday.Size = new Size(250, 27);
         boxBirthday.TabIndex = 1;
         // 
         // boxSex
         // 
-        boxSex.Dock = System.Windows.Forms.DockStyle.Bottom;
+        boxSex.Dock = DockStyle.Bottom;
         boxSex.FormattingEnabled = true;
-        boxSex.Location = new System.Drawing.Point(0, 63);
+        boxSex.Location = new Point(0, 78);
         boxSex.Name = "boxSex";
-        boxSex.Size = new System.Drawing.Size(250, 38);
+        boxSex.Size = new Size(250, 23);
         boxSex.TabIndex = 1;
         // 
         // boxTitle
         // 
-        boxTitle.Dock = System.Windows.Forms.DockStyle.Bottom;
+        boxTitle.Dock = DockStyle.Bottom;
         boxTitle.FormattingEnabled = true;
-        boxTitle.Location = new System.Drawing.Point(0, 63);
+        boxTitle.Location = new Point(0, 78);
         boxTitle.Name = "boxTitle";
-        boxTitle.Size = new System.Drawing.Size(528, 38);
+        boxTitle.Size = new Size(528, 23);
         boxTitle.TabIndex = 1;
         // 
         // boxStreet
         // 
-        boxStreet.Dock = System.Windows.Forms.DockStyle.Bottom;
-        boxStreet.Font = new System.Drawing.Font("Segoe UI", 11F);
-        boxStreet.Location = new System.Drawing.Point(0, 63);
+        boxStreet.Dock = DockStyle.Bottom;
+        boxStreet.Font = new Font("Segoe UI", 11F);
+        boxStreet.Location = new Point(0, 71);
         boxStreet.Name = "boxStreet";
-        boxStreet.Size = new System.Drawing.Size(250, 35);
+        boxStreet.Size = new Size(250, 27);
         boxStreet.TabIndex = 1;
         // 
         // boxStreetNumber
         // 
-        boxStreetNumber.Dock = System.Windows.Forms.DockStyle.Bottom;
-        boxStreetNumber.Font = new System.Drawing.Font("Segoe UI", 11F);
-        boxStreetNumber.Location = new System.Drawing.Point(0, 63);
+        boxStreetNumber.Dock = DockStyle.Bottom;
+        boxStreetNumber.Font = new Font("Segoe UI", 11F);
+        boxStreetNumber.Location = new Point(0, 71);
         boxStreetNumber.Name = "boxStreetNumber";
         boxStreetNumber.PlaceholderText = "11a";
-        boxStreetNumber.Size = new System.Drawing.Size(250, 35);
+        boxStreetNumber.Size = new Size(250, 27);
         boxStreetNumber.TabIndex = 1;
         // 
         // boxZipCode
         // 
-        boxZipCode.Dock = System.Windows.Forms.DockStyle.Bottom;
-        boxZipCode.Font = new System.Drawing.Font("Segoe UI", 11F);
-        boxZipCode.Location = new System.Drawing.Point(0, 63);
+        boxZipCode.Dock = DockStyle.Bottom;
+        boxZipCode.Font = new Font("Segoe UI", 11F);
+        boxZipCode.Location = new Point(0, 71);
         boxZipCode.Name = "boxZipCode";
         boxZipCode.PlaceholderText = "XXXX";
-        boxZipCode.Size = new System.Drawing.Size(250, 35);
+        boxZipCode.Size = new Size(250, 27);
         boxZipCode.TabIndex = 1;
         // 
         // boxCity
         // 
-        boxCity.Dock = System.Windows.Forms.DockStyle.Bottom;
-        boxCity.Font = new System.Drawing.Font("Segoe UI", 11F);
-        boxCity.Location = new System.Drawing.Point(0, 63);
+        boxCity.Dock = DockStyle.Bottom;
+        boxCity.Font = new Font("Segoe UI", 11F);
+        boxCity.Location = new Point(0, 71);
         boxCity.Name = "boxCity";
-        boxCity.Size = new System.Drawing.Size(250, 35);
+        boxCity.Size = new Size(250, 27);
         boxCity.TabIndex = 1;
         // 
         // buttonCancel
         // 
-        buttonCancel.Location = new System.Drawing.Point(1455, 22);
+        buttonCancel.Location = new Point(1455, 22);
         buttonCancel.Name = "buttonCancel";
-        buttonCancel.Size = new System.Drawing.Size(221, 57);
+        buttonCancel.Size = new Size(221, 57);
         buttonCancel.TabIndex = 0;
         buttonCancel.Text = "Abbrechen";
         buttonCancel.UseVisualStyleBackColor = true;
@@ -310,9 +311,9 @@ partial class FormEmployeeDetail : Form
         // 
         // buttonSave
         // 
-        buttonSave.Location = new System.Drawing.Point(1692, 22);
+        buttonSave.Location = new Point(1692, 22);
         buttonSave.Name = "buttonSave";
-        buttonSave.Size = new System.Drawing.Size(220, 57);
+        buttonSave.Size = new Size(220, 57);
         buttonSave.TabIndex = 1;
         buttonSave.Text = "Speichern";
         buttonSave.UseVisualStyleBackColor = true;
@@ -320,59 +321,59 @@ partial class FormEmployeeDetail : Form
         // 
         // boxPhoneNumberCompany
         // 
-        boxPhoneNumberCompany.Dock = System.Windows.Forms.DockStyle.Bottom;
-        boxPhoneNumberCompany.Font = new System.Drawing.Font("Segoe UI", 11F);
-        boxPhoneNumberCompany.Location = new System.Drawing.Point(0, 63);
+        boxPhoneNumberCompany.Dock = DockStyle.Bottom;
+        boxPhoneNumberCompany.Font = new Font("Segoe UI", 11F);
+        boxPhoneNumberCompany.Location = new Point(0, 71);
         boxPhoneNumberCompany.Name = "boxPhoneNumberCompany";
         boxPhoneNumberCompany.PlaceholderText = "0761234567";
-        boxPhoneNumberCompany.Size = new System.Drawing.Size(528, 35);
+        boxPhoneNumberCompany.Size = new Size(528, 27);
         boxPhoneNumberCompany.TabIndex = 1;
         // 
         // boxPhoneNumberMobile
         // 
-        boxPhoneNumberMobile.Dock = System.Windows.Forms.DockStyle.Bottom;
-        boxPhoneNumberMobile.Font = new System.Drawing.Font("Segoe UI", 11F);
-        boxPhoneNumberMobile.Location = new System.Drawing.Point(0, 63);
+        boxPhoneNumberMobile.Dock = DockStyle.Bottom;
+        boxPhoneNumberMobile.Font = new Font("Segoe UI", 11F);
+        boxPhoneNumberMobile.Location = new Point(0, 71);
         boxPhoneNumberMobile.Name = "boxPhoneNumberMobile";
         boxPhoneNumberMobile.PlaceholderText = "0761234567";
-        boxPhoneNumberMobile.Size = new System.Drawing.Size(528, 35);
+        boxPhoneNumberMobile.Size = new Size(528, 27);
         boxPhoneNumberMobile.TabIndex = 1;
         // 
         // boxEmail
         // 
-        boxEmail.Dock = System.Windows.Forms.DockStyle.Bottom;
-        boxEmail.Font = new System.Drawing.Font("Segoe UI", 11F);
-        boxEmail.Location = new System.Drawing.Point(0, 63);
+        boxEmail.Dock = DockStyle.Bottom;
+        boxEmail.Font = new Font("Segoe UI", 11F);
+        boxEmail.Location = new Point(0, 71);
         boxEmail.Name = "boxEmail";
         boxEmail.PlaceholderText = "maxmustermann@gmail.com";
-        boxEmail.Size = new System.Drawing.Size(528, 35);
+        boxEmail.Size = new Size(528, 27);
         boxEmail.TabIndex = 1;
         // 
         // panelSalutation
         // 
         panelSalutation.Controls.Add(panelSalutationLabel);
         panelSalutation.Controls.Add(boxSalutation);
-        panelSalutation.Location = new System.Drawing.Point(41, 44);
+        panelSalutation.Location = new Point(41, 44);
         panelSalutation.Name = "panelSalutation";
-        panelSalutation.Size = new System.Drawing.Size(528, 101);
+        panelSalutation.Size = new Size(528, 101);
         panelSalutation.TabIndex = 0;
         // 
         // panelSalutationLabel
         // 
         panelSalutationLabel.Controls.Add(labelSalutation);
-        panelSalutationLabel.Dock = System.Windows.Forms.DockStyle.Top;
-        panelSalutationLabel.Location = new System.Drawing.Point(0, 0);
+        panelSalutationLabel.Dock = DockStyle.Top;
+        panelSalutationLabel.Location = new Point(0, 0);
         panelSalutationLabel.Name = "panelSalutationLabel";
-        panelSalutationLabel.Size = new System.Drawing.Size(528, 46);
+        panelSalutationLabel.Size = new Size(528, 46);
         panelSalutationLabel.TabIndex = 0;
         // 
         // labelSalutation
         // 
         labelSalutation.AutoSize = true;
-        labelSalutation.Dock = System.Windows.Forms.DockStyle.Fill;
-        labelSalutation.Location = new System.Drawing.Point(0, 0);
+        labelSalutation.Dock = DockStyle.Fill;
+        labelSalutation.Location = new Point(0, 0);
         labelSalutation.Name = "labelSalutation";
-        labelSalutation.Size = new System.Drawing.Size(80, 30);
+        labelSalutation.Size = new Size(45, 15);
         labelSalutation.TabIndex = 0;
         labelSalutation.Text = "Anrede";
         // 
@@ -380,27 +381,27 @@ partial class FormEmployeeDetail : Form
         // 
         panelFirstName.Controls.Add(panelFirstNameLabel);
         panelFirstName.Controls.Add(boxFirstName);
-        panelFirstName.Location = new System.Drawing.Point(41, 148);
+        panelFirstName.Location = new Point(41, 148);
         panelFirstName.Name = "panelFirstName";
-        panelFirstName.Size = new System.Drawing.Size(250, 98);
+        panelFirstName.Size = new Size(250, 98);
         panelFirstName.TabIndex = 1;
         // 
         // panelFirstNameLabel
         // 
         panelFirstNameLabel.Controls.Add(labelFirstName);
-        panelFirstNameLabel.Dock = System.Windows.Forms.DockStyle.Top;
-        panelFirstNameLabel.Location = new System.Drawing.Point(0, 0);
+        panelFirstNameLabel.Dock = DockStyle.Top;
+        panelFirstNameLabel.Location = new Point(0, 0);
         panelFirstNameLabel.Name = "panelFirstNameLabel";
-        panelFirstNameLabel.Size = new System.Drawing.Size(250, 46);
+        panelFirstNameLabel.Size = new Size(250, 46);
         panelFirstNameLabel.TabIndex = 0;
         // 
         // labelFirstName
         // 
         labelFirstName.AutoSize = true;
-        labelFirstName.Dock = System.Windows.Forms.DockStyle.Fill;
-        labelFirstName.Location = new System.Drawing.Point(0, 0);
+        labelFirstName.Dock = DockStyle.Fill;
+        labelFirstName.Location = new Point(0, 0);
         labelFirstName.Name = "labelFirstName";
-        labelFirstName.Size = new System.Drawing.Size(96, 30);
+        labelFirstName.Size = new Size(54, 15);
         labelFirstName.TabIndex = 0;
         labelFirstName.Text = "Vorname";
         // 
@@ -408,27 +409,27 @@ partial class FormEmployeeDetail : Form
         // 
         panelLastName.Controls.Add(panelLastNameLabel);
         panelLastName.Controls.Add(boxLastName);
-        panelLastName.Location = new System.Drawing.Point(319, 148);
+        panelLastName.Location = new Point(319, 148);
         panelLastName.Name = "panelLastName";
-        panelLastName.Size = new System.Drawing.Size(250, 98);
+        panelLastName.Size = new Size(250, 98);
         panelLastName.TabIndex = 2;
         // 
         // panelLastNameLabel
         // 
         panelLastNameLabel.Controls.Add(labelLastName);
-        panelLastNameLabel.Dock = System.Windows.Forms.DockStyle.Top;
-        panelLastNameLabel.Location = new System.Drawing.Point(0, 0);
+        panelLastNameLabel.Dock = DockStyle.Top;
+        panelLastNameLabel.Location = new Point(0, 0);
         panelLastNameLabel.Name = "panelLastNameLabel";
-        panelLastNameLabel.Size = new System.Drawing.Size(250, 46);
+        panelLastNameLabel.Size = new Size(250, 46);
         panelLastNameLabel.TabIndex = 0;
         // 
         // labelLastName
         // 
         labelLastName.AutoSize = true;
-        labelLastName.Dock = System.Windows.Forms.DockStyle.Fill;
-        labelLastName.Location = new System.Drawing.Point(0, 0);
+        labelLastName.Dock = DockStyle.Fill;
+        labelLastName.Location = new Point(0, 0);
         labelLastName.Name = "labelLastName";
-        labelLastName.Size = new System.Drawing.Size(114, 30);
+        labelLastName.Size = new Size(65, 15);
         labelLastName.TabIndex = 0;
         labelLastName.Text = "Nachname";
         // 
@@ -436,27 +437,27 @@ partial class FormEmployeeDetail : Form
         // 
         panelBirthday.Controls.Add(panelBirthdayLabel);
         panelBirthday.Controls.Add(boxBirthday);
-        panelBirthday.Location = new System.Drawing.Point(41, 258);
+        panelBirthday.Location = new Point(41, 258);
         panelBirthday.Name = "panelBirthday";
-        panelBirthday.Size = new System.Drawing.Size(250, 101);
+        panelBirthday.Size = new Size(250, 101);
         panelBirthday.TabIndex = 3;
         // 
         // panelBirthdayLabel
         // 
         panelBirthdayLabel.Controls.Add(labelBirthday);
-        panelBirthdayLabel.Dock = System.Windows.Forms.DockStyle.Top;
-        panelBirthdayLabel.Location = new System.Drawing.Point(0, 0);
+        panelBirthdayLabel.Dock = DockStyle.Top;
+        panelBirthdayLabel.Location = new Point(0, 0);
         panelBirthdayLabel.Name = "panelBirthdayLabel";
-        panelBirthdayLabel.Size = new System.Drawing.Size(250, 46);
+        panelBirthdayLabel.Size = new Size(250, 46);
         panelBirthdayLabel.TabIndex = 0;
         // 
         // labelBirthday
         // 
         labelBirthday.AutoSize = true;
-        labelBirthday.Dock = System.Windows.Forms.DockStyle.Fill;
-        labelBirthday.Location = new System.Drawing.Point(0, 0);
+        labelBirthday.Dock = DockStyle.Fill;
+        labelBirthday.Location = new Point(0, 0);
         labelBirthday.Name = "labelBirthday";
-        labelBirthday.Size = new System.Drawing.Size(115, 30);
+        labelBirthday.Size = new Size(65, 15);
         labelBirthday.TabIndex = 0;
         labelBirthday.Text = "Geburtstag";
         // 
@@ -464,27 +465,27 @@ partial class FormEmployeeDetail : Form
         // 
         panelSex.Controls.Add(panelSexLabel);
         panelSex.Controls.Add(boxSex);
-        panelSex.Location = new System.Drawing.Point(319, 258);
+        panelSex.Location = new Point(319, 258);
         panelSex.Name = "panelSex";
-        panelSex.Size = new System.Drawing.Size(250, 101);
+        panelSex.Size = new Size(250, 101);
         panelSex.TabIndex = 4;
         // 
         // panelSexLabel
         // 
         panelSexLabel.Controls.Add(labelSex);
-        panelSexLabel.Dock = System.Windows.Forms.DockStyle.Top;
-        panelSexLabel.Location = new System.Drawing.Point(0, 0);
+        panelSexLabel.Dock = DockStyle.Top;
+        panelSexLabel.Location = new Point(0, 0);
         panelSexLabel.Name = "panelSexLabel";
-        panelSexLabel.Size = new System.Drawing.Size(250, 46);
+        panelSexLabel.Size = new Size(250, 46);
         panelSexLabel.TabIndex = 0;
         // 
         // labelSex
         // 
         labelSex.AutoSize = true;
-        labelSex.Dock = System.Windows.Forms.DockStyle.Fill;
-        labelSex.Location = new System.Drawing.Point(0, 0);
+        labelSex.Dock = DockStyle.Fill;
+        labelSex.Location = new Point(0, 0);
         labelSex.Name = "labelSex";
-        labelSex.Size = new System.Drawing.Size(114, 30);
+        labelSex.Size = new Size(65, 15);
         labelSex.TabIndex = 0;
         labelSex.Text = "Geschlecht";
         // 
@@ -492,27 +493,27 @@ partial class FormEmployeeDetail : Form
         // 
         panelTitle.Controls.Add(panelTitleLabel);
         panelTitle.Controls.Add(boxTitle);
-        panelTitle.Location = new System.Drawing.Point(41, 371);
+        panelTitle.Location = new Point(41, 371);
         panelTitle.Name = "panelTitle";
-        panelTitle.Size = new System.Drawing.Size(528, 101);
+        panelTitle.Size = new Size(528, 101);
         panelTitle.TabIndex = 5;
         // 
         // panelTitleLabel
         // 
         panelTitleLabel.Controls.Add(labelTitle);
-        panelTitleLabel.Dock = System.Windows.Forms.DockStyle.Top;
-        panelTitleLabel.Location = new System.Drawing.Point(0, 0);
+        panelTitleLabel.Dock = DockStyle.Top;
+        panelTitleLabel.Location = new Point(0, 0);
         panelTitleLabel.Name = "panelTitleLabel";
-        panelTitleLabel.Size = new System.Drawing.Size(528, 46);
+        panelTitleLabel.Size = new Size(528, 46);
         panelTitleLabel.TabIndex = 0;
         // 
         // labelTitle
         // 
         labelTitle.AutoSize = true;
-        labelTitle.Dock = System.Windows.Forms.DockStyle.Fill;
-        labelTitle.Location = new System.Drawing.Point(0, 0);
+        labelTitle.Dock = DockStyle.Fill;
+        labelTitle.Location = new Point(0, 0);
         labelTitle.Name = "labelTitle";
-        labelTitle.Size = new System.Drawing.Size(52, 30);
+        labelTitle.Size = new Size(30, 15);
         labelTitle.TabIndex = 0;
         labelTitle.Text = "Titel";
         // 
@@ -520,27 +521,27 @@ partial class FormEmployeeDetail : Form
         // 
         panelStreet.Controls.Add(panelStreetLabel);
         panelStreet.Controls.Add(boxStreet);
-        panelStreet.Location = new System.Drawing.Point(41, 484);
+        panelStreet.Location = new Point(41, 484);
         panelStreet.Name = "panelStreet";
-        panelStreet.Size = new System.Drawing.Size(250, 98);
+        panelStreet.Size = new Size(250, 98);
         panelStreet.TabIndex = 6;
         // 
         // panelStreetLabel
         // 
         panelStreetLabel.Controls.Add(labelStreet);
-        panelStreetLabel.Dock = System.Windows.Forms.DockStyle.Top;
-        panelStreetLabel.Location = new System.Drawing.Point(0, 0);
+        panelStreetLabel.Dock = DockStyle.Top;
+        panelStreetLabel.Location = new Point(0, 0);
         panelStreetLabel.Name = "panelStreetLabel";
-        panelStreetLabel.Size = new System.Drawing.Size(250, 46);
+        panelStreetLabel.Size = new Size(250, 46);
         panelStreetLabel.TabIndex = 0;
         // 
         // labelStreet
         // 
         labelStreet.AutoSize = true;
-        labelStreet.Dock = System.Windows.Forms.DockStyle.Fill;
-        labelStreet.Location = new System.Drawing.Point(0, 0);
+        labelStreet.Dock = DockStyle.Fill;
+        labelStreet.Location = new Point(0, 0);
         labelStreet.Name = "labelStreet";
-        labelStreet.Size = new System.Drawing.Size(77, 30);
+        labelStreet.Size = new Size(43, 15);
         labelStreet.TabIndex = 0;
         labelStreet.Text = "Strasse";
         // 
@@ -548,27 +549,27 @@ partial class FormEmployeeDetail : Form
         // 
         panelStreetNumber.Controls.Add(panelStreetNumberLabel);
         panelStreetNumber.Controls.Add(boxStreetNumber);
-        panelStreetNumber.Location = new System.Drawing.Point(319, 484);
+        panelStreetNumber.Location = new Point(319, 484);
         panelStreetNumber.Name = "panelStreetNumber";
-        panelStreetNumber.Size = new System.Drawing.Size(250, 98);
+        panelStreetNumber.Size = new Size(250, 98);
         panelStreetNumber.TabIndex = 7;
         // 
         // panelStreetNumberLabel
         // 
         panelStreetNumberLabel.Controls.Add(labelStreetNumber);
-        panelStreetNumberLabel.Dock = System.Windows.Forms.DockStyle.Top;
-        panelStreetNumberLabel.Location = new System.Drawing.Point(0, 0);
+        panelStreetNumberLabel.Dock = DockStyle.Top;
+        panelStreetNumberLabel.Location = new Point(0, 0);
         panelStreetNumberLabel.Name = "panelStreetNumberLabel";
-        panelStreetNumberLabel.Size = new System.Drawing.Size(250, 46);
+        panelStreetNumberLabel.Size = new Size(250, 46);
         panelStreetNumberLabel.TabIndex = 0;
         // 
         // labelStreetNumber
         // 
         labelStreetNumber.AutoSize = true;
-        labelStreetNumber.Dock = System.Windows.Forms.DockStyle.Fill;
-        labelStreetNumber.Location = new System.Drawing.Point(0, 0);
+        labelStreetNumber.Dock = DockStyle.Fill;
+        labelStreetNumber.Location = new Point(0, 0);
         labelStreetNumber.Name = "labelStreetNumber";
-        labelStreetNumber.Size = new System.Drawing.Size(47, 30);
+        labelStreetNumber.Size = new Size(26, 15);
         labelStreetNumber.TabIndex = 0;
         labelStreetNumber.Text = "Nr. ";
         // 
@@ -576,27 +577,27 @@ partial class FormEmployeeDetail : Form
         // 
         panelZipCode.Controls.Add(panelZipCodeLabel);
         panelZipCode.Controls.Add(boxZipCode);
-        panelZipCode.Location = new System.Drawing.Point(41, 594);
+        panelZipCode.Location = new Point(41, 594);
         panelZipCode.Name = "panelZipCode";
-        panelZipCode.Size = new System.Drawing.Size(250, 98);
+        panelZipCode.Size = new Size(250, 98);
         panelZipCode.TabIndex = 8;
         // 
         // panelZipCodeLabel
         // 
         panelZipCodeLabel.Controls.Add(labelZipCode);
-        panelZipCodeLabel.Dock = System.Windows.Forms.DockStyle.Top;
-        panelZipCodeLabel.Location = new System.Drawing.Point(0, 0);
+        panelZipCodeLabel.Dock = DockStyle.Top;
+        panelZipCodeLabel.Location = new Point(0, 0);
         panelZipCodeLabel.Name = "panelZipCodeLabel";
-        panelZipCodeLabel.Size = new System.Drawing.Size(250, 46);
+        panelZipCodeLabel.Size = new Size(250, 46);
         panelZipCodeLabel.TabIndex = 0;
         // 
         // labelZipCode
         // 
         labelZipCode.AutoSize = true;
-        labelZipCode.Dock = System.Windows.Forms.DockStyle.Fill;
-        labelZipCode.Location = new System.Drawing.Point(0, 0);
+        labelZipCode.Dock = DockStyle.Fill;
+        labelZipCode.Location = new Point(0, 0);
         labelZipCode.Name = "labelZipCode";
-        labelZipCode.Size = new System.Drawing.Size(118, 30);
+        labelZipCode.Size = new Size(67, 15);
         labelZipCode.TabIndex = 0;
         labelZipCode.Text = "Postleitzahl";
         // 
@@ -604,27 +605,27 @@ partial class FormEmployeeDetail : Form
         // 
         panelCity.Controls.Add(panelCityLabel);
         panelCity.Controls.Add(boxCity);
-        panelCity.Location = new System.Drawing.Point(319, 594);
+        panelCity.Location = new Point(319, 594);
         panelCity.Name = "panelCity";
-        panelCity.Size = new System.Drawing.Size(250, 98);
+        panelCity.Size = new Size(250, 98);
         panelCity.TabIndex = 9;
         // 
         // panelCityLabel
         // 
         panelCityLabel.Controls.Add(labelCity);
-        panelCityLabel.Dock = System.Windows.Forms.DockStyle.Top;
-        panelCityLabel.Location = new System.Drawing.Point(0, 0);
+        panelCityLabel.Dock = DockStyle.Top;
+        panelCityLabel.Location = new Point(0, 0);
         panelCityLabel.Name = "panelCityLabel";
-        panelCityLabel.Size = new System.Drawing.Size(250, 46);
+        panelCityLabel.Size = new Size(250, 46);
         panelCityLabel.TabIndex = 0;
         // 
         // labelCity
         // 
         labelCity.AutoSize = true;
-        labelCity.Dock = System.Windows.Forms.DockStyle.Fill;
-        labelCity.Location = new System.Drawing.Point(0, 0);
+        labelCity.Dock = DockStyle.Fill;
+        labelCity.Location = new Point(0, 0);
         labelCity.Name = "labelCity";
-        labelCity.Size = new System.Drawing.Size(43, 30);
+        labelCity.Size = new Size(24, 15);
         labelCity.TabIndex = 0;
         labelCity.Text = "Ort";
         // 
@@ -632,27 +633,27 @@ partial class FormEmployeeDetail : Form
         // 
         panelPhoneNumberCompany.Controls.Add(panelPhoneNumberCompanyLabel);
         panelPhoneNumberCompany.Controls.Add(boxPhoneNumberCompany);
-        panelPhoneNumberCompany.Location = new System.Drawing.Point(41, 704);
+        panelPhoneNumberCompany.Location = new Point(41, 704);
         panelPhoneNumberCompany.Name = "panelPhoneNumberCompany";
-        panelPhoneNumberCompany.Size = new System.Drawing.Size(528, 98);
+        panelPhoneNumberCompany.Size = new Size(528, 98);
         panelPhoneNumberCompany.TabIndex = 10;
         // 
         // panelPhoneNumberCompanyLabel
         // 
         panelPhoneNumberCompanyLabel.Controls.Add(labelPhoneNumberCompany);
-        panelPhoneNumberCompanyLabel.Dock = System.Windows.Forms.DockStyle.Top;
-        panelPhoneNumberCompanyLabel.Location = new System.Drawing.Point(0, 0);
+        panelPhoneNumberCompanyLabel.Dock = DockStyle.Top;
+        panelPhoneNumberCompanyLabel.Location = new Point(0, 0);
         panelPhoneNumberCompanyLabel.Name = "panelPhoneNumberCompanyLabel";
-        panelPhoneNumberCompanyLabel.Size = new System.Drawing.Size(528, 46);
+        panelPhoneNumberCompanyLabel.Size = new Size(528, 46);
         panelPhoneNumberCompanyLabel.TabIndex = 0;
         // 
         // labelPhoneNumberCompany
         // 
         labelPhoneNumberCompany.AutoSize = true;
-        labelPhoneNumberCompany.Dock = System.Windows.Forms.DockStyle.Fill;
-        labelPhoneNumberCompany.Location = new System.Drawing.Point(0, 0);
+        labelPhoneNumberCompany.Dock = DockStyle.Fill;
+        labelPhoneNumberCompany.Location = new Point(0, 0);
         labelPhoneNumberCompany.Name = "labelPhoneNumberCompany";
-        labelPhoneNumberCompany.Size = new System.Drawing.Size(130, 30);
+        labelPhoneNumberCompany.Size = new Size(74, 15);
         labelPhoneNumberCompany.TabIndex = 0;
         labelPhoneNumberCompany.Text = "Tel. Geschäft";
         // 
@@ -660,27 +661,27 @@ partial class FormEmployeeDetail : Form
         // 
         panelPhoneNumberMobile.Controls.Add(panelPhoneNumberMobileLabel);
         panelPhoneNumberMobile.Controls.Add(boxPhoneNumberMobile);
-        panelPhoneNumberMobile.Location = new System.Drawing.Point(41, 814);
+        panelPhoneNumberMobile.Location = new Point(41, 814);
         panelPhoneNumberMobile.Name = "panelPhoneNumberMobile";
-        panelPhoneNumberMobile.Size = new System.Drawing.Size(528, 98);
+        panelPhoneNumberMobile.Size = new Size(528, 98);
         panelPhoneNumberMobile.TabIndex = 11;
         // 
         // panelPhoneNumberMobileLabel
         // 
         panelPhoneNumberMobileLabel.Controls.Add(labelPhoneNumberMobile);
-        panelPhoneNumberMobileLabel.Dock = System.Windows.Forms.DockStyle.Top;
-        panelPhoneNumberMobileLabel.Location = new System.Drawing.Point(0, 0);
+        panelPhoneNumberMobileLabel.Dock = DockStyle.Top;
+        panelPhoneNumberMobileLabel.Location = new Point(0, 0);
         panelPhoneNumberMobileLabel.Name = "panelPhoneNumberMobileLabel";
-        panelPhoneNumberMobileLabel.Size = new System.Drawing.Size(528, 46);
+        panelPhoneNumberMobileLabel.Size = new Size(528, 46);
         panelPhoneNumberMobileLabel.TabIndex = 0;
         // 
         // labelPhoneNumberMobile
         // 
         labelPhoneNumberMobile.AutoSize = true;
-        labelPhoneNumberMobile.Dock = System.Windows.Forms.DockStyle.Fill;
-        labelPhoneNumberMobile.Location = new System.Drawing.Point(0, 0);
+        labelPhoneNumberMobile.Dock = DockStyle.Fill;
+        labelPhoneNumberMobile.Location = new Point(0, 0);
         labelPhoneNumberMobile.Name = "labelPhoneNumberMobile";
-        labelPhoneNumberMobile.Size = new System.Drawing.Size(102, 30);
+        labelPhoneNumberMobile.Size = new Size(59, 15);
         labelPhoneNumberMobile.TabIndex = 0;
         labelPhoneNumberMobile.Text = "Tel. Mobil";
         // 
@@ -688,27 +689,27 @@ partial class FormEmployeeDetail : Form
         // 
         panelEmail.Controls.Add(panelEmailLabel);
         panelEmail.Controls.Add(boxEmail);
-        panelEmail.Location = new System.Drawing.Point(41, 924);
+        panelEmail.Location = new Point(41, 924);
         panelEmail.Name = "panelEmail";
-        panelEmail.Size = new System.Drawing.Size(528, 98);
+        panelEmail.Size = new Size(528, 98);
         panelEmail.TabIndex = 12;
         // 
         // panelEmailLabel
         // 
         panelEmailLabel.Controls.Add(labelEmail);
-        panelEmailLabel.Dock = System.Windows.Forms.DockStyle.Top;
-        panelEmailLabel.Location = new System.Drawing.Point(0, 0);
+        panelEmailLabel.Dock = DockStyle.Top;
+        panelEmailLabel.Location = new Point(0, 0);
         panelEmailLabel.Name = "panelEmailLabel";
-        panelEmailLabel.Size = new System.Drawing.Size(528, 46);
+        panelEmailLabel.Size = new Size(528, 46);
         panelEmailLabel.TabIndex = 0;
         // 
         // labelEmail
         // 
         labelEmail.AutoSize = true;
-        labelEmail.Dock = System.Windows.Forms.DockStyle.Fill;
-        labelEmail.Location = new System.Drawing.Point(0, 0);
+        labelEmail.Dock = DockStyle.Fill;
+        labelEmail.Location = new Point(0, 0);
         labelEmail.Name = "labelEmail";
-        labelEmail.Size = new System.Drawing.Size(72, 30);
+        labelEmail.Size = new Size(41, 15);
         labelEmail.TabIndex = 0;
         labelEmail.Text = "E-Mail";
         // 
@@ -716,519 +717,519 @@ partial class FormEmployeeDetail : Form
         // 
         panelEmployeeNumber.Controls.Add(panelEmployeeNumberLabel);
         panelEmployeeNumber.Controls.Add(boxEmployeeNumber);
-        panelEmployeeNumber.Location = new System.Drawing.Point(670, 51);
+        panelEmployeeNumber.Location = new Point(670, 51);
         panelEmployeeNumber.Name = "panelEmployeeNumber";
-        panelEmployeeNumber.Size = new System.Drawing.Size(250, 98);
+        panelEmployeeNumber.Size = new Size(250, 98);
         panelEmployeeNumber.TabIndex = 1;
         // 
         // panelEmployeeNumberLabel
         // 
         panelEmployeeNumberLabel.Controls.Add(labelEmployeeNumber);
-        panelEmployeeNumberLabel.Dock = System.Windows.Forms.DockStyle.Top;
-        panelEmployeeNumberLabel.Location = new System.Drawing.Point(0, 0);
+        panelEmployeeNumberLabel.Dock = DockStyle.Top;
+        panelEmployeeNumberLabel.Location = new Point(0, 0);
         panelEmployeeNumberLabel.Name = "panelEmployeeNumberLabel";
-        panelEmployeeNumberLabel.Size = new System.Drawing.Size(250, 46);
+        panelEmployeeNumberLabel.Size = new Size(250, 46);
         panelEmployeeNumberLabel.TabIndex = 0;
         // 
         // labelEmployeeNumber
         // 
         labelEmployeeNumber.AutoSize = true;
-        labelEmployeeNumber.Dock = System.Windows.Forms.DockStyle.Fill;
-        labelEmployeeNumber.Location = new System.Drawing.Point(0, 0);
+        labelEmployeeNumber.Dock = DockStyle.Fill;
+        labelEmployeeNumber.Location = new Point(0, 0);
         labelEmployeeNumber.Name = "labelEmployeeNumber";
-        labelEmployeeNumber.Size = new System.Drawing.Size(139, 30);
+        labelEmployeeNumber.Size = new Size(79, 15);
         labelEmployeeNumber.TabIndex = 0;
         labelEmployeeNumber.Text = "Mitarbeiternr.";
         // 
         // boxEmployeeNumber
         // 
-        boxEmployeeNumber.Dock = System.Windows.Forms.DockStyle.Bottom;
+        boxEmployeeNumber.Dock = DockStyle.Bottom;
         boxEmployeeNumber.Enabled = false;
-        boxEmployeeNumber.Font = new System.Drawing.Font("Segoe UI", 11F);
-        boxEmployeeNumber.Location = new System.Drawing.Point(0, 63);
+        boxEmployeeNumber.Font = new Font("Segoe UI", 11F);
+        boxEmployeeNumber.Location = new Point(0, 71);
         boxEmployeeNumber.Name = "boxEmployeeNumber";
-        boxEmployeeNumber.Size = new System.Drawing.Size(250, 35);
+        boxEmployeeNumber.Size = new Size(250, 27);
         boxEmployeeNumber.TabIndex = 1;
         // 
         // panelDepartment
         // 
         panelDepartment.Controls.Add(panelDepartmentLabel);
         panelDepartment.Controls.Add(boxDepartment);
-        panelDepartment.Location = new System.Drawing.Point(948, 51);
+        panelDepartment.Location = new Point(948, 51);
         panelDepartment.Name = "panelDepartment";
-        panelDepartment.Size = new System.Drawing.Size(250, 98);
+        panelDepartment.Size = new Size(250, 98);
         panelDepartment.TabIndex = 2;
         // 
         // panelDepartmentLabel
         // 
         panelDepartmentLabel.Controls.Add(labelDepartment);
-        panelDepartmentLabel.Dock = System.Windows.Forms.DockStyle.Top;
-        panelDepartmentLabel.Location = new System.Drawing.Point(0, 0);
+        panelDepartmentLabel.Dock = DockStyle.Top;
+        panelDepartmentLabel.Location = new Point(0, 0);
         panelDepartmentLabel.Name = "panelDepartmentLabel";
-        panelDepartmentLabel.Size = new System.Drawing.Size(250, 46);
+        panelDepartmentLabel.Size = new Size(250, 46);
         panelDepartmentLabel.TabIndex = 0;
         // 
         // labelDepartment
         // 
         labelDepartment.AutoSize = true;
-        labelDepartment.Dock = System.Windows.Forms.DockStyle.Fill;
-        labelDepartment.Location = new System.Drawing.Point(0, 0);
+        labelDepartment.Dock = DockStyle.Fill;
+        labelDepartment.Location = new Point(0, 0);
         labelDepartment.Name = "labelDepartment";
-        labelDepartment.Size = new System.Drawing.Size(103, 30);
+        labelDepartment.Size = new Size(59, 15);
         labelDepartment.TabIndex = 0;
         labelDepartment.Text = "Abteilung";
         // 
         // boxDepartment
         // 
-        boxDepartment.Dock = System.Windows.Forms.DockStyle.Bottom;
-        boxDepartment.Font = new System.Drawing.Font("Segoe UI", 11F);
-        boxDepartment.Location = new System.Drawing.Point(0, 63);
+        boxDepartment.Dock = DockStyle.Bottom;
+        boxDepartment.Font = new Font("Segoe UI", 11F);
+        boxDepartment.Location = new Point(0, 71);
         boxDepartment.Name = "boxDepartment";
-        boxDepartment.Size = new System.Drawing.Size(250, 35);
+        boxDepartment.Size = new Size(250, 27);
         boxDepartment.TabIndex = 1;
         // 
         // panelAhvNumber
         // 
         panelAhvNumber.Controls.Add(panelAhvNumberLabel);
         panelAhvNumber.Controls.Add(boxAhvNumber);
-        panelAhvNumber.Location = new System.Drawing.Point(670, 161);
+        panelAhvNumber.Location = new Point(670, 161);
         panelAhvNumber.Name = "panelAhvNumber";
-        panelAhvNumber.Size = new System.Drawing.Size(250, 98);
+        panelAhvNumber.Size = new Size(250, 98);
         panelAhvNumber.TabIndex = 3;
         // 
         // panelAhvNumberLabel
         // 
         panelAhvNumberLabel.Controls.Add(labelAhvNumber);
-        panelAhvNumberLabel.Dock = System.Windows.Forms.DockStyle.Top;
-        panelAhvNumberLabel.Location = new System.Drawing.Point(0, 0);
+        panelAhvNumberLabel.Dock = DockStyle.Top;
+        panelAhvNumberLabel.Location = new Point(0, 0);
         panelAhvNumberLabel.Name = "panelAhvNumberLabel";
-        panelAhvNumberLabel.Size = new System.Drawing.Size(250, 46);
+        panelAhvNumberLabel.Size = new Size(250, 46);
         panelAhvNumberLabel.TabIndex = 0;
         // 
         // labelAhvNumber
         // 
         labelAhvNumber.AutoSize = true;
-        labelAhvNumber.Dock = System.Windows.Forms.DockStyle.Fill;
-        labelAhvNumber.Location = new System.Drawing.Point(0, 0);
+        labelAhvNumber.Dock = DockStyle.Fill;
+        labelAhvNumber.Location = new Point(0, 0);
         labelAhvNumber.Name = "labelAhvNumber";
-        labelAhvNumber.Size = new System.Drawing.Size(145, 30);
+        labelAhvNumber.Size = new Size(84, 15);
         labelAhvNumber.TabIndex = 0;
         labelAhvNumber.Text = "AHV-Nummer";
         // 
         // boxAhvNumber
         // 
-        boxAhvNumber.Dock = System.Windows.Forms.DockStyle.Bottom;
-        boxAhvNumber.Font = new System.Drawing.Font("Segoe UI", 11F);
-        boxAhvNumber.Location = new System.Drawing.Point(0, 63);
+        boxAhvNumber.Dock = DockStyle.Bottom;
+        boxAhvNumber.Font = new Font("Segoe UI", 11F);
+        boxAhvNumber.Location = new Point(0, 71);
         boxAhvNumber.Name = "boxAhvNumber";
         boxAhvNumber.PlaceholderText = "756.XXXX.XXXX.XXXX";
-        boxAhvNumber.Size = new System.Drawing.Size(250, 35);
+        boxAhvNumber.Size = new Size(250, 27);
         boxAhvNumber.TabIndex = 1;
         // 
         // panelNationality
         // 
         panelNationality.Controls.Add(panelNationalityLabel);
         panelNationality.Controls.Add(boxNationality);
-        panelNationality.Location = new System.Drawing.Point(948, 161);
+        panelNationality.Location = new Point(948, 161);
         panelNationality.Name = "panelNationality";
-        panelNationality.Size = new System.Drawing.Size(250, 98);
+        panelNationality.Size = new Size(250, 98);
         panelNationality.TabIndex = 4;
         // 
         // panelNationalityLabel
         // 
         panelNationalityLabel.Controls.Add(labelNationality);
-        panelNationalityLabel.Dock = System.Windows.Forms.DockStyle.Top;
-        panelNationalityLabel.Location = new System.Drawing.Point(0, 0);
+        panelNationalityLabel.Dock = DockStyle.Top;
+        panelNationalityLabel.Location = new Point(0, 0);
         panelNationalityLabel.Name = "panelNationalityLabel";
-        panelNationalityLabel.Size = new System.Drawing.Size(250, 46);
+        panelNationalityLabel.Size = new Size(250, 46);
         panelNationalityLabel.TabIndex = 0;
         // 
         // labelNationality
         // 
         labelNationality.AutoSize = true;
-        labelNationality.Dock = System.Windows.Forms.DockStyle.Fill;
-        labelNationality.Location = new System.Drawing.Point(0, 0);
+        labelNationality.Dock = DockStyle.Fill;
+        labelNationality.Location = new Point(0, 0);
         labelNationality.Name = "labelNationality";
-        labelNationality.Size = new System.Drawing.Size(122, 30);
+        labelNationality.Size = new Size(69, 15);
         labelNationality.TabIndex = 0;
         labelNationality.Text = "Nationalität";
         // 
         // boxNationality
         // 
-        boxNationality.Dock = System.Windows.Forms.DockStyle.Bottom;
-        boxNationality.Font = new System.Drawing.Font("Segoe UI", 11F);
-        boxNationality.Location = new System.Drawing.Point(0, 63);
+        boxNationality.Dock = DockStyle.Bottom;
+        boxNationality.Font = new Font("Segoe UI", 11F);
+        boxNationality.Location = new Point(0, 71);
         boxNationality.Name = "boxNationality";
-        boxNationality.Size = new System.Drawing.Size(250, 35);
+        boxNationality.Size = new Size(250, 27);
         boxNationality.TabIndex = 1;
         // 
         // panelEmploymentRate
         // 
         panelEmploymentRate.Controls.Add(panelEmploymentRateLabel);
         panelEmploymentRate.Controls.Add(boxEmploymentRate);
-        panelEmploymentRate.Location = new System.Drawing.Point(670, 271);
+        panelEmploymentRate.Location = new Point(670, 271);
         panelEmploymentRate.Name = "panelEmploymentRate";
-        panelEmploymentRate.Size = new System.Drawing.Size(250, 98);
+        panelEmploymentRate.Size = new Size(250, 98);
         panelEmploymentRate.TabIndex = 5;
         // 
         // panelEmploymentRateLabel
         // 
         panelEmploymentRateLabel.Controls.Add(labelEmploymentRate);
-        panelEmploymentRateLabel.Dock = System.Windows.Forms.DockStyle.Top;
-        panelEmploymentRateLabel.Location = new System.Drawing.Point(0, 0);
+        panelEmploymentRateLabel.Dock = DockStyle.Top;
+        panelEmploymentRateLabel.Location = new Point(0, 0);
         panelEmploymentRateLabel.Name = "panelEmploymentRateLabel";
-        panelEmploymentRateLabel.Size = new System.Drawing.Size(250, 46);
+        panelEmploymentRateLabel.Size = new Size(250, 46);
         panelEmploymentRateLabel.TabIndex = 0;
         // 
         // labelEmploymentRate
         // 
         labelEmploymentRate.AutoSize = true;
-        labelEmploymentRate.Dock = System.Windows.Forms.DockStyle.Fill;
-        labelEmploymentRate.Location = new System.Drawing.Point(0, 0);
+        labelEmploymentRate.Dock = DockStyle.Fill;
+        labelEmploymentRate.Location = new Point(0, 0);
         labelEmploymentRate.Name = "labelEmploymentRate";
-        labelEmploymentRate.Size = new System.Drawing.Size(196, 30);
+        labelEmploymentRate.Size = new Size(112, 15);
         labelEmploymentRate.TabIndex = 0;
         labelEmploymentRate.Text = "Beschäftigungsgrad";
         // 
         // boxEmploymentRate
         // 
-        boxEmploymentRate.Dock = System.Windows.Forms.DockStyle.Bottom;
-        boxEmploymentRate.Font = new System.Drawing.Font("Segoe UI", 11F);
-        boxEmploymentRate.Location = new System.Drawing.Point(0, 63);
+        boxEmploymentRate.Dock = DockStyle.Bottom;
+        boxEmploymentRate.Font = new Font("Segoe UI", 11F);
+        boxEmploymentRate.Location = new Point(0, 71);
         boxEmploymentRate.Name = "boxEmploymentRate";
-        boxEmploymentRate.Size = new System.Drawing.Size(250, 35);
+        boxEmploymentRate.Size = new Size(250, 27);
         boxEmploymentRate.TabIndex = 1;
         // 
         // panelRole
         // 
         panelRole.Controls.Add(panelRoleLabel);
         panelRole.Controls.Add(boxRole);
-        panelRole.Location = new System.Drawing.Point(948, 271);
+        panelRole.Location = new Point(948, 271);
         panelRole.Name = "panelRole";
-        panelRole.Size = new System.Drawing.Size(250, 98);
+        panelRole.Size = new Size(250, 98);
         panelRole.TabIndex = 6;
         // 
         // panelRoleLabel
         // 
         panelRoleLabel.Controls.Add(labelRole);
-        panelRoleLabel.Dock = System.Windows.Forms.DockStyle.Top;
-        panelRoleLabel.Location = new System.Drawing.Point(0, 0);
+        panelRoleLabel.Dock = DockStyle.Top;
+        panelRoleLabel.Location = new Point(0, 0);
         panelRoleLabel.Name = "panelRoleLabel";
-        panelRoleLabel.Size = new System.Drawing.Size(250, 46);
+        panelRoleLabel.Size = new Size(250, 46);
         panelRoleLabel.TabIndex = 0;
         // 
         // labelRole
         // 
         labelRole.AutoSize = true;
-        labelRole.Dock = System.Windows.Forms.DockStyle.Fill;
-        labelRole.Location = new System.Drawing.Point(0, 0);
+        labelRole.Dock = DockStyle.Fill;
+        labelRole.Location = new Point(0, 0);
         labelRole.Name = "labelRole";
-        labelRole.Size = new System.Drawing.Size(58, 30);
+        labelRole.Size = new Size(33, 15);
         labelRole.TabIndex = 0;
         labelRole.Text = "Rolle";
         // 
         // boxRole
         // 
-        boxRole.Dock = System.Windows.Forms.DockStyle.Bottom;
-        boxRole.Font = new System.Drawing.Font("Segoe UI", 11F);
-        boxRole.Location = new System.Drawing.Point(0, 63);
+        boxRole.Dock = DockStyle.Bottom;
+        boxRole.Font = new Font("Segoe UI", 11F);
+        boxRole.Location = new Point(0, 71);
         boxRole.Name = "boxRole";
-        boxRole.Size = new System.Drawing.Size(250, 35);
+        boxRole.Size = new Size(250, 27);
         boxRole.TabIndex = 1;
         // 
         // panelApprenticeshipYears
         // 
         panelApprenticeshipYears.Controls.Add(panelApprenticeshipYearsLabel);
         panelApprenticeshipYears.Controls.Add(boxApprenticeshipYears);
-        panelApprenticeshipYears.Location = new System.Drawing.Point(670, 381);
+        panelApprenticeshipYears.Location = new Point(670, 381);
         panelApprenticeshipYears.Name = "panelApprenticeshipYears";
-        panelApprenticeshipYears.Size = new System.Drawing.Size(250, 98);
+        panelApprenticeshipYears.Size = new Size(250, 98);
         panelApprenticeshipYears.TabIndex = 7;
         // 
         // panelApprenticeshipYearsLabel
         // 
         panelApprenticeshipYearsLabel.Controls.Add(labelApprenticeshipYears);
-        panelApprenticeshipYearsLabel.Dock = System.Windows.Forms.DockStyle.Top;
-        panelApprenticeshipYearsLabel.Location = new System.Drawing.Point(0, 0);
+        panelApprenticeshipYearsLabel.Dock = DockStyle.Top;
+        panelApprenticeshipYearsLabel.Location = new Point(0, 0);
         panelApprenticeshipYearsLabel.Name = "panelApprenticeshipYearsLabel";
-        panelApprenticeshipYearsLabel.Size = new System.Drawing.Size(250, 46);
+        panelApprenticeshipYearsLabel.Size = new Size(250, 46);
         panelApprenticeshipYearsLabel.TabIndex = 0;
         // 
         // labelApprenticeshipYears
         // 
         labelApprenticeshipYears.AutoSize = true;
-        labelApprenticeshipYears.Dock = System.Windows.Forms.DockStyle.Fill;
-        labelApprenticeshipYears.Location = new System.Drawing.Point(0, 0);
+        labelApprenticeshipYears.Dock = DockStyle.Fill;
+        labelApprenticeshipYears.Location = new Point(0, 0);
         labelApprenticeshipYears.Name = "labelApprenticeshipYears";
-        labelApprenticeshipYears.Size = new System.Drawing.Size(142, 30);
+        labelApprenticeshipYears.Size = new Size(81, 15);
         labelApprenticeshipYears.TabIndex = 0;
         labelApprenticeshipYears.Text = "Lehrlingsjahre";
         // 
         // boxApprenticeshipYears
         // 
-        boxApprenticeshipYears.Dock = System.Windows.Forms.DockStyle.Bottom;
-        boxApprenticeshipYears.Font = new System.Drawing.Font("Segoe UI", 11F);
-        boxApprenticeshipYears.Location = new System.Drawing.Point(0, 63);
+        boxApprenticeshipYears.Dock = DockStyle.Bottom;
+        boxApprenticeshipYears.Font = new Font("Segoe UI", 11F);
+        boxApprenticeshipYears.Location = new Point(0, 71);
         boxApprenticeshipYears.Name = "boxApprenticeshipYears";
-        boxApprenticeshipYears.Size = new System.Drawing.Size(250, 35);
+        boxApprenticeshipYears.Size = new Size(250, 27);
         boxApprenticeshipYears.TabIndex = 1;
         // 
         // panelSeniorLevel
         // 
         panelSeniorLevel.Controls.Add(panelSeniorLevelLabel);
         panelSeniorLevel.Controls.Add(boxSeniorLevel);
-        panelSeniorLevel.Location = new System.Drawing.Point(948, 381);
+        panelSeniorLevel.Location = new Point(948, 381);
         panelSeniorLevel.Name = "panelSeniorLevel";
-        panelSeniorLevel.Size = new System.Drawing.Size(250, 98);
+        panelSeniorLevel.Size = new Size(250, 98);
         panelSeniorLevel.TabIndex = 8;
         // 
         // panelSeniorLevelLabel
         // 
         panelSeniorLevelLabel.Controls.Add(labelSeniorLevel);
-        panelSeniorLevelLabel.Dock = System.Windows.Forms.DockStyle.Top;
-        panelSeniorLevelLabel.Location = new System.Drawing.Point(0, 0);
+        panelSeniorLevelLabel.Dock = DockStyle.Top;
+        panelSeniorLevelLabel.Location = new Point(0, 0);
         panelSeniorLevelLabel.Name = "panelSeniorLevelLabel";
-        panelSeniorLevelLabel.Size = new System.Drawing.Size(250, 46);
+        panelSeniorLevelLabel.Size = new Size(250, 46);
         panelSeniorLevelLabel.TabIndex = 0;
         // 
         // labelSeniorLevel
         // 
         labelSeniorLevel.AutoSize = true;
-        labelSeniorLevel.Dock = System.Windows.Forms.DockStyle.Fill;
-        labelSeniorLevel.Location = new System.Drawing.Point(0, 0);
+        labelSeniorLevel.Dock = DockStyle.Fill;
+        labelSeniorLevel.Location = new Point(0, 0);
         labelSeniorLevel.Name = "labelSeniorLevel";
-        labelSeniorLevel.Size = new System.Drawing.Size(136, 30);
+        labelSeniorLevel.Size = new Size(77, 15);
         labelSeniorLevel.TabIndex = 0;
         labelSeniorLevel.Text = "Seniorenlevel";
         // 
         // boxSeniorLevel
         // 
-        boxSeniorLevel.Dock = System.Windows.Forms.DockStyle.Bottom;
-        boxSeniorLevel.Font = new System.Drawing.Font("Segoe UI", 11F);
-        boxSeniorLevel.Location = new System.Drawing.Point(0, 63);
+        boxSeniorLevel.Dock = DockStyle.Bottom;
+        boxSeniorLevel.Font = new Font("Segoe UI", 11F);
+        boxSeniorLevel.Location = new Point(0, 71);
         boxSeniorLevel.Name = "boxSeniorLevel";
-        boxSeniorLevel.Size = new System.Drawing.Size(250, 35);
+        boxSeniorLevel.Size = new Size(250, 27);
         boxSeniorLevel.TabIndex = 1;
         // 
         // panelWorkStreet
         // 
         panelWorkStreet.Controls.Add(panelWorkStreetLabel);
         panelWorkStreet.Controls.Add(boxWorkStreet);
-        panelWorkStreet.Location = new System.Drawing.Point(670, 491);
+        panelWorkStreet.Location = new Point(670, 491);
         panelWorkStreet.Name = "panelWorkStreet";
-        panelWorkStreet.Size = new System.Drawing.Size(250, 98);
+        panelWorkStreet.Size = new Size(250, 98);
         panelWorkStreet.TabIndex = 9;
         // 
         // panelWorkStreetLabel
         // 
         panelWorkStreetLabel.Controls.Add(labelWorkStreet);
-        panelWorkStreetLabel.Dock = System.Windows.Forms.DockStyle.Top;
-        panelWorkStreetLabel.Location = new System.Drawing.Point(0, 0);
+        panelWorkStreetLabel.Dock = DockStyle.Top;
+        panelWorkStreetLabel.Location = new Point(0, 0);
         panelWorkStreetLabel.Name = "panelWorkStreetLabel";
-        panelWorkStreetLabel.Size = new System.Drawing.Size(250, 46);
+        panelWorkStreetLabel.Size = new Size(250, 46);
         panelWorkStreetLabel.TabIndex = 0;
         // 
         // labelWorkStreet
         // 
         labelWorkStreet.AutoSize = true;
-        labelWorkStreet.Dock = System.Windows.Forms.DockStyle.Fill;
-        labelWorkStreet.Location = new System.Drawing.Point(0, 0);
+        labelWorkStreet.Dock = DockStyle.Fill;
+        labelWorkStreet.Location = new Point(0, 0);
         labelWorkStreet.Name = "labelWorkStreet";
-        labelWorkStreet.Size = new System.Drawing.Size(102, 30);
+        labelWorkStreet.Size = new Size(57, 15);
         labelWorkStreet.TabIndex = 0;
         labelWorkStreet.Text = "Strasse G.";
         // 
         // boxWorkStreet
         // 
-        boxWorkStreet.Dock = System.Windows.Forms.DockStyle.Bottom;
-        boxWorkStreet.Font = new System.Drawing.Font("Segoe UI", 11F);
-        boxWorkStreet.Location = new System.Drawing.Point(0, 63);
+        boxWorkStreet.Dock = DockStyle.Bottom;
+        boxWorkStreet.Font = new Font("Segoe UI", 11F);
+        boxWorkStreet.Location = new Point(0, 71);
         boxWorkStreet.Name = "boxWorkStreet";
-        boxWorkStreet.Size = new System.Drawing.Size(250, 35);
+        boxWorkStreet.Size = new Size(250, 27);
         boxWorkStreet.TabIndex = 1;
         // 
         // panelWorkStreetNumber
         // 
         panelWorkStreetNumber.Controls.Add(panelWorkStreetNumberLabel);
         panelWorkStreetNumber.Controls.Add(boxWorkStreetNumber);
-        panelWorkStreetNumber.Location = new System.Drawing.Point(948, 491);
+        panelWorkStreetNumber.Location = new Point(948, 491);
         panelWorkStreetNumber.Name = "panelWorkStreetNumber";
-        panelWorkStreetNumber.Size = new System.Drawing.Size(250, 98);
+        panelWorkStreetNumber.Size = new Size(250, 98);
         panelWorkStreetNumber.TabIndex = 10;
         // 
         // panelWorkStreetNumberLabel
         // 
         panelWorkStreetNumberLabel.Controls.Add(labelWorkStreetNumber);
-        panelWorkStreetNumberLabel.Dock = System.Windows.Forms.DockStyle.Top;
-        panelWorkStreetNumberLabel.Location = new System.Drawing.Point(0, 0);
+        panelWorkStreetNumberLabel.Dock = DockStyle.Top;
+        panelWorkStreetNumberLabel.Location = new Point(0, 0);
         panelWorkStreetNumberLabel.Name = "panelWorkStreetNumberLabel";
-        panelWorkStreetNumberLabel.Size = new System.Drawing.Size(250, 46);
+        panelWorkStreetNumberLabel.Size = new Size(250, 46);
         panelWorkStreetNumberLabel.TabIndex = 0;
         // 
         // labelWorkStreetNumber
         // 
         labelWorkStreetNumber.AutoSize = true;
-        labelWorkStreetNumber.Dock = System.Windows.Forms.DockStyle.Fill;
-        labelWorkStreetNumber.Location = new System.Drawing.Point(0, 0);
+        labelWorkStreetNumber.Dock = DockStyle.Fill;
+        labelWorkStreetNumber.Location = new Point(0, 0);
         labelWorkStreetNumber.Name = "labelWorkStreetNumber";
-        labelWorkStreetNumber.Size = new System.Drawing.Size(171, 30);
+        labelWorkStreetNumber.Size = new Size(97, 15);
         labelWorkStreetNumber.TabIndex = 0;
         labelWorkStreetNumber.Text = "Hausnr. Geschäft";
         // 
         // boxWorkStreetNumber
         // 
-        boxWorkStreetNumber.Dock = System.Windows.Forms.DockStyle.Bottom;
-        boxWorkStreetNumber.Font = new System.Drawing.Font("Segoe UI", 11F);
-        boxWorkStreetNumber.Location = new System.Drawing.Point(0, 63);
+        boxWorkStreetNumber.Dock = DockStyle.Bottom;
+        boxWorkStreetNumber.Font = new Font("Segoe UI", 11F);
+        boxWorkStreetNumber.Location = new Point(0, 71);
         boxWorkStreetNumber.Name = "boxWorkStreetNumber";
-        boxWorkStreetNumber.Size = new System.Drawing.Size(250, 35);
+        boxWorkStreetNumber.Size = new Size(250, 27);
         boxWorkStreetNumber.TabIndex = 1;
         // 
         // panelWorkZipCode
         // 
         panelWorkZipCode.Controls.Add(panelWorkZipCodeLabel);
         panelWorkZipCode.Controls.Add(boxWorkZipCode);
-        panelWorkZipCode.Location = new System.Drawing.Point(670, 601);
+        panelWorkZipCode.Location = new Point(670, 601);
         panelWorkZipCode.Name = "panelWorkZipCode";
-        panelWorkZipCode.Size = new System.Drawing.Size(250, 98);
+        panelWorkZipCode.Size = new Size(250, 98);
         panelWorkZipCode.TabIndex = 11;
         // 
         // panelWorkZipCodeLabel
         // 
         panelWorkZipCodeLabel.Controls.Add(labelWorkZipCode);
-        panelWorkZipCodeLabel.Dock = System.Windows.Forms.DockStyle.Top;
-        panelWorkZipCodeLabel.Location = new System.Drawing.Point(0, 0);
+        panelWorkZipCodeLabel.Dock = DockStyle.Top;
+        panelWorkZipCodeLabel.Location = new Point(0, 0);
         panelWorkZipCodeLabel.Name = "panelWorkZipCodeLabel";
-        panelWorkZipCodeLabel.Size = new System.Drawing.Size(250, 46);
+        panelWorkZipCodeLabel.Size = new Size(250, 46);
         panelWorkZipCodeLabel.TabIndex = 0;
         // 
         // labelWorkZipCode
         // 
         labelWorkZipCode.AutoSize = true;
-        labelWorkZipCode.Dock = System.Windows.Forms.DockStyle.Fill;
-        labelWorkZipCode.Location = new System.Drawing.Point(0, 0);
+        labelWorkZipCode.Dock = DockStyle.Fill;
+        labelWorkZipCode.Location = new Point(0, 0);
         labelWorkZipCode.Name = "labelWorkZipCode";
-        labelWorkZipCode.Size = new System.Drawing.Size(205, 30);
+        labelWorkZipCode.Size = new Size(116, 15);
         labelWorkZipCode.TabIndex = 0;
         labelWorkZipCode.Text = "Postleitzahl Geschäft";
         // 
         // boxWorkZipCode
         // 
-        boxWorkZipCode.Dock = System.Windows.Forms.DockStyle.Bottom;
-        boxWorkZipCode.Font = new System.Drawing.Font("Segoe UI", 11F);
-        boxWorkZipCode.Location = new System.Drawing.Point(0, 63);
+        boxWorkZipCode.Dock = DockStyle.Bottom;
+        boxWorkZipCode.Font = new Font("Segoe UI", 11F);
+        boxWorkZipCode.Location = new Point(0, 71);
         boxWorkZipCode.Name = "boxWorkZipCode";
-        boxWorkZipCode.Size = new System.Drawing.Size(250, 35);
+        boxWorkZipCode.Size = new Size(250, 27);
         boxWorkZipCode.TabIndex = 1;
         // 
         // panelWorkCity
         // 
         panelWorkCity.Controls.Add(panelWorkCityLabel);
         panelWorkCity.Controls.Add(boxWorkCity);
-        panelWorkCity.Location = new System.Drawing.Point(948, 601);
+        panelWorkCity.Location = new Point(948, 601);
         panelWorkCity.Name = "panelWorkCity";
-        panelWorkCity.Size = new System.Drawing.Size(250, 98);
+        panelWorkCity.Size = new Size(250, 98);
         panelWorkCity.TabIndex = 12;
         // 
         // panelWorkCityLabel
         // 
         panelWorkCityLabel.Controls.Add(labelWorkCity);
-        panelWorkCityLabel.Dock = System.Windows.Forms.DockStyle.Top;
-        panelWorkCityLabel.Location = new System.Drawing.Point(0, 0);
+        panelWorkCityLabel.Dock = DockStyle.Top;
+        panelWorkCityLabel.Location = new Point(0, 0);
         panelWorkCityLabel.Name = "panelWorkCityLabel";
-        panelWorkCityLabel.Size = new System.Drawing.Size(250, 46);
+        panelWorkCityLabel.Size = new Size(250, 46);
         panelWorkCityLabel.TabIndex = 0;
         // 
         // labelWorkCity
         // 
         labelWorkCity.AutoSize = true;
-        labelWorkCity.Dock = System.Windows.Forms.DockStyle.Fill;
-        labelWorkCity.Location = new System.Drawing.Point(0, 0);
+        labelWorkCity.Dock = DockStyle.Fill;
+        labelWorkCity.Location = new Point(0, 0);
         labelWorkCity.Name = "labelWorkCity";
-        labelWorkCity.Size = new System.Drawing.Size(130, 30);
+        labelWorkCity.Size = new Size(73, 15);
         labelWorkCity.TabIndex = 0;
         labelWorkCity.Text = "Ort Geschäft";
         // 
         // boxWorkCity
         // 
-        boxWorkCity.Dock = System.Windows.Forms.DockStyle.Bottom;
-        boxWorkCity.Font = new System.Drawing.Font("Segoe UI", 11F);
-        boxWorkCity.Location = new System.Drawing.Point(0, 63);
+        boxWorkCity.Dock = DockStyle.Bottom;
+        boxWorkCity.Font = new Font("Segoe UI", 11F);
+        boxWorkCity.Location = new Point(0, 71);
         boxWorkCity.Name = "boxWorkCity";
-        boxWorkCity.Size = new System.Drawing.Size(250, 35);
+        boxWorkCity.Size = new Size(250, 27);
         boxWorkCity.TabIndex = 1;
         // 
         // panelDateOfHire
         // 
         panelDateOfHire.Controls.Add(panelDateOfHireLabel);
         panelDateOfHire.Controls.Add(boxDateOfHire);
-        panelDateOfHire.Location = new System.Drawing.Point(670, 711);
+        panelDateOfHire.Location = new Point(670, 711);
         panelDateOfHire.Name = "panelDateOfHire";
-        panelDateOfHire.Size = new System.Drawing.Size(250, 101);
+        panelDateOfHire.Size = new Size(250, 101);
         panelDateOfHire.TabIndex = 13;
         // 
         // panelDateOfHireLabel
         // 
         panelDateOfHireLabel.Controls.Add(labelDateOfHire);
-        panelDateOfHireLabel.Dock = System.Windows.Forms.DockStyle.Top;
-        panelDateOfHireLabel.Location = new System.Drawing.Point(0, 0);
+        panelDateOfHireLabel.Dock = DockStyle.Top;
+        panelDateOfHireLabel.Location = new Point(0, 0);
         panelDateOfHireLabel.Name = "panelDateOfHireLabel";
-        panelDateOfHireLabel.Size = new System.Drawing.Size(250, 46);
+        panelDateOfHireLabel.Size = new Size(250, 46);
         panelDateOfHireLabel.TabIndex = 0;
         // 
         // labelDateOfHire
         // 
         labelDateOfHire.AutoSize = true;
-        labelDateOfHire.Dock = System.Windows.Forms.DockStyle.Fill;
-        labelDateOfHire.Location = new System.Drawing.Point(0, 0);
+        labelDateOfHire.Dock = DockStyle.Fill;
+        labelDateOfHire.Location = new Point(0, 0);
         labelDateOfHire.Name = "labelDateOfHire";
-        labelDateOfHire.Size = new System.Drawing.Size(143, 30);
+        labelDateOfHire.Size = new Size(81, 15);
         labelDateOfHire.TabIndex = 0;
         labelDateOfHire.Text = "Eingestellt am";
         // 
         // boxDateOfHire
         // 
-        boxDateOfHire.Dock = System.Windows.Forms.DockStyle.Bottom;
-        boxDateOfHire.Font = new System.Drawing.Font("Segoe UI", 11F);
-        boxDateOfHire.Location = new System.Drawing.Point(0, 66);
+        boxDateOfHire.Dock = DockStyle.Bottom;
+        boxDateOfHire.Font = new Font("Segoe UI", 11F);
+        boxDateOfHire.Location = new Point(0, 74);
         boxDateOfHire.Name = "boxDateOfHire";
         boxDateOfHire.PlaceholderText = "dd.MM.yyyy";
-        boxDateOfHire.Size = new System.Drawing.Size(250, 35);
+        boxDateOfHire.Size = new Size(250, 27);
         boxDateOfHire.TabIndex = 1;
         // 
         // panelStatus
         // 
         panelStatus.Controls.Add(panelStatusLabel);
-        panelStatus.Location = new System.Drawing.Point(948, 711);
+        panelStatus.Location = new Point(948, 711);
         panelStatus.Name = "panelStatus";
-        panelStatus.Size = new System.Drawing.Size(250, 101);
+        panelStatus.Size = new Size(250, 101);
         panelStatus.TabIndex = 14;
         // 
         // panelStatusLabel
         // 
         panelStatusLabel.Controls.Add(labelStatus);
-        panelStatusLabel.Dock = System.Windows.Forms.DockStyle.Top;
-        panelStatusLabel.Location = new System.Drawing.Point(0, 0);
+        panelStatusLabel.Dock = DockStyle.Top;
+        panelStatusLabel.Location = new Point(0, 0);
         panelStatusLabel.Name = "panelStatusLabel";
-        panelStatusLabel.Size = new System.Drawing.Size(250, 46);
+        panelStatusLabel.Size = new Size(250, 46);
         panelStatusLabel.TabIndex = 0;
         // 
         // labelStatus
         // 
         labelStatus.AutoSize = true;
-        labelStatus.Dock = System.Windows.Forms.DockStyle.Fill;
-        labelStatus.Location = new System.Drawing.Point(0, 0);
+        labelStatus.Dock = DockStyle.Fill;
+        labelStatus.Location = new Point(0, 0);
         labelStatus.Name = "labelStatus";
-        labelStatus.Size = new System.Drawing.Size(69, 30);
+        labelStatus.Size = new Size(39, 15);
         labelStatus.TabIndex = 0;
         labelStatus.Text = "Status";
         // 
         // boxStatus
         // 
         boxStatus.FormattingEnabled = true;
-        boxStatus.Location = new System.Drawing.Point(948, 771);
+        boxStatus.Location = new Point(948, 771);
         boxStatus.Name = "boxStatus";
-        boxStatus.Size = new System.Drawing.Size(250, 38);
+        boxStatus.Size = new Size(250, 23);
         boxStatus.TabIndex = 15;
         // 
         // groupBox1
@@ -1246,20 +1247,20 @@ partial class FormEmployeeDetail : Form
         groupBox1.Controls.Add(panelPhoneNumberCompany);
         groupBox1.Controls.Add(panelPhoneNumberMobile);
         groupBox1.Controls.Add(panelEmail);
-        groupBox1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-        groupBox1.Location = new System.Drawing.Point(12, 11);
+        groupBox1.FlatStyle = FlatStyle.Flat;
+        groupBox1.Location = new Point(12, 11);
         groupBox1.Name = "groupBox1";
-        groupBox1.Size = new System.Drawing.Size(610, 1078);
+        groupBox1.Size = new Size(610, 1078);
         groupBox1.TabIndex = 0;
         groupBox1.TabStop = false;
         groupBox1.Text = "Kontaktdaten";
         // 
         // groupBox2
         // 
-        groupBox2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-        groupBox2.Location = new System.Drawing.Point(647, 13);
+        groupBox2.FlatStyle = FlatStyle.Flat;
+        groupBox2.Location = new Point(647, 13);
         groupBox2.Name = "groupBox2";
-        groupBox2.Size = new System.Drawing.Size(573, 836);
+        groupBox2.Size = new Size(573, 836);
         groupBox2.TabIndex = 16;
         groupBox2.TabStop = false;
         groupBox2.Text = "Mitarbeiter-Informationen";
@@ -1268,17 +1269,17 @@ partial class FormEmployeeDetail : Form
         // 
         panel1.Controls.Add(buttonCancel);
         panel1.Controls.Add(buttonSave);
-        panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-        panel1.Location = new System.Drawing.Point(0, 1095);
+        panel1.Dock = DockStyle.Bottom;
+        panel1.Location = new Point(0, 1095);
         panel1.Name = "panel1";
-        panel1.Size = new System.Drawing.Size(1924, 95);
+        panel1.Size = new Size(1924, 95);
         panel1.TabIndex = 17;
         // 
-        // FormAddEmployee
+        // FormEmployeeDetail
         // 
         AutoSize = true;
-        BackColor = System.Drawing.Color.White;
-        ClientSize = new System.Drawing.Size(1924, 1190);
+        BackColor = Color.White;
+        ClientSize = new Size(1924, 1190);
         Controls.Add(boxStatus);
         Controls.Add(panelStatus);
         Controls.Add(panelDateOfHire);
@@ -1297,7 +1298,10 @@ partial class FormEmployeeDetail : Form
         Controls.Add(groupBox1);
         Controls.Add(groupBox2);
         Controls.Add(panel1);
+        Icon = (Icon)resources.GetObject("$this.Icon");
         MaximizeBox = false;
+        Name = "FormEmployeeDetail";
+        StartPosition = FormStartPosition.CenterParent;
         panelSalutation.ResumeLayout(false);
         panelSalutationLabel.ResumeLayout(false);
         panelSalutationLabel.PerformLayout();

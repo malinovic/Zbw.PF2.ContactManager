@@ -19,6 +19,7 @@ public class CSVRepository : ICSVRepository
     private readonly string _csvDataDirectory;
     private readonly string _customersCsvFile;
     private readonly string _employeesCsvFile;
+    private readonly string _usersCsvFile;
 
     /// <summary>
     ///     Initializes a new instance of the <see cref="CSVRepository" /> class and configures CSV settings.
@@ -31,6 +32,7 @@ public class CSVRepository : ICSVRepository
         _csvDataDirectory = Path.Join(contactManagerPath);
         _customersCsvFile = Path.Join(_csvDataDirectory, "customers.csv");
         _employeesCsvFile = Path.Join(_csvDataDirectory, "employees.csv");
+        _usersCsvFile = Path.Join(_csvDataDirectory, "users.csv");
 
         _csvConfig = new CsvConfiguration(CultureInfo.InvariantCulture) { HasHeaderRecord = true };
 
@@ -44,7 +46,7 @@ public class CSVRepository : ICSVRepository
     /// <returns></returns>
     /// <exception cref="InvalidOperationException"></exception>
     /// <exception cref="ArgumentException"></exception>
-    public IList<T> GetRecords<T>() where T : Person
+    public IList<T> GetRecords<T>() where T : QueryableEntity
     {
         CSVErrorStates? health = CheckRepositoryHealth();
         if (health != null)
@@ -61,11 +63,15 @@ public class CSVRepository : ICSVRepository
         {
             filePath = _employeesCsvFile;
         }
+        else if (typeof(T) == typeof(User))
+        {
+            filePath = _usersCsvFile;
+        }
         else
         {
             throw new ArgumentException($"Unsupported record type: {typeof(T).FullName}");
         }
-        
+
         using StreamReader reader = new(filePath);
         using CsvReader csv = new(reader, _csvConfig);
         RegisterClassMap<T>(csv.Context);
@@ -76,26 +82,26 @@ public class CSVRepository : ICSVRepository
     /// <summary>
     ///     Appends a new record to the CSV file that corresponds to type <typeparamref name="T" />.
     /// </summary>
-    /// <typeparam name="T">The person-derived type to persist.</typeparam>
-    /// <param name="person">The record to write.</param>
-    public void CreateRecord<T>(T person) where T : Person
+    /// <typeparam name="T">The entity-derived type to persist.</typeparam>
+    /// <param name="entity">The record to write.</param>
+    public void CreateRecord<T>(T entity) where T : QueryableEntity
     {
         string filePath = GetSourceFile<T>();
         using StreamWriter writer = new(filePath, append: true);
         using CsvWriter csvWriter = new(writer, _csvConfig);
         RegisterClassMap<T>(csvWriter.Context);
 
-        csvWriter.WriteRecord(person);
+        csvWriter.WriteRecord(entity);
         csvWriter.NextRecord();
     }
 
     /// <summary>
-    ///     Updates an existing record matched by <see cref="Person.Id" /> by rewriting the CSV file
+    ///     Updates an existing record matched by <see cref="entity.Id" /> by rewriting the CSV file
     ///     that corresponds to type <typeparamref name="T" /> with the updated record in place.
     /// </summary>
-    /// <typeparam name="T">The person-derived type to update.</typeparam>
-    /// <param name="person">The record containing the updated values.</param>
-    public void UpdateRecord<T>(T person) where T : Person
+    /// <typeparam name="T">The entity-derived type to update.</typeparam>
+    /// <param name="entity">The record containing the updated values.</param>
+    public void UpdateRecord<T>(T entity) where T : QueryableEntity
     {
         string tempFilePath = Path.GetTempFileName();
         string filePath = GetSourceFile<T>();
@@ -117,9 +123,9 @@ public class CSVRepository : ICSVRepository
                 T record = csvReader.GetRecord<T>() ?? throw new ArgumentNullException("csvReader.GetRecord<T>()");
 
                 // If it's the target record, modify it before writing
-                if (record.Id == person.Id)
+                if (record.Id == entity.Id)
                 {
-                    record = person;
+                    record = entity;
                 }
 
                 csvWriter.WriteRecord(record);
@@ -135,10 +141,10 @@ public class CSVRepository : ICSVRepository
     /// <summary>
     ///     Retrieves a single record by its unique identifier from the corresponding CSV file.
     /// </summary>
-    /// <typeparam name="T">The person-derived type to look up.</typeparam>
+    /// <typeparam name="T">The entity-derived type to look up.</typeparam>
     /// <param name="id">The unique identifier of the record to find.</param>
     /// <returns>The matching record, or <c>null</c> if no record with that id exists.</returns>
-    public T? GetRecord<T>(int id) where T : Person
+    public T? GetRecord<T>(int id) where T : QueryableEntity
     {
         string filePath = GetSourceFile<T>();
 
@@ -153,9 +159,9 @@ public class CSVRepository : ICSVRepository
     ///     Removes the record with the given identifier from the corresponding CSV file
     ///     by rewriting the file without the matching row.
     /// </summary>
-    /// <typeparam name="T">The person-derived type whose record should be deleted.</typeparam>
+    /// <typeparam name="T">The entity-derived type whose record should be deleted.</typeparam>
     /// <param name="id">The unique identifier of the record to remove.</param>
-    public void DeleteRecord<T>(int id) where T : Person
+    public void DeleteRecord<T>(int id) where T : QueryableEntity
     {
         string tempFilePath = Path.GetTempFileName();
         string filePath = GetSourceFile<T>();
@@ -217,11 +223,11 @@ public class CSVRepository : ICSVRepository
     /// <summary>
     ///     Resolves and returns the CSV file path for the given type after verifying repository health.
     /// </summary>
-    /// <typeparam name="T">The person-derived type whose file path is needed.</typeparam>
+    /// <typeparam name="T">The entity-derived type whose file path is needed.</typeparam>
     /// <returns>The absolute path to the corresponding CSV file.</returns>
     /// <exception cref="InvalidOperationException">Thrown when the repository health check fails.</exception>
     /// <exception cref="ArgumentException">Thrown when <typeparamref name="T" /> is not a supported type.</exception>
-    private string GetSourceFile<T>() where T : Person
+    private string GetSourceFile<T>() where T : QueryableEntity
     {
         CSVErrorStates? health = CheckRepositoryHealth();
         if (health != null)
@@ -238,6 +244,10 @@ public class CSVRepository : ICSVRepository
         {
             filePath = _employeesCsvFile;
         }
+        else if (typeof(T) == typeof(User))
+        {
+            filePath = _usersCsvFile;
+        }
         else
         {
             throw new ArgumentException($"Unsupported record type: {typeof(T).FullName}");
@@ -251,14 +261,16 @@ public class CSVRepository : ICSVRepository
     ///     so that column names defined in <see cref="Maps.CustomerMap" /> or <see cref="Maps.EmployeeMap" />
     ///     are used during reading and writing.
     /// </summary>
-    /// <typeparam name="T">The person-derived type whose map should be registered.</typeparam>
+    /// <typeparam name="T">The entity-derived type whose map should be registered.</typeparam>
     /// <param name="context">The CsvHelper context to register the map on.</param>
-    private static void RegisterClassMap<T>(CsvContext context) where T : Person
+    private static void RegisterClassMap<T>(CsvContext context) where T : QueryableEntity
     {
         if (typeof(T) == typeof(Customer))
             context.RegisterClassMap<CustomerMap>();
         else if (typeof(T) == typeof(Employee))
             context.RegisterClassMap<EmployeeMap>();
+        else if (typeof(T) == typeof(User))
+            context.RegisterClassMap<UserMap>();
     }
 
     /// <summary>
@@ -273,6 +285,7 @@ public class CSVRepository : ICSVRepository
 
         InitializeFileWithHeader<Customer>(_customersCsvFile);
         InitializeFileWithHeader<Employee>(_employeesCsvFile);
+        InitializeFileWithHeader<User>(_usersCsvFile);
     }
 
     /// <summary>
@@ -280,7 +293,7 @@ public class CSVRepository : ICSVRepository
     /// </summary>
     /// <param name="filePath"></param>
     /// <typeparam name="T"></typeparam>
-    private void InitializeFileWithHeader<T>(string filePath) where T : Person
+    private void InitializeFileWithHeader<T>(string filePath) where T : QueryableEntity
     {
         if (!File.Exists(filePath))
         {

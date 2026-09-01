@@ -2,7 +2,7 @@
 
 namespace Zbw.PF2.ContactManager.Models;
 
-public class Person
+public class Person : QueryableEntity
 {
     public int Id { get; set; }
     public Salutation Salutation { get; set; }
