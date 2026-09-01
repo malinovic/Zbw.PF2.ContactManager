@@ -12,4 +12,11 @@ public partial class FormCustomersPartial : Form
 
         _repository = repository;
     }
+
+    private void btnCreateNewCustomer_Click(object sender, EventArgs e)
+    {
+        var f = new FormCustomerDetail();
+
+        f.Show();
+    }
 }
