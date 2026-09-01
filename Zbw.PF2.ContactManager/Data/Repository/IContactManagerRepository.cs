@@ -74,6 +74,33 @@ public interface IContactManagerRepository
     /// <param name="id">The unique identifier of the employee to remove.</param>
     void DeleteEmployee(int id);
 
+    // User CRUD
+
+    /// <summary>
+    ///     Retrieves all users from the data store.
+    /// </summary>
+    /// <returns>A list of all users.</returns>
+    IList<User> GetUsers();
+
+    /// <summary>
+    ///     Retrieves a single user by their unique identifier.
+    /// </summary>
+    /// <param name="id">The unique identifier of the user.</param>
+    /// <returns>The matching user, or <c>null</c> if not found.</returns>
+    User? GetUser(int id);
+
+    /// <summary>
+    ///     Updates an existing user record matched by their identifier.
+    /// </summary>
+    /// <param name="user">The user containing the updated values.</param>
+    void UpdateUser(User user);
+
+    /// <summary>
+    ///     Removes the user with the given identifier from the data store.
+    /// </summary>
+    /// <param name="id">The unique identifier of the user to remove.</param>
+    void DeleteUser(int id);
+
     bool CheckLoginForUser(string username, string password);
 
     void CreateUser(string username, string password, string name);

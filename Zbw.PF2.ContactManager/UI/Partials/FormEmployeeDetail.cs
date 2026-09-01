@@ -3,9 +3,9 @@ using Zbw.PF2.ContactManager.Core.Theme;
 using Zbw.PF2.ContactManager.Core.Validation;
 using Zbw.PF2.ContactManager.Data.Repository;
 using Zbw.PF2.ContactManager.Models;
+using Zbw.PF2.ContactManager.Models.Validation;
 using Zbw.PF2.ContactManager.Service.Identity;
 using Zbw.PF2.ContactManager.Service.Validation;
-using Zbw.PF2.ContactManager.Validation.ValidationEmployee;
 
 namespace Zbw.PF2.ContactManager.UI.Partials;
 

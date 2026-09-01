@@ -15,7 +15,7 @@ namespace Zbw.PF2.ContactManager
             // see https://aka.ms/applicationconfiguration
             ApplicationConfiguration.Initialize();
 
-            //Application.SetHighDpiMode(HighDpiMode.PerMonitorV2);
+            Application.SetHighDpiMode(HighDpiMode.PerMonitorV2);
             Application.SetCompatibleTextRenderingDefault(false);
 
             FontManager.InitializeFonts();

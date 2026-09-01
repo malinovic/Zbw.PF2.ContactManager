@@ -217,30 +217,30 @@ partial class FormEmployeeDetail : Form
         // boxFirstName
         // 
         boxFirstName.Dock = DockStyle.Bottom;
-        boxFirstName.Font = new Font("Segoe UI", 11F);
-        boxFirstName.Location = new Point(0, 71);
+        boxFirstName.Font = new Font("Segoe UI", 19.25F);
+        boxFirstName.Location = new Point(0, 56);
         boxFirstName.Name = "boxFirstName";
-        boxFirstName.Size = new Size(250, 27);
+        boxFirstName.Size = new Size(250, 42);
         boxFirstName.TabIndex = 1;
         // 
         // boxLastName
         // 
         boxLastName.Dock = DockStyle.Bottom;
-        boxLastName.Font = new Font("Segoe UI", 11F);
-        boxLastName.Location = new Point(0, 71);
+        boxLastName.Font = new Font("Segoe UI", 19.25F);
+        boxLastName.Location = new Point(0, 56);
         boxLastName.Name = "boxLastName";
-        boxLastName.Size = new Size(250, 27);
+        boxLastName.Size = new Size(250, 42);
         boxLastName.TabIndex = 1;
         // 
         // boxBirthday
         // 
         boxBirthday.BorderStyle = BorderStyle.FixedSingle;
         boxBirthday.Dock = DockStyle.Bottom;
-        boxBirthday.Font = new Font("Segoe UI", 11F);
-        boxBirthday.Location = new Point(0, 74);
+        boxBirthday.Font = new Font("Segoe UI", 19.25F);
+        boxBirthday.Location = new Point(0, 59);
         boxBirthday.Name = "boxBirthday";
         boxBirthday.PlaceholderText = "dd.MM.yyyy";
-        boxBirthday.Size = new Size(250, 27);
+        boxBirthday.Size = new Size(250, 42);
         boxBirthday.TabIndex = 1;
         // 
         // boxSex
@@ -264,39 +264,39 @@ partial class FormEmployeeDetail : Form
         // boxStreet
         // 
         boxStreet.Dock = DockStyle.Bottom;
-        boxStreet.Font = new Font("Segoe UI", 11F);
-        boxStreet.Location = new Point(0, 71);
+        boxStreet.Font = new Font("Segoe UI", 19.25F);
+        boxStreet.Location = new Point(0, 56);
         boxStreet.Name = "boxStreet";
-        boxStreet.Size = new Size(250, 27);
+        boxStreet.Size = new Size(250, 42);
         boxStreet.TabIndex = 1;
         // 
         // boxStreetNumber
         // 
         boxStreetNumber.Dock = DockStyle.Bottom;
-        boxStreetNumber.Font = new Font("Segoe UI", 11F);
-        boxStreetNumber.Location = new Point(0, 71);
+        boxStreetNumber.Font = new Font("Segoe UI", 19.25F);
+        boxStreetNumber.Location = new Point(0, 56);
         boxStreetNumber.Name = "boxStreetNumber";
         boxStreetNumber.PlaceholderText = "11a";
-        boxStreetNumber.Size = new Size(250, 27);
+        boxStreetNumber.Size = new Size(250, 42);
         boxStreetNumber.TabIndex = 1;
         // 
         // boxZipCode
         // 
         boxZipCode.Dock = DockStyle.Bottom;
-        boxZipCode.Font = new Font("Segoe UI", 11F);
-        boxZipCode.Location = new Point(0, 71);
+        boxZipCode.Font = new Font("Segoe UI", 19.25F);
+        boxZipCode.Location = new Point(0, 56);
         boxZipCode.Name = "boxZipCode";
         boxZipCode.PlaceholderText = "XXXX";
-        boxZipCode.Size = new Size(250, 27);
+        boxZipCode.Size = new Size(250, 42);
         boxZipCode.TabIndex = 1;
         // 
         // boxCity
         // 
         boxCity.Dock = DockStyle.Bottom;
-        boxCity.Font = new Font("Segoe UI", 11F);
-        boxCity.Location = new Point(0, 71);
+        boxCity.Font = new Font("Segoe UI", 19.25F);
+        boxCity.Location = new Point(0, 56);
         boxCity.Name = "boxCity";
-        boxCity.Size = new Size(250, 27);
+        boxCity.Size = new Size(250, 42);
         boxCity.TabIndex = 1;
         // 
         // buttonCancel
@@ -322,31 +322,31 @@ partial class FormEmployeeDetail : Form
         // boxPhoneNumberCompany
         // 
         boxPhoneNumberCompany.Dock = DockStyle.Bottom;
-        boxPhoneNumberCompany.Font = new Font("Segoe UI", 11F);
-        boxPhoneNumberCompany.Location = new Point(0, 71);
+        boxPhoneNumberCompany.Font = new Font("Segoe UI", 19.25F);
+        boxPhoneNumberCompany.Location = new Point(0, 56);
         boxPhoneNumberCompany.Name = "boxPhoneNumberCompany";
         boxPhoneNumberCompany.PlaceholderText = "0761234567";
-        boxPhoneNumberCompany.Size = new Size(528, 27);
+        boxPhoneNumberCompany.Size = new Size(528, 42);
         boxPhoneNumberCompany.TabIndex = 1;
         // 
         // boxPhoneNumberMobile
         // 
         boxPhoneNumberMobile.Dock = DockStyle.Bottom;
-        boxPhoneNumberMobile.Font = new Font("Segoe UI", 11F);
-        boxPhoneNumberMobile.Location = new Point(0, 71);
+        boxPhoneNumberMobile.Font = new Font("Segoe UI", 19.25F);
+        boxPhoneNumberMobile.Location = new Point(0, 56);
         boxPhoneNumberMobile.Name = "boxPhoneNumberMobile";
         boxPhoneNumberMobile.PlaceholderText = "0761234567";
-        boxPhoneNumberMobile.Size = new Size(528, 27);
+        boxPhoneNumberMobile.Size = new Size(528, 42);
         boxPhoneNumberMobile.TabIndex = 1;
         // 
         // boxEmail
         // 
         boxEmail.Dock = DockStyle.Bottom;
-        boxEmail.Font = new Font("Segoe UI", 11F);
-        boxEmail.Location = new Point(0, 71);
+        boxEmail.Font = new Font("Segoe UI", 19.25F);
+        boxEmail.Location = new Point(0, 56);
         boxEmail.Name = "boxEmail";
         boxEmail.PlaceholderText = "maxmustermann@gmail.com";
-        boxEmail.Size = new Size(528, 27);
+        boxEmail.Size = new Size(528, 42);
         boxEmail.TabIndex = 1;
         // 
         // panelSalutation
@@ -745,10 +745,10 @@ partial class FormEmployeeDetail : Form
         // 
         boxEmployeeNumber.Dock = DockStyle.Bottom;
         boxEmployeeNumber.Enabled = false;
-        boxEmployeeNumber.Font = new Font("Segoe UI", 11F);
-        boxEmployeeNumber.Location = new Point(0, 71);
+        boxEmployeeNumber.Font = new Font("Segoe UI", 19.25F);
+        boxEmployeeNumber.Location = new Point(0, 56);
         boxEmployeeNumber.Name = "boxEmployeeNumber";
-        boxEmployeeNumber.Size = new Size(250, 27);
+        boxEmployeeNumber.Size = new Size(250, 42);
         boxEmployeeNumber.TabIndex = 1;
         // 
         // panelDepartment
@@ -782,10 +782,10 @@ partial class FormEmployeeDetail : Form
         // boxDepartment
         // 
         boxDepartment.Dock = DockStyle.Bottom;
-        boxDepartment.Font = new Font("Segoe UI", 11F);
-        boxDepartment.Location = new Point(0, 71);
+        boxDepartment.Font = new Font("Segoe UI", 19.25F);
+        boxDepartment.Location = new Point(0, 56);
         boxDepartment.Name = "boxDepartment";
-        boxDepartment.Size = new Size(250, 27);
+        boxDepartment.Size = new Size(250, 42);
         boxDepartment.TabIndex = 1;
         // 
         // panelAhvNumber
@@ -819,11 +819,11 @@ partial class FormEmployeeDetail : Form
         // boxAhvNumber
         // 
         boxAhvNumber.Dock = DockStyle.Bottom;
-        boxAhvNumber.Font = new Font("Segoe UI", 11F);
-        boxAhvNumber.Location = new Point(0, 71);
+        boxAhvNumber.Font = new Font("Segoe UI", 19.25F);
+        boxAhvNumber.Location = new Point(0, 56);
         boxAhvNumber.Name = "boxAhvNumber";
         boxAhvNumber.PlaceholderText = "756.XXXX.XXXX.XXXX";
-        boxAhvNumber.Size = new Size(250, 27);
+        boxAhvNumber.Size = new Size(250, 42);
         boxAhvNumber.TabIndex = 1;
         // 
         // panelNationality
@@ -857,10 +857,10 @@ partial class FormEmployeeDetail : Form
         // boxNationality
         // 
         boxNationality.Dock = DockStyle.Bottom;
-        boxNationality.Font = new Font("Segoe UI", 11F);
-        boxNationality.Location = new Point(0, 71);
+        boxNationality.Font = new Font("Segoe UI", 19.25F);
+        boxNationality.Location = new Point(0, 56);
         boxNationality.Name = "boxNationality";
-        boxNationality.Size = new Size(250, 27);
+        boxNationality.Size = new Size(250, 42);
         boxNationality.TabIndex = 1;
         // 
         // panelEmploymentRate
@@ -894,10 +894,10 @@ partial class FormEmployeeDetail : Form
         // boxEmploymentRate
         // 
         boxEmploymentRate.Dock = DockStyle.Bottom;
-        boxEmploymentRate.Font = new Font("Segoe UI", 11F);
-        boxEmploymentRate.Location = new Point(0, 71);
+        boxEmploymentRate.Font = new Font("Segoe UI", 19.25F);
+        boxEmploymentRate.Location = new Point(0, 56);
         boxEmploymentRate.Name = "boxEmploymentRate";
-        boxEmploymentRate.Size = new Size(250, 27);
+        boxEmploymentRate.Size = new Size(250, 42);
         boxEmploymentRate.TabIndex = 1;
         // 
         // panelRole
@@ -931,10 +931,10 @@ partial class FormEmployeeDetail : Form
         // boxRole
         // 
         boxRole.Dock = DockStyle.Bottom;
-        boxRole.Font = new Font("Segoe UI", 11F);
-        boxRole.Location = new Point(0, 71);
+        boxRole.Font = new Font("Segoe UI", 19.25F);
+        boxRole.Location = new Point(0, 56);
         boxRole.Name = "boxRole";
-        boxRole.Size = new Size(250, 27);
+        boxRole.Size = new Size(250, 42);
         boxRole.TabIndex = 1;
         // 
         // panelApprenticeshipYears
@@ -968,10 +968,10 @@ partial class FormEmployeeDetail : Form
         // boxApprenticeshipYears
         // 
         boxApprenticeshipYears.Dock = DockStyle.Bottom;
-        boxApprenticeshipYears.Font = new Font("Segoe UI", 11F);
-        boxApprenticeshipYears.Location = new Point(0, 71);
+        boxApprenticeshipYears.Font = new Font("Segoe UI", 19.25F);
+        boxApprenticeshipYears.Location = new Point(0, 56);
         boxApprenticeshipYears.Name = "boxApprenticeshipYears";
-        boxApprenticeshipYears.Size = new Size(250, 27);
+        boxApprenticeshipYears.Size = new Size(250, 42);
         boxApprenticeshipYears.TabIndex = 1;
         // 
         // panelSeniorLevel
@@ -1005,10 +1005,10 @@ partial class FormEmployeeDetail : Form
         // boxSeniorLevel
         // 
         boxSeniorLevel.Dock = DockStyle.Bottom;
-        boxSeniorLevel.Font = new Font("Segoe UI", 11F);
-        boxSeniorLevel.Location = new Point(0, 71);
+        boxSeniorLevel.Font = new Font("Segoe UI", 19.25F);
+        boxSeniorLevel.Location = new Point(0, 56);
         boxSeniorLevel.Name = "boxSeniorLevel";
-        boxSeniorLevel.Size = new Size(250, 27);
+        boxSeniorLevel.Size = new Size(250, 42);
         boxSeniorLevel.TabIndex = 1;
         // 
         // panelWorkStreet
@@ -1042,10 +1042,10 @@ partial class FormEmployeeDetail : Form
         // boxWorkStreet
         // 
         boxWorkStreet.Dock = DockStyle.Bottom;
-        boxWorkStreet.Font = new Font("Segoe UI", 11F);
-        boxWorkStreet.Location = new Point(0, 71);
+        boxWorkStreet.Font = new Font("Segoe UI", 19.25F);
+        boxWorkStreet.Location = new Point(0, 56);
         boxWorkStreet.Name = "boxWorkStreet";
-        boxWorkStreet.Size = new Size(250, 27);
+        boxWorkStreet.Size = new Size(250, 42);
         boxWorkStreet.TabIndex = 1;
         // 
         // panelWorkStreetNumber
@@ -1079,10 +1079,10 @@ partial class FormEmployeeDetail : Form
         // boxWorkStreetNumber
         // 
         boxWorkStreetNumber.Dock = DockStyle.Bottom;
-        boxWorkStreetNumber.Font = new Font("Segoe UI", 11F);
-        boxWorkStreetNumber.Location = new Point(0, 71);
+        boxWorkStreetNumber.Font = new Font("Segoe UI", 19.25F);
+        boxWorkStreetNumber.Location = new Point(0, 56);
         boxWorkStreetNumber.Name = "boxWorkStreetNumber";
-        boxWorkStreetNumber.Size = new Size(250, 27);
+        boxWorkStreetNumber.Size = new Size(250, 42);
         boxWorkStreetNumber.TabIndex = 1;
         // 
         // panelWorkZipCode
@@ -1116,10 +1116,10 @@ partial class FormEmployeeDetail : Form
         // boxWorkZipCode
         // 
         boxWorkZipCode.Dock = DockStyle.Bottom;
-        boxWorkZipCode.Font = new Font("Segoe UI", 11F);
-        boxWorkZipCode.Location = new Point(0, 71);
+        boxWorkZipCode.Font = new Font("Segoe UI", 19.25F);
+        boxWorkZipCode.Location = new Point(0, 56);
         boxWorkZipCode.Name = "boxWorkZipCode";
-        boxWorkZipCode.Size = new Size(250, 27);
+        boxWorkZipCode.Size = new Size(250, 42);
         boxWorkZipCode.TabIndex = 1;
         // 
         // panelWorkCity
@@ -1153,10 +1153,10 @@ partial class FormEmployeeDetail : Form
         // boxWorkCity
         // 
         boxWorkCity.Dock = DockStyle.Bottom;
-        boxWorkCity.Font = new Font("Segoe UI", 11F);
-        boxWorkCity.Location = new Point(0, 71);
+        boxWorkCity.Font = new Font("Segoe UI", 19.25F);
+        boxWorkCity.Location = new Point(0, 56);
         boxWorkCity.Name = "boxWorkCity";
-        boxWorkCity.Size = new Size(250, 27);
+        boxWorkCity.Size = new Size(250, 42);
         boxWorkCity.TabIndex = 1;
         // 
         // panelDateOfHire
@@ -1190,11 +1190,11 @@ partial class FormEmployeeDetail : Form
         // boxDateOfHire
         // 
         boxDateOfHire.Dock = DockStyle.Bottom;
-        boxDateOfHire.Font = new Font("Segoe UI", 11F);
-        boxDateOfHire.Location = new Point(0, 74);
+        boxDateOfHire.Font = new Font("Segoe UI", 19.25F);
+        boxDateOfHire.Location = new Point(0, 59);
         boxDateOfHire.Name = "boxDateOfHire";
         boxDateOfHire.PlaceholderText = "dd.MM.yyyy";
-        boxDateOfHire.Size = new Size(250, 27);
+        boxDateOfHire.Size = new Size(250, 42);
         boxDateOfHire.TabIndex = 1;
         // 
         // panelStatus
@@ -1269,17 +1269,16 @@ partial class FormEmployeeDetail : Form
         // 
         panel1.Controls.Add(buttonCancel);
         panel1.Controls.Add(buttonSave);
-        panel1.Dock = DockStyle.Bottom;
-        panel1.Location = new Point(0, 1095);
+        panel1.Location = new Point(12, 1095);
         panel1.Name = "panel1";
-        panel1.Size = new Size(1924, 95);
+        panel1.Size = new Size(1916, 95);
         panel1.TabIndex = 17;
         // 
         // FormEmployeeDetail
         // 
         AutoSize = true;
         BackColor = Color.White;
-        ClientSize = new Size(1924, 1190);
+        ClientSize = new Size(1932, 1162);
         Controls.Add(boxStatus);
         Controls.Add(panelStatus);
         Controls.Add(panelDateOfHire);
@@ -1298,10 +1297,13 @@ partial class FormEmployeeDetail : Form
         Controls.Add(groupBox1);
         Controls.Add(groupBox2);
         Controls.Add(panel1);
+        FormBorderStyle = FormBorderStyle.Fixed3D;
         Icon = (Icon)resources.GetObject("$this.Icon");
         MaximizeBox = false;
+        MinimizeBox = false;
         Name = "FormEmployeeDetail";
         StartPosition = FormStartPosition.CenterParent;
+        Text = " ";
         panelSalutation.ResumeLayout(false);
         panelSalutationLabel.ResumeLayout(false);
         panelSalutationLabel.PerformLayout();
@@ -1410,21 +1412,21 @@ partial class FormEmployeeDetail : Form
         panel1.ResumeLayout(false);
         ResumeLayout(false);
     }
-    private TextBox boxCity;
+    private System.Windows.Forms.TextBox boxCity;
     private Button buttonCancel;
     private Button buttonSave;
     private System.Windows.Forms.ComboBox boxSalutation;
-    private TextBox boxFirstName;
-    private TextBox boxLastName;
-    private TextBox boxBirthday;
+    private System.Windows.Forms.TextBox boxFirstName;
+    private System.Windows.Forms.TextBox boxLastName;
+    private System.Windows.Forms.TextBox boxBirthday;
     private ComboBox boxSex;
     private ComboBox boxTitle;
-    private TextBox boxStreet;
-    private TextBox boxStreetNumber;
-    private TextBox boxZipCode;
-    private TextBox boxPhoneNumberCompany;
-    private TextBox boxPhoneNumberMobile;
-    private TextBox boxEmail;
+    private System.Windows.Forms.TextBox boxStreet;
+    private System.Windows.Forms.TextBox boxStreetNumber;
+    private System.Windows.Forms.TextBox boxZipCode;
+    private System.Windows.Forms.TextBox boxPhoneNumberCompany;
+    private System.Windows.Forms.TextBox boxPhoneNumberMobile;
+    private System.Windows.Forms.TextBox boxEmail;
     private Panel panelSalutation;
 
     #endregion
@@ -1459,43 +1461,43 @@ partial class FormEmployeeDetail : Form
     private System.Windows.Forms.Label labelEmail;
     private Panel panelEmployeeNumber;
     private System.Windows.Forms.Label labelEmployeeNumber;
-    private TextBox boxEmployeeNumber;
+    private System.Windows.Forms.TextBox boxEmployeeNumber;
     private Panel panelDepartment;
     private System.Windows.Forms.Label labelDepartment;
-    private TextBox boxDepartment;
+    private System.Windows.Forms.TextBox boxDepartment;
     private Panel panelAhvNumber;
     private System.Windows.Forms.Label labelAhvNumber;
-    private TextBox boxAhvNumber;
+    private System.Windows.Forms.TextBox boxAhvNumber;
     private Panel panelNationality;
     private System.Windows.Forms.Label labelNationality;
-    private TextBox boxNationality;
+    private System.Windows.Forms.TextBox boxNationality;
     private Panel panelEmploymentRate;
     private System.Windows.Forms.Label labelEmploymentRate;
-    private TextBox boxEmploymentRate;
+    private System.Windows.Forms.TextBox boxEmploymentRate;
     private Panel panelRole;
     private System.Windows.Forms.Label labelRole;
-    private TextBox boxRole;
+    private System.Windows.Forms.TextBox boxRole;
     private Panel panelApprenticeshipYears;
     private System.Windows.Forms.Label labelApprenticeshipYears;
-    private TextBox boxApprenticeshipYears;
+    private System.Windows.Forms.TextBox boxApprenticeshipYears;
     private Panel panelSeniorLevel;
     private System.Windows.Forms.Label labelSeniorLevel;
-    private TextBox boxSeniorLevel;
+    private System.Windows.Forms.TextBox boxSeniorLevel;
     private Panel panelWorkStreet;
     private System.Windows.Forms.Label labelWorkStreet;
-    private TextBox boxWorkStreet;
+    private System.Windows.Forms.TextBox boxWorkStreet;
     private Panel panelWorkStreetNumber;
     private System.Windows.Forms.Label labelWorkStreetNumber;
-    private TextBox boxWorkStreetNumber;
+    private System.Windows.Forms.TextBox boxWorkStreetNumber;
     private Panel panelWorkZipCode;
     private System.Windows.Forms.Label labelWorkZipCode;
-    private TextBox boxWorkZipCode;
+    private System.Windows.Forms.TextBox boxWorkZipCode;
     private Panel panelWorkCity;
     private System.Windows.Forms.Label labelWorkCity;
-    private TextBox boxWorkCity;
+    private System.Windows.Forms.TextBox boxWorkCity;
     private Panel panelDateOfHire;
     private System.Windows.Forms.Label labelDateOfHire;
-    private TextBox boxDateOfHire;
+    private System.Windows.Forms.TextBox boxDateOfHire;
     private Panel panelStatus;
     private System.Windows.Forms.Label labelStatus;
     private ComboBox boxStatus;
@@ -1528,5 +1530,5 @@ partial class FormEmployeeDetail : Form
     private Panel panelDateOfHireLabel;
     private Panel panelStatusLabel;
     private GroupBox groupBox2;
-    private Panel panel1;
+    private System.Windows.Forms.Panel panel1;
 }

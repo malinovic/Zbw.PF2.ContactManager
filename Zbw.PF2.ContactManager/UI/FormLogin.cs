@@ -1,4 +1,5 @@
 ﻿using Zbw.PF2.ContactManager.Core.Theme;
+using Zbw.PF2.ContactManager.Models;
 using Zbw.PF2.ContactManager.Service.Auth;
 
 namespace Zbw.PF2.ContactManager.UI;
@@ -36,16 +37,16 @@ public partial class FormLogin : Form
 
     private void btnLogin_Click(object sender, EventArgs e)
     {
-        bool isAuthenticated = _authService.Login(txtUsername.Text, txtPassword.Text);
+        User? user = _authService.Login(txtUsername.Text, txtPassword.Text);
 
-        if (!isAuthenticated)
+        if (user is null)
         {
             MessageBox.Show("Ungültiger Benutzername oder Passwort", "Login fehlgeschlagen", MessageBoxButtons.OK, MessageBoxIcon.Error);
             txtPassword.Clear();
         }
         else
         {
-            var mainForm = new MainForm();
+            var mainForm = new MainForm(user);
             mainForm.FormClosed += (s, args) => Close();
             mainForm.Show();
             Hide();
