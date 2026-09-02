@@ -33,4 +33,33 @@ public class IdentityService : IIdentityService
     }
 
     private int _getLastEmployeeId;
+
+
+
+    ///////////////////////
+    ///
+
+    private const string PrefixCustomer = "CU-";
+    private static readonly Regex CustomerNumberRegex = new(@"^CU-(\d+)$", RegexOptions.Compiled);
+
+    /// <summary>
+    ///     Generates the next Customer number, based on the highest existing Customer number.
+    /// </summary>
+    /// <param name="Customers">The existing Customers to derive the next number from.</param>
+    /// <returns>A new, unique Customer number in the format "MA-0001".</returns>
+    public string GenerateCustomerId(IList<Customer> Customers)
+    {
+        int highest = Customers
+            .Select(Customer => CustomerNumberRegex.Match(Customer.CustomerNumber))
+            .Where(match => match.Success)
+            .Select(match => int.Parse(match.Groups[1].Value))
+            .DefaultIfEmpty(0)
+            .Max();
+
+        _getLastCustomerId = highest + 1;
+
+        return $"{Prefix}{_getLastCustomerId:D4}";
+    }
+
+    private int _getLastCustomerId;
 }
