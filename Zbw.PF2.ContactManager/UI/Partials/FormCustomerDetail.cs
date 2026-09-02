@@ -66,7 +66,7 @@ public partial class FormCustomerDetail : Form
         Font = FontManager.InterRegular;
 
         ApplyModernFieldStyles(this);
-        SetupStatusSection();
+        ThemeManager.ApplyStatusColor(boxStatus);
 
         ThemeManager.ApplyButtonStyles(buttonSave);
         ThemeManager.ApplyButtonStyles(buttonCancel);
@@ -138,11 +138,6 @@ public partial class FormCustomerDetail : Form
         }
 
         field.Height = availableHeight;
-    }
-
-    private void SetupStatusSection()
-    {
-        ThemeManager.ApplyStatusColor(boxStatus);
     }
 
     private CustomerInput ReadInput()
@@ -247,7 +242,21 @@ public partial class FormCustomerDetail : Form
 
         Customer customer = CreateCustomer(input, 0);
 
-        _repository.AddCustomer(customer);
+        try
+        {
+            _repository.AddCustomer(customer);
+        }
+        catch (Exception ex)
+        {
+            MessageBox.Show(
+                $"Der Kunde konnte nicht gespeichert werden: {ex.Message}",
+                "Fehler",
+                MessageBoxButtons.OK,
+                MessageBoxIcon.Error);
+
+            return;
+        }
+
         MessageBox.Show("Kunde wurde erfolgreich gespeichert");
 
         Close();

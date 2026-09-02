@@ -15,8 +15,8 @@ public partial class FormCustomersPartial : Form
 
     private void btnCreateNewCustomer_Click(object sender, EventArgs e)
     {
-        var f = new FormCustomerDetail();
+        var customerDetailForm = new FormCustomerDetail();
 
-        f.Show();
+        customerDetailForm.Show();
     }
 }
