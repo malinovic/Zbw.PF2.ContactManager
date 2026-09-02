@@ -16,5 +16,4 @@ public interface ISearchService
     /// <returns>The employees matching the search term and status filter.</returns>
     public IList<Employee> SearchEmployees(IList<Employee> employees, string searchTerm, object? statusFilter);
 
-    public IList<Customer> SearchCustomers(IList<Customer> customers, string searchTerm, object? statusFilter);
 }

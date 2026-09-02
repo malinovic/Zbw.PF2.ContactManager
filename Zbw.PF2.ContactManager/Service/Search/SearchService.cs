@@ -5,7 +5,6 @@ namespace Zbw.PF2.ContactManager.Service.Search;
 
 /// <summary>
 ///     Implements <see cref="ISearchService" /> using case-insensitive substring matching.
-///     
 /// </summary>
 public sealed class SearchService : ISearchService
 {
@@ -33,30 +32,6 @@ public sealed class SearchService : ISearchService
         if (statusFilter is Status status)
         {
             filtered = filtered.Where(employee => employee.Status == status);
-        }
-
-        return [.. filtered];
-    }
-
-
-
-    public IList<Customer> SearchCustomers(IList<Customer> customers, string searchTerm, object? statusFilter)
-    {
-        IEnumerable<Customer> filtered = customers;
-
-        string search = searchTerm.Trim();
-        if (!string.IsNullOrEmpty(search))
-        {
-            filtered = filtered.Where(customer =>
-                customer.FirstName.Contains(search, StringComparison.OrdinalIgnoreCase) ||
-                customer.LastName.Contains(search, StringComparison.OrdinalIgnoreCase) ||
-                customer.CustomerNumber.Contains(search, StringComparison.OrdinalIgnoreCase));
-
-        }
-
-        if (statusFilter is Status status)
-        {
-            filtered = filtered.Where(customer => customer.CustomerStatus == status);
         }
 
         return [.. filtered];
