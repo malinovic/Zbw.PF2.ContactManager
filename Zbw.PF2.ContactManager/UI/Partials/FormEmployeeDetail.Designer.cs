@@ -1278,7 +1278,7 @@ partial class FormEmployeeDetail : Form
         // 
         AutoSize = true;
         BackColor = Color.White;
-        ClientSize = new Size(1932, 1162);
+        ClientSize = new Size(1714, 1049);
         Controls.Add(boxStatus);
         Controls.Add(panelStatus);
         Controls.Add(panelDateOfHire);

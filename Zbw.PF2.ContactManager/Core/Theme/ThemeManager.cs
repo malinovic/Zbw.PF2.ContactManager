@@ -88,6 +88,12 @@ internal static class ThemeManager
         field.Height = availableHeight;
     }
 
+    internal static void ApplyLabelStyles(Label label)
+    {
+        label.Font = new Font(FontManager.InterRegular.FontFamily, 11F, FontStyle.Regular);
+        label.ForeColor = Color.DimGray;
+    }
+
     /// <summary>
     ///     Applies the bold, large-font style used for the main navigation label.
     /// </summary>

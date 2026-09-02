@@ -26,7 +26,7 @@ public class CSVRepository : ICSVRepository
     /// </summary>
     public CSVRepository()
     {
-        string profilePath = Environment.GetFolderPath(Environment.SpecialFolder.UserProfile);
+        string profilePath = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
         string contactManagerPath = Path.Combine(profilePath, ".contact_manager");
 
         _csvDataDirectory = Path.Join(contactManagerPath);
@@ -122,7 +122,6 @@ public class CSVRepository : ICSVRepository
             {
                 T record = csvReader.GetRecord<T>() ?? throw new ArgumentNullException("csvReader.GetRecord<T>()");
 
-                // If it's the target record, modify it before writing
                 if (record.Id == entity.Id)
                 {
                     record = entity;
@@ -133,7 +132,6 @@ public class CSVRepository : ICSVRepository
             }
         }
 
-        // Replace the original file with the updated temp file safely
         File.Delete(filePath);
         File.Move(tempFilePath, filePath);
     }

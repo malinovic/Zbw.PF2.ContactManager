@@ -36,11 +36,14 @@ public partial class MainForm : Form
         ThemeManager.ApplyNavButtonStyles(BtnNavEmployees);
         ThemeManager.ApplyNavButtonStyles(BtnNavCustomers);
         ThemeManager.ApplyNavButtonStyles(BtnNavUsers);
+        ThemeManager.ApplyLabelStyles(LblLoggedInAs);
 
         if (_currentUser.Username != AdminUsername)
         {
             HideUsersNavigationButton();
         }
+
+        LblLoggedInAs.Text = $"Angemeldet als: {_currentUser.Name}";
 
         OpenChildForm(new FormDashboardPartial(_contactManagerRepository));
     }

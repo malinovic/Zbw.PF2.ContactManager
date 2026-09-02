@@ -40,37 +40,40 @@ partial class FormUsersPartial
         ((System.ComponentModel.ISupportInitialize)dgvUsers).BeginInit();
         ((System.ComponentModel.ISupportInitialize)usersBindingSource).BeginInit();
         SuspendLayout();
-        //
+        // 
         // btnCreateNewUser
-        //
-        btnCreateNewUser.Location = new Point(13, 13);
+        // 
+        btnCreateNewUser.Location = new Point(7, 6);
+        btnCreateNewUser.Margin = new Padding(2, 1, 2, 1);
         btnCreateNewUser.Name = "btnCreateNewUser";
-        btnCreateNewUser.Size = new Size(330, 62);
+        btnCreateNewUser.Size = new Size(178, 29);
         btnCreateNewUser.TabIndex = 1;
         btnCreateNewUser.Text = "Neuer Benutzer";
         btnCreateNewUser.UseVisualStyleBackColor = true;
         btnCreateNewUser.Click += BtnCreateNewUser_Click;
-        //
+        // 
         // panel1
-        //
+        // 
         panel1.Controls.Add(btnCreateNewUser);
         panel1.Dock = DockStyle.Bottom;
-        panel1.Location = new Point(0, 1249);
+        panel1.Location = new Point(20, 363);
+        panel1.Margin = new Padding(2, 1, 2, 1);
         panel1.Name = "panel1";
-        panel1.Size = new Size(2167, 93);
+        panel1.Size = new Size(894, 44);
         panel1.TabIndex = 2;
-        //
+        // 
         // panel2
-        //
+        // 
         panel2.Controls.Add(dgvUsers);
         panel2.Dock = DockStyle.Fill;
-        panel2.Location = new Point(0, 0);
+        panel2.Location = new Point(20, 20);
+        panel2.Margin = new Padding(2, 1, 2, 1);
         panel2.Name = "panel2";
-        panel2.Size = new Size(2167, 1249);
+        panel2.Size = new Size(894, 343);
         panel2.TabIndex = 3;
-        //
+        // 
         // dgvUsers
-        //
+        // 
         dgvUsers.AllowUserToAddRows = false;
         dgvUsers.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
         dgvUsers.AutoGenerateColumns = false;
@@ -80,25 +83,28 @@ partial class FormUsersPartial
         dgvUsers.DataSource = usersBindingSource;
         dgvUsers.GridColor = Color.Gainsboro;
         dgvUsers.Location = new Point(0, 0);
+        dgvUsers.Margin = new Padding(2, 1, 2, 1);
         dgvUsers.Name = "dgvUsers";
         dgvUsers.ReadOnly = true;
         dgvUsers.RowHeadersVisible = false;
         dgvUsers.RowHeadersWidth = 82;
         dgvUsers.RowTemplate.Height = 48;
         dgvUsers.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-        dgvUsers.Size = new Size(2167, 1249);
+        dgvUsers.Size = new Size(894, 343);
         dgvUsers.TabIndex = 0;
-        //
+        // 
         // FormUsersPartial
-        //
-        AutoScaleDimensions = new SizeF(13F, 32F);
+        // 
+        AutoScaleDimensions = new SizeF(7F, 15F);
         AutoScaleMode = AutoScaleMode.Font;
         BackColor = Color.White;
-        ClientSize = new Size(2167, 1342);
+        ClientSize = new Size(934, 512);
         Controls.Add(panel2);
         Controls.Add(panel1);
         FormBorderStyle = FormBorderStyle.None;
+        Margin = new Padding(2, 1, 2, 1);
         Name = "FormUsersPartial";
+        Padding = new Padding(20, 20, 20, 105);
         Text = "FormUsersPartial";
         panel1.ResumeLayout(false);
         panel2.ResumeLayout(false);
