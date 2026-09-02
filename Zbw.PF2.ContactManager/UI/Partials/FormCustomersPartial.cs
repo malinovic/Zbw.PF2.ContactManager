@@ -42,9 +42,9 @@ public partial class FormCustomersPartial : Form
 
     private void BtnCreateNewCustomer_Click(object sender, EventArgs e)
     {
-        FormCustomerDetail formCustomerDetail = new();
+        //FormCustomerDetail formCustomerDetail = new();
 
-        formCustomerDetail.Show();
+        //formCustomerDetail.Show();
     }
 
     private void TxtSearchCustomer_TextChanged(object sender, EventArgs e)
@@ -64,8 +64,8 @@ public partial class FormCustomersPartial : Form
             return;
         }
 
-        using var form = new FormCustomerDetail(Customer);
-        form.ShowDialog(this);
+        //using var form = new FormCustomerDetail(Customer);
+        //form.ShowDialog(this);
 
         _Customers = _repository.GetCustomers();
         ApplyFilter();
@@ -168,8 +168,8 @@ public partial class FormCustomersPartial : Form
             return;
         }
 
-        using var form = new FormCustomerDetail(Customer);
-        form.ShowDialog(this);
+        //using var form = new FormCustomerDetail(Customer);
+        //form.ShowDialog(this);
 
         _Customers = _repository.GetCustomers();
         ApplyFilter();
@@ -221,8 +221,8 @@ public partial class FormCustomersPartial : Form
 
     private void btnCreateNewCustomer_Click(object sender, EventArgs e)
     {
-        using var form = new FormCustomerDetail();
-        form.ShowDialog(this);
+       // using var form = new FormCustomerDetail();
+        //form.ShowDialog(this);
 
         _Customers = _repository.GetCustomers();
         ApplyFilter();
