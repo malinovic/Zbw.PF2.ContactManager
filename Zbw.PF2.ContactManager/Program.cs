@@ -14,13 +14,14 @@ namespace Zbw.PF2.ContactManager
             // To customize application configuration such as set high DPI settings or default font,
             // see https://aka.ms/applicationconfiguration
             ApplicationConfiguration.Initialize();
-            
-            Application.SetHighDpiMode(HighDpiMode.PerMonitorV2);
+
+
+            //Application.SetHighDpiMode(HighDpiMode.DpiUnaware);
             Application.SetCompatibleTextRenderingDefault(false);
 
             FontManager.InitializeFonts();
 
-            Application.Run(new MainForm());
+            Application.Run(new FormLogin());
         }
     }
 }

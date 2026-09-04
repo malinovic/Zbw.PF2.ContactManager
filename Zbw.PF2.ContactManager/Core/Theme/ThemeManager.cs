@@ -8,6 +8,9 @@ namespace Zbw.PF2.ContactManager.Core.Theme;
 /// </summary>
 internal static class ThemeManager
 {
+    private const float FieldFontSize = 11F;
+    private const float LabelFontSize = 8F;
+
     /// <summary>
     ///     Configures a child form to be hosted embedded inside another form's content panel.
     /// </summary>
@@ -17,6 +20,78 @@ internal static class ThemeManager
         form.TopLevel = false;
         form.FormBorderStyle = FormBorderStyle.None;
         form.Dock = DockStyle.Fill;
+    }
+
+    /// <summary>
+    ///     Recursively applies a flat, modern look (borders, fonts, colors) to every input field,
+    ///     label, and group box under <paramref name="root" />. Field text is shrunk slightly and
+    ///     bottom-docked input boxes are grown to fill the space reserved for them so more text
+    ///     (e.g. a street name) fits on screen.
+    /// </summary>
+    internal static void ApplyModernFieldStyles(Control root)
+    {
+        foreach (Control control in root.Controls)
+        {
+            switch (control)
+            {
+                case TextBox textBox:
+                    textBox.BorderStyle = BorderStyle.FixedSingle;
+                    textBox.Font = new Font(FontManager.InterRegular.FontFamily, FieldFontSize);
+                    EnlargeField(textBox);
+                    break;
+                case ComboBox comboBox:
+                    comboBox.FlatStyle = FlatStyle.Flat;
+                    comboBox.Font = new Font(FontManager.InterRegular.FontFamily, FieldFontSize);
+                    break;
+                case Label label:
+                    label.ForeColor = Color.DimGray;
+                    label.Font = new Font(FontManager.InterRegular.FontFamily, LabelFontSize, FontStyle.Regular);
+                    break;
+                case GroupBox groupBox:
+                    groupBox.FlatStyle = FlatStyle.Flat;
+                    groupBox.Font = new Font(FontManager.InterRegular.FontFamily, 13F, FontStyle.Bold);
+                    break;
+            }
+
+            ApplyModernFieldStyles(control);
+        }
+    }
+
+    /// <summary>
+    ///     Grows a bottom-docked field to fill the remaining space in its parent panel (i.e. the
+    ///     panel height minus whatever is reserved by a top-docked label), instead of leaving a gap.
+    /// </summary>
+    private static void EnlargeField(Control field)
+    {
+        if (field.Dock != DockStyle.Bottom || field.Parent is null)
+        {
+            return;
+        }
+
+        int reservedTop = field.Parent.Controls
+            .Cast<Control>()
+            .Where(sibling => sibling != field && sibling.Dock == DockStyle.Top)
+            .Sum(sibling => sibling.Height);
+
+        int availableHeight = field.Parent.ClientSize.Height - reservedTop;
+
+        if (availableHeight <= field.Height)
+        {
+            return;
+        }
+
+        if (field is TextBox textBox)
+        {
+            textBox.AutoSize = false;
+        }
+
+        field.Height = availableHeight;
+    }
+
+    internal static void ApplyLabelStyles(Label label)
+    {
+        label.Font = new Font(FontManager.InterRegular.FontFamily, 11F, FontStyle.Regular);
+        label.ForeColor = Color.DimGray;
     }
 
     /// <summary>

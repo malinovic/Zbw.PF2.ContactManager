@@ -1,7 +1,7 @@
 ﻿using System.Globalization;
 
 using Zbw.PF2.ContactManager.Core.Validation;
-using Zbw.PF2.ContactManager.Validation.ValidationEmployee;
+using Zbw.PF2.ContactManager.Models.Validation;
 
 namespace Zbw.PF2.ContactManager.Service.Validation;
 
