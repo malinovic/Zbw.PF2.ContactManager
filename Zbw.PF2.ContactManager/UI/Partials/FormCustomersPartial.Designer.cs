@@ -28,28 +28,33 @@ partial class FormCustomersPartial
     /// </summary>
     private void InitializeComponent()
     {
-        components = new System.ComponentModel.Container();
-        contactManagerRepositoryBindingSource = new BindingSource(components);
-        ((System.ComponentModel.ISupportInitialize)contactManagerRepositoryBindingSource).BeginInit();
+        btnCreateNewCustomer = new Button();
         SuspendLayout();
         // 
-        // contactManagerRepositoryBindingSource
+        // btnCreateNewCustomer
         // 
-        contactManagerRepositoryBindingSource.DataSource = typeof(Data.Repository.ContactManagerRepository);
+        btnCreateNewCustomer.Location = new Point(65, 1241);
+        btnCreateNewCustomer.Name = "btnCreateNewCustomer";
+        btnCreateNewCustomer.Size = new Size(424, 62);
+        btnCreateNewCustomer.TabIndex = 1;
+        btnCreateNewCustomer.Text = "Neuer Kunde";
+        btnCreateNewCustomer.UseVisualStyleBackColor = true;
+        btnCreateNewCustomer.Click += btnCreateNewCustomer_Click;
         // 
         // FormCustomersPartial
         // 
-        AutoScaleDimensions = new SizeF(12F, 30F);
+        AutoScaleDimensions = new SizeF(13F, 32F);
         AutoScaleMode = AutoScaleMode.Font;
-        BackColor = SystemColors.HotTrack;
-        ClientSize = new Size(2114, 1234);
+        BackColor = Color.White;
+        ClientSize = new Size(2167, 1342);
+        Controls.Add(btnCreateNewCustomer);
         FormBorderStyle = FormBorderStyle.None;
         Name = "FormCustomersPartial";
         Text = "FormCustomersPartial";
-        ((System.ComponentModel.ISupportInitialize)contactManagerRepositoryBindingSource).EndInit();
         ResumeLayout(false);
     }
 
     #endregion
-    private BindingSource contactManagerRepositoryBindingSource;
+
+    private Button btnCreateNewCustomer;
 }
