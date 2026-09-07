@@ -25,8 +25,9 @@ Windows-Forms-Anwendung (C# .NET) zur Verwaltung von Mitarbeiter- und Kundendate
 - Automatisches Speichern und Laden des Datenstamms auf der Festplatte
 
 ### Optional
-- [ ] Dashboard
-- [ ] CSV-/VCard-Import
+- [x] Dashboard
+- [/] CSV-/VCard-Import
+- [x] Login
 
 ## Datenmodell
 
@@ -71,7 +72,7 @@ Zbw.PF2.ContactManager/
 ## Installation & Ausführung
 
 ### Voraussetzungen
-- Visual Studio 2026 (oder neuer)
+- Visual Studio 2026 (oder neuer) oder Rider von Jetbrains
 - .NET SDK 10
 
 ### Schritte
@@ -82,6 +83,12 @@ Zbw.PF2.ContactManager/
 2. Lösung `ZBW.PF2.ContactManager.sln` in Visual Studio öffnen
 3. NuGet-Pakete werden beim Build automatisch wiederhergestellt
 4. Projekt starten (F5)
+5. Einloggen mit Standardbenutzer: `admin` / `admin`
+
+
+## Datenstamm
+
+Der Datenstamm wird 
 
 ## Status
 
