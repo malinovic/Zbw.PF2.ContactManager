@@ -4,6 +4,9 @@ using System.Text;
 
 namespace Zbw.PF2.ContactManager.Core.Constants;
 
+/// <summary>
+///     Defines the type of a customer
+/// </summary>
 public enum EmployeeSeniorLevel 
  {
     Level0 = 0, 
