@@ -48,6 +48,6 @@ public class EmployeeMap : ClassMap<Employee>
         Map(m => m.Status).Index(25).Name("employee_status");
         Map(m => m.SeniorLevel).Index(26).Name("employee_senior_level");
         Map(m => m.DateOfHire).Index(27).Name("employee_date_of_hire").TypeConverter<CsvHelper.TypeConversion.DateOnlyConverter>().TypeConverterOption.Format("dd.MM.yyyy");
-        //Map(m => m.DateOfTermination).Index(28).Name("employee_date_of_termination").TypeConverter<CsvHelper.TypeConversion.DateTimeConverter>().TypeConverterOption.Format("dd.MM.yyyy");
+        // Map(m => m.DateOfTermination).Index(28).Name("employee_date_of_termination").TypeConverter<CsvHelper.TypeConversion.DateTimeConverter>().TypeConverterOption.Format("dd.MM.yyyy");
     }
 }

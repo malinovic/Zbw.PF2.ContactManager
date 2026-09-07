@@ -55,4 +55,16 @@ public static class EnumDisplayExtensions
         Status.Passive => "Passiv",
         _ => status.ToString()
     };
+
+    /// <summary>
+    ///     Returns the German display text for the given <see cref="CustomerType" />.
+    /// </summary>
+    /// <param name="customerType">The customer type to translate.</param>
+    /// <returns>The German display text, or the enum's <see cref="object.ToString" /> if unmapped.</returns>
+    public static string ToGerman(this CustomerType customerType) => customerType switch
+    {
+        CustomerType.Private => "Privatkunde",
+        CustomerType.Company => "Geschäftskunde",
+        _ => customerType.ToString()
+    };
 }

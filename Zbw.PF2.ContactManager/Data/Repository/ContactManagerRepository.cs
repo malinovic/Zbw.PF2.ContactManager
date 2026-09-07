@@ -1,4 +1,5 @@
 using Zbw.PF2.ContactManager.Models;
+using Zbw.PF2.ContactManager.Service.PasswordHash;
 
 namespace Zbw.PF2.ContactManager.Data.Repository;
 
@@ -8,7 +9,7 @@ namespace Zbw.PF2.ContactManager.Data.Repository;
 /// </summary>
 public class ContactManagerRepository(ICSVRepository csvRepository) : IContactManagerRepository
 {
-    private readonly ICSVRepository _csvRepository = csvRepository;
+    private readonly IPasswordHashService _passwordHashService = new PasswordHashService();
 
     /// <summary>
     ///     Adds a new customer to the data store.
@@ -16,7 +17,7 @@ public class ContactManagerRepository(ICSVRepository csvRepository) : IContactMa
     /// <param name="customer">The customer to add.</param>
     public void AddCustomer(Customer customer)
     {
-        _csvRepository.CreateRecord(customer);
+        csvRepository.CreateRecord(customer);
     }
 
     /// <summary>
@@ -25,7 +26,7 @@ public class ContactManagerRepository(ICSVRepository csvRepository) : IContactMa
     /// <returns>A list of all customers.</returns>
     public IList<Customer> GetCustomers()
     {
-        return _csvRepository.GetRecords<Customer>();
+        return csvRepository.GetRecords<Customer>();
     }
 
     /// <summary>
@@ -35,7 +36,7 @@ public class ContactManagerRepository(ICSVRepository csvRepository) : IContactMa
     /// <returns>The matching customer, or <c>null</c> if not found.</returns>
     public Customer? GetCustomer(int id)
     {
-        return _csvRepository.GetRecord<Customer>(id);
+        return csvRepository.GetRecord<Customer>(id);
     }
 
     /// <summary>
@@ -44,7 +45,7 @@ public class ContactManagerRepository(ICSVRepository csvRepository) : IContactMa
     /// <param name="customer">The customer containing the updated values.</param>
     public void UpdateCustomer(Customer customer)
     {
-        _csvRepository.UpdateRecord(customer);
+        csvRepository.UpdateRecord(customer);
     }
 
     /// <summary>
@@ -53,7 +54,7 @@ public class ContactManagerRepository(ICSVRepository csvRepository) : IContactMa
     /// <param name="id">The unique identifier of the customer to remove.</param>
     public void DeleteCustomer(int id)
     {
-        _csvRepository.DeleteRecord<Customer>(id);
+        csvRepository.DeleteRecord<Customer>(id);
     }
 
     /// <summary>
@@ -62,7 +63,7 @@ public class ContactManagerRepository(ICSVRepository csvRepository) : IContactMa
     /// <param name="employee">The employee to add.</param>
     public void AddEmployee(Employee employee)
     {
-        _csvRepository.CreateRecord(employee);
+        csvRepository.CreateRecord(employee);
     }
 
     /// <summary>
@@ -75,14 +76,14 @@ public class ContactManagerRepository(ICSVRepository csvRepository) : IContactMa
 
         try
         {
-            employees = _csvRepository.GetRecords<Employee>();
+            employees = csvRepository.GetRecords<Employee>();
         }
         catch (IOException ex)
         {
             Console.WriteLine(ex.Message);
             MessageBox.Show("Achtung, Datenstamm ist korrupt.");
         }
-        
+
         return employees;
     }
 
@@ -93,7 +94,7 @@ public class ContactManagerRepository(ICSVRepository csvRepository) : IContactMa
     /// <returns>The matching employee, or <c>null</c> if not found.</returns>
     public Employee? GetEmployee(int id)
     {
-        return _csvRepository.GetRecord<Employee>(id);
+        return csvRepository.GetRecord<Employee>(id);
     }
 
     /// <summary>
@@ -102,7 +103,7 @@ public class ContactManagerRepository(ICSVRepository csvRepository) : IContactMa
     /// <param name="employee">The employee containing the updated values.</param>
     public void UpdateEmployee(Employee employee)
     {
-        _csvRepository.UpdateRecord(employee);
+        csvRepository.UpdateRecord(employee);
     }
 
     /// <summary>
@@ -111,6 +112,85 @@ public class ContactManagerRepository(ICSVRepository csvRepository) : IContactMa
     /// <param name="id">The unique identifier of the employee to remove.</param>
     public void DeleteEmployee(int id)
     {
-        _csvRepository.DeleteRecord<Employee>(id);
+        csvRepository.DeleteRecord<Employee>(id);
+    }
+
+    /// <summary>
+    ///     Retrieves all users from the data store.
+    /// </summary>
+    /// <returns>A list of all users.</returns>
+    public IList<User> GetUsers()
+    {
+        return csvRepository.GetRecords<User>();
+    }
+
+    /// <summary>
+    ///     Retrieves a single user by their unique identifier.
+    /// </summary>
+    /// <param name="id">The unique identifier of the user.</param>
+    /// <returns>The matching user, or <c>null</c> if not found.</returns>
+    public User? GetUser(int id)
+    {
+        return csvRepository.GetRecord<User>(id);
+    }
+
+    /// <summary>
+    ///     Updates an existing user record matched by their identifier.
+    /// </summary>
+    /// <param name="user">The user containing the updated values.</param>
+    public void UpdateUser(User user)
+    {
+        csvRepository.UpdateRecord(user);
+    }
+
+    /// <summary>
+    ///     Removes the user with the given identifier from the data store.
+    /// </summary>
+    /// <param name="id">The unique identifier of the user to remove.</param>
+    public void DeleteUser(int id)
+    {
+        csvRepository.DeleteRecord<User>(id);
+    }
+
+    /// <summary>
+    /// Creates a contact manager user
+    /// </summary>
+    /// <param name="username">Username of the user</param>
+    /// <param name="password">Password of the user, not hashed or salted</param>
+    /// <param name="name">First and last name of the user</param>
+    public void CreateUser(string username, string password, string name)
+    {
+        User user = new() { Username = username, Password = password, Name = name, Id = new Random().Next(1, 100000) };
+
+        csvRepository.CreateRecord(user);
+    }
+
+    /// <summary>
+    /// Checks if the user login is valid
+    /// </summary>
+    /// <param name="username">Username</param>
+    /// <param name="hashedPassword">Password</param>
+    /// <returns></returns>
+    public bool CheckLoginForUser(string username, string password)
+    {
+        User? user = csvRepository.GetRecords<User>().FirstOrDefault(user => user.Username == username);
+
+        if (user == null)
+        {
+            return false;
+        }
+
+        string hashedPassword = _passwordHashService.Hash(password);
+        return _passwordHashService.Verify(password, user.Password);
+    }
+
+    /// <summary>
+    /// Checks if there is an admin user in the system
+    /// </summary>
+    /// <returns></returns>
+    public bool HasAdminUser()
+    {
+        IList<User> users = csvRepository.GetRecords<User>();
+        return users.FirstOrDefault(x => x.Username == "admin") != null;
     }
 }
