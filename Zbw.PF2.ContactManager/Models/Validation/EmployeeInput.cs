@@ -26,6 +26,7 @@ public sealed class EmployeeInput
     public int EmploymentRate { get; init; }
     public string Role { get; init; } = string.Empty;
     public int? ApprenticeshipYears { get; init; }
+    public int? CurrentApprenticeshipYear { get; init; }
     public Status? EmployeeStatus { get; init; }
     public EmployeeSeniorLevel? EmployeeSeniorLevel { get; init; }
     public string? DateOfHire { get; init; } = string.Empty;

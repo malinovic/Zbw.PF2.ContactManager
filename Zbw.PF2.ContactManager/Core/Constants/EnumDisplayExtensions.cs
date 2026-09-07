@@ -67,4 +67,16 @@ public static class EnumDisplayExtensions
         CustomerType.Company => "Geschäftskunde",
         _ => customerType.ToString()
     };
+
+    public static string ToGerman(this EmployeeSeniorLevel seniorLevel) => seniorLevel switch
+    {
+        EmployeeSeniorLevel.Level0 => "Stufe 0",
+        EmployeeSeniorLevel.Level1 => "Stufe 1",
+        EmployeeSeniorLevel.Level2 => "Stufe 2",
+        EmployeeSeniorLevel.Level3 => "Stufe 3",
+        EmployeeSeniorLevel.Level4 => "Stufe 4",
+        EmployeeSeniorLevel.Level5 => "Stufe 5",
+        _ => seniorLevel.ToString()
+    };
+
 }
