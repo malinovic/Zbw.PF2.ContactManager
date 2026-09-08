@@ -73,8 +73,6 @@ public partial class
         boxEmail.Text = customer.Email;
 
         boxCustomerNumber.Text = customer.CustomerNumber;
-        boxCustomerCompanyName.Text = customer.CustomerCompanyName;
-        boxCustomerType.SelectedItem = customer.CustomerType;
         boxStatus.SelectedItem = customer.CustomerStatus;
     }
 

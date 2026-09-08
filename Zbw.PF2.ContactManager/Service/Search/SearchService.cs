@@ -47,8 +47,7 @@ public sealed class SearchService : ISearchService
             filtered = filtered.Where(customer =>
                 customer.FirstName.Contains(search, StringComparison.OrdinalIgnoreCase) ||
                 customer.LastName.Contains(search, StringComparison.OrdinalIgnoreCase) ||
-                customer.CustomerNumber.Contains(search, StringComparison.OrdinalIgnoreCase) ||
-                customer.CustomerCompanyName.Contains(search, StringComparison.OrdinalIgnoreCase));
+                customer.CustomerNumber.Contains(search, StringComparison.OrdinalIgnoreCase));
         }
 
         if (statusFilter is Status status)
