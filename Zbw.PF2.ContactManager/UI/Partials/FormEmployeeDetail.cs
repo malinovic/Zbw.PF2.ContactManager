@@ -81,7 +81,7 @@ public partial class FormEmployeeDetail : Form
         boxRole.Text = employee.Role;
         boxApprenticeshipYears.Text = employee.ApprenticeshipYears?.ToString() ?? string.Empty;
         boxCurrentApprenticeshipYear.Text = employee.CurrentApprenticeshipYear?.ToString() ?? string.Empty;
-        boxSeniorLevel.Text = employee.SeniorLevel.ToString();
+        boxSeniorLevel.SelectedItem = employee.SeniorLevel;
 
         boxWorkStreet.Text = employee.WorkAddress.StreetName;
         boxWorkStreetNumber.Text = employee.WorkAddress.StreetNumber;
@@ -191,9 +191,10 @@ public partial class FormEmployeeDetail : Form
                 ? status
                 : null,
 
-            EmployeeSeniorLevel = Enum.TryParse<EmployeeSeniorLevel>(boxSeniorLevel.Text.Trim(), true, out EmployeeSeniorLevel seniorLevel)
-                 ? seniorLevel
-                 : null,
+            EmployeeSeniorLevel =
+            boxSeniorLevel.SelectedItem is EmployeeSeniorLevel employeeSeniorLevel
+                ? employeeSeniorLevel
+                : null,
 
             DateOfHire = boxDateOfHire.Text.Trim(),
             DateOfTermination = boxDateOfTermination.Text.Trim(),

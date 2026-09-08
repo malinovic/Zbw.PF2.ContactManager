@@ -321,13 +321,13 @@ public sealed class EmployeeValidatorService
                 "Bitte wählen Sie einen Mitarbeiterstatus aus.");
         }
 
-        if (input.EmployeeSeniorLevel is null)
+       /* if (input.EmployeeSeniorLevel is null)
         {
             result.Add(
                 nameof(input.EmployeeSeniorLevel),
                 "Bitte wählen Sie eine Kaderstufe aus.");
         }
-
+       */
 
         if (string.IsNullOrWhiteSpace(input.WorkStreetNumber))
         {
