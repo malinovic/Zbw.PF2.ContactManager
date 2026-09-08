@@ -89,14 +89,6 @@ partial class FormCustomerDetail : Form
         panelCustomerNumberLabel = new Panel();
         labelCustomerNumber = new Label();
         boxCustomerNumber = new TextBox();
-        panelCustomerCompanyName = new Panel();
-        panelCustomerCompanyNameLabel = new Panel();
-        labelCustomerCompanyName = new Label();
-        boxCustomerCompanyName = new TextBox();
-        panelCustomerType = new Panel();
-        panelCustomerTypeLabel = new Panel();
-        labelCustomerType = new Label();
-        boxCustomerType = new ComboBox();
         panelStatus = new Panel();
         panelStatusLabel = new Panel();
         labelStatus = new Label();
@@ -132,13 +124,10 @@ partial class FormCustomerDetail : Form
         panelEmailLabel.SuspendLayout();
         panelCustomerNumber.SuspendLayout();
         panelCustomerNumberLabel.SuspendLayout();
-        panelCustomerCompanyName.SuspendLayout();
-        panelCustomerCompanyNameLabel.SuspendLayout();
-        panelCustomerType.SuspendLayout();
-        panelCustomerTypeLabel.SuspendLayout();
         panelStatus.SuspendLayout();
         panelStatusLabel.SuspendLayout();
         groupBox1.SuspendLayout();
+        groupBox2.SuspendLayout();
         panel1.SuspendLayout();
         SuspendLayout();
         // 
@@ -690,85 +679,11 @@ partial class FormCustomerDetail : Form
         boxCustomerNumber.Size = new Size(250, 27);
         boxCustomerNumber.TabIndex = 1;
         // 
-        // panelCustomerCompanyName
-        // 
-        panelCustomerCompanyName.Controls.Add(panelCustomerCompanyNameLabel);
-        panelCustomerCompanyName.Controls.Add(boxCustomerCompanyName);
-        panelCustomerCompanyName.Location = new Point(948, 51);
-        panelCustomerCompanyName.Name = "panelCustomerCompanyName";
-        panelCustomerCompanyName.Size = new Size(250, 98);
-        panelCustomerCompanyName.TabIndex = 2;
-        // 
-        // panelCustomerCompanyNameLabel
-        // 
-        panelCustomerCompanyNameLabel.Controls.Add(labelCustomerCompanyName);
-        panelCustomerCompanyNameLabel.Dock = DockStyle.Top;
-        panelCustomerCompanyNameLabel.Location = new Point(0, 0);
-        panelCustomerCompanyNameLabel.Name = "panelCustomerCompanyNameLabel";
-        panelCustomerCompanyNameLabel.Size = new Size(250, 46);
-        panelCustomerCompanyNameLabel.TabIndex = 0;
-        // 
-        // labelCustomerCompanyName
-        // 
-        labelCustomerCompanyName.AutoSize = true;
-        labelCustomerCompanyName.Dock = DockStyle.Fill;
-        labelCustomerCompanyName.Location = new Point(0, 0);
-        labelCustomerCompanyName.Name = "labelCustomerCompanyName";
-        labelCustomerCompanyName.Size = new Size(74, 15);
-        labelCustomerCompanyName.TabIndex = 0;
-        labelCustomerCompanyName.Text = "Firmenname";
-        // 
-        // boxCustomerCompanyName
-        // 
-        boxCustomerCompanyName.Dock = DockStyle.Bottom;
-        boxCustomerCompanyName.Font = new Font("Segoe UI", 11F);
-        boxCustomerCompanyName.Location = new Point(0, 71);
-        boxCustomerCompanyName.Name = "boxCustomerCompanyName";
-        boxCustomerCompanyName.Size = new Size(250, 27);
-        boxCustomerCompanyName.TabIndex = 1;
-        // 
-        // panelCustomerType
-        // 
-        panelCustomerType.Controls.Add(panelCustomerTypeLabel);
-        panelCustomerType.Controls.Add(boxCustomerType);
-        panelCustomerType.Location = new Point(670, 161);
-        panelCustomerType.Name = "panelCustomerType";
-        panelCustomerType.Size = new Size(250, 98);
-        panelCustomerType.TabIndex = 3;
-        // 
-        // panelCustomerTypeLabel
-        // 
-        panelCustomerTypeLabel.Controls.Add(labelCustomerType);
-        panelCustomerTypeLabel.Dock = DockStyle.Top;
-        panelCustomerTypeLabel.Location = new Point(0, 0);
-        panelCustomerTypeLabel.Name = "panelCustomerTypeLabel";
-        panelCustomerTypeLabel.Size = new Size(250, 46);
-        panelCustomerTypeLabel.TabIndex = 0;
-        // 
-        // labelCustomerType
-        // 
-        labelCustomerType.AutoSize = true;
-        labelCustomerType.Dock = DockStyle.Fill;
-        labelCustomerType.Location = new Point(0, 0);
-        labelCustomerType.Name = "labelCustomerType";
-        labelCustomerType.Size = new Size(65, 15);
-        labelCustomerType.TabIndex = 0;
-        labelCustomerType.Text = "Kundentyp";
-        // 
-        // boxCustomerType
-        // 
-        boxCustomerType.Dock = DockStyle.Bottom;
-        boxCustomerType.FormattingEnabled = true;
-        boxCustomerType.Location = new Point(0, 75);
-        boxCustomerType.Name = "boxCustomerType";
-        boxCustomerType.Size = new Size(250, 23);
-        boxCustomerType.TabIndex = 1;
-        // 
         // panelStatus
         // 
         panelStatus.Controls.Add(panelStatusLabel);
         panelStatus.Controls.Add(boxStatus);
-        panelStatus.Location = new Point(948, 161);
+        panelStatus.Location = new Point(306, 38);
         panelStatus.Name = "panelStatus";
         panelStatus.Size = new Size(250, 98);
         panelStatus.TabIndex = 4;
@@ -826,10 +741,11 @@ partial class FormCustomerDetail : Form
         // 
         // groupBox2
         // 
+        groupBox2.Controls.Add(panelStatus);
         groupBox2.FlatStyle = FlatStyle.Flat;
         groupBox2.Location = new Point(647, 13);
         groupBox2.Name = "groupBox2";
-        groupBox2.Size = new Size(573, 300);
+        groupBox2.Size = new Size(573, 161);
         groupBox2.TabIndex = 5;
         groupBox2.TabStop = false;
         groupBox2.Text = "Kunden-Informationen";
@@ -849,9 +765,6 @@ partial class FormCustomerDetail : Form
         AutoSize = true;
         BackColor = Color.White;
         ClientSize = new Size(1650, 1010);
-        Controls.Add(panelStatus);
-        Controls.Add(panelCustomerType);
-        Controls.Add(panelCustomerCompanyName);
         Controls.Add(panelCustomerNumber);
         Controls.Add(groupBox1);
         Controls.Add(groupBox2);
@@ -911,17 +824,11 @@ partial class FormCustomerDetail : Form
         panelCustomerNumber.PerformLayout();
         panelCustomerNumberLabel.ResumeLayout(false);
         panelCustomerNumberLabel.PerformLayout();
-        panelCustomerCompanyName.ResumeLayout(false);
-        panelCustomerCompanyName.PerformLayout();
-        panelCustomerCompanyNameLabel.ResumeLayout(false);
-        panelCustomerCompanyNameLabel.PerformLayout();
-        panelCustomerType.ResumeLayout(false);
-        panelCustomerTypeLabel.ResumeLayout(false);
-        panelCustomerTypeLabel.PerformLayout();
         panelStatus.ResumeLayout(false);
         panelStatusLabel.ResumeLayout(false);
         panelStatusLabel.PerformLayout();
         groupBox1.ResumeLayout(false);
+        groupBox2.ResumeLayout(false);
         panel1.ResumeLayout(false);
         ResumeLayout(false);
     }
@@ -975,12 +882,6 @@ partial class FormCustomerDetail : Form
     private Panel panelCustomerNumber;
     private System.Windows.Forms.Label labelCustomerNumber;
     private TextBox boxCustomerNumber;
-    private Panel panelCustomerCompanyName;
-    private System.Windows.Forms.Label labelCustomerCompanyName;
-    private TextBox boxCustomerCompanyName;
-    private Panel panelCustomerType;
-    private System.Windows.Forms.Label labelCustomerType;
-    private ComboBox boxCustomerType;
     private Panel panelStatus;
     private System.Windows.Forms.Label labelStatus;
     private ComboBox boxStatus;
@@ -999,8 +900,6 @@ partial class FormCustomerDetail : Form
     private Panel panelPhoneNumberMobileLabel;
     private Panel panelEmailLabel;
     private Panel panelCustomerNumberLabel;
-    private Panel panelCustomerCompanyNameLabel;
-    private Panel panelCustomerTypeLabel;
     private Panel panelStatusLabel;
     private GroupBox groupBox2;
     private Panel panel1;

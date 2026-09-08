@@ -40,19 +40,16 @@ public partial class FormCustomerDetail : Form
         boxSalutation.DataSource = Enum.GetValues<Salutation>();
         boxSex.DataSource = Enum.GetValues<Sex>();
         boxTitle.DataSource = Enum.GetValues<Title>();
-        boxCustomerType.DataSource = Enum.GetValues<CustomerType>();
         boxStatus.DataSource = Enum.GetValues<Status>();
 
         boxSalutation.Format += (_, e) => e.Value = ((Salutation)e.ListItem!).ToGerman();
         boxSex.Format += (_, e) => e.Value = ((Sex)e.ListItem!).ToGerman();
         boxTitle.Format += (_, e) => e.Value = ((Title)e.ListItem!).ToGerman();
-        boxCustomerType.Format += (_, e) => e.Value = ((CustomerType)e.ListItem!).ToGerman();
         boxStatus.Format += (_, e) => e.Value = ((Status)e.ListItem!).ToGerman();
 
         boxSalutation.SelectedIndex = -1;
         boxSex.SelectedIndex = -1;
         boxTitle.SelectedIndex = -1;
-        boxCustomerType.SelectedIndex = -1;
         boxStatus.SelectedIndex = -1;
     }
 
@@ -171,17 +168,12 @@ public partial class FormCustomerDetail : Form
             PhoneNumberMobile = boxPhoneNumberMobile.Text.Trim(),
             Email = boxEmail.Text.Trim(),
             CustomerNumber = boxCustomerNumber.Text.Trim(),
-            CustomerCompanyName = boxCustomerCompanyName.Text.Trim(),
 
             CustomerStatus =
             boxStatus.SelectedItem is Status status
                 ? status
                 : null,
 
-            CustomerType =
-            boxCustomerType.SelectedItem is CustomerType customerType
-                ? customerType
-                : null
         };
     }
 
@@ -210,9 +202,7 @@ public partial class FormCustomerDetail : Form
             PhoneNumberMobile = input.PhoneNumberMobile,
             Email = input.Email,
             CustomerNumber = input.CustomerNumber,
-            CustomerCompanyName = input.CustomerCompanyName,
             CustomerStatus = input.CustomerStatus!.Value,
-            CustomerType = input.CustomerType!.Value,
         };
     }
 
