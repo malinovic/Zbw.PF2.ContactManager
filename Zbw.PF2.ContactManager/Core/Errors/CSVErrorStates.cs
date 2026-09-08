@@ -1,5 +1,8 @@
 namespace Zbw.PF2.ContactManager.Core.Errors;
 
+/// <summary>
+///     Defines the error states for CSV file operations
+/// </summary>
 public enum CSVErrorStates
 {
     DIRECTORY_DOES_NOT_EXIST,

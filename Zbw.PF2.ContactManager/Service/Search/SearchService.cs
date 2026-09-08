@@ -37,6 +37,13 @@ public sealed class SearchService : ISearchService
         return [.. filtered];
     }
 
+    /// <summary>
+    ///     Filters the given customers by name, customer number, or company name, and optionally by status.
+    /// </summary>
+    /// <param name="customers">The customers to filter.</param>
+    /// <param name="searchTerm">The free-text term to match against first name, last name, customer number, and company name.</param>
+    /// <param name="statusFilter">The <see cref="Status" /> to restrict results to, or <c>null</c> to include all statuses.</param>
+    /// <returns>The customers matching the search term and status filter.</returns>
     public IList<Customer> SearchCustomers(IList<Customer> customers, string searchTerm, object? statusFilter)
     {
         IEnumerable<Customer> filtered = customers;
