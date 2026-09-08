@@ -37,6 +37,7 @@ partial class FormEmployeesPartial
         dgvEmployees = new DataGridView();
         contactManagerRepositoryBindingSource = new BindingSource(components);
         panelSearchHeader = new Panel();
+        btnImportEmployees = new Button();
         txtSearchEmployee = new TextBox();
         cmbStatusFilter = new ComboBox();
         panel1.SuspendLayout();
@@ -62,7 +63,7 @@ partial class FormEmployeesPartial
         // 
         panel1.Controls.Add(btnCreateNewEmployee);
         panel1.Dock = DockStyle.Bottom;
-        panel1.Location = new Point(20, 480);
+        panel1.Location = new Point(20, 555);
         panel1.Margin = new Padding(2, 1, 2, 1);
         panel1.Name = "panel1";
         panel1.Size = new Size(1127, 44);
@@ -76,7 +77,7 @@ partial class FormEmployeesPartial
         panel2.Location = new Point(20, 20);
         panel2.Margin = new Padding(2, 1, 2, 1);
         panel2.Name = "panel2";
-        panel2.Size = new Size(1127, 460);
+        panel2.Size = new Size(1127, 535);
         panel2.TabIndex = 3;
         // 
         // panel4
@@ -86,7 +87,7 @@ partial class FormEmployeesPartial
         panel4.Location = new Point(0, 42);
         panel4.Margin = new Padding(2, 1, 2, 1);
         panel4.Name = "panel4";
-        panel4.Size = new Size(1127, 418);
+        panel4.Size = new Size(1127, 493);
         panel4.TabIndex = 2;
         // 
         // dgvEmployees
@@ -107,12 +108,13 @@ partial class FormEmployeesPartial
         dgvEmployees.RowHeadersWidth = 82;
         dgvEmployees.RowTemplate.Height = 48;
         dgvEmployees.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-        dgvEmployees.Size = new Size(1127, 418);
+        dgvEmployees.Size = new Size(1127, 493);
         dgvEmployees.TabIndex = 0;
         // 
         // panelSearchHeader
         // 
         panelSearchHeader.BackColor = Color.White;
+        panelSearchHeader.Controls.Add(btnImportEmployees);
         panelSearchHeader.Controls.Add(txtSearchEmployee);
         panelSearchHeader.Controls.Add(cmbStatusFilter);
         panelSearchHeader.Dock = DockStyle.Top;
@@ -121,6 +123,17 @@ partial class FormEmployeesPartial
         panelSearchHeader.Name = "panelSearchHeader";
         panelSearchHeader.Size = new Size(1127, 42);
         panelSearchHeader.TabIndex = 1;
+        // 
+        // btnImportEmployees
+        // 
+        btnImportEmployees.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+        btnImportEmployees.Location = new Point(966, 10);
+        btnImportEmployees.Name = "btnImportEmployees";
+        btnImportEmployees.Size = new Size(144, 23);
+        btnImportEmployees.TabIndex = 2;
+        btnImportEmployees.Text = "Importieren";
+        btnImportEmployees.UseVisualStyleBackColor = true;
+        btnImportEmployees.Click += btnImportEmployee_Click;
         // 
         // txtSearchEmployee
         // 
@@ -155,7 +168,7 @@ partial class FormEmployeesPartial
         FormBorderStyle = FormBorderStyle.None;
         Margin = new Padding(2, 1, 2, 1);
         Name = "FormEmployeesPartial";
-        Padding = new Padding(20, 20, 20, 105);
+        Padding = new Padding(20, 20, 20, 30);
         Text = "FormEmployeesPartial";
         panel1.ResumeLayout(false);
         panel2.ResumeLayout(false);
@@ -178,4 +191,5 @@ partial class FormEmployeesPartial
     private Panel panelSearchHeader;
     private TextBox txtSearchEmployee;
     private ComboBox cmbStatusFilter;
+    private Button btnImportEmployees;
 }

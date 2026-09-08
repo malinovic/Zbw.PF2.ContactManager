@@ -46,16 +46,16 @@ partial class MainForm
         // 
         // FlpSideNav
         // 
-        FlpSideNav.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
         FlpSideNav.BackColor = Color.White;
         FlpSideNav.Controls.Add(BtnNavDashboard);
         FlpSideNav.Controls.Add(BtnNavCustomers);
         FlpSideNav.Controls.Add(BtnNavEmployees);
         FlpSideNav.Controls.Add(BtnNavUsers);
+        FlpSideNav.Dock = DockStyle.Left;
         FlpSideNav.FlowDirection = FlowDirection.TopDown;
         FlpSideNav.Location = new Point(0, 0);
         FlpSideNav.Name = "FlpSideNav";
-        FlpSideNav.Size = new Size(400, 1421);
+        FlpSideNav.Size = new Size(400, 1053);
         FlpSideNav.TabIndex = 0;
         // 
         // BtnNavDashboard
@@ -128,10 +128,10 @@ partial class MainForm
         // 
         // PnlContentView
         // 
-        PnlContentView.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-        PnlContentView.Location = new Point(406, 0);
+        PnlContentView.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+        PnlContentView.Location = new Point(400, 0);
         PnlContentView.Name = "PnlContentView";
-        PnlContentView.Size = new Size(1933, 1421);
+        PnlContentView.Size = new Size(1318, 1053);
         PnlContentView.TabIndex = 1;
         // 
         // panel1
@@ -140,9 +140,9 @@ partial class MainForm
         panel1.Controls.Add(panel2);
         panel1.Controls.Add(LblLoggedInAs);
         panel1.Dock = DockStyle.Bottom;
-        panel1.Location = new Point(0, 1013);
+        panel1.Location = new Point(400, 1013);
         panel1.Name = "panel1";
-        panel1.Size = new Size(1718, 40);
+        panel1.Size = new Size(1318, 40);
         panel1.TabIndex = 2;
         // 
         // panel2
@@ -152,7 +152,7 @@ partial class MainForm
         panel2.Location = new Point(0, 0);
         panel2.MaximumSize = new Size(0, 1);
         panel2.Name = "panel2";
-        panel2.Size = new Size(1718, 1);
+        panel2.Size = new Size(1318, 1);
         panel2.TabIndex = 1;
         // 
         // LblLoggedInAs
@@ -176,6 +176,7 @@ partial class MainForm
         Icon = (Icon)resources.GetObject("$this.Icon");
         Margin = new Padding(4);
         Name = "MainForm";
+        StartPosition = FormStartPosition.CenterScreen;
         Text = "Contact Manager";
         WindowState = FormWindowState.Maximized;
         FlpSideNav.ResumeLayout(false);

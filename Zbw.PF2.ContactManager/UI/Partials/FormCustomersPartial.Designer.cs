@@ -36,6 +36,7 @@ partial class FormCustomersPartial
         dgvCustomers = new DataGridView();
         contactManagerRepositoryBindingSource = new BindingSource(components);
         panelSearchHeader = new Panel();
+        btnImportCustomer = new Button();
         txtSearchCustomers = new TextBox();
         cmbStatusFilter = new ComboBox();
         panel1.SuspendLayout();
@@ -61,7 +62,7 @@ partial class FormCustomersPartial
         // 
         panel1.Controls.Add(btnCreateNewCustomers);
         panel1.Dock = DockStyle.Bottom;
-        panel1.Location = new Point(20, 343);
+        panel1.Location = new Point(20, 418);
         panel1.Margin = new Padding(2, 1, 2, 1);
         panel1.Name = "panel1";
         panel1.Size = new Size(857, 44);
@@ -75,7 +76,7 @@ partial class FormCustomersPartial
         panel2.Location = new Point(20, 20);
         panel2.Margin = new Padding(2, 1, 2, 1);
         panel2.Name = "panel2";
-        panel2.Size = new Size(857, 323);
+        panel2.Size = new Size(857, 398);
         panel2.TabIndex = 3;
         // 
         // panel4
@@ -85,7 +86,7 @@ partial class FormCustomersPartial
         panel4.Location = new Point(0, 42);
         panel4.Margin = new Padding(2, 1, 2, 1);
         panel4.Name = "panel4";
-        panel4.Size = new Size(857, 281);
+        panel4.Size = new Size(857, 356);
         panel4.TabIndex = 2;
         // 
         // dgvCustomers
@@ -106,12 +107,13 @@ partial class FormCustomersPartial
         dgvCustomers.RowHeadersWidth = 82;
         dgvCustomers.RowTemplate.Height = 48;
         dgvCustomers.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-        dgvCustomers.Size = new Size(857, 281);
+        dgvCustomers.Size = new Size(857, 356);
         dgvCustomers.TabIndex = 0;
         // 
         // panelSearchHeader
         // 
         panelSearchHeader.BackColor = Color.White;
+        panelSearchHeader.Controls.Add(btnImportCustomer);
         panelSearchHeader.Controls.Add(txtSearchCustomers);
         panelSearchHeader.Controls.Add(cmbStatusFilter);
         panelSearchHeader.Dock = DockStyle.Top;
@@ -120,7 +122,18 @@ partial class FormCustomersPartial
         panelSearchHeader.Name = "panelSearchHeader";
         panelSearchHeader.Size = new Size(857, 42);
         panelSearchHeader.TabIndex = 1;
-        // 
+        //
+        // btnImportCustomer
+        //
+        btnImportCustomer.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+        btnImportCustomer.Location = new Point(696, 10);
+        btnImportCustomer.Name = "btnImportCustomer";
+        btnImportCustomer.Size = new Size(144, 23);
+        btnImportCustomer.TabIndex = 2;
+        btnImportCustomer.Text = "Importieren";
+        btnImportCustomer.UseVisualStyleBackColor = true;
+        btnImportCustomer.Click += btnImportCustomer_Click;
+        //
         // txtSearchCustomers
         // 
         txtSearchCustomers.BorderStyle = BorderStyle.FixedSingle;
@@ -154,7 +167,7 @@ partial class FormCustomersPartial
         FormBorderStyle = FormBorderStyle.None;
         Margin = new Padding(2, 1, 2, 1);
         Name = "FormCustomersPartial";
-        Padding = new Padding(20, 20, 20, 105);
+        Padding = new Padding(20, 20, 20, 30);
         Text = "FormCustomersPartial";
         panel1.ResumeLayout(false);
         panel2.ResumeLayout(false);
@@ -177,4 +190,5 @@ partial class FormCustomersPartial
     private Panel panelSearchHeader;
     private TextBox txtSearchCustomers;
     private ComboBox cmbStatusFilter;
+    private Button btnImportCustomer;
 }

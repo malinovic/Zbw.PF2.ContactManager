@@ -20,8 +20,19 @@ public partial class
     /// <summary>
     ///     Opens the form for creating a new customer.
     /// </summary>
-    public FormCustomerDetail() :this(null)
+    public FormCustomerDetail() :this((Customer?)null)
     {
+    }
+
+    /// <summary>
+    ///     Opens the form for creating a new customer, pre-filled with whatever fields were
+    ///     imported from a vCard. Fields the vCard didn't provide (e.g. salutation, customer
+    ///     number) are left at their normal "create new customer" defaults for manual entry.
+    /// </summary>
+    /// <param name="prefill">The partially filled customer data imported from a vCard.</param>
+    public FormCustomerDetail(CustomerInput prefill) : this((Customer?)null)
+    {
+        PopulatePrefillFields(prefill);
     }
 
     /// <summary>
@@ -76,6 +87,69 @@ public partial class
         boxCustomerCompanyName.Text = customer.CustomerCompanyName;
         boxCustomerType.SelectedItem = customer.CustomerType;
         boxStatus.SelectedItem = customer.CustomerStatus;
+    }
+
+    /// <summary>
+    ///     Fills in only the fields the given vCard import actually provided, leaving everything
+    ///     else (the auto-generated customer number, the unselected combo boxes) at whatever the
+    ///     "create new customer" constructor already set up.
+    /// </summary>
+    private void PopulatePrefillFields(CustomerInput prefill)
+    {
+        if (!string.IsNullOrWhiteSpace(prefill.FirstName))
+        {
+            boxFirstName.Text = prefill.FirstName;
+        }
+
+        if (!string.IsNullOrWhiteSpace(prefill.LastName))
+        {
+            boxLastName.Text = prefill.LastName;
+        }
+
+        if (!string.IsNullOrWhiteSpace(prefill.Birthday))
+        {
+            boxBirthday.Text = prefill.Birthday;
+        }
+
+        if (!string.IsNullOrWhiteSpace(prefill.StreetName))
+        {
+            boxStreet.Text = prefill.StreetName;
+        }
+
+        if (!string.IsNullOrWhiteSpace(prefill.StreetNumber))
+        {
+            boxStreetNumber.Text = prefill.StreetNumber;
+        }
+
+        if (!string.IsNullOrWhiteSpace(prefill.ZipCode))
+        {
+            boxZipCode.Text = prefill.ZipCode;
+        }
+
+        if (!string.IsNullOrWhiteSpace(prefill.City))
+        {
+            boxCity.Text = prefill.City;
+        }
+
+        if (!string.IsNullOrWhiteSpace(prefill.PhoneNumberCompany))
+        {
+            boxPhoneNumberCompany.Text = prefill.PhoneNumberCompany;
+        }
+
+        if (!string.IsNullOrWhiteSpace(prefill.PhoneNumberMobile))
+        {
+            boxPhoneNumberMobile.Text = prefill.PhoneNumberMobile;
+        }
+
+        if (!string.IsNullOrWhiteSpace(prefill.Email))
+        {
+            boxEmail.Text = prefill.Email;
+        }
+
+        if (!string.IsNullOrWhiteSpace(prefill.CustomerCompanyName))
+        {
+            boxCustomerCompanyName.Text = prefill.CustomerCompanyName;
+        }
     }
 
     private void InitializeComboBoxes()

@@ -18,15 +18,15 @@ Windows-Forms-Anwendung (C# .NET) zur Verwaltung von Mitarbeiter- und Kundendate
 ## Funktionen
 
 ### Pflicht
-- Erfassen, Mutieren, Aktivieren/Deaktivieren und Löschen von Mitarbeitern und Kunden
-- Automatische Vergabe von Mitarbeiternummern
-- Protokollierung von Kontaktnotizen mit Historie (Kunden)
-- Suche nach Name, Vorname, Geburtsdatum, Mitarbeiter/Kunde
-- Automatisches Speichern und Laden des Datenstamms auf der Festplatte
+- Erfassen, Mutieren, Aktivieren/Deaktivieren und Löschen von Mitarbeitern und Kunden - Funktioniert
+- Automatische Vergabe von Mitarbeiternummern - Funktioniert
+- Protokollierung von Kontaktnotizen mit Historie (Kunden) - Funktioniert
+- Suche nach Name, Vorname, Geburtsdatum, Mitarbeiter/Kunde - Funktioniert
+- Automatisches Speichern und Laden des Datenstamms auf der Festplatte - Funktioniert
 
 ### Optional
 - [x] Dashboard
-- [/] CSV-/VCard-Import
+- [x] CSV-/VCard-Import
 - [x] Login
 
 ## Datenmodell
@@ -52,7 +52,7 @@ Person (abstrakt)
 ## Technologie-Stack
 
 - **Sprache:** C#
-- **Framework:** .NET / Windows Forms
+- **Framework:** .NET 10 / Windows Forms
 - **Persistenz:** Serialisierung in Dateien (CSV)
 ## Projektstruktur
 
@@ -85,10 +85,15 @@ Zbw.PF2.ContactManager/
 4. Projekt starten (F5)
 5. Einloggen mit Standardbenutzer: `admin` / `admin`
 
+Der leere Datenstamm wird beim ersten Start automatisch im Roaming Ordner (C:\Users\<benutzer>\AppData\Roaming\.contact_manager) erstellt. Die Anwendung speichert die Daten in CSV-Dateien im Anwendungsverzeichnis.
 
-## Datenstamm
+Folgende Dateien werden automatisch erstellt:
+- `customers.csv` – Kundendaten
+- `employees.csv` – Mitarbeiterdaten
+- `contact_notes.csv` – Kontaktnotizen
+- `users.csv` – Benutzerkonten
 
-Der Datenstamm wird 
+Wenn am Ende das Verzeichnis bereinigt werden soll, können sie dass Skript [./Clear_Roaming.ps1](./Clear_Roaming.ps1) ausführen, welches dass Verzeichnis leert.
 
 ## Status
 

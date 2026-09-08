@@ -18,7 +18,6 @@ public partial class FormImport : Form
 
     private void SetupView()
     {
-        ThemeManager.ApplyFormStyles(this);
         ThemeManager.ApplyButtonStyles(btnOpenFileDialog);
         ThemeManager.ApplyButtonStyles(btnStartImport);
     }

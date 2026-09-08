@@ -2,13 +2,16 @@
 using Zbw.PF2.ContactManager.Core.Theme;
 using Zbw.PF2.ContactManager.Data.Repository;
 using Zbw.PF2.ContactManager.Models;
+using Zbw.PF2.ContactManager.Service.Import;
 using Zbw.PF2.ContactManager.Service.Search;
+using Zbw.PF2.ContactManager.Validation.ValidationCustomer;
 
 namespace Zbw.PF2.ContactManager.UI.Partials;
 
 public partial class FormCustomersPartial : Form
 {
     private readonly IContactManagerRepository _repository;
+    private readonly IImportService _importService = new ImportService();
     private IList<Customer> _Customers = [];
     private ISearchService _searchService = new SearchService();
 
@@ -22,6 +25,7 @@ public partial class FormCustomersPartial : Form
 
         _repository = contactManagerRepository;
 
+        ThemeManager.ApplyButtonStyles(btnImportCustomer);
         ThemeManager.ApplyDataGridViewStyles(dgvCustomers);
 
         ConfigureGridColumns();
@@ -85,11 +89,9 @@ public partial class FormCustomersPartial : Form
             CreateColumn("FirstName", "Vorname", 150),
             CreateColumn("LastName", "Nachname", 150),
             CreateColumn("CustomerNumber", "Kundenr.", 140),
-            CreateColumn("Department", "Abteilung", 150),
-            CreateColumn("Role", "Rolle", 140),
             CreateColumn("Email", "E-Mail", 220),
-            CreateColumn("Status", "Status", 120),
-            CreateColumn("DateOfHire", "Eingestellt am", 150));
+            CreateColumn("CustomerStatus", "Status", 120)
+           );
 
         // Stretch the columns to always fill the grid's full width instead of leaving empty
         // space on wide windows; the basic widths above become the relative fill proportions.
@@ -240,8 +242,40 @@ public partial class FormCustomersPartial : Form
 
     private void btnCreateNewCustomer_Click(object sender, EventArgs e)
     {
-       using var form = new FormCustomerDetail();
-       form.ShowDialog(this);
+        using var form = new FormCustomerDetail();
+        form.ShowDialog(this);
+
+        _Customers = _repository.GetCustomers();
+        ApplyFilter();
+    }
+
+    private void btnImportCustomer_Click(object sender, EventArgs e)
+    {
+        using OpenFileDialog dialog = new() { Filter = "vCard Dateien (*.vcf)|*.vcf" };
+
+        if (dialog.ShowDialog(this) != DialogResult.OK)
+        {
+            return;
+        }
+
+        CustomerInput prefill;
+        try
+        {
+            prefill = _importService.ImportCustomer(dialog.FileName);
+        }
+        catch (Exception ex)
+        {
+            MessageBox.Show(
+                $"Die vCard konnte nicht importiert werden: {ex.Message}",
+                "Fehler",
+                MessageBoxButtons.OK,
+                MessageBoxIcon.Error);
+
+            return;
+        }
+
+        using var form = new FormCustomerDetail(prefill);
+        form.ShowDialog(this);
 
         _Customers = _repository.GetCustomers();
         ApplyFilter();

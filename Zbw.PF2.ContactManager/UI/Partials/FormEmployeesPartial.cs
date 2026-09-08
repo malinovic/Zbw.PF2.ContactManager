@@ -22,7 +22,7 @@ public partial class FormEmployeesPartial : Form
 
         _repository = contactManagerRepository;
 
-        ThemeManager.ApplyButtonStyles(btnImportEmployee);
+        ThemeManager.ApplyButtonStyles(btnImportEmployees);
         ThemeManager.ApplyDataGridViewStyles(dgvEmployees);
 
         ConfigureGridColumns();

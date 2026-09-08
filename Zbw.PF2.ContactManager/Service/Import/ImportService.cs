@@ -3,12 +3,19 @@ using System.Globalization;
 using CsvHelper;
 using CsvHelper.Configuration;
 
+using vCard.Net.CardComponents;
+using vCard.Net.Serialization;
+
+using VCardAddress = vCard.Net.DataTypes.Address;
+using VCardTelephone = vCard.Net.DataTypes.Telephone;
+
 using Zbw.PF2.ContactManager.Core.Validation;
 using Zbw.PF2.ContactManager.Data.Maps;
 using Zbw.PF2.ContactManager.Data.Repository;
 using Zbw.PF2.ContactManager.Models;
+using Zbw.PF2.ContactManager.Models.Validation;
 using Zbw.PF2.ContactManager.Service.Validation;
-using Zbw.PF2.ContactManager.Validation.ValidationEmployee;
+using Zbw.PF2.ContactManager.Validation.ValidationCustomer;
 
 namespace Zbw.PF2.ContactManager.Service.Import;
 
@@ -191,5 +198,84 @@ public class ImportService : IImportService
             WorkZipCode = employee.WorkAddress.ZipCode.ToString(CultureInfo.InvariantCulture),
             WorkCity = employee.WorkAddress.City,
         };
+    }
+
+    public CustomerInput ImportCustomer(string filePath)
+    {
+        ArgumentException.ThrowIfNullOrWhiteSpace(filePath);
+
+        if (!File.Exists(filePath))
+        {
+            throw new FileNotFoundException("Die angegebene Importdatei wurde nicht gefunden.", filePath);
+        }
+
+        using StreamReader reader = new(filePath);
+
+        VCard? vCard = SimpleDeserializer.Default.Deserialize(reader).OfType<VCard>().FirstOrDefault();
+
+        if (vCard is null)
+        {
+            throw new InvalidDataException("Die Datei enthält keine gültigen vCard-Daten.");
+        }
+
+        return ToCustomerInput(vCard);
+    }
+
+    /// <summary>
+    ///     Maps whatever fields the given vCard provides onto a <see cref="CustomerInput" />. Fields
+    ///     with no vCard equivalent (salutation, academic title, customer number/type/status) are
+    ///     left unset so they can be filled in by hand when the imported customer is reviewed.
+    /// </summary>
+    /// <param name="vCard">The parsed vCard to convert.</param>
+    /// <returns>An equivalent, partially filled <see cref="CustomerInput" />.</returns>
+    private static CustomerInput ToCustomerInput(VCard vCard)
+    {
+        const string dateFormat = "dd.MM.yyyy";
+
+        VCardAddress? address = vCard.Addresses?.FirstOrDefault();
+        VCardTelephone? mobilePhone = vCard.Telephones?.FirstOrDefault(phone => phone.Types?.Contains("CELL", StringComparer.OrdinalIgnoreCase) == true);
+        VCardTelephone? workPhone = vCard.Telephones?.FirstOrDefault(phone => phone.Types?.Contains("WORK", StringComparer.OrdinalIgnoreCase) == true);
+        VCardTelephone? anyPhone = vCard.Telephones?.FirstOrDefault();
+
+        return new CustomerInput
+        {
+            FirstName = vCard.N?.GivenName ?? string.Empty,
+            LastName = vCard.N?.FamilyName ?? string.Empty,
+            Birthday = ParseBirthdate(vCard.Birthdate, dateFormat),
+
+            PhoneNumberMobile = mobilePhone?.Value ?? (workPhone is null ? anyPhone?.Value ?? string.Empty : string.Empty),
+            PhoneNumberCompany = workPhone?.Value ?? string.Empty,
+            Email = vCard.Emails?.FirstOrDefault()?.Value ?? string.Empty,
+
+            StreetName = address?.StreetAddress ?? string.Empty,
+            ZipCode = address?.PostalCode ?? string.Empty,
+            City = address?.Locality ?? string.Empty,
+
+            CustomerCompanyName = vCard.Organization?.Name ?? string.Empty,
+        };
+    }
+
+    /// <summary>
+    ///     Parses a vCard BDAY value, which is a raw string in one of a few common formats
+    ///     depending on the vCard version that produced it, into the app's usual date format.
+    ///     Returns <c>null</c> (rather than throwing) when the value is missing or unrecognized,
+    ///     so the birthday is simply left blank for manual entry.
+    /// </summary>
+    private static string? ParseBirthdate(string? rawBirthdate, string dateFormat)
+    {
+        if (string.IsNullOrWhiteSpace(rawBirthdate))
+        {
+            return null;
+        }
+
+        string[] knownFormats = ["yyyyMMdd", "yyyy-MM-dd", "yyyyMMddTHHmmssZ", "yyyy-MM-ddTHH:mm:ssZ"];
+
+        if (DateTime.TryParseExact(rawBirthdate, knownFormats, CultureInfo.InvariantCulture, DateTimeStyles.None, out DateTime birthdate)
+            || DateTime.TryParse(rawBirthdate, CultureInfo.InvariantCulture, DateTimeStyles.None, out birthdate))
+        {
+            return birthdate.ToString(dateFormat, CultureInfo.InvariantCulture);
+        }
+
+        return null;
     }
 }
