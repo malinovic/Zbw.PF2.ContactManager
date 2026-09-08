@@ -1214,7 +1214,7 @@ partial class FormEmployeeDetail : Form
         // 
         panelStatus.Controls.Add(boxStatus);
         panelStatus.Controls.Add(panelStatusLabel);
-        panelStatus.Location = new Point(301, 812);
+        panelStatus.Location = new Point(301, 815);
         panelStatus.Name = "panelStatus";
         panelStatus.Size = new Size(250, 101);
         panelStatus.TabIndex = 14;
@@ -1222,6 +1222,7 @@ partial class FormEmployeeDetail : Form
         // boxStatus
         // 
         boxStatus.AccessibleRole = AccessibleRole.None;
+        boxStatus.Dock = DockStyle.Bottom;
         boxStatus.FormattingEnabled = true;
         boxStatus.Location = new Point(0, 78);
         boxStatus.Name = "boxStatus";
