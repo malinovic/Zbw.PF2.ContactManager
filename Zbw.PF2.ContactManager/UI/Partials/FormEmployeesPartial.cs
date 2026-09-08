@@ -9,8 +9,8 @@ namespace Zbw.PF2.ContactManager.UI.Partials;
 public partial class FormEmployeesPartial : Form
 {
     private readonly IContactManagerRepository _repository;
+    private readonly ISearchService _searchService = new SearchService();
     private IList<Employee> _employees = [];
-    private ISearchService _searchService = new SearchService();
 
     /// <summary>
     ///     Initializes a new instance of <see cref="FormEmployeesPartial" /> and loads the employee list.

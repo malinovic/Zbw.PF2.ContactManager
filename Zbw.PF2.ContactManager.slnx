@@ -13,6 +13,7 @@
   <Folder Name="/Projektmappenelemente/">
     <File Path=".editorconfig" />
     <File Path=".gitignore" />
+    <File Path="Clear_Roaming.ps1" />
     <File Path="CODE_GUIDELINES.md" />
     <File Path="README.md" />
   </Folder>

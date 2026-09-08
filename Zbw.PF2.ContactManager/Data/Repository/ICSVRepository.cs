@@ -12,7 +12,7 @@ public interface ICSVRepository
     /// </summary>
     /// <typeparam name="T">The person-derived type whose CSV file should be read.</typeparam>
     /// <returns>A list containing all records of type <typeparamref name="T" />.</returns>
-    IList<T> GetRecords<T>() where T : Person;
+    IList<T> GetRecords<T>() where T : QueryableEntity;
 
     /// <summary>
     ///     Retrieves a single record by its unique identifier.
@@ -20,14 +20,14 @@ public interface ICSVRepository
     /// <typeparam name="T">The person-derived type to look up.</typeparam>
     /// <param name="id">The unique identifier of the record to find.</param>
     /// <returns>The matching record, or <c>null</c> if no record with that id exists.</returns>
-    T? GetRecord<T>(int id) where T : Person;
+    T? GetRecord<T>(int id) where T : QueryableEntity;
 
     /// <summary>
     ///     Appends a new record to the corresponding CSV file.
     /// </summary>
     /// <typeparam name="T">The person-derived type to persist.</typeparam>
     /// <param name="person">The record to write.</param>
-    void CreateRecord<T>(T person) where T : Person;
+    void CreateRecord<T>(T person) where T : QueryableEntity;
 
     /// <summary>
     ///     Replaces an existing record in the CSV file with the provided updated values,
@@ -35,12 +35,12 @@ public interface ICSVRepository
     /// </summary>
     /// <typeparam name="T">The person-derived type to update.</typeparam>
     /// <param name="person">The record containing the updated values.</param>
-    void UpdateRecord<T>(T person) where T : Person;
+    void UpdateRecord<T>(T person) where T : QueryableEntity;
 
     /// <summary>
     ///     Removes the record with the given identifier from the corresponding CSV file.
     /// </summary>
     /// <typeparam name="T">The person-derived type whose record should be deleted.</typeparam>
     /// <param name="id">The unique identifier of the record to remove.</param>
-    void DeleteRecord<T>(int id) where T : Person;
+    void DeleteRecord<T>(int id) where T : QueryableEntity;
 }

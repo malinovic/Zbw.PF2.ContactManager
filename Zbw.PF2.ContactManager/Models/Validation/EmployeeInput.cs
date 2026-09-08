@@ -1,6 +1,6 @@
 ﻿using Zbw.PF2.ContactManager.Core.Constants;
 
-namespace Zbw.PF2.ContactManager.Validation.ValidationEmployee;
+namespace Zbw.PF2.ContactManager.Models.Validation;
 
 public sealed class EmployeeInput
 {
