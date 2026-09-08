@@ -28,33 +28,153 @@ partial class FormCustomersPartial
     /// </summary>
     private void InitializeComponent()
     {
-        btnCreateNewCustomer = new Button();
+        components = new System.ComponentModel.Container();
+        btnCreateNewCustomers = new Button();
+        panel1 = new Panel();
+        panel2 = new Panel();
+        panel4 = new Panel();
+        dgvCustomers = new DataGridView();
+        contactManagerRepositoryBindingSource = new BindingSource(components);
+        panelSearchHeader = new Panel();
+        txtSearchCustomers = new TextBox();
+        cmbStatusFilter = new ComboBox();
+        panel1.SuspendLayout();
+        panel2.SuspendLayout();
+        panel4.SuspendLayout();
+        ((System.ComponentModel.ISupportInitialize)dgvCustomers).BeginInit();
+        ((System.ComponentModel.ISupportInitialize)contactManagerRepositoryBindingSource).BeginInit();
+        panelSearchHeader.SuspendLayout();
         SuspendLayout();
         // 
-        // btnCreateNewCustomer
+        // btnCreateNewCustomers
         // 
-        btnCreateNewCustomer.Location = new Point(65, 1241);
-        btnCreateNewCustomer.Name = "btnCreateNewCustomer";
-        btnCreateNewCustomer.Size = new Size(424, 62);
-        btnCreateNewCustomer.TabIndex = 1;
-        btnCreateNewCustomer.Text = "Neuer Kunde";
-        btnCreateNewCustomer.UseVisualStyleBackColor = true;
-        btnCreateNewCustomer.Click += btnCreateNewCustomer_Click;
+        btnCreateNewCustomers.Location = new Point(7, 6);
+        btnCreateNewCustomers.Margin = new Padding(2, 1, 2, 1);
+        btnCreateNewCustomers.Name = "btnCreateNewCustomers";
+        btnCreateNewCustomers.Size = new Size(178, 29);
+        btnCreateNewCustomers.TabIndex = 1;
+        btnCreateNewCustomers.Text = "Neuer Kunde";
+        btnCreateNewCustomers.UseVisualStyleBackColor = true;
+        btnCreateNewCustomers.Click += btnCreateNewCustomer_Click;
+        // 
+        // panel1
+        // 
+        panel1.Controls.Add(btnCreateNewCustomers);
+        panel1.Dock = DockStyle.Bottom;
+        panel1.Location = new Point(20, 343);
+        panel1.Margin = new Padding(2, 1, 2, 1);
+        panel1.Name = "panel1";
+        panel1.Size = new Size(857, 44);
+        panel1.TabIndex = 2;
+        // 
+        // panel2
+        // 
+        panel2.Controls.Add(panel4);
+        panel2.Controls.Add(panelSearchHeader);
+        panel2.Dock = DockStyle.Fill;
+        panel2.Location = new Point(20, 20);
+        panel2.Margin = new Padding(2, 1, 2, 1);
+        panel2.Name = "panel2";
+        panel2.Size = new Size(857, 323);
+        panel2.TabIndex = 3;
+        // 
+        // panel4
+        // 
+        panel4.Controls.Add(dgvCustomers);
+        panel4.Dock = DockStyle.Fill;
+        panel4.Location = new Point(0, 42);
+        panel4.Margin = new Padding(2, 1, 2, 1);
+        panel4.Name = "panel4";
+        panel4.Size = new Size(857, 281);
+        panel4.TabIndex = 2;
+        // 
+        // dgvCustomers
+        // 
+        dgvCustomers.AllowUserToAddRows = false;
+        dgvCustomers.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+        dgvCustomers.AutoGenerateColumns = false;
+        dgvCustomers.BackgroundColor = Color.White;
+        dgvCustomers.BorderStyle = BorderStyle.None;
+        dgvCustomers.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+        dgvCustomers.DataSource = contactManagerRepositoryBindingSource;
+        dgvCustomers.GridColor = Color.Gainsboro;
+        dgvCustomers.Location = new Point(0, 0);
+        dgvCustomers.Margin = new Padding(2, 1, 2, 1);
+        dgvCustomers.Name = "dgvCustomers";
+        dgvCustomers.ReadOnly = true;
+        dgvCustomers.RowHeadersVisible = false;
+        dgvCustomers.RowHeadersWidth = 82;
+        dgvCustomers.RowTemplate.Height = 48;
+        dgvCustomers.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+        dgvCustomers.Size = new Size(857, 281);
+        dgvCustomers.TabIndex = 0;
+        // 
+        // panelSearchHeader
+        // 
+        panelSearchHeader.BackColor = Color.White;
+        panelSearchHeader.Controls.Add(txtSearchCustomers);
+        panelSearchHeader.Controls.Add(cmbStatusFilter);
+        panelSearchHeader.Dock = DockStyle.Top;
+        panelSearchHeader.Location = new Point(0, 0);
+        panelSearchHeader.Margin = new Padding(2, 1, 2, 1);
+        panelSearchHeader.Name = "panelSearchHeader";
+        panelSearchHeader.Size = new Size(857, 42);
+        panelSearchHeader.TabIndex = 1;
+        // 
+        // txtSearchCustomers
+        // 
+        txtSearchCustomers.BorderStyle = BorderStyle.FixedSingle;
+        txtSearchCustomers.Location = new Point(0, 11);
+        txtSearchCustomers.Margin = new Padding(2, 1, 2, 1);
+        txtSearchCustomers.Name = "txtSearchCustomers";
+        txtSearchCustomers.PlaceholderText = "Suche nach Name, Personalnummer, Abteilung...";
+        txtSearchCustomers.Size = new Size(391, 23);
+        txtSearchCustomers.TabIndex = 0;
+        txtSearchCustomers.TextChanged += TxtSearchCustomer_TextChanged;
+        // 
+        // cmbStatusFilter
+        // 
+        cmbStatusFilter.DropDownStyle = ComboBoxStyle.DropDownList;
+        cmbStatusFilter.FormattingEnabled = true;
+        cmbStatusFilter.Location = new Point(403, 11);
+        cmbStatusFilter.Margin = new Padding(2, 1, 2, 1);
+        cmbStatusFilter.Name = "cmbStatusFilter";
+        cmbStatusFilter.Size = new Size(120, 23);
+        cmbStatusFilter.TabIndex = 1;
+        cmbStatusFilter.SelectedIndexChanged += CmbStatusFilter_SelectedIndexChanged;
         // 
         // FormCustomersPartial
         // 
-        AutoScaleDimensions = new SizeF(13F, 32F);
+        AutoScaleDimensions = new SizeF(7F, 15F);
         AutoScaleMode = AutoScaleMode.Font;
         BackColor = Color.White;
-        ClientSize = new Size(2167, 1342);
-        Controls.Add(btnCreateNewCustomer);
+        ClientSize = new Size(897, 492);
+        Controls.Add(panel2);
+        Controls.Add(panel1);
         FormBorderStyle = FormBorderStyle.None;
+        Margin = new Padding(2, 1, 2, 1);
         Name = "FormCustomersPartial";
+        Padding = new Padding(20, 20, 20, 105);
         Text = "FormCustomersPartial";
+        panel1.ResumeLayout(false);
+        panel2.ResumeLayout(false);
+        panel4.ResumeLayout(false);
+        ((System.ComponentModel.ISupportInitialize)dgvCustomers).EndInit();
+        ((System.ComponentModel.ISupportInitialize)contactManagerRepositoryBindingSource).EndInit();
+        panelSearchHeader.ResumeLayout(false);
+        panelSearchHeader.PerformLayout();
         ResumeLayout(false);
     }
 
     #endregion
 
-    private Button btnCreateNewCustomer;
+    private Button btnCreateNewCustomers;
+    private Panel panel1;
+    private Panel panel2;
+    private DataGridView dgvCustomers;
+    private BindingSource contactManagerRepositoryBindingSource;
+    private Panel panel4;
+    private Panel panelSearchHeader;
+    private TextBox txtSearchCustomers;
+    private ComboBox cmbStatusFilter;
 }

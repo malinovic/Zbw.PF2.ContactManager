@@ -9,7 +9,8 @@ using Zbw.PF2.ContactManager.Validation.ValidationCustomer;
 
 namespace Zbw.PF2.ContactManager.UI.Partials;
 
-public partial class FormCustomerDetail : Form
+public partial class 
+    FormCustomerDetail : Form
 {
     private readonly CustomerValidatorService _customerValidator;
     private readonly IContactManagerRepository _repository;
@@ -19,12 +20,12 @@ public partial class FormCustomerDetail : Form
     /// <summary>
     ///     Opens the form for creating a new customer.
     /// </summary>
-    public FormCustomerDetail() : this(null)
+    public FormCustomerDetail() :this(null)
     {
     }
 
     /// <summary>
-    ///     Opens the form pre-filled for editing an existing customer. Passing <c>null</c> keeps
+    ///     Opens the form pre-filled for editing an existing cutsomer. Passing <c>null</c> keeps
     ///     the original "create new customer" behavior.
     /// </summary>
     public FormCustomerDetail(Customer? customer)
