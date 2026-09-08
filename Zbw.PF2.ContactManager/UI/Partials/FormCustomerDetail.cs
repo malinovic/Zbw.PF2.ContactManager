@@ -9,16 +9,26 @@ using Zbw.PF2.ContactManager.Validation.ValidationCustomer;
 
 namespace Zbw.PF2.ContactManager.UI.Partials;
 
-public partial class FormCustomerDetail : Form
+public partial class 
+    FormCustomerDetail : Form
 {
     private readonly CustomerValidatorService _customerValidator;
     private readonly IContactManagerRepository _repository;
     private readonly IIdentityService _identityService;
+    private readonly Customer? _editingCustomer;
 
     /// <summary>
     ///     Opens the form for creating a new customer.
     /// </summary>
-    public FormCustomerDetail()
+    public FormCustomerDetail() :this(null)
+    {
+    }
+
+    /// <summary>
+    ///     Opens the form pre-filled for editing an existing cutsomer. Passing <c>null</c> keeps
+    ///     the original "create new customer" behavior.
+    /// </summary>
+    public FormCustomerDetail(Customer? customer)
     {
         InitializeComponent();
 
@@ -32,7 +42,40 @@ public partial class FormCustomerDetail : Form
         _repository = new ContactManagerRepository(new CSVRepository());
         _identityService = new IdentityService();
 
-        boxCustomerNumber.Text = _identityService.GenerateCustomerId(_repository.GetCustomers());
+        _editingCustomer = customer;
+        if (customer is not null)
+        {
+            PopulateFields(customer);
+            Text = "Kunde bearbeiten";
+        }
+        else
+        {
+            boxCustomerNumber.Text = _identityService.GenerateCustomerId(_repository.GetCustomers());
+        }
+    }
+
+    private void PopulateFields(Customer customer)
+    {
+        boxSalutation.SelectedItem = customer.Salutation;
+        boxFirstName.Text = customer.FirstName;
+        boxLastName.Text = customer.LastName;
+        boxBirthday.Text = customer.Birthday.ToShortDateString();
+        boxSex.SelectedItem = customer.Sex;
+        boxTitle.SelectedItem = customer.Title;
+
+        boxStreet.Text = customer.Address.StreetName;
+        boxStreetNumber.Text = customer.Address.StreetNumber;
+        boxZipCode.Text = customer.Address.ZipCode.ToString();
+        boxCity.Text = customer.Address.City;
+
+        boxPhoneNumberCompany.Text = customer.PhoneNumberCompany;
+        boxPhoneNumberMobile.Text = customer.PhoneNumberMobile;
+        boxEmail.Text = customer.Email;
+
+        boxCustomerNumber.Text = customer.CustomerNumber;
+        boxCustomerCompanyName.Text = customer.CustomerCompanyName;
+        boxCustomerType.SelectedItem = customer.CustomerType;
+        boxStatus.SelectedItem = customer.CustomerStatus;
     }
 
     private void InitializeComboBoxes()
@@ -230,11 +273,21 @@ public partial class FormCustomerDetail : Form
             return;
         }
 
-        Customer customer = CreateCustomer(input, 0);
+        int id = _editingCustomer?.Id ?? 0;
+        Customer customer = CreateCustomer(input, id);
 
         try
         {
-            _repository.AddCustomer(customer);
+            if (_editingCustomer is null)
+            {
+                _repository.AddCustomer(customer);
+                MessageBox.Show("Kunde wurde erfolgreich gespeichert");
+            }
+            else
+            {
+                _repository.UpdateCustomer(customer);
+                MessageBox.Show("Kunde wurde erfolgreich aktualisiert");
+            }
         }
         catch (Exception ex)
         {
@@ -246,8 +299,6 @@ public partial class FormCustomerDetail : Form
 
             return;
         }
-
-        MessageBox.Show("Kunde wurde erfolgreich gespeichert");
 
         Close();
     }

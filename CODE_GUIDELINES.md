@@ -30,7 +30,7 @@ No abbreviations except common ones (`Id`, `No`). Prefer descriptive names over 
   - **Models** – pure data classes (no UI logic)
   - **Data** - data access, save/load
   - **Services** – business logic, search
-  - **Forms** – UI logic only, calls into services
+  - **UI** – UI logic only, calls into services
 - Each class has a single, clear responsibility (Single Responsibility). No "god classes".
 - No direct file/persistence logic inside the Forms.
 
@@ -62,7 +62,7 @@ Do not document interface methods. The documentation should be on the implementa
 ## 5. Formatting
 
 - Standard C# conventions (Visual Studio default formatting, `Ctrl+K, Ctrl+D` before every commit)
-- 4 spaces indentation, no tabs
+- Identation by tabs, not by spaces
 - Curly braces on their own line (Allman style)
 - One class per file
 - `using` statements at the top of the file, sorted alphabetically, unused ones removed
