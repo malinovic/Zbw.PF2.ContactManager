@@ -9,8 +9,11 @@ using Zbw.PF2.ContactManager.Validation.ValidationCustomer;
 
 namespace Zbw.PF2.ContactManager.UI.Partials;
 
-public partial class 
-    FormCustomerDetail : Form
+/// <summary>
+///     A form for creating a new customer, or editing an existing one when a <see cref="Customer" />
+///     is supplied to the constructor.
+/// </summary>
+public partial class FormCustomerDetail : Form
 {
     private readonly CustomerValidatorService _customerValidator;
     private readonly IContactManagerRepository _repository;
@@ -20,12 +23,12 @@ public partial class
     /// <summary>
     ///     Opens the form for creating a new customer.
     /// </summary>
-    public FormCustomerDetail() :this(null)
+    public FormCustomerDetail() : this(null)
     {
     }
 
     /// <summary>
-    ///     Opens the form pre-filled for editing an existing cutsomer. Passing <c>null</c> keeps
+    ///     Opens the form pre-filled for editing an existing customer. Passing <c>null</c> keeps
     ///     the original "create new customer" behavior.
     /// </summary>
     public FormCustomerDetail(Customer? customer)
@@ -42,35 +45,76 @@ public partial class
         _repository = new ContactManagerRepository(new CSVRepository());
         _identityService = new IdentityService();
 
-        boxCustomerNumber.Text = _identityService.GenerateCustomerId(_repository.GetCustomers());
+        _editingCustomer = customer;
+        if (customer is not null)
+        {
+            PopulateFields(customer);
+            Text = "Kunde bearbeiten";
+        }
+        else
+        {
+            boxCustomerNumber.Text = _identityService.GenerateCustomerId(_repository.GetCustomers());
+        }
     }
 
+    /// <summary>
+    ///     Fills all form fields with the given customer's current values, for editing.
+    /// </summary>
+    /// <param name="customer">The customer whose values should populate the form.</param>
+    private void PopulateFields(Customer customer)
+    {
+        boxSalutation.SelectedItem = customer.Salutation;
+        boxFirstName.Text = customer.FirstName;
+        boxLastName.Text = customer.LastName;
+        boxBirthday.Text = customer.Birthday.ToShortDateString();
+        boxSex.SelectedItem = customer.Sex;
+        boxTitle.SelectedItem = customer.Title;
+
+        boxStreet.Text = customer.Address.StreetName;
+        boxStreetNumber.Text = customer.Address.StreetNumber;
+        boxZipCode.Text = customer.Address.ZipCode.ToString();
+        boxCity.Text = customer.Address.City;
+
+        boxPhoneNumberCompany.Text = customer.PhoneNumberCompany;
+        boxPhoneNumberMobile.Text = customer.PhoneNumberMobile;
+        boxEmail.Text = customer.Email;
+
+        boxCustomerNumber.Text = customer.CustomerNumber;
+        boxStatus.SelectedItem = customer.CustomerStatus;
+    }
+
+    /// <summary>
+    ///     Populates all dropdown fields with their enum values and German display text.
+    /// </summary>
     private void InitializeComboBoxes()
     {
         boxSalutation.DataSource = Enum.GetValues<Salutation>();
         boxSex.DataSource = Enum.GetValues<Sex>();
         boxTitle.DataSource = Enum.GetValues<Title>();
-        boxCustomerType.DataSource = Enum.GetValues<CustomerType>();
         boxStatus.DataSource = Enum.GetValues<Status>();
 
         boxSalutation.Format += (_, e) => e.Value = ((Salutation)e.ListItem!).ToGerman();
         boxSex.Format += (_, e) => e.Value = ((Sex)e.ListItem!).ToGerman();
         boxTitle.Format += (_, e) => e.Value = ((Title)e.ListItem!).ToGerman();
-        boxCustomerType.Format += (_, e) => e.Value = ((CustomerType)e.ListItem!).ToGerman();
         boxStatus.Format += (_, e) => e.Value = ((Status)e.ListItem!).ToGerman();
 
         boxSalutation.SelectedIndex = -1;
         boxSex.SelectedIndex = -1;
         boxTitle.SelectedIndex = -1;
-        boxCustomerType.SelectedIndex = -1;
         boxStatus.SelectedIndex = -1;
     }
 
+    /// <summary>
+    ///     Wires up the form's event handlers.
+    /// </summary>
     private void RegisterEvents()
     {
         boxStatus.SelectedIndexChanged += boxStatus_SelectedIndexChanged;
     }
 
+    /// <summary>
+    ///     Applies the shared visual theme (fonts, field styles, button styles) to the form.
+    /// </summary>
     private void SetupView()
     {
         Font = FontManager.InterRegular;
@@ -150,6 +194,10 @@ public partial class
         field.Height = availableHeight;
     }
 
+    /// <summary>
+    ///     Reads the current values of all form fields into a <see cref="CustomerInput" /> for validation.
+    /// </summary>
+    /// <returns>The raw, unvalidated input from the form.</returns>
     private CustomerInput ReadInput()
     {
         return new CustomerInput
@@ -181,20 +229,21 @@ public partial class
             PhoneNumberMobile = boxPhoneNumberMobile.Text.Trim(),
             Email = boxEmail.Text.Trim(),
             CustomerNumber = boxCustomerNumber.Text.Trim(),
-            CustomerCompanyName = boxCustomerCompanyName.Text.Trim(),
 
             CustomerStatus =
             boxStatus.SelectedItem is Status status
                 ? status
                 : null,
 
-            CustomerType =
-            boxCustomerType.SelectedItem is CustomerType customerType
-                ? customerType
-                : null
         };
     }
 
+    /// <summary>
+    ///     Builds a <see cref="Customer" /> from validated input.
+    /// </summary>
+    /// <param name="input">The validated customer input.</param>
+    /// <param name="id">The id to assign (0 for a new customer, the existing id when editing).</param>
+    /// <returns>The resulting customer.</returns>
     private static Customer CreateCustomer(CustomerInput input, int id)
     {
         return new Customer
@@ -220,12 +269,13 @@ public partial class
             PhoneNumberMobile = input.PhoneNumberMobile,
             Email = input.Email,
             CustomerNumber = input.CustomerNumber,
-            CustomerCompanyName = input.CustomerCompanyName,
             CustomerStatus = input.CustomerStatus!.Value,
-            CustomerType = input.CustomerType!.Value,
         };
     }
 
+    /// <summary>
+    ///     Updates the status field's background color whenever the selection changes.
+    /// </summary>
     private void boxStatus_SelectedIndexChanged(
         object? sender,
         EventArgs e)
@@ -233,6 +283,9 @@ public partial class
         ThemeManager.ApplyStatusColor(boxStatus);
     }
 
+    /// <summary>
+    ///     Validates the form and, if valid, creates or updates the customer in the repository.
+    /// </summary>
     private void buttonSave_Click(object sender, EventArgs e)
     {
         CustomerInput input = ReadInput();
@@ -272,6 +325,9 @@ public partial class
         Close();
     }
 
+    /// <summary>
+    ///     Closes the form after confirming with the user, discarding any unsaved changes.
+    /// </summary>
     private void buttonCancel_Click(object sender, EventArgs e)
     {
         DialogResult confirmation = MessageBox.Show(

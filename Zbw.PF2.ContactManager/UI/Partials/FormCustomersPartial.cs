@@ -6,6 +6,10 @@ using Zbw.PF2.ContactManager.Service.Search;
 
 namespace Zbw.PF2.ContactManager.UI.Partials;
 
+/// <summary>
+///     Displays the list of customers in a searchable, filterable grid, with actions to
+///     create, edit, toggle the status of, and delete customers.
+/// </summary>
 public partial class FormCustomersPartial : Form
 {
     private readonly IContactManagerRepository _repository;
@@ -40,6 +44,9 @@ public partial class FormCustomersPartial : Form
         ApplyFilter();
     }
 
+    /// <summary>
+    ///     Opens the form for creating a new customer.
+    /// </summary>
     private void BtnCreateNewCustomer_Click(object sender, EventArgs e)
     {
         FormCustomerDetail formCustomerDetail = new();
@@ -47,16 +54,25 @@ public partial class FormCustomersPartial : Form
         formCustomerDetail.Show();
     }
 
+    /// <summary>
+    ///     Reapplies the search/status filter whenever the search text changes.
+    /// </summary>
     private void TxtSearchCustomer_TextChanged(object sender, EventArgs e)
     {
         ApplyFilter();
     }
 
+    /// <summary>
+    ///     Reapplies the search/status filter whenever the status dropdown selection changes.
+    /// </summary>
     private void CmbStatusFilter_SelectedIndexChanged(object sender, EventArgs e)
     {
         ApplyFilter();
     }
 
+    /// <summary>
+    ///     Opens the double-clicked row's customer for editing.
+    /// </summary>
     private void DataGridView1_CellDoubleClick(object? sender, DataGridViewCellEventArgs e)
     {
         if (e.RowIndex < 0 || dgvCustomers.Rows[e.RowIndex].DataBoundItem is not Customer Customer)
@@ -97,8 +113,9 @@ public partial class FormCustomersPartial : Form
     }
 
     /// <summary>
-    ///     Wires up a right-click context menu (edit / delete) on grid rows. Defined in code
-    ///     alongside <see cref="ConfigureGridColumns" /> so it survives designer regeneration.
+    ///     Wires up a right-click context menu (edit / toggle status / delete) on grid rows.
+    ///     Defined in code alongside <see cref="ConfigureGridColumns" /> so it survives designer
+    ///     regeneration.
     /// </summary>
     private void ConfigureRowContextMenu()
     {
@@ -158,11 +175,18 @@ public partial class FormCustomersPartial : Form
         };
     }
 
+    /// <summary>
+    ///     Gets the customer bound to the currently selected grid row, if any.
+    /// </summary>
+    /// <returns>The selected customer, or <c>null</c> if no row is selected.</returns>
     private Customer? GetSelectedCustomer()
     {
         return dgvCustomers.CurrentRow?.DataBoundItem as Customer;
     }
 
+    /// <summary>
+    ///     Opens the currently selected customer for editing.
+    /// </summary>
     private void EditSelectedCustomer()
     {
         Customer? Customer = GetSelectedCustomer();
@@ -178,6 +202,9 @@ public partial class FormCustomersPartial : Form
         ApplyFilter();
     }
 
+    /// <summary>
+    ///     Toggles the currently selected customer's status between active and passive.
+    /// </summary>
     private void ToggleSelectedCustomerStatus()
     {
         Customer? customer = GetSelectedCustomer();
@@ -196,6 +223,9 @@ public partial class FormCustomersPartial : Form
         ApplyFilter();
     }
 
+    /// <summary>
+    ///     Deletes the currently selected customer, after confirming with the user.
+    /// </summary>
     private void DeleteSelectedCustomer()
     {
         Customer? Customer = GetSelectedCustomer();
@@ -221,6 +251,13 @@ public partial class FormCustomersPartial : Form
         ApplyFilter();
     }
 
+    /// <summary>
+    ///     Creates a read-only grid column bound to the given property.
+    /// </summary>
+    /// <param name="dataPropertyName">The name of the bound property on the row's data object.</param>
+    /// <param name="headerText">The column header text.</param>
+    /// <param name="width">The relative fill width used by <see cref="DataGridViewAutoSizeColumnsMode.Fill" />.</param>
+    /// <returns>The configured column.</returns>
     private static DataGridViewTextBoxColumn CreateColumn(string dataPropertyName, string headerText, int width)
     {
         return new DataGridViewTextBoxColumn
@@ -233,15 +270,21 @@ public partial class FormCustomersPartial : Form
         };
     }
 
+    /// <summary>
+    ///     Reapplies the current search term and status filter to the grid's data source.
+    /// </summary>
     private void ApplyFilter()
     {
         contactManagerRepositoryBindingSource.DataSource = _searchService.SearchCustomers(_Customers, txtSearchCustomers.Text, cmbStatusFilter.SelectedItem);
     }
 
+    /// <summary>
+    ///     Opens the form for creating a new customer.
+    /// </summary>
     private void btnCreateNewCustomer_Click(object sender, EventArgs e)
     {
-       using var form = new FormCustomerDetail();
-       form.ShowDialog(this);
+        using var form = new FormCustomerDetail();
+        form.ShowDialog(this);
 
         _Customers = _repository.GetCustomers();
         ApplyFilter();

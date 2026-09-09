@@ -6,6 +6,10 @@ using Zbw.PF2.ContactManager.Service.Search;
 
 namespace Zbw.PF2.ContactManager.UI.Partials;
 
+/// <summary>
+///     Displays the list of employees in a searchable, filterable grid, with actions to
+///     create, edit, toggle the status of, and delete employees.
+/// </summary>
 public partial class FormEmployeesPartial : Form
 {
     private readonly IContactManagerRepository _repository;
@@ -40,6 +44,9 @@ public partial class FormEmployeesPartial : Form
         ApplyFilter();
     }
 
+    /// <summary>
+    ///     Opens the form for creating a new employee.
+    /// </summary>
     private void BtnCreateNewEmployee_Click(object sender, EventArgs e)
     {
         FormEmployeeDetail formEmployeeDetail = new();
@@ -47,16 +54,25 @@ public partial class FormEmployeesPartial : Form
         formEmployeeDetail.Show();
     }
 
+    /// <summary>
+    ///     Reapplies the search/status filter whenever the search text changes.
+    /// </summary>
     private void TxtSearchEmployee_TextChanged(object sender, EventArgs e)
     {
         ApplyFilter();
     }
 
+    /// <summary>
+    ///     Reapplies the search/status filter whenever the status dropdown selection changes.
+    /// </summary>
     private void CmbStatusFilter_SelectedIndexChanged(object sender, EventArgs e)
     {
         ApplyFilter();
     }
 
+    /// <summary>
+    ///     Opens the double-clicked row's employee for editing.
+    /// </summary>
     private void DataGridView1_CellDoubleClick(object? sender, DataGridViewCellEventArgs e)
     {
         if (e.RowIndex < 0 || dgvEmployees.Rows[e.RowIndex].DataBoundItem is not Employee employee)
@@ -97,8 +113,9 @@ public partial class FormEmployeesPartial : Form
     }
 
     /// <summary>
-    ///     Wires up a right-click context menu (edit / delete) on grid rows. Defined in code
-    ///     alongside <see cref="ConfigureGridColumns" /> so it survives designer regeneration.
+    ///     Wires up a right-click context menu (edit / toggle status / delete) on grid rows.
+    ///     Defined in code alongside <see cref="ConfigureGridColumns" /> so it survives designer
+    ///     regeneration.
     /// </summary>
     private void ConfigureRowContextMenu()
     {
@@ -158,11 +175,18 @@ public partial class FormEmployeesPartial : Form
         };
     }
 
+    /// <summary>
+    ///     Gets the employee bound to the currently selected grid row, if any.
+    /// </summary>
+    /// <returns>The selected employee, or <c>null</c> if no row is selected.</returns>
     private Employee? GetSelectedEmployee()
     {
         return dgvEmployees.CurrentRow?.DataBoundItem as Employee;
     }
 
+    /// <summary>
+    ///     Opens the currently selected employee for editing.
+    /// </summary>
     private void EditSelectedEmployee()
     {
         Employee? employee = GetSelectedEmployee();
@@ -178,6 +202,9 @@ public partial class FormEmployeesPartial : Form
         ApplyFilter();
     }
 
+    /// <summary>
+    ///     Toggles the currently selected employee's status between active and passive.
+    /// </summary>
     private void ToggleSelectedEmployeeStatus()
     {
         Employee? employee = GetSelectedEmployee();
@@ -196,6 +223,9 @@ public partial class FormEmployeesPartial : Form
         ApplyFilter();
     }
 
+    /// <summary>
+    ///     Deletes the currently selected employee, after confirming with the user.
+    /// </summary>
     private void DeleteSelectedEmployee()
     {
         Employee? employee = GetSelectedEmployee();
@@ -221,6 +251,13 @@ public partial class FormEmployeesPartial : Form
         ApplyFilter();
     }
 
+    /// <summary>
+    ///     Creates a read-only grid column bound to the given property.
+    /// </summary>
+    /// <param name="dataPropertyName">The name of the bound property on the row's data object.</param>
+    /// <param name="headerText">The column header text.</param>
+    /// <param name="width">The relative fill width used by <see cref="DataGridViewAutoSizeColumnsMode.Fill" />.</param>
+    /// <returns>The configured column.</returns>
     private static DataGridViewTextBoxColumn CreateColumn(string dataPropertyName, string headerText, int width)
     {
         return new DataGridViewTextBoxColumn
@@ -233,11 +270,17 @@ public partial class FormEmployeesPartial : Form
         };
     }
 
+    /// <summary>
+    ///     Reapplies the current search term and status filter to the grid's data source.
+    /// </summary>
     private void ApplyFilter()
     {
         contactManagerRepositoryBindingSource.DataSource = _searchService.SearchEmployees(_employees, txtSearchEmployee.Text, cmbStatusFilter.SelectedItem);
     }
 
+    /// <summary>
+    ///     Opens the form for creating a new employee.
+    /// </summary>
     private void btnCreateNewEmployee_Click(object sender, EventArgs e)
     {
         using var form = new FormEmployeeDetail();

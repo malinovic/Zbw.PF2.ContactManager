@@ -88,6 +88,10 @@ internal static class ThemeManager
         field.Height = availableHeight;
     }
 
+    /// <summary>
+    ///     Applies the default, non-navigation label style (regular weight, dimmed color).
+    /// </summary>
+    /// <param name="label">The label to style.</param>
     internal static void ApplyLabelStyles(Label label)
     {
         label.Font = new Font(FontManager.InterRegular.FontFamily, 11F, FontStyle.Regular);

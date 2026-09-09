@@ -6,6 +6,10 @@ using System.Drawing.Text;
 using System.IO;
 using System.Windows.Forms;
 
+/// <summary>
+///     Loads and provides access to the application's custom fonts (Inter), falling back to
+///     Segoe UI if the font file is unavailable.
+/// </summary>
 public static class FontManager
 {
     private static readonly PrivateFontCollection FontCollection = new();

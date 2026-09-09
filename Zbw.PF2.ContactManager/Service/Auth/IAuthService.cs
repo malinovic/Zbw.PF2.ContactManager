@@ -2,8 +2,18 @@
 
 namespace Zbw.PF2.ContactManager.Service.Auth;
 
+/// <summary>
+///     Handles user account creation, authentication and updates.
+/// </summary>
 public interface IAuthService
 {
+    /// <summary>
+    ///     Creates a new user account with a hashed password.
+    /// </summary>
+    /// <param name="username">The username for the new account.</param>
+    /// <param name="password">The plain-text password for the new account.</param>
+    /// <param name="name">The display name of the new user.</param>
+    /// <returns><c>true</c> if the account was created successfully; otherwise, <c>false</c>.</returns>
     bool CreateUser(string username, string password, string name);
 
     /// <summary>
@@ -19,5 +29,9 @@ public interface IAuthService
     /// </summary>
     bool UpdateUser(int id, string username, string name, string? password);
 
+    /// <summary>
+    ///     Checks whether at least one admin user already exists.
+    /// </summary>
+    /// <returns><c>true</c> if an admin user exists; otherwise, <c>false</c>.</returns>
     bool HasAdminUser();
 }

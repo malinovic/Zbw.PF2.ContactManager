@@ -4,6 +4,10 @@ using Zbw.PF2.ContactManager.Models;
 
 namespace Zbw.PF2.ContactManager.UI.Partials;
 
+/// <summary>
+///     Displays the list of user accounts in a grid, with actions to create, edit, and delete
+///     users. Only reachable by the admin account.
+/// </summary>
 public partial class FormUsersPartial : Form
 {
     private const string AdminUsername = "admin";
@@ -32,6 +36,9 @@ public partial class FormUsersPartial : Form
         RefreshUsers();
     }
 
+    /// <summary>
+    ///     Opens the form for creating a new user.
+    /// </summary>
     private void BtnCreateNewUser_Click(object sender, EventArgs e)
     {
         using var form = new FormUserDetail();
@@ -40,6 +47,9 @@ public partial class FormUsersPartial : Form
         RefreshUsers();
     }
 
+    /// <summary>
+    ///     Opens the double-clicked row's user for editing.
+    /// </summary>
     private void DgvUsers_CellDoubleClick(object? sender, DataGridViewCellEventArgs e)
     {
         if (e.RowIndex < 0 || dgvUsers.Rows[e.RowIndex].DataBoundItem is not User user)
@@ -121,11 +131,18 @@ public partial class FormUsersPartial : Form
         };
     }
 
+    /// <summary>
+    ///     Gets the user bound to the currently selected grid row, if any.
+    /// </summary>
+    /// <returns>The selected user, or <c>null</c> if no row is selected.</returns>
     private User? GetSelectedUser()
     {
         return dgvUsers.CurrentRow?.DataBoundItem as User;
     }
 
+    /// <summary>
+    ///     Opens the currently selected user for editing.
+    /// </summary>
     private void EditSelectedUser()
     {
         User? user = GetSelectedUser();
@@ -137,6 +154,10 @@ public partial class FormUsersPartial : Form
         EditUser(user);
     }
 
+    /// <summary>
+    ///     Opens the given user for editing and refreshes the grid afterwards.
+    /// </summary>
+    /// <param name="user">The user to edit.</param>
     private void EditUser(User user)
     {
         using var form = new FormUserDetail(user);
@@ -145,6 +166,10 @@ public partial class FormUsersPartial : Form
         RefreshUsers();
     }
 
+    /// <summary>
+    ///     Deletes the currently selected user, after confirming with the user. The admin
+    ///     account can never be deleted.
+    /// </summary>
     private void DeleteSelectedUser()
     {
         User? user = GetSelectedUser();
@@ -169,6 +194,13 @@ public partial class FormUsersPartial : Form
         RefreshUsers();
     }
 
+    /// <summary>
+    ///     Creates a read-only grid column bound to the given property.
+    /// </summary>
+    /// <param name="dataPropertyName">The name of the bound property on the row's data object.</param>
+    /// <param name="headerText">The column header text.</param>
+    /// <param name="width">The relative fill width used by <see cref="DataGridViewAutoSizeColumnsMode.Fill" />.</param>
+    /// <returns>The configured column.</returns>
     private static DataGridViewTextBoxColumn CreateColumn(string dataPropertyName, string headerText, int width)
     {
         return new DataGridViewTextBoxColumn
@@ -181,6 +213,9 @@ public partial class FormUsersPartial : Form
         };
     }
 
+    /// <summary>
+    ///     Reloads the user list from the repository and rebinds the grid.
+    /// </summary>
     private void RefreshUsers()
     {
         usersBindingSource.DataSource = _repository.GetUsers();

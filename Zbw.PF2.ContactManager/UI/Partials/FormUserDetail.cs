@@ -5,6 +5,10 @@ using Zbw.PF2.ContactManager.Service.Auth;
 
 namespace Zbw.PF2.ContactManager.UI.Partials;
 
+/// <summary>
+///     A form for creating a new user account, or editing an existing one when a <see cref="User" />
+///     is supplied to the constructor.
+/// </summary>
 public partial class FormUserDetail : Form
 {
     private const string AdminUsername = "admin";
@@ -41,6 +45,10 @@ public partial class FormUserDetail : Form
         }
     }
 
+    /// <summary>
+    ///     Fills the form fields with the given user's current values, for editing.
+    /// </summary>
+    /// <param name="user">The user whose values should populate the form.</param>
     private void PopulateFields(User user)
     {
         boxUsername.Text = user.Username;
@@ -56,6 +64,9 @@ public partial class FormUserDetail : Form
         }
     }
 
+    /// <summary>
+    ///     Applies the shared visual theme (fonts, field styles, button styles) to the form.
+    /// </summary>
     private void SetupView()
     {
         Font = FontManager.InterRegular;
@@ -66,6 +77,9 @@ public partial class FormUserDetail : Form
         ThemeManager.ApplyButtonStyles(buttonCancel);
     }
 
+    /// <summary>
+    ///     Validates the form and, if valid, creates or updates the user account.
+    /// </summary>
     private void buttonSave_Click(object sender, EventArgs e)
     {
         string username = boxUsername.Text.Trim();
@@ -130,6 +144,9 @@ public partial class FormUserDetail : Form
         Close();
     }
 
+    /// <summary>
+    ///     Closes the form after confirming with the user, discarding any unsaved changes.
+    /// </summary>
     private void buttonCancel_Click(object sender, EventArgs e)
     {
         DialogResult confirmation = MessageBox.Show(

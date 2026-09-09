@@ -101,9 +101,25 @@ public interface IContactManagerRepository
     /// <param name="id">The unique identifier of the user to remove.</param>
     void DeleteUser(int id);
 
+    /// <summary>
+    ///     Checks whether a user with the given username and password exists.
+    /// </summary>
+    /// <param name="username">The username to check.</param>
+    /// <param name="password">The plain-text password to verify.</param>
+    /// <returns><c>true</c> if the credentials are valid; otherwise, <c>false</c>.</returns>
     bool CheckLoginForUser(string username, string password);
 
+    /// <summary>
+    ///     Creates a new user account.
+    /// </summary>
+    /// <param name="username">The username for the new account.</param>
+    /// <param name="password">The plain-text password for the new account.</param>
+    /// <param name="name">The display name of the new user.</param>
     void CreateUser(string username, string password, string name);
 
+    /// <summary>
+    ///     Checks whether at least one admin user already exists in the data store.
+    /// </summary>
+    /// <returns><c>true</c> if an admin user exists; otherwise, <c>false</c>.</returns>
     bool HasAdminUser();
 }

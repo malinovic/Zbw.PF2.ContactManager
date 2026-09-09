@@ -9,6 +9,10 @@ using Zbw.PF2.ContactManager.Service.Validation;
 
 namespace Zbw.PF2.ContactManager.UI.Partials;
 
+/// <summary>
+///     A form for creating a new employee, or editing an existing one when an <see cref="Employee" />
+///     is supplied to the constructor.
+/// </summary>
 public partial class FormEmployeeDetail : Form
 {
     private readonly EmployeeValidatorService _employeeValidator;
@@ -55,6 +59,10 @@ public partial class FormEmployeeDetail : Form
         }
     }
 
+    /// <summary>
+    ///     Fills all form fields with the given employee's current values, for editing.
+    /// </summary>
+    /// <param name="employee">The employee whose values should populate the form.</param>
     private void PopulateFields(Employee employee)
     {
         boxSalutation.SelectedItem = employee.Salutation;
@@ -80,7 +88,8 @@ public partial class FormEmployeeDetail : Form
         boxEmploymentRate.Text = employee.EmploymentRate.ToString();
         boxRole.Text = employee.Role;
         boxApprenticeshipYears.Text = employee.ApprenticeshipYears?.ToString() ?? string.Empty;
-        boxSeniorLevel.Text = employee.SeniorLevel.ToString();
+        boxCurrentApprenticeshipYear.Text = employee.CurrentApprenticeshipYear?.ToString() ?? string.Empty;
+        boxSeniorLevel.SelectedItem = employee.SeniorLevel;
 
         boxWorkStreet.Text = employee.WorkAddress.StreetName;
         boxWorkStreetNumber.Text = employee.WorkAddress.StreetNumber;
@@ -91,29 +100,42 @@ public partial class FormEmployeeDetail : Form
         boxStatus.SelectedItem = employee.Status;
     }
 
+    /// <summary>
+    ///     Populates all dropdown fields with their enum values and German display text.
+    /// </summary>
     private void InitializeComboBoxes()
     {
         boxSalutation.DataSource = Enum.GetValues<Salutation>();
         boxSex.DataSource = Enum.GetValues<Sex>();
         boxTitle.DataSource = Enum.GetValues<Title>();
         boxStatus.DataSource = Enum.GetValues<Status>();
+        boxSeniorLevel.DataSource = Enum.GetValues<EmployeeSeniorLevel>();
 
         boxSalutation.Format += (_, e) => e.Value = ((Salutation)e.ListItem!).ToGerman();
         boxSex.Format += (_, e) => e.Value = ((Sex)e.ListItem!).ToGerman();
         boxTitle.Format += (_, e) => e.Value = ((Title)e.ListItem!).ToGerman();
         boxStatus.Format += (_, e) => e.Value = ((Status)e.ListItem!).ToGerman();
+        boxSeniorLevel.Format += (_, e) => e.Value = ((EmployeeSeniorLevel)e.ListItem!).ToGerman();
+
 
         boxSalutation.SelectedIndex = -1;
         boxSex.SelectedIndex = -1;
         boxTitle.SelectedIndex = -1;
         boxStatus.SelectedIndex = -1;
+        boxSeniorLevel.SelectedIndex = -1;
     }
 
+    /// <summary>
+    ///     Wires up the form's event handlers.
+    /// </summary>
     private void RegisterEvents()
     {
         boxStatus.SelectedIndexChanged += boxStatus_SelectedIndexChanged;
     }
 
+    /// <summary>
+    ///     Applies the shared visual theme (fonts, field styles, button styles) to the form.
+    /// </summary>
     private void SetupView()
     {
         Font = FontManager.InterRegular;
@@ -125,11 +147,18 @@ public partial class FormEmployeeDetail : Form
         ThemeManager.ApplyButtonStyles(buttonCancel);
     }
 
+    /// <summary>
+    ///     Applies the status-dependent background color to the status field.
+    /// </summary>
     private void SetupStatusSection()
     {
         ThemeManager.ApplyStatusColor(boxStatus);
     }
 
+    /// <summary>
+    ///     Reads the current values of all form fields into an <see cref="EmployeeInput" /> for validation.
+    /// </summary>
+    /// <returns>The raw, unvalidated input from the form.</returns>
     private EmployeeInput ReadInput()
     {
 
@@ -177,16 +206,22 @@ public partial class FormEmployeeDetail : Form
                  ? apprenticeshipYears
                  : null,
 
+            CurrentApprenticeshipYear = int.TryParse(boxCurrentApprenticeshipYear.Text.Trim(), out int currentApprenticeshipYear)
+                ? currentApprenticeshipYear
+                : null,
+
             EmployeeStatus =
             boxStatus.SelectedItem is Status status
                 ? status
                 : null,
 
-            EmployeeSeniorLevel = Enum.TryParse<EmployeeSeniorLevel>(boxSeniorLevel.Text.Trim(), true, out EmployeeSeniorLevel seniorLevel)
-                 ? seniorLevel
-                 : null,
+            EmployeeSeniorLevel =
+            boxSeniorLevel.SelectedItem is EmployeeSeniorLevel employeeSeniorLevel
+                ? employeeSeniorLevel
+                : null,
 
             DateOfHire = boxDateOfHire.Text.Trim(),
+            DateOfTermination = boxDateOfTermination.Text.Trim(),
             WorkStreetName = boxWorkStreet.Text.Trim(),
             WorkStreetNumber = boxWorkStreetNumber.Text.Trim(),
             WorkZipCode = boxWorkZipCode.Text.Trim(),
@@ -195,6 +230,12 @@ public partial class FormEmployeeDetail : Form
     }
 
 
+    /// <summary>
+    ///     Builds an <see cref="Employee" /> from validated input.
+    /// </summary>
+    /// <param name="input">The validated employee input.</param>
+    /// <param name="id">The id to assign (0 for a new employee, the existing id when editing).</param>
+    /// <returns>The resulting employee.</returns>
     private static Employee CreateEmployee(EmployeeInput input, int id)
     {
         return new Employee
@@ -226,7 +267,8 @@ public partial class FormEmployeeDetail : Form
             EmploymentRate = input.EmploymentRate,
             Role = input.Role,
             ApprenticeshipYears = input.ApprenticeshipYears,
-            DateOfTermination = input.DateOfTermination != null && input.DateOfTermination != "" ? DateOnly.Parse(input.DateOfTermination) : null,
+            CurrentApprenticeshipYear = input.CurrentApprenticeshipYear,
+
 
             WorkAddress = new Address()
             {
@@ -238,9 +280,17 @@ public partial class FormEmployeeDetail : Form
             Status = input.EmployeeStatus!.Value,
             SeniorLevel = input.EmployeeSeniorLevel!.Value,
             DateOfHire = DateOnly.Parse(input.DateOfHire!),
+            DateOfTermination = string.IsNullOrWhiteSpace(input.DateOfTermination)
+                ? null
+                : DateOnly.ParseExact(
+                input.DateOfTermination,
+                "dd.MM.yyyy")
         };
     }
 
+    /// <summary>
+    ///     Updates the status field's background color whenever the selection changes.
+    /// </summary>
     private void boxStatus_SelectedIndexChanged(
         object? sender,
         EventArgs e)
@@ -248,6 +298,9 @@ public partial class FormEmployeeDetail : Form
         ThemeManager.ApplyStatusColor(boxStatus);
     }
 
+    /// <summary>
+    ///     Validates the form and, if valid, creates or updates the employee in the repository.
+    /// </summary>
     private void buttonSave_Click(object sender, EventArgs e)
     {
         EmployeeInput input = ReadInput();
@@ -283,6 +336,9 @@ public partial class FormEmployeeDetail : Form
     }
 
 
+    /// <summary>
+    ///     Closes the form after confirming with the user, discarding any unsaved changes.
+    /// </summary>
     private void buttonCancel_Click(object sender, EventArgs e)
     {
         DialogResult confirmation = MessageBox.Show(
@@ -299,4 +355,3 @@ public partial class FormEmployeeDetail : Form
         Close();
     }
 }
-
