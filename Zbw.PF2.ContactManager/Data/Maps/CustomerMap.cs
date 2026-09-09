@@ -34,8 +34,6 @@ public class CustomerMap : ClassMap<Customer>
 
         // Customer
         Map(m => m.CustomerNumber).Index(14).Name("customer_number");
-        Map(m => m.CustomerCompanyName).Index(15).Name("customer_company_name");
-        Map(m => m.CustomerStatus).Index(16).Name("customer_status");
-        Map(m => m.CustomerType).Index(17).Name("customer_type");
+        Map(m => m.CustomerStatus).Index(15).Name("customer_status");
     }
 }

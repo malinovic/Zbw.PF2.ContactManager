@@ -100,6 +100,40 @@ public sealed class EmployeeValidatorService
         }
     }
 
+    private static void ValidateDateOfTermination(
+    EmployeeInput input,
+    ValidationResult result)
+    {
+
+        if (string.IsNullOrWhiteSpace(input.DateOfTermination))
+        {
+            return;
+        }
+
+        bool isValidDate = DateTime.TryParseExact(
+            input.DateOfTermination.Trim(),
+            "dd.MM.yyyy",
+            CultureInfo.InvariantCulture,
+            DateTimeStyles.None,
+            out DateTime dateOfTermination);
+
+        if (!isValidDate)
+        {
+            result.Add(
+                nameof(input.DateOfTermination),
+                "Das Austrittsdatum muss im Format TT.MM.JJJJ eingegeben werden.");
+
+            return;
+        }
+
+        if (dateOfTermination.Date > DateTime.Today)
+        {
+            result.Add(
+                nameof(input.DateOfTermination),
+                "Das Austrittsdatum darf nicht in der Zukunft liegen.");
+        }
+    }
+
     /// <summary>
     ///     Validates all fields of the given employee input.
     /// </summary>
@@ -231,11 +265,11 @@ public sealed class EmployeeValidatorService
                 "Die Abteilung ist erforderlich.");
         }
 
-        if (string.IsNullOrWhiteSpace(input.AhvNumber))
+        if (!string.IsNullOrWhiteSpace(input.AhvNumber) && !ValidationFormats.AHVRegex.IsMatch(input.AhvNumber))
         {
             result.Add(
                 nameof(input.AhvNumber),
-                "Die AHV-Nummer ist erforderlich.");
+                "Die AHV-Nummer muss dem Format 756.xxxx.yyyy.zz entsprechen.");
         }
 
         if (string.IsNullOrWhiteSpace(input.Nationality))
@@ -267,6 +301,19 @@ public sealed class EmployeeValidatorService
                 "Die Anzahl Lehrjahre darf nicht negativ sein.");
         }
 
+        if (input.CurrentApprenticeshipYear < 0)
+        {
+            result.Add(
+                nameof(input.CurrentApprenticeshipYear),
+                "Die Anzahl Lehrjahre darf nicht negativ sein.");
+        }
+        else if (input.CurrentApprenticeshipYear < 1 || input.CurrentApprenticeshipYear > 4)
+        {
+            result.Add(
+                nameof(input.CurrentApprenticeshipYear),
+                "Das aktuelle Lehrjahr muss zwischen 1 und 4 liegen.");
+        }
+
         if (input.EmployeeStatus is null)
         {
             result.Add(
@@ -274,21 +321,13 @@ public sealed class EmployeeValidatorService
                 "Bitte wählen Sie einen Mitarbeiterstatus aus.");
         }
 
-        if (input.EmployeeSeniorLevel is null)
+       /* if (input.EmployeeSeniorLevel is null)
         {
             result.Add(
                 nameof(input.EmployeeSeniorLevel),
-                "Bitte wählen Sie ein Senioritätslevel aus.");
+                "Bitte wählen Sie eine Kaderstufe aus.");
         }
-
-        ValidateDateOfHire(input, result);
-
-        if (string.IsNullOrWhiteSpace(input.WorkStreetName))
-        {
-            result.Add(
-                nameof(input.WorkStreetName),
-                "Der Strassenname der Arbeitsadresse ist erforderlich.");
-        }
+       */
 
         if (string.IsNullOrWhiteSpace(input.WorkStreetNumber))
         {
@@ -322,6 +361,10 @@ public sealed class EmployeeValidatorService
                 nameof(input.WorkCity),
                 "Der Ort der Arbeitsadresse ist erforderlich.");
         }
+
+        ValidateDateOfHire(input, result);
+
+        ValidateDateOfTermination(input, result);
 
         return result;
     }

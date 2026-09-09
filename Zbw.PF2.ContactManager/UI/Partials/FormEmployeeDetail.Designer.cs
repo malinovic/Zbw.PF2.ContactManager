@@ -115,9 +115,9 @@ partial class FormEmployeeDetail : Form
         labelApprenticeshipYears = new Label();
         boxApprenticeshipYears = new TextBox();
         panelSeniorLevel = new Panel();
+        boxSeniorLevel = new ComboBox();
         panelSeniorLevelLabel = new Panel();
         labelSeniorLevel = new Label();
-        boxSeniorLevel = new TextBox();
         panelWorkStreet = new Panel();
         panelWorkStreetLabel = new Panel();
         labelWorkStreet = new Label();
@@ -139,11 +139,19 @@ partial class FormEmployeeDetail : Form
         labelDateOfHire = new Label();
         boxDateOfHire = new TextBox();
         panelStatus = new Panel();
+        boxStatus = new ComboBox();
         panelStatusLabel = new Panel();
         labelStatus = new Label();
-        boxStatus = new ComboBox();
         groupBox1 = new GroupBox();
         groupBox2 = new GroupBox();
+        panel3 = new Panel();
+        panel4 = new Panel();
+        labelApprenticeShipYearIfApprentice = new Label();
+        boxCurrentApprenticeshipYear = new TextBox();
+        panel2 = new Panel();
+        panelDateOfTermination = new Panel();
+        labelDateOfTermination = new Label();
+        boxDateOfTermination = new TextBox();
         panel1 = new Panel();
         panelSalutation.SuspendLayout();
         panelSalutationLabel.SuspendLayout();
@@ -200,6 +208,11 @@ partial class FormEmployeeDetail : Form
         panelStatus.SuspendLayout();
         panelStatusLabel.SuspendLayout();
         groupBox1.SuspendLayout();
+        groupBox2.SuspendLayout();
+        panel3.SuspendLayout();
+        panel4.SuspendLayout();
+        panel2.SuspendLayout();
+        panelDateOfTermination.SuspendLayout();
         panel1.SuspendLayout();
         SuspendLayout();
         // 
@@ -887,9 +900,9 @@ partial class FormEmployeeDetail : Form
         labelEmploymentRate.Dock = DockStyle.Fill;
         labelEmploymentRate.Location = new Point(0, 0);
         labelEmploymentRate.Name = "labelEmploymentRate";
-        labelEmploymentRate.Size = new Size(112, 15);
+        labelEmploymentRate.Size = new Size(138, 15);
         labelEmploymentRate.TabIndex = 0;
-        labelEmploymentRate.Text = "Beschäftigungsgrad";
+        labelEmploymentRate.Text = "Beschäftigungsgrad in %";
         // 
         // boxEmploymentRate
         // 
@@ -976,12 +989,21 @@ partial class FormEmployeeDetail : Form
         // 
         // panelSeniorLevel
         // 
-        panelSeniorLevel.Controls.Add(panelSeniorLevelLabel);
         panelSeniorLevel.Controls.Add(boxSeniorLevel);
-        panelSeniorLevel.Location = new Point(948, 381);
+        panelSeniorLevel.Controls.Add(panelSeniorLevelLabel);
+        panelSeniorLevel.Location = new Point(23, 815);
         panelSeniorLevel.Name = "panelSeniorLevel";
         panelSeniorLevel.Size = new Size(250, 98);
         panelSeniorLevel.TabIndex = 8;
+        // 
+        // boxSeniorLevel
+        // 
+        boxSeniorLevel.Dock = DockStyle.Bottom;
+        boxSeniorLevel.FormattingEnabled = true;
+        boxSeniorLevel.Location = new Point(0, 75);
+        boxSeniorLevel.Name = "boxSeniorLevel";
+        boxSeniorLevel.Size = new Size(250, 23);
+        boxSeniorLevel.TabIndex = 2;
         // 
         // panelSeniorLevelLabel
         // 
@@ -998,18 +1020,9 @@ partial class FormEmployeeDetail : Form
         labelSeniorLevel.Dock = DockStyle.Fill;
         labelSeniorLevel.Location = new Point(0, 0);
         labelSeniorLevel.Name = "labelSeniorLevel";
-        labelSeniorLevel.Size = new Size(77, 15);
+        labelSeniorLevel.Size = new Size(63, 15);
         labelSeniorLevel.TabIndex = 0;
-        labelSeniorLevel.Text = "Seniorenlevel";
-        // 
-        // boxSeniorLevel
-        // 
-        boxSeniorLevel.Dock = DockStyle.Bottom;
-        boxSeniorLevel.Font = new Font("Segoe UI", 19.25F);
-        boxSeniorLevel.Location = new Point(0, 56);
-        boxSeniorLevel.Name = "boxSeniorLevel";
-        boxSeniorLevel.Size = new Size(250, 42);
-        boxSeniorLevel.TabIndex = 1;
+        labelSeniorLevel.Text = "Kaderstufe";
         // 
         // panelWorkStreet
         // 
@@ -1035,9 +1048,9 @@ partial class FormEmployeeDetail : Form
         labelWorkStreet.Dock = DockStyle.Fill;
         labelWorkStreet.Location = new Point(0, 0);
         labelWorkStreet.Name = "labelWorkStreet";
-        labelWorkStreet.Size = new Size(57, 15);
+        labelWorkStreet.Size = new Size(92, 15);
         labelWorkStreet.TabIndex = 0;
-        labelWorkStreet.Text = "Strasse G.";
+        labelWorkStreet.Text = "Strasse Geschäft";
         // 
         // boxWorkStreet
         // 
@@ -1072,9 +1085,9 @@ partial class FormEmployeeDetail : Form
         labelWorkStreetNumber.Dock = DockStyle.Fill;
         labelWorkStreetNumber.Location = new Point(0, 0);
         labelWorkStreetNumber.Name = "labelWorkStreetNumber";
-        labelWorkStreetNumber.Size = new Size(97, 15);
+        labelWorkStreetNumber.Size = new Size(129, 15);
         labelWorkStreetNumber.TabIndex = 0;
-        labelWorkStreetNumber.Text = "Hausnr. Geschäft";
+        labelWorkStreetNumber.Text = "Hausnummer Geschäft";
         // 
         // boxWorkStreetNumber
         // 
@@ -1199,11 +1212,22 @@ partial class FormEmployeeDetail : Form
         // 
         // panelStatus
         // 
+        panelStatus.Controls.Add(boxStatus);
         panelStatus.Controls.Add(panelStatusLabel);
-        panelStatus.Location = new Point(948, 711);
+        panelStatus.Location = new Point(301, 815);
         panelStatus.Name = "panelStatus";
         panelStatus.Size = new Size(250, 101);
         panelStatus.TabIndex = 14;
+        // 
+        // boxStatus
+        // 
+        boxStatus.AccessibleRole = AccessibleRole.None;
+        boxStatus.Dock = DockStyle.Bottom;
+        boxStatus.FormattingEnabled = true;
+        boxStatus.Location = new Point(0, 78);
+        boxStatus.Name = "boxStatus";
+        boxStatus.Size = new Size(250, 23);
+        boxStatus.TabIndex = 16;
         // 
         // panelStatusLabel
         // 
@@ -1223,14 +1247,6 @@ partial class FormEmployeeDetail : Form
         labelStatus.Size = new Size(39, 15);
         labelStatus.TabIndex = 0;
         labelStatus.Text = "Status";
-        // 
-        // boxStatus
-        // 
-        boxStatus.FormattingEnabled = true;
-        boxStatus.Location = new Point(948, 771);
-        boxStatus.Name = "boxStatus";
-        boxStatus.Size = new Size(250, 23);
-        boxStatus.TabIndex = 15;
         // 
         // groupBox1
         // 
@@ -1257,13 +1273,92 @@ partial class FormEmployeeDetail : Form
         // 
         // groupBox2
         // 
+        groupBox2.Controls.Add(panel3);
+        groupBox2.Controls.Add(panel2);
+        groupBox2.Controls.Add(panelSeniorLevel);
+        groupBox2.Controls.Add(panelStatus);
         groupBox2.FlatStyle = FlatStyle.Flat;
         groupBox2.Location = new Point(647, 13);
         groupBox2.Name = "groupBox2";
-        groupBox2.Size = new Size(573, 836);
+        groupBox2.Size = new Size(573, 1000);
         groupBox2.TabIndex = 16;
         groupBox2.TabStop = false;
         groupBox2.Text = "Mitarbeiter-Informationen";
+        // 
+        // panel3
+        // 
+        panel3.Controls.Add(panel4);
+        panel3.Controls.Add(boxCurrentApprenticeshipYear);
+        panel3.Location = new Point(301, 368);
+        panel3.Name = "panel3";
+        panel3.Size = new Size(250, 98);
+        panel3.TabIndex = 8;
+        // 
+        // panel4
+        // 
+        panel4.Controls.Add(labelApprenticeShipYearIfApprentice);
+        panel4.Dock = DockStyle.Top;
+        panel4.Location = new Point(0, 0);
+        panel4.Name = "panel4";
+        panel4.Size = new Size(250, 46);
+        panel4.TabIndex = 0;
+        // 
+        // labelApprenticeShipYearIfApprentice
+        // 
+        labelApprenticeShipYearIfApprentice.AutoSize = true;
+        labelApprenticeShipYearIfApprentice.Dock = DockStyle.Fill;
+        labelApprenticeShipYearIfApprentice.Location = new Point(0, 0);
+        labelApprenticeShipYearIfApprentice.Name = "labelApprenticeShipYearIfApprentice";
+        labelApprenticeShipYearIfApprentice.Size = new Size(142, 15);
+        labelApprenticeShipYearIfApprentice.TabIndex = 0;
+        labelApprenticeShipYearIfApprentice.Text = "akt. Lehrjahr falls Lehrling";
+        // 
+        // boxCurrentApprenticeshipYear
+        // 
+        boxCurrentApprenticeshipYear.Dock = DockStyle.Bottom;
+        boxCurrentApprenticeshipYear.Font = new Font("Segoe UI", 19.25F);
+        boxCurrentApprenticeshipYear.Location = new Point(0, 56);
+        boxCurrentApprenticeshipYear.Name = "boxCurrentApprenticeshipYear";
+        boxCurrentApprenticeshipYear.Size = new Size(250, 42);
+        boxCurrentApprenticeshipYear.TabIndex = 1;
+        // 
+        // panel2
+        // 
+        panel2.Controls.Add(panelDateOfTermination);
+        panel2.Controls.Add(boxDateOfTermination);
+        panel2.Location = new Point(301, 698);
+        panel2.Name = "panel2";
+        panel2.Size = new Size(250, 98);
+        panel2.TabIndex = 13;
+        // 
+        // panelDateOfTermination
+        // 
+        panelDateOfTermination.Controls.Add(labelDateOfTermination);
+        panelDateOfTermination.Dock = DockStyle.Top;
+        panelDateOfTermination.Location = new Point(0, 0);
+        panelDateOfTermination.Name = "panelDateOfTermination";
+        panelDateOfTermination.Size = new Size(250, 46);
+        panelDateOfTermination.TabIndex = 0;
+        // 
+        // labelDateOfTermination
+        // 
+        labelDateOfTermination.AutoSize = true;
+        labelDateOfTermination.Dock = DockStyle.Fill;
+        labelDateOfTermination.Location = new Point(0, 0);
+        labelDateOfTermination.Name = "labelDateOfTermination";
+        labelDateOfTermination.Size = new Size(86, 15);
+        labelDateOfTermination.TabIndex = 0;
+        labelDateOfTermination.Text = "Austrittsdatum";
+        // 
+        // boxDateOfTermination
+        // 
+        boxDateOfTermination.Dock = DockStyle.Bottom;
+        boxDateOfTermination.Font = new Font("Segoe UI", 19.25F);
+        boxDateOfTermination.Location = new Point(0, 56);
+        boxDateOfTermination.Name = "boxDateOfTermination";
+        boxDateOfTermination.PlaceholderText = "dd.MM.yyyy";
+        boxDateOfTermination.Size = new Size(250, 42);
+        boxDateOfTermination.TabIndex = 1;
         // 
         // panel1
         // 
@@ -1278,15 +1373,12 @@ partial class FormEmployeeDetail : Form
         // 
         AutoSize = true;
         BackColor = Color.White;
-        ClientSize = new Size(1714, 1049);
-        Controls.Add(boxStatus);
-        Controls.Add(panelStatus);
+        ClientSize = new Size(1646, 1006);
         Controls.Add(panelDateOfHire);
         Controls.Add(panelWorkCity);
         Controls.Add(panelWorkZipCode);
         Controls.Add(panelWorkStreetNumber);
         Controls.Add(panelWorkStreet);
-        Controls.Add(panelSeniorLevel);
         Controls.Add(panelApprenticeshipYears);
         Controls.Add(panelRole);
         Controls.Add(panelEmploymentRate);
@@ -1382,7 +1474,6 @@ partial class FormEmployeeDetail : Form
         panelApprenticeshipYearsLabel.ResumeLayout(false);
         panelApprenticeshipYearsLabel.PerformLayout();
         panelSeniorLevel.ResumeLayout(false);
-        panelSeniorLevel.PerformLayout();
         panelSeniorLevelLabel.ResumeLayout(false);
         panelSeniorLevelLabel.PerformLayout();
         panelWorkStreet.ResumeLayout(false);
@@ -1409,6 +1500,15 @@ partial class FormEmployeeDetail : Form
         panelStatusLabel.ResumeLayout(false);
         panelStatusLabel.PerformLayout();
         groupBox1.ResumeLayout(false);
+        groupBox2.ResumeLayout(false);
+        panel3.ResumeLayout(false);
+        panel3.PerformLayout();
+        panel4.ResumeLayout(false);
+        panel4.PerformLayout();
+        panel2.ResumeLayout(false);
+        panel2.PerformLayout();
+        panelDateOfTermination.ResumeLayout(false);
+        panelDateOfTermination.PerformLayout();
         panel1.ResumeLayout(false);
         ResumeLayout(false);
     }
@@ -1482,7 +1582,6 @@ partial class FormEmployeeDetail : Form
     private System.Windows.Forms.TextBox boxApprenticeshipYears;
     private Panel panelSeniorLevel;
     private System.Windows.Forms.Label labelSeniorLevel;
-    private System.Windows.Forms.TextBox boxSeniorLevel;
     private Panel panelWorkStreet;
     private System.Windows.Forms.Label labelWorkStreet;
     private System.Windows.Forms.TextBox boxWorkStreet;
@@ -1500,7 +1599,6 @@ partial class FormEmployeeDetail : Form
     private System.Windows.Forms.TextBox boxDateOfHire;
     private Panel panelStatus;
     private System.Windows.Forms.Label labelStatus;
-    private ComboBox boxStatus;
     private GroupBox groupBox1;
     private Panel panelSalutationLabel;
     private Panel panelFirstNameLabel;
@@ -1531,4 +1629,14 @@ partial class FormEmployeeDetail : Form
     private Panel panelStatusLabel;
     private GroupBox groupBox2;
     private System.Windows.Forms.Panel panel1;
+    private ComboBox boxSeniorLevel;
+    private Panel panel2;
+    private Panel panelDateOfTermination;
+    private Label labelDateOfTermination;
+    private TextBox boxDateOfTermination;
+    private Panel panel3;
+    private Panel panel4;
+    private Label labelApprenticeShipYearIfApprentice;
+    private TextBox boxCurrentApprenticeshipYear;
+    private ComboBox boxStatus;
 }

@@ -56,15 +56,16 @@ public static class EnumDisplayExtensions
         _ => status.ToString()
     };
 
-    /// <summary>
-    ///     Returns the German display text for the given <see cref="CustomerType" />.
-    /// </summary>
-    /// <param name="customerType">The customer type to translate.</param>
-    /// <returns>The German display text, or the enum's <see cref="object.ToString" /> if unmapped.</returns>
-    public static string ToGerman(this CustomerType customerType) => customerType switch
+
+    public static string ToGerman(this EmployeeSeniorLevel seniorLevel) => seniorLevel switch
     {
-        CustomerType.Private => "Privatkunde",
-        CustomerType.Company => "Geschäftskunde",
-        _ => customerType.ToString()
+        EmployeeSeniorLevel.Level0 => "Stufe 0",
+        EmployeeSeniorLevel.Level1 => "Stufe 1",
+        EmployeeSeniorLevel.Level2 => "Stufe 2",
+        EmployeeSeniorLevel.Level3 => "Stufe 3",
+        EmployeeSeniorLevel.Level4 => "Stufe 4",
+        EmployeeSeniorLevel.Level5 => "Stufe 5",
+        _ => seniorLevel.ToString()
     };
+
 }

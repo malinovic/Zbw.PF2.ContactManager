@@ -186,12 +186,6 @@ public sealed class CustomerValidatorService
                 "Die Kundennummer ist erforderlich.");
         }
 
-        if (string.IsNullOrWhiteSpace(input.CustomerCompanyName))
-        {
-            result.Add(
-                nameof(input.CustomerCompanyName),
-                "Der Firmenname ist erforderlich.");
-        }
 
         if (input.CustomerStatus is null)
         {
@@ -200,12 +194,6 @@ public sealed class CustomerValidatorService
                 "Bitte wählen Sie einen Kundenstatus aus.");
         }
 
-        if (input.CustomerType is null)
-        {
-            result.Add(
-                nameof(input.CustomerType),
-                "Bitte wählen Sie einen Kundentyp aus.");
-        }
 
         return result;
     }
