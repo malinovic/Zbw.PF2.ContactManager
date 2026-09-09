@@ -105,7 +105,7 @@ public partial class FormCustomersPartial : Form
         var menuEdit = new ToolStripMenuItem("Bearbeiten");
         menuEdit.Click += (_, _) => EditSelectedCustomer();
 
-        var menuNotes = new ToolStripMenuItem("Notizen anzeigen");
+        var menuNotes = new ToolStripMenuItem("Notizen");
         menuNotes.Click += (_, _) => OpenCustomerNotes();
 
         var menuToggleStatus = new ToolStripMenuItem();
@@ -182,11 +182,16 @@ public partial class FormCustomersPartial : Form
         ApplyFilter();
     }
 
-    private void OpenCustomerNotes()
+    private void OpenCustomerNotes( )
     {
-        FormCustomerNotes formCustomerNotes = new();
+        Customer? customer = GetSelectedCustomer();
+        if (customer is null)
+        {
+            return;
+        }
 
-        ApplyFilter();
+        using var form = new FormCustomerNotes(customer);
+        form.ShowDialog(this);
     }
 
     private void ToggleSelectedCustomerStatus()
