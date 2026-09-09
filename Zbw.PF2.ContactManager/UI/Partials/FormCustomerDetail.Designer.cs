@@ -127,6 +127,7 @@ partial class FormCustomerDetail : Form
         panelStatus.SuspendLayout();
         panelStatusLabel.SuspendLayout();
         groupBox1.SuspendLayout();
+        groupBox2.SuspendLayout();
         panel1.SuspendLayout();
         SuspendLayout();
         // 
@@ -682,7 +683,7 @@ partial class FormCustomerDetail : Form
         // 
         panelStatus.Controls.Add(panelStatusLabel);
         panelStatus.Controls.Add(boxStatus);
-        panelStatus.Location = new Point(948, 161);
+        panelStatus.Location = new Point(306, 38);
         panelStatus.Name = "panelStatus";
         panelStatus.Size = new Size(250, 98);
         panelStatus.TabIndex = 4;
@@ -740,10 +741,11 @@ partial class FormCustomerDetail : Form
         // 
         // groupBox2
         // 
+        groupBox2.Controls.Add(panelStatus);
         groupBox2.FlatStyle = FlatStyle.Flat;
         groupBox2.Location = new Point(647, 13);
         groupBox2.Name = "groupBox2";
-        groupBox2.Size = new Size(573, 300);
+        groupBox2.Size = new Size(573, 161);
         groupBox2.TabIndex = 5;
         groupBox2.TabStop = false;
         groupBox2.Text = "Kunden-Informationen";
@@ -755,15 +757,14 @@ partial class FormCustomerDetail : Form
         panel1.Dock = DockStyle.Bottom;
         panel1.Location = new Point(0, 915);
         panel1.Name = "panel1";
-        panel1.Size = new Size(1924, 95);
+        panel1.Size = new Size(1650, 95);
         panel1.TabIndex = 6;
         // 
         // FormCustomerDetail
         // 
         AutoSize = true;
         BackColor = Color.White;
-        ClientSize = new Size(1924, 1010);
-        Controls.Add(panelStatus);
+        ClientSize = new Size(1650, 1010);
         Controls.Add(panelCustomerNumber);
         Controls.Add(groupBox1);
         Controls.Add(groupBox2);
@@ -827,6 +828,7 @@ partial class FormCustomerDetail : Form
         panelStatusLabel.ResumeLayout(false);
         panelStatusLabel.PerformLayout();
         groupBox1.ResumeLayout(false);
+        groupBox2.ResumeLayout(false);
         panel1.ResumeLayout(false);
         ResumeLayout(false);
     }

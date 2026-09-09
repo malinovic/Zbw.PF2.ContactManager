@@ -80,7 +80,8 @@ public partial class FormEmployeeDetail : Form
         boxEmploymentRate.Text = employee.EmploymentRate.ToString();
         boxRole.Text = employee.Role;
         boxApprenticeshipYears.Text = employee.ApprenticeshipYears?.ToString() ?? string.Empty;
-        boxSeniorLevel.Text = employee.SeniorLevel.ToString();
+        boxCurrentApprenticeshipYear.Text = employee.CurrentApprenticeshipYear?.ToString() ?? string.Empty;
+        boxSeniorLevel.SelectedItem = employee.SeniorLevel;
 
         boxWorkStreet.Text = employee.WorkAddress.StreetName;
         boxWorkStreetNumber.Text = employee.WorkAddress.StreetNumber;
@@ -97,16 +98,20 @@ public partial class FormEmployeeDetail : Form
         boxSex.DataSource = Enum.GetValues<Sex>();
         boxTitle.DataSource = Enum.GetValues<Title>();
         boxStatus.DataSource = Enum.GetValues<Status>();
+        boxSeniorLevel.DataSource = Enum.GetValues<EmployeeSeniorLevel>();
 
         boxSalutation.Format += (_, e) => e.Value = ((Salutation)e.ListItem!).ToGerman();
         boxSex.Format += (_, e) => e.Value = ((Sex)e.ListItem!).ToGerman();
         boxTitle.Format += (_, e) => e.Value = ((Title)e.ListItem!).ToGerman();
         boxStatus.Format += (_, e) => e.Value = ((Status)e.ListItem!).ToGerman();
+        boxSeniorLevel.Format += (_, e) => e.Value = ((EmployeeSeniorLevel)e.ListItem!).ToGerman();
+
 
         boxSalutation.SelectedIndex = -1;
         boxSex.SelectedIndex = -1;
         boxTitle.SelectedIndex = -1;
         boxStatus.SelectedIndex = -1;
+        boxSeniorLevel.SelectedIndex = -1;
     }
 
     private void RegisterEvents()
@@ -177,16 +182,22 @@ public partial class FormEmployeeDetail : Form
                  ? apprenticeshipYears
                  : null,
 
+            CurrentApprenticeshipYear = int.TryParse(boxCurrentApprenticeshipYear.Text.Trim(), out int currentApprenticeshipYear)
+                ? currentApprenticeshipYear
+                : null,
+
             EmployeeStatus =
             boxStatus.SelectedItem is Status status
                 ? status
                 : null,
 
-            EmployeeSeniorLevel = Enum.TryParse<EmployeeSeniorLevel>(boxSeniorLevel.Text.Trim(), true, out EmployeeSeniorLevel seniorLevel)
-                 ? seniorLevel
-                 : null,
+            EmployeeSeniorLevel =
+            boxSeniorLevel.SelectedItem is EmployeeSeniorLevel employeeSeniorLevel
+                ? employeeSeniorLevel
+                : null,
 
             DateOfHire = boxDateOfHire.Text.Trim(),
+            DateOfTermination = boxDateOfTermination.Text.Trim(),
             WorkStreetName = boxWorkStreet.Text.Trim(),
             WorkStreetNumber = boxWorkStreetNumber.Text.Trim(),
             WorkZipCode = boxWorkZipCode.Text.Trim(),
@@ -226,7 +237,8 @@ public partial class FormEmployeeDetail : Form
             EmploymentRate = input.EmploymentRate,
             Role = input.Role,
             ApprenticeshipYears = input.ApprenticeshipYears,
-            DateOfTermination = input.DateOfTermination != null && input.DateOfTermination != "" ? DateOnly.Parse(input.DateOfTermination) : null,
+            CurrentApprenticeshipYear = input.CurrentApprenticeshipYear,
+
 
             WorkAddress = new Address()
             {
@@ -238,6 +250,11 @@ public partial class FormEmployeeDetail : Form
             Status = input.EmployeeStatus!.Value,
             SeniorLevel = input.EmployeeSeniorLevel!.Value,
             DateOfHire = DateOnly.Parse(input.DateOfHire!),
+            DateOfTermination = string.IsNullOrWhiteSpace(input.DateOfTermination)
+                ? null
+                : DateOnly.ParseExact(
+                input.DateOfTermination,
+                "dd.MM.yyyy")
         };
     }
 
