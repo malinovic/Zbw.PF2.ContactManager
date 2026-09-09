@@ -55,6 +55,7 @@ public partial class FormCustomerDetail : Form
         {
             boxCustomerNumber.Text = _identityService.GenerateCustomerId(_repository.GetCustomers());
         }
+
     }
 
     /// <summary>
@@ -303,11 +304,21 @@ public partial class FormCustomerDetail : Form
             return;
         }
 
-        Customer customer = CreateCustomer(input, 0);
+        int id = _editingCustomer?.Id ?? 0;
+        Customer customer = CreateCustomer(input, id);
 
         try
         {
-            _repository.AddCustomer(customer);
+            if (_editingCustomer is null)
+            {
+                _repository.AddCustomer(customer);
+                MessageBox.Show("Kunde wurde erfolgreich gespeichert");
+            }
+            else
+            {
+                _repository.UpdateCustomer(customer);
+                MessageBox.Show("Kunde wurde erfolgreich aktualisiert");
+            }
         }
         catch (Exception ex)
         {
@@ -319,8 +330,6 @@ public partial class FormCustomerDetail : Form
 
             return;
         }
-
-        MessageBox.Show("Kunde wurde erfolgreich gespeichert");
 
         Close();
     }
