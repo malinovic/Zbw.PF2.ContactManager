@@ -11,6 +11,7 @@ public class Employee : Person
     public required int EmploymentRate { get; set; }
     public required string Role { get; set; }
     public int? ApprenticeshipYears { get; set; }
+    public int? CurrentApprenticeshipYear { get; set; }
     public required Address WorkAddress { get; set; }
     public required Status Status { get; set; }
     public required EmployeeSeniorLevel SeniorLevel { get; set; }

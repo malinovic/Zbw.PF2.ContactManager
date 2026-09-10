@@ -20,7 +20,5 @@ public sealed class CustomerInput
     public string City { get; init; } = string.Empty;
 
     public string CustomerNumber { get; init; } = string.Empty;
-    public string CustomerCompanyName { get; init; } = string.Empty;
     public Status? CustomerStatus { get; init; }
-    public CustomerType? CustomerType { get; init; }
 }
