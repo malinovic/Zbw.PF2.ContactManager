@@ -31,29 +31,44 @@ public partial class FormCustomerNotes : Form
     public FormCustomerNotes(Customer? customer)
     {
         InitializeComponent();
-        SetupView();
 
         _currectCustomer = customer;
 
-        boxFirstName.Text = customer.FirstName;
-        boxLastName.Text = customer?.LastName;
-
-
+        PopulateCustomerInfo(customer);
+        SetupView();
     }
 
-
+    private void PopulateCustomerInfo(Customer? customer)
+    {
+        labelFirstNameValue.Text = customer?.FirstName ?? string.Empty;
+        labelLastNameValue.Text = customer?.LastName ?? string.Empty;
+        labelCustomerNumberValue.Text = customer?.CustomerNumber ?? string.Empty;
+        labelStatusValue.Text = customer is not null ? customer.CustomerStatus.ToGerman() : string.Empty;
+    }
 
     private void SetupView()
     {
-        
         Font = FontManager.InterRegular;
 
         ApplyModernFieldStyles(this);
-        ThemeManager.ApplyStatusColor(boxStatus);
+        ApplyValueLabelStyle(labelFirstNameValue);
+        ApplyValueLabelStyle(labelLastNameValue);
+        ApplyValueLabelStyle(labelCustomerNumberValue);
+        ApplyValueLabelStyle(labelStatusValue);
 
         ThemeManager.ApplyButtonStyles(buttonSave);
         ThemeManager.ApplyButtonStyles(buttonCancel);
-        
+    }
+
+    /// <summary>
+    ///     Restyles a read-only customer info value (e.g. the customer's first name) after the
+    ///     generic label styling has been applied, since those values should read as normal text
+    ///     rather than the small gray field captions.
+    /// </summary>
+    private static void ApplyValueLabelStyle(Label label)
+    {
+        label.Font = new Font(FontManager.InterRegular.FontFamily, FieldFontSize);
+        label.ForeColor = Color.Black;
     }
 
     private const float FieldFontSize = 11F;
