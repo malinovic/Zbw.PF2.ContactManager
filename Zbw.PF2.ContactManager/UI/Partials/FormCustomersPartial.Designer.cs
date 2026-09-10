@@ -61,7 +61,7 @@ partial class FormCustomersPartial
         // 
         panel1.Controls.Add(btnCreateNewCustomers);
         panel1.Dock = DockStyle.Bottom;
-        panel1.Location = new Point(20, 343);
+        panel1.Location = new Point(20, 413);
         panel1.Margin = new Padding(2, 1, 2, 1);
         panel1.Name = "panel1";
         panel1.Size = new Size(857, 44);
@@ -75,7 +75,7 @@ partial class FormCustomersPartial
         panel2.Location = new Point(20, 20);
         panel2.Margin = new Padding(2, 1, 2, 1);
         panel2.Name = "panel2";
-        panel2.Size = new Size(857, 323);
+        panel2.Size = new Size(857, 393);
         panel2.TabIndex = 3;
         // 
         // panel4
@@ -85,7 +85,7 @@ partial class FormCustomersPartial
         panel4.Location = new Point(0, 42);
         panel4.Margin = new Padding(2, 1, 2, 1);
         panel4.Name = "panel4";
-        panel4.Size = new Size(857, 281);
+        panel4.Size = new Size(857, 351);
         panel4.TabIndex = 2;
         // 
         // dgvCustomers
@@ -106,7 +106,7 @@ partial class FormCustomersPartial
         dgvCustomers.RowHeadersWidth = 82;
         dgvCustomers.RowTemplate.Height = 48;
         dgvCustomers.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-        dgvCustomers.Size = new Size(857, 281);
+        dgvCustomers.Size = new Size(857, 351);
         dgvCustomers.TabIndex = 0;
         // 
         // panelSearchHeader
@@ -154,7 +154,7 @@ partial class FormCustomersPartial
         FormBorderStyle = FormBorderStyle.None;
         Margin = new Padding(2, 1, 2, 1);
         Name = "FormCustomersPartial";
-        Padding = new Padding(20, 20, 20, 105);
+        Padding = new Padding(20, 20, 20, 35);
         Text = "FormCustomersPartial";
         panel1.ResumeLayout(false);
         panel2.ResumeLayout(false);

@@ -245,9 +245,9 @@ partial class FormCustomerNotes
         // 
         // panel1
         // 
+        panel1.Anchor = AnchorStyles.None;
         panel1.Controls.Add(buttonCancel);
         panel1.Controls.Add(buttonSave);
-        panel1.Dock = DockStyle.Bottom;
         panel1.Location = new Point(0, 915);
         panel1.Name = "panel1";
         panel1.Size = new Size(1924, 95);
@@ -275,7 +275,7 @@ partial class FormCustomerNotes
         // 
         AutoScaleDimensions = new SizeF(7F, 15F);
         AutoScaleMode = AutoScaleMode.Font;
-        ClientSize = new Size(1924, 1010);
+        ClientSize = new Size(1393, 566);
         Controls.Add(groupBox2);
         Controls.Add(panelCustomerNumber);
         Controls.Add(panelStatus);
