@@ -11,31 +11,26 @@ namespace Zbw.PF2.ContactManager.UI.Partials;
 
 public partial class FormCustomerNotes : Form
 {
-
+    private readonly IContactManagerRepository _repository;
     private readonly Customer? _currectCustomer;
-
-
-    
-    public FormCustomerNotes() :this(null)
-    {
-    }
-    
+    private readonly User _currentUser;
 
     /// <summary>
-    ///     Opens the form pre-filled for editing an existing cutsomer. Passing <c>null</c> keeps
-    ///     the original "create new customer" behavior.
+    ///     Opens the form pre-filled for the given customer's notes.
     /// </summary>
-    /// 
-
-
-    public FormCustomerNotes(Customer? customer)
+    /// <param name="customer">The customer whose notes are being viewed.</param>
+    /// <param name="currentUser">The currently logged-in user, recorded as the author of any new note.</param>
+    public FormCustomerNotes(Customer? customer, User currentUser)
     {
         InitializeComponent();
 
+        _repository = new ContactManagerRepository(new CSVRepository());
         _currectCustomer = customer;
+        _currentUser = currentUser;
 
         PopulateCustomerInfo(customer);
         SetupView();
+        LoadContactHistory();
     }
 
     private void PopulateCustomerInfo(Customer? customer)
@@ -58,6 +53,103 @@ public partial class FormCustomerNotes : Form
 
         ThemeManager.ApplyButtonStyles(buttonSave);
         ThemeManager.ApplyButtonStyles(buttonCancel);
+    }
+
+    /// <summary>
+    ///     Reloads the contact history for the current customer, newest first, rendering each
+    ///     entry as a stacked date-then-note card (rather than a Date/Note table) so the note text
+    ///     has room to word-wrap instead of being squeezed into a single table row.
+    /// </summary>
+    private void LoadContactHistory()
+    {
+        flowHistory.SuspendLayout();
+        flowHistory.Controls.Clear();
+
+        if (_currectCustomer is null)
+        {
+            flowHistory.ResumeLayout();
+            return;
+        }
+
+        Dictionary<int, string> authorNamesByUserId = _repository.GetUsers().ToDictionary(user => user.Id, user => user.Name);
+
+        foreach (CustomerContact contact in _repository.GetCustomerContacts(_currectCustomer.Id))
+        {
+            string authorName = authorNamesByUserId.GetValueOrDefault(contact.CreatedByUserId, "Unbekannt");
+            flowHistory.Controls.Add(CreateHistoryCard(contact, authorName));
+        }
+
+        flowHistory.ResumeLayout();
+    }
+
+    /// <summary>
+    ///     Builds a single contact-history entry: the contact date and author on top, the note
+    ///     text below it, word-wrapped to the card's width so long notes never overflow the panel
+    ///     horizontally.
+    /// </summary>
+    private Panel CreateHistoryCard(CustomerContact contact, string authorName)
+    {
+        int cardWidth = flowHistory.ClientSize.Width - flowHistory.Padding.Horizontal - SystemInformation.VerticalScrollBarWidth;
+        const int cardPadding = 10;
+
+        Panel card = new()
+        {
+            Width = cardWidth,
+            BorderStyle = BorderStyle.FixedSingle,
+            Margin = new Padding(0, 0, 0, 8),
+            Padding = new Padding(cardPadding)
+        };
+
+        Label dateLabel = new()
+        {
+            AutoSize = true,
+            Location = new Point(cardPadding, cardPadding),
+            Text = $"{contact.ContactDate:dd.MM.yyyy HH:mm} von {authorName}",
+            Font = new Font(FontManager.InterRegular.FontFamily, LabelFontSize, FontStyle.Bold),
+            ForeColor = Color.DimGray
+        };
+
+        Label noteLabel = new()
+        {
+            AutoSize = true,
+            Location = new Point(cardPadding, dateLabel.Bottom + 4),
+            Text = contact.Note,
+            Font = new Font(FontManager.InterRegular.FontFamily, FieldFontSize),
+            ForeColor = Color.Black,
+            MaximumSize = new Size(cardWidth - card.Padding.Horizontal, 0)
+        };
+
+        card.Controls.Add(dateLabel);
+        card.Controls.Add(noteLabel);
+        card.Height = noteLabel.Bottom + cardPadding;
+
+        return card;
+    }
+
+    private void buttonSave_Click(object sender, EventArgs e)
+    {
+        string note = richTextBox1.Text.Trim();
+
+        if (_currectCustomer is null || note.Length == 0)
+        {
+            return;
+        }
+
+        _repository.AddCustomerContact(new CustomerContact
+        {
+            CustomerId = _currectCustomer.Id,
+            ContactDate = DateTime.Now,
+            Note = note,
+            CreatedByUserId = _currentUser.Id
+        });
+
+        richTextBox1.Clear();
+        LoadContactHistory();
+    }
+
+    private void buttonCancel_Click(object sender, EventArgs e)
+    {
+        Close();
     }
 
     /// <summary>
@@ -89,6 +181,12 @@ public partial class FormCustomerNotes : Form
                     textBox.BorderStyle = BorderStyle.FixedSingle;
                     textBox.Font = new Font(FontManager.InterRegular.FontFamily, FieldFontSize);
                     EnlargeField(textBox);
+                    break;
+                case RichTextBox richTextBox:
+                    // Without this, a RichTextBox inherits its parent GroupBox's bold caption
+                    // font instead of the regular field font, since it has no case of its own.
+                    richTextBox.BorderStyle = BorderStyle.FixedSingle;
+                    richTextBox.Font = new Font(FontManager.InterRegular.FontFamily, FieldFontSize);
                     break;
                 case ComboBox comboBox:
                     comboBox.FlatStyle = FlatStyle.Flat;

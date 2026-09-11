@@ -56,7 +56,7 @@ partial class FormUsersPartial
         // 
         panel1.Controls.Add(btnCreateNewUser);
         panel1.Dock = DockStyle.Bottom;
-        panel1.Location = new Point(20, 363);
+        panel1.Location = new Point(20, 433);
         panel1.Margin = new Padding(2, 1, 2, 1);
         panel1.Name = "panel1";
         panel1.Size = new Size(894, 44);
@@ -69,7 +69,7 @@ partial class FormUsersPartial
         panel2.Location = new Point(20, 20);
         panel2.Margin = new Padding(2, 1, 2, 1);
         panel2.Name = "panel2";
-        panel2.Size = new Size(894, 343);
+        panel2.Size = new Size(894, 413);
         panel2.TabIndex = 3;
         // 
         // dgvUsers
@@ -90,7 +90,7 @@ partial class FormUsersPartial
         dgvUsers.RowHeadersWidth = 82;
         dgvUsers.RowTemplate.Height = 48;
         dgvUsers.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-        dgvUsers.Size = new Size(894, 343);
+        dgvUsers.Size = new Size(894, 413);
         dgvUsers.TabIndex = 0;
         // 
         // FormUsersPartial
@@ -104,7 +104,7 @@ partial class FormUsersPartial
         FormBorderStyle = FormBorderStyle.None;
         Margin = new Padding(2, 1, 2, 1);
         Name = "FormUsersPartial";
-        Padding = new Padding(20, 20, 20, 105);
+        Padding = new Padding(20, 20, 20, 35);
         Text = "FormUsersPartial";
         panel1.ResumeLayout(false);
         panel2.ResumeLayout(false);

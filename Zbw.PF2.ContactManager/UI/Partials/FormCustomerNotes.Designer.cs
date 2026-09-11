@@ -43,6 +43,8 @@ partial class FormCustomerNotes
         labelStatus = new Label();
         groupBoxNotes = new GroupBox();
         richTextBox1 = new RichTextBox();
+        groupBoxHistory = new GroupBox();
+        flowHistory = new FlowLayoutPanel();
         panel1 = new Panel();
         buttonCancel = new Button();
         buttonSave = new Button();
@@ -52,6 +54,7 @@ partial class FormCustomerNotes
         panelCustomerNumber.SuspendLayout();
         panelStatus.SuspendLayout();
         groupBoxNotes.SuspendLayout();
+        groupBoxHistory.SuspendLayout();
         panel1.SuspendLayout();
         SuspendLayout();
         // 
@@ -186,7 +189,7 @@ partial class FormCustomerNotes
         groupBoxNotes.Size = new Size(600, 260);
         groupBoxNotes.TabIndex = 1;
         groupBoxNotes.TabStop = false;
-        groupBoxNotes.Text = "Kunden-Notizen";
+        groupBoxNotes.Text = "Neue Notiz";
         // 
         // richTextBox1
         // 
@@ -197,6 +200,29 @@ partial class FormCustomerNotes
         richTextBox1.TabIndex = 0;
         richTextBox1.Text = "";
         // 
+        // groupBoxHistory
+        // 
+        groupBoxHistory.Controls.Add(flowHistory);
+        groupBoxHistory.FlatStyle = FlatStyle.Flat;
+        groupBoxHistory.Location = new Point(624, 12);
+        groupBoxHistory.Name = "groupBoxHistory";
+        groupBoxHistory.Size = new Size(420, 477);
+        groupBoxHistory.TabIndex = 2;
+        groupBoxHistory.TabStop = false;
+        groupBoxHistory.Text = "Notiz-Verlauf";
+        // 
+        // flowHistory
+        // 
+        flowHistory.AutoScroll = true;
+        flowHistory.Dock = DockStyle.Fill;
+        flowHistory.FlowDirection = FlowDirection.TopDown;
+        flowHistory.Location = new Point(3, 19);
+        flowHistory.Name = "flowHistory";
+        flowHistory.Padding = new Padding(8);
+        flowHistory.Size = new Size(414, 455);
+        flowHistory.TabIndex = 0;
+        flowHistory.WrapContents = false;
+        // 
         // panel1
         // 
         panel1.Controls.Add(buttonCancel);
@@ -204,35 +230,38 @@ partial class FormCustomerNotes
         panel1.Dock = DockStyle.Bottom;
         panel1.Location = new Point(0, 501);
         panel1.Name = "panel1";
-        panel1.Size = new Size(624, 55);
-        panel1.TabIndex = 2;
+        panel1.Size = new Size(1056, 55);
+        panel1.TabIndex = 3;
         // 
         // buttonCancel
         // 
         buttonCancel.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-        buttonCancel.Location = new Point(392, 10);
+        buttonCancel.Location = new Point(814, 10);
         buttonCancel.Name = "buttonCancel";
         buttonCancel.Size = new Size(110, 35);
         buttonCancel.TabIndex = 0;
-        buttonCancel.Text = "Abbrechen";
+        buttonCancel.Text = "Schliessen";
         buttonCancel.UseVisualStyleBackColor = true;
+        buttonCancel.Click += buttonCancel_Click;
         // 
         // buttonSave
         // 
         buttonSave.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-        buttonSave.Location = new Point(512, 10);
+        buttonSave.Location = new Point(934, 10);
         buttonSave.Name = "buttonSave";
         buttonSave.Size = new Size(110, 35);
         buttonSave.TabIndex = 1;
         buttonSave.Text = "Speichern";
         buttonSave.UseVisualStyleBackColor = true;
+        buttonSave.Click += buttonSave_Click;
         // 
         // FormCustomerNotes
         // 
         AutoScaleDimensions = new SizeF(7F, 15F);
         AutoScaleMode = AutoScaleMode.Font;
         BackColor = Color.White;
-        ClientSize = new Size(624, 556);
+        ClientSize = new Size(1056, 556);
+        Controls.Add(groupBoxHistory);
         Controls.Add(groupBoxNotes);
         Controls.Add(groupBoxCustomer);
         Controls.Add(panel1);
@@ -252,6 +281,7 @@ partial class FormCustomerNotes
         panelStatus.ResumeLayout(false);
         panelStatus.PerformLayout();
         groupBoxNotes.ResumeLayout(false);
+        groupBoxHistory.ResumeLayout(false);
         panel1.ResumeLayout(false);
         ResumeLayout(false);
     }
@@ -273,6 +303,8 @@ partial class FormCustomerNotes
     private Label labelStatus;
     private GroupBox groupBoxNotes;
     private RichTextBox richTextBox1;
+    private GroupBox groupBoxHistory;
+    private FlowLayoutPanel flowHistory;
     private Panel panel1;
     private Button buttonCancel;
     private Button buttonSave;

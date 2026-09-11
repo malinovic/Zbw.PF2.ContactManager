@@ -20,6 +20,7 @@ public class CSVRepository : ICSVRepository
     private readonly string _customersCsvFile;
     private readonly string _employeesCsvFile;
     private readonly string _usersCsvFile;
+    private readonly string _customerContactsCsvFile;
 
     /// <summary>
     ///     Initializes a new instance of the <see cref="CSVRepository" /> class and configures CSV settings.
@@ -33,6 +34,7 @@ public class CSVRepository : ICSVRepository
         _customersCsvFile = Path.Join(_csvDataDirectory, "customers.csv");
         _employeesCsvFile = Path.Join(_csvDataDirectory, "employees.csv");
         _usersCsvFile = Path.Join(_csvDataDirectory, "users.csv");
+        _customerContactsCsvFile = Path.Join(_csvDataDirectory, "customer_contacts.csv");
 
         _csvConfig = new CsvConfiguration(CultureInfo.InvariantCulture) { HasHeaderRecord = true };
 
@@ -66,6 +68,10 @@ public class CSVRepository : ICSVRepository
         else if (typeof(T) == typeof(User))
         {
             filePath = _usersCsvFile;
+        }
+        else if (typeof(T) == typeof(CustomerContact))
+        {
+            filePath = _customerContactsCsvFile;
         }
         else
         {
@@ -246,6 +252,10 @@ public class CSVRepository : ICSVRepository
         {
             filePath = _usersCsvFile;
         }
+        else if (typeof(T) == typeof(CustomerContact))
+        {
+            filePath = _customerContactsCsvFile;
+        }
         else
         {
             throw new ArgumentException($"Unsupported record type: {typeof(T).FullName}");
@@ -269,6 +279,8 @@ public class CSVRepository : ICSVRepository
             context.RegisterClassMap<EmployeeMap>();
         else if (typeof(T) == typeof(User))
             context.RegisterClassMap<UserMap>();
+        else if (typeof(T) == typeof(CustomerContact))
+            context.RegisterClassMap<CustomerContactMap>();
     }
 
     /// <summary>
@@ -284,6 +296,7 @@ public class CSVRepository : ICSVRepository
         InitializeFileWithHeader<Customer>(_customersCsvFile);
         InitializeFileWithHeader<Employee>(_employeesCsvFile);
         InitializeFileWithHeader<User>(_usersCsvFile);
+        InitializeFileWithHeader<CustomerContact>(_customerContactsCsvFile);
     }
 
     /// <summary>
