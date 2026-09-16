@@ -176,6 +176,7 @@ partial class MainForm
         Icon = (Icon)resources.GetObject("$this.Icon");
         Margin = new Padding(4);
         Name = "MainForm";
+        StartPosition = FormStartPosition.CenterScreen;
         Text = "Contact Manager";
         WindowState = FormWindowState.Maximized;
         FlpSideNav.ResumeLayout(false);

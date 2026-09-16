@@ -30,6 +30,7 @@
 
   <ItemGroup>
     <PackageReference Include="CsvHelper" Version="33.1.0" />
+    <PackageReference Include="vCard.Net" Version="2.1.0" />
   </ItemGroup>
 
   <ItemGroup>
