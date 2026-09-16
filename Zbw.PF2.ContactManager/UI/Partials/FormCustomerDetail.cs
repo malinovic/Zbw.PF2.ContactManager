@@ -143,11 +143,6 @@ public partial class
         {
             boxEmail.Text = prefill.Email;
         }
-
-        if (!string.IsNullOrWhiteSpace(prefill.CustomerCompanyName))
-        {
-            boxCustomerCompanyName.Text = prefill.CustomerCompanyName;
-        }
     }
 
     private void InitializeComboBoxes()
