@@ -67,7 +67,7 @@ public partial class MainForm : Form
 
     private void BtnNavCustomers_Click(object sender, EventArgs e)
     {
-        OpenChildForm(new FormCustomersPartial(_contactManagerRepository));
+        OpenChildForm(new FormCustomersPartial(_contactManagerRepository, _currentUser));
         SetActiveNavigationButton(BtnNavCustomers);
     }
 

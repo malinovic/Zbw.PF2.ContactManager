@@ -250,8 +250,6 @@ public class ImportService : IImportService
             StreetName = address?.StreetAddress ?? string.Empty,
             ZipCode = address?.PostalCode ?? string.Empty,
             City = address?.Locality ?? string.Empty,
-
-            CustomerCompanyName = vCard.Organization?.Name ?? string.Empty,
         };
     }
 

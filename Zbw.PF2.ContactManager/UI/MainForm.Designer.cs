@@ -128,7 +128,7 @@ partial class MainForm
         // 
         // PnlContentView
         // 
-        PnlContentView.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+        PnlContentView.Dock = DockStyle.Fill;
         PnlContentView.Location = new Point(400, 0);
         PnlContentView.Name = "PnlContentView";
         PnlContentView.Size = new Size(1318, 1053);

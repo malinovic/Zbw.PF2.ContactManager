@@ -17,6 +17,9 @@ public class ContactManagerRepository(ICSVRepository csvRepository) : IContactMa
     /// <param name="customer">The customer to add.</param>
     public void AddCustomer(Customer customer)
     {
+        IList<Customer> existingCustomers = csvRepository.GetRecords<Customer>();
+        customer.Id = existingCustomers.Select(existing => existing.Id).DefaultIfEmpty(0).Max() + 1;
+
         csvRepository.CreateRecord(customer);
     }
 
@@ -192,5 +195,30 @@ public class ContactManagerRepository(ICSVRepository csvRepository) : IContactMa
     {
         IList<User> users = csvRepository.GetRecords<User>();
         return users.FirstOrDefault(x => x.Username == "admin") != null;
+    }
+
+    /// <summary>
+    ///     Logs a new customer contact entry, assigning it the next available identifier.
+    /// </summary>
+    /// <param name="contact">The contact entry to add.</param>
+    public void AddCustomerContact(CustomerContact contact)
+    {
+        IList<CustomerContact> existingContacts = csvRepository.GetRecords<CustomerContact>();
+        contact.Id = existingContacts.Select(existing => existing.Id).DefaultIfEmpty(0).Max() + 1;
+
+        csvRepository.CreateRecord(contact);
+    }
+
+    /// <summary>
+    ///     Retrieves the contact history for a customer, newest first.
+    /// </summary>
+    /// <param name="customerId">The unique identifier of the customer.</param>
+    /// <returns>The customer's logged contact entries, ordered by contact date descending.</returns>
+    public IList<CustomerContact> GetCustomerContacts(int customerId)
+    {
+        return csvRepository.GetRecords<CustomerContact>()
+            .Where(contact => contact.CustomerId == customerId)
+            .OrderByDescending(contact => contact.ContactDate)
+            .ToList();
     }
 }

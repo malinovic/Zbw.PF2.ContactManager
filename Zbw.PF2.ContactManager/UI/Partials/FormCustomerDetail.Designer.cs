@@ -229,9 +229,9 @@ partial class FormCustomerDetail : Form
         // 
         // buttonCancel
         // 
-        buttonCancel.Location = new Point(1455, 22);
+        buttonCancel.Location = new Point(816, 24);
         buttonCancel.Name = "buttonCancel";
-        buttonCancel.Size = new Size(221, 57);
+        buttonCancel.Size = new Size(176, 53);
         buttonCancel.TabIndex = 0;
         buttonCancel.Text = "Abbrechen";
         buttonCancel.UseVisualStyleBackColor = true;
@@ -239,9 +239,9 @@ partial class FormCustomerDetail : Form
         // 
         // buttonSave
         // 
-        buttonSave.Location = new Point(1692, 22);
+        buttonSave.Location = new Point(1017, 24);
         buttonSave.Name = "buttonSave";
-        buttonSave.Size = new Size(220, 57);
+        buttonSave.Size = new Size(186, 53);
         buttonSave.TabIndex = 1;
         buttonSave.Text = "Speichern";
         buttonSave.UseVisualStyleBackColor = true;
@@ -755,22 +755,23 @@ partial class FormCustomerDetail : Form
         panel1.Controls.Add(buttonCancel);
         panel1.Controls.Add(buttonSave);
         panel1.Dock = DockStyle.Bottom;
-        panel1.Location = new Point(0, 915);
+        panel1.Location = new Point(0, 954);
         panel1.Name = "panel1";
-        panel1.Size = new Size(1650, 95);
+        panel1.Size = new Size(1232, 95);
         panel1.TabIndex = 6;
         // 
         // FormCustomerDetail
         // 
-        AutoSize = true;
         BackColor = Color.White;
-        ClientSize = new Size(1650, 1010);
+        ClientSize = new Size(1232, 1049);
         Controls.Add(panelCustomerNumber);
         Controls.Add(groupBox1);
         Controls.Add(groupBox2);
         Controls.Add(panel1);
+        FormBorderStyle = FormBorderStyle.Fixed3D;
         MaximizeBox = false;
         Name = "FormCustomerDetail";
+        StartPosition = FormStartPosition.CenterParent;
         panelSalutation.ResumeLayout(false);
         panelSalutationLabel.ResumeLayout(false);
         panelSalutationLabel.PerformLayout();

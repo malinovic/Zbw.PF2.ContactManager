@@ -167,7 +167,7 @@ partial class FormCustomersPartial
         FormBorderStyle = FormBorderStyle.None;
         Margin = new Padding(2, 1, 2, 1);
         Name = "FormCustomersPartial";
-        Padding = new Padding(20, 20, 20, 30);
+        Padding = new Padding(20, 20, 20, 35);
         Text = "FormCustomersPartial";
         panel1.ResumeLayout(false);
         panel2.ResumeLayout(false);

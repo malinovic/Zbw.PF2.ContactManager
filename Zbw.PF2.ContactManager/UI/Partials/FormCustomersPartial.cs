@@ -11,6 +11,7 @@ namespace Zbw.PF2.ContactManager.UI.Partials;
 public partial class FormCustomersPartial : Form
 {
     private readonly IContactManagerRepository _repository;
+    private readonly User _currentUser;
     private readonly IImportService _importService = new ImportService();
     private IList<Customer> _Customers = [];
     private ISearchService _searchService = new SearchService();
@@ -19,11 +20,13 @@ public partial class FormCustomersPartial : Form
     ///     Initializes a new instance of <see cref="FormCustomersPartial" /> and loads the Customer list.
     /// </summary>
     /// <param name="contactManagerRepository">The repository used to load and persist Customers.</param>
-    public FormCustomersPartial(IContactManagerRepository contactManagerRepository)
+    /// <param name="currentUser">The currently logged-in user, recorded as the author of new customer notes.</param>
+    public FormCustomersPartial(IContactManagerRepository contactManagerRepository, User currentUser)
     {
         InitializeComponent();
 
         _repository = contactManagerRepository;
+        _currentUser = currentUser;
 
         ThemeManager.ApplyButtonStyles(btnImportCustomer);
         ThemeManager.ApplyDataGridViewStyles(dgvCustomers);
@@ -91,7 +94,7 @@ public partial class FormCustomersPartial : Form
             CreateColumn("CustomerNumber", "Kundenr.", 140),
             CreateColumn("Email", "E-Mail", 220),
             CreateColumn("CustomerStatus", "Status", 120)
-           );
+        );
 
         // Stretch the columns to always fill the grid's full width instead of leaving empty
         // space on wide windows; the basic widths above become the relative fill proportions.
@@ -107,6 +110,9 @@ public partial class FormCustomersPartial : Form
         var menuEdit = new ToolStripMenuItem("Bearbeiten");
         menuEdit.Click += (_, _) => EditSelectedCustomer();
 
+        var menuNotes = new ToolStripMenuItem("Kundenkontakt protokollieren");
+        menuNotes.Click += (_, _) => OpenCustomerNotes();
+
         var menuToggleStatus = new ToolStripMenuItem();
         menuToggleStatus.Click += (_, _) => ToggleSelectedCustomerStatus();
 
@@ -115,6 +121,7 @@ public partial class FormCustomersPartial : Form
 
         var contextMenu = new ContextMenuStrip();
         contextMenu.Items.Add(menuEdit);
+        contextMenu.Items.Add(menuNotes);
         contextMenu.Items.Add(menuToggleStatus);
         contextMenu.Items.Add(menuDelete);
 
@@ -178,6 +185,18 @@ public partial class FormCustomersPartial : Form
 
         _Customers = _repository.GetCustomers();
         ApplyFilter();
+    }
+
+    private void OpenCustomerNotes()
+    {
+        Customer? customer = GetSelectedCustomer();
+        if (customer is null)
+        {
+            return;
+        }
+
+        using var form = new FormCustomerNotes(customer, _currentUser);
+        form.ShowDialog(this);
     }
 
     private void ToggleSelectedCustomerStatus()

@@ -106,4 +106,19 @@ public interface IContactManagerRepository
     void CreateUser(string username, string password, string name);
 
     bool HasAdminUser();
+
+    // CustomerContact CRUD
+
+    /// <summary>
+    ///     Logs a new customer contact entry, assigning it the next available identifier.
+    /// </summary>
+    /// <param name="contact">The contact entry to add.</param>
+    void AddCustomerContact(CustomerContact contact);
+
+    /// <summary>
+    ///     Retrieves the contact history for a customer, newest first.
+    /// </summary>
+    /// <param name="customerId">The unique identifier of the customer.</param>
+    /// <returns>The customer's logged contact entries, ordered by contact date descending.</returns>
+    IList<CustomerContact> GetCustomerContacts(int customerId);
 }
