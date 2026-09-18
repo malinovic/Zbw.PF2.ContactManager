@@ -9,6 +9,10 @@ using Zbw.PF2.ContactManager.Service.Validation;
 
 namespace Zbw.PF2.ContactManager.UI.Partials;
 
+/// <summary>
+///     Form for creating a new employee or editing an existing one, including validation and
+///     persisting the entered data through the repository.
+/// </summary>
 public partial class FormEmployeeDetail : Form
 {
     private readonly EmployeeValidatorService _employeeValidator;

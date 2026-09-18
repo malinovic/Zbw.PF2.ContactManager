@@ -4,8 +4,13 @@ using System.Text;
 
 namespace Zbw.PF2.ContactManager.Core.Constants;
 
-public enum Salutation 
-{ 
-    Mr, 
+/// <summary>
+///     Represents the salutation used to address a contact.
+/// </summary>
+public enum Salutation
+{
+    /// <summary>Male salutation ("Mr.").</summary>
+    Mr,
+    /// <summary>Female salutation ("Mrs.").</summary>
     Mrs,
 }

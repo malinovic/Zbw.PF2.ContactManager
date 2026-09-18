@@ -6,6 +6,10 @@ using Zbw.PF2.ContactManager.Service.Search;
 
 namespace Zbw.PF2.ContactManager.UI.Partials;
 
+/// <summary>
+///     Displays the list of employees in a filterable, sortable grid and provides actions
+///     for creating, editing, importing, activating/deactivating, and deleting employees.
+/// </summary>
 public partial class FormEmployeesPartial : Form
 {
     private readonly IContactManagerRepository _repository;
@@ -127,6 +131,10 @@ public partial class FormEmployeesPartial : Form
         };
     }
 
+    /// <summary>
+    ///     Opens the double-clicked row's employee in <see cref="FormEmployeeDetail" /> for
+    ///     editing, then refreshes the grid once the dialog closes.
+    /// </summary>
     private void DataGridView1_CellDoubleClick(object? sender, DataGridViewCellEventArgs e)
     {
         if (e.RowIndex < 0 || dgvEmployees.Rows[e.RowIndex].DataBoundItem is not Employee employee)
@@ -140,16 +148,25 @@ public partial class FormEmployeesPartial : Form
         _loadEmployees();
     }
 
+    /// <summary>
+    ///     Re-applies the search/status filter whenever the search text changes.
+    /// </summary>
     private void TxtSearchEmployee_TextChanged(object sender, EventArgs e)
     {
         ApplyFilter();
     }
 
+    /// <summary>
+    ///     Re-applies the search/status filter whenever the selected status changes.
+    /// </summary>
     private void CmbStatusFilter_SelectedIndexChanged(object sender, EventArgs e)
     {
         ApplyFilter();
     }
 
+    /// <summary>
+    ///     Opens a non-modal <see cref="FormEmployeeDetail" /> for creating a new employee.
+    /// </summary>
     private void BtnCreateNewEmployee_Click(object sender, EventArgs e)
     {
         FormEmployeeDetail formEmployeeDetail = new();
@@ -168,6 +185,10 @@ public partial class FormEmployeesPartial : Form
         _loadEmployees();
     }
 
+    /// <summary>
+    ///     Opens <see cref="FormImport" /> to import employees from a CSV file, then refreshes
+    ///     the grid once the import dialog closes.
+    /// </summary>
     private void btnImportEmployee_Click(object sender, EventArgs e)
     {
         FormImport formImport = new();
@@ -177,11 +198,18 @@ public partial class FormEmployeesPartial : Form
         _loadEmployees();
     }
 
+    /// <summary>
+    ///     Returns the employee bound to the grid's currently selected row, if any.
+    /// </summary>
     private Employee? GetSelectedEmployee()
     {
         return dgvEmployees.CurrentRow?.DataBoundItem as Employee;
     }
 
+    /// <summary>
+    ///     Opens the currently selected employee in <see cref="FormEmployeeDetail" /> for
+    ///     editing, then refreshes the grid once the dialog closes.
+    /// </summary>
     private void EditSelectedEmployee()
     {
         Employee? employee = GetSelectedEmployee();
@@ -196,6 +224,10 @@ public partial class FormEmployeesPartial : Form
         _loadEmployees();
     }
 
+    /// <summary>
+    ///     Toggles the currently selected employee's status between active and passive and
+    ///     persists the change.
+    /// </summary>
     private void ToggleSelectedEmployeeStatus()
     {
         Employee? employee = GetSelectedEmployee();
@@ -213,6 +245,9 @@ public partial class FormEmployeesPartial : Form
         _loadEmployees();
     }
 
+    /// <summary>
+    ///     Prompts for confirmation and, if confirmed, deletes the currently selected employee.
+    /// </summary>
     private void DeleteSelectedEmployee()
     {
         Employee? employee = GetSelectedEmployee();
@@ -237,17 +272,32 @@ public partial class FormEmployeesPartial : Form
         _loadEmployees();
     }
 
+    /// <summary>
+    ///     Reloads the full employee list from the repository and re-applies the active filter.
+    /// </summary>
     private void _loadEmployees()
     {
         _employees = _repository.GetEmployees();
         ApplyFilter();
     }
 
+    /// <summary>
+    ///     Applies the current search text and status filter to <see cref="_employees" /> and
+    ///     rebinds the result to the grid.
+    /// </summary>
     private void ApplyFilter()
     {
         contactManagerRepositoryBindingSource.DataSource = _searchService.SearchEmployees(_employees, txtSearchEmployee.Text, cmbStatusFilter.SelectedItem);
     }
 
+    /// <summary>
+    ///     Creates a read-only, fixed-width <see cref="DataGridViewTextBoxColumn" /> bound to
+    ///     the given property.
+    /// </summary>
+    /// <param name="dataPropertyName">Name of the bound data source property to display.</param>
+    /// <param name="headerText">Column header text shown to the user.</param>
+    /// <param name="width">Relative fill width used for the column.</param>
+    /// <returns>The configured column.</returns>
     private static DataGridViewTextBoxColumn CreateColumn(string dataPropertyName, string headerText, int width)
     {
         return new DataGridViewTextBoxColumn

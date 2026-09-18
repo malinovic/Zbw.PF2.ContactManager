@@ -2,6 +2,9 @@
 
 namespace Zbw.PF2.ContactManager.Service.Import;
 
+/// <summary>
+///     Imports employees from CSV files and customers from vCard files.
+/// </summary>
 public interface IImportService
 {
     /// <summary>

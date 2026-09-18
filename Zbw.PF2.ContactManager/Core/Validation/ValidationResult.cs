@@ -7,8 +7,10 @@ public sealed class ValidationResult
 {
     private readonly List<ValidationError> _errors = [];
 
+    /// <summary>All validation errors recorded so far.</summary>
     public IReadOnlyCollection<ValidationError> Errors => _errors;
 
+    /// <summary><c>true</c> if no validation errors have been recorded; otherwise <c>false</c>.</summary>
     public bool IsValid => _errors.Count == 0;
 
 

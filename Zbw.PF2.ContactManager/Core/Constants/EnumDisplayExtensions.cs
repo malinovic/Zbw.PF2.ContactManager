@@ -57,6 +57,11 @@ public static class EnumDisplayExtensions
     };
 
 
+    /// <summary>
+    ///     Returns the German display text for the given <see cref="EmployeeSeniorLevel" />.
+    /// </summary>
+    /// <param name="seniorLevel">The seniority level to translate.</param>
+    /// <returns>The German display text, or the enum's <see cref="object.ToString" /> if unmapped.</returns>
     public static string ToGerman(this EmployeeSeniorLevel seniorLevel) => seniorLevel switch
     {
         EmployeeSeniorLevel.Level0 => "Stufe 0",

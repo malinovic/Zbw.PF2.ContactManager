@@ -4,9 +4,14 @@ using System.Text;
 
 namespace Zbw.PF2.ContactManager.Core.Constants;
 
+/// <summary>
+///     Represents the sex of a contact.
+/// </summary>
 public enum Sex
 {
-    Male, 
+    /// <summary>Male.</summary>
+    Male,
+    /// <summary>Female.</summary>
     Female,
 }
     

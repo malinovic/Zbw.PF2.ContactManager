@@ -4,11 +4,15 @@ using Zbw.PF2.ContactManager.Service.PasswordHash;
 
 namespace Zbw.PF2.ContactManager.Service.Auth;
 
+/// <summary>
+///     Implements <see cref="IAuthService" /> using a CSV-backed repository and PBKDF2 password hashing.
+/// </summary>
 internal class AuthService : IAuthService
 {
     private readonly IContactManagerRepository _repository = new ContactManagerRepository(new CSVRepository());
     private readonly IPasswordHashService _passwordHashService = new PasswordHashService();
 
+    /// <inheritdoc />
     public bool CreateUser(string username, string password, string name)
     {
         var hashedPassword = _passwordHashService.Hash(password);
@@ -26,6 +30,7 @@ internal class AuthService : IAuthService
         return true;
     }
 
+    /// <inheritdoc />
     public User? Login(string username, string password)
     {
         bool isAuthenticated = _repository.CheckLoginForUser(username, password);
@@ -38,6 +43,7 @@ internal class AuthService : IAuthService
         return _repository.GetUsers().FirstOrDefault(user => user.Username == username);
     }
 
+    /// <inheritdoc />
     public bool UpdateUser(int id, string username, string name, string? password)
     {
         User? existing = _repository.GetUser(id);
@@ -69,6 +75,7 @@ internal class AuthService : IAuthService
         return true;
     }
 
+    /// <inheritdoc />
     public bool HasAdminUser()
     {
         return _repository.HasAdminUser();

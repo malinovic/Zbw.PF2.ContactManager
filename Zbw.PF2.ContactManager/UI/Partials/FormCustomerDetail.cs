@@ -9,7 +9,11 @@ using Zbw.PF2.ContactManager.Validation.ValidationCustomer;
 
 namespace Zbw.PF2.ContactManager.UI.Partials;
 
-public partial class 
+/// <summary>
+///     Form for creating a new customer or editing an existing one, including validation and
+///     persisting the entered data through the repository.
+/// </summary>
+public partial class
     FormCustomerDetail : Form
 {
     private readonly CustomerValidatorService _customerValidator;

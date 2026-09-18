@@ -2,6 +2,9 @@
 
 namespace Zbw.PF2.ContactManager.Service.Validation;
 
+/// <summary>
+///     Shared regular expressions used to validate email addresses, phone numbers, and AHV numbers.
+/// </summary>
 internal class ValidationFormats
 {
     internal static Regex EmailRegex = new(@"^[^@\s]+@[^@\s]+\.[^@\s]+$", RegexOptions.Compiled);

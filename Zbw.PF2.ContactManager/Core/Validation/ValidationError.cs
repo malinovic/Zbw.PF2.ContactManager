@@ -7,8 +7,10 @@
 public sealed record ValidationError
 
 {
+    /// <summary>The name of the property that failed validation.</summary>
     public string PropertyName { get; }
 
+    /// <summary>The validation failure message.</summary>
     public string Message { get; }
 
 

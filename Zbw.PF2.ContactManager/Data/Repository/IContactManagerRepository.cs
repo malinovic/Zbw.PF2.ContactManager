@@ -101,10 +101,26 @@ public interface IContactManagerRepository
     /// <param name="id">The unique identifier of the user to remove.</param>
     void DeleteUser(int id);
 
+    /// <summary>
+    ///     Verifies that a user with the given username exists and that the given password matches.
+    /// </summary>
+    /// <param name="username">The username to check.</param>
+    /// <param name="password">The password to verify.</param>
+    /// <returns><c>true</c> if the credentials are valid; otherwise, <c>false</c>.</returns>
     bool CheckLoginForUser(string username, string password);
 
+    /// <summary>
+    ///     Creates a new user in the data store with the given credentials and display name.
+    /// </summary>
+    /// <param name="username">The username of the new user.</param>
+    /// <param name="password">The password of the new user.</param>
+    /// <param name="name">The display name of the new user.</param>
     void CreateUser(string username, string password, string name);
 
+    /// <summary>
+    ///     Determines whether at least one administrator user exists in the data store.
+    /// </summary>
+    /// <returns><c>true</c> if an administrator user exists; otherwise, <c>false</c>.</returns>
     bool HasAdminUser();
 
     // CustomerContact CRUD
