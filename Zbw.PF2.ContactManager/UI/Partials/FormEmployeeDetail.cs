@@ -84,7 +84,7 @@ public partial class FormEmployeeDetail : Form
         boxEmploymentRate.Text = employee.EmploymentRate.ToString();
         boxRole.Text = employee.Role;
         boxApprenticeshipYears.Text = employee.ApprenticeshipYears?.ToString() ?? string.Empty;
-        boxCurrentApprenticeshipYear.Text = employee.CurrentApprenticeshipYear?.ToString() ?? string.Empty;
+        txtCurrentApprenticeshipYear.Text = employee.CurrentApprenticeshipYear?.ToString() ?? string.Empty;
         boxSeniorLevel.SelectedItem = employee.SeniorLevel;
 
         boxWorkStreet.Text = employee.WorkAddress.StreetName;
@@ -186,7 +186,7 @@ public partial class FormEmployeeDetail : Form
                  ? apprenticeshipYears
                  : null,
 
-            CurrentApprenticeshipYear = int.TryParse(boxCurrentApprenticeshipYear.Text.Trim(), out int currentApprenticeshipYear)
+            CurrentApprenticeshipYear = int.TryParse(txtCurrentApprenticeshipYear.Text.Trim(), out int currentApprenticeshipYear)
                 ? currentApprenticeshipYear
                 : null,
 

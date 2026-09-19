@@ -212,6 +212,13 @@ public sealed class EmployeeValidatorService
                 "Die Postleitzahl darf nur Zahlen enthalten.");
         }
 
+        else if (input.PrivateZipCode.Length != 4)
+        {
+            result.Add(
+                nameof(input.PrivateZipCode),
+                "Die Postleitzahl muss genau 4 Ziffern enthalten.");
+        }
+
         if (string.IsNullOrWhiteSpace(input.PrivateCity))
         {
             result.Add(
@@ -321,13 +328,13 @@ public sealed class EmployeeValidatorService
                 "Bitte wählen Sie einen Mitarbeiterstatus aus.");
         }
 
-       /* if (input.EmployeeSeniorLevel is null)
-        {
-            result.Add(
-                nameof(input.EmployeeSeniorLevel),
-                "Bitte wählen Sie eine Kaderstufe aus.");
-        }
-       */
+        /* if (input.EmployeeSeniorLevel is null)
+         {
+             result.Add(
+                 nameof(input.EmployeeSeniorLevel),
+                 "Bitte wählen Sie eine Kaderstufe aus.");
+         }
+        */
 
         if (string.IsNullOrWhiteSpace(input.WorkStreetNumber))
         {

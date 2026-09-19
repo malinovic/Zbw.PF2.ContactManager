@@ -147,7 +147,7 @@ partial class FormEmployeeDetail : Form
         panel3 = new Panel();
         panel4 = new Panel();
         labelApprenticeShipYearIfApprentice = new Label();
-        boxCurrentApprenticeshipYear = new TextBox();
+        txtCurrentApprenticeshipYear = new TextBox();
         panel2 = new Panel();
         panelDateOfTermination = new Panel();
         labelDateOfTermination = new Label();
@@ -1288,11 +1288,11 @@ partial class FormEmployeeDetail : Form
         // panel3
         // 
         panel3.Controls.Add(panel4);
-        panel3.Controls.Add(boxCurrentApprenticeshipYear);
+        panel3.Controls.Add(txtCurrentApprenticeshipYear);
         panel3.Location = new Point(301, 368);
         panel3.Name = "panel3";
         panel3.Size = new Size(250, 98);
-        panel3.TabIndex = 8;
+        panel3.TabIndex = 6;
         // 
         // panel4
         // 
@@ -1313,14 +1313,14 @@ partial class FormEmployeeDetail : Form
         labelApprenticeShipYearIfApprentice.TabIndex = 0;
         labelApprenticeShipYearIfApprentice.Text = "akt. Lehrjahr falls Lehrling";
         // 
-        // boxCurrentApprenticeshipYear
+        // txtCurrentApprenticeshipYear
         // 
-        boxCurrentApprenticeshipYear.Dock = DockStyle.Bottom;
-        boxCurrentApprenticeshipYear.Font = new Font("Segoe UI", 19.25F);
-        boxCurrentApprenticeshipYear.Location = new Point(0, 56);
-        boxCurrentApprenticeshipYear.Name = "boxCurrentApprenticeshipYear";
-        boxCurrentApprenticeshipYear.Size = new Size(250, 42);
-        boxCurrentApprenticeshipYear.TabIndex = 1;
+        txtCurrentApprenticeshipYear.Dock = DockStyle.Bottom;
+        txtCurrentApprenticeshipYear.Font = new Font("Segoe UI", 19.25F);
+        txtCurrentApprenticeshipYear.Location = new Point(0, 56);
+        txtCurrentApprenticeshipYear.Name = "txtCurrentApprenticeshipYear";
+        txtCurrentApprenticeshipYear.Size = new Size(250, 42);
+        txtCurrentApprenticeshipYear.TabIndex = 1;
         // 
         // panel2
         // 
@@ -1329,7 +1329,7 @@ partial class FormEmployeeDetail : Form
         panel2.Location = new Point(301, 698);
         panel2.Name = "panel2";
         panel2.Size = new Size(250, 98);
-        panel2.TabIndex = 13;
+        panel2.TabIndex = 7;
         // 
         // panelDateOfTermination
         // 
@@ -1373,7 +1373,7 @@ partial class FormEmployeeDetail : Form
         // 
         AutoSize = true;
         BackColor = Color.White;
-        ClientSize = new Size(1646, 1006);
+        ClientSize = new Size(1500, 915);
         Controls.Add(panelDateOfHire);
         Controls.Add(panelWorkCity);
         Controls.Add(panelWorkZipCode);
@@ -1637,6 +1637,6 @@ partial class FormEmployeeDetail : Form
     private Panel panel3;
     private Panel panel4;
     private Label labelApprenticeShipYearIfApprentice;
-    private TextBox boxCurrentApprenticeshipYear;
+    private TextBox txtCurrentApprenticeshipYear;
     private ComboBox boxStatus;
 }
