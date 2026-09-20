@@ -216,7 +216,7 @@ public sealed class EmployeeValidatorService
         {
             result.Add(
                 nameof(input.PrivateZipCode),
-                "Die Postleitzahl muss genau 4 Ziffern enthalten.");
+                "Die Postleitzahl der privaten Adresse muss genau 4 Ziffern enthalten.");
         }
 
         if (string.IsNullOrWhiteSpace(input.PrivateCity))
@@ -360,6 +360,12 @@ public sealed class EmployeeValidatorService
             result.Add(
                 nameof(input.WorkZipCode),
                 "Die Postleitzahl der Arbeitsadresse darf nur Zahlen enthalten.");
+        }
+        else if (input.WorkZipCode.Length != 4)
+        {
+            result.Add(
+                nameof(input.WorkZipCode),
+                "Die Postleitzahl der Arbeitsadresse muss genau 4 Ziffern enthalten.");
         }
 
         if (string.IsNullOrWhiteSpace(input.WorkCity))
