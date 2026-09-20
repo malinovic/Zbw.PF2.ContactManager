@@ -9,6 +9,9 @@ using Zbw.PF2.ContactManager.Validation.ValidationCustomer;
 
 namespace Zbw.PF2.ContactManager.UI.Partials;
 
+/// <summary>
+///     Form for viewing and recording contact-history notes for a customer.
+/// </summary>
 public partial class FormCustomerNotes : Form
 {
     private readonly IContactManagerRepository _repository;

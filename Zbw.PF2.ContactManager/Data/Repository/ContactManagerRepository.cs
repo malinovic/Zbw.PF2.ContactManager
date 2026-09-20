@@ -7,6 +7,7 @@ namespace Zbw.PF2.ContactManager.Data.Repository;
 ///     Implements <see cref="IContactManagerRepository" /> by delegating all data access
 ///     to an <see cref="ICSVRepository" />.
 /// </summary>
+/// <param name="csvRepository">The underlying CSV repository used to persist and query records.</param>
 public class ContactManagerRepository(ICSVRepository csvRepository) : IContactManagerRepository
 {
     private readonly IPasswordHashService _passwordHashService = new PasswordHashService();

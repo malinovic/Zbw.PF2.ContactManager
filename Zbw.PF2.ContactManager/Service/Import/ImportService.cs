@@ -200,6 +200,15 @@ public class ImportService : IImportService
         };
     }
 
+    /// <summary>
+    ///     Imports a single customer from the given vCard (.vcf) file, mapping whatever fields
+    ///     the vCard provides onto a <see cref="CustomerInput" /> for review before saving. Only
+    ///     the first contact in the file is used.
+    /// </summary>
+    /// <param name="filePath">The path to the vCard file to import.</param>
+    /// <returns>A <see cref="CustomerInput" /> pre-filled from the vCard's first contact.</returns>
+    /// <exception cref="FileNotFoundException">Thrown when <paramref name="filePath" /> does not exist.</exception>
+    /// <exception cref="InvalidDataException">Thrown when the file contains no valid vCard data.</exception>
     public CustomerInput ImportCustomer(string filePath)
     {
         ArgumentException.ThrowIfNullOrWhiteSpace(filePath);

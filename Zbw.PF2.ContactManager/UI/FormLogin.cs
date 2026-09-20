@@ -4,10 +4,18 @@ using Zbw.PF2.ContactManager.Service.Auth;
 
 namespace Zbw.PF2.ContactManager.UI;
 
+/// <summary>
+///     Login form shown at application startup. Authenticates the user against stored
+///     credentials and opens <see cref="MainForm" /> on successful login.
+/// </summary>
 public partial class FormLogin : Form
 {
     private readonly IAuthService _authService = new AuthService();
 
+    /// <summary>
+    ///     Initializes a new instance of <see cref="FormLogin" />, applies the modern field
+    ///     styles and ensures a default admin user exists before the form is shown.
+    /// </summary>
     public FormLogin()
     {
         InitializeComponent();

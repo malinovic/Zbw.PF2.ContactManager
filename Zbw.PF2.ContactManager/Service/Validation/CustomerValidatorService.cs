@@ -139,6 +139,12 @@ public sealed class CustomerValidatorService
                 nameof(input.ZipCode),
                 "Die Postleitzahl darf nur Zahlen enthalten.");
         }
+        else if (input.ZipCode.Length != 4)
+        {
+            result.Add(
+                nameof(input.ZipCode),
+                "Die Postleitzahl muss genau 4 Ziffern enthalten.");
+        }
 
         if (string.IsNullOrWhiteSpace(input.City))
         {

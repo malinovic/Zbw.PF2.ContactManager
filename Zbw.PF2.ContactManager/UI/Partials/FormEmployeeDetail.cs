@@ -9,6 +9,10 @@ using Zbw.PF2.ContactManager.Service.Validation;
 
 namespace Zbw.PF2.ContactManager.UI.Partials;
 
+/// <summary>
+///     Form for creating a new employee or editing an existing one, including validation and
+///     persisting the entered data through the repository.
+/// </summary>
 public partial class FormEmployeeDetail : Form
 {
     private readonly EmployeeValidatorService _employeeValidator;
@@ -80,7 +84,7 @@ public partial class FormEmployeeDetail : Form
         boxEmploymentRate.Text = employee.EmploymentRate.ToString();
         boxRole.Text = employee.Role;
         boxApprenticeshipYears.Text = employee.ApprenticeshipYears?.ToString() ?? string.Empty;
-        boxCurrentApprenticeshipYear.Text = employee.CurrentApprenticeshipYear?.ToString() ?? string.Empty;
+        txtCurrentApprenticeshipYear.Text = employee.CurrentApprenticeshipYear?.ToString() ?? string.Empty;
         boxSeniorLevel.SelectedItem = employee.SeniorLevel;
 
         boxWorkStreet.Text = employee.WorkAddress.StreetName;
@@ -182,7 +186,7 @@ public partial class FormEmployeeDetail : Form
                  ? apprenticeshipYears
                  : null,
 
-            CurrentApprenticeshipYear = int.TryParse(boxCurrentApprenticeshipYear.Text.Trim(), out int currentApprenticeshipYear)
+            CurrentApprenticeshipYear = int.TryParse(txtCurrentApprenticeshipYear.Text.Trim(), out int currentApprenticeshipYear)
                 ? currentApprenticeshipYear
                 : null,
 

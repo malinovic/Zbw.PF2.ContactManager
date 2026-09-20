@@ -8,6 +8,10 @@ using Zbw.PF2.ContactManager.Validation.ValidationCustomer;
 
 namespace Zbw.PF2.ContactManager.UI.Partials;
 
+/// <summary>
+///     Child form embedded in <see cref="MainForm" /> that lists, filters, searches and manages
+///     customers, including creating, editing, importing (vCard) and deleting customers.
+/// </summary>
 public partial class FormCustomersPartial : Form
 {
     private readonly IContactManagerRepository _repository;

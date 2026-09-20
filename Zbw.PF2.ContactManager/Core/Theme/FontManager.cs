@@ -6,6 +6,10 @@ using System.Drawing.Text;
 using System.IO;
 using System.Windows.Forms;
 
+/// <summary>
+///     Loads and exposes the custom fonts used throughout the application, falling back to
+///     system fonts when the custom font files are unavailable.
+/// </summary>
 public static class FontManager
 {
     private static readonly PrivateFontCollection FontCollection = new();

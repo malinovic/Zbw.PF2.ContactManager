@@ -5,6 +5,10 @@ using Zbw.PF2.ContactManager.UI.Partials;
 
 namespace Zbw.PF2.ContactManager.UI;
 
+/// <summary>
+///     Main application shell shown after login. Hosts the navigation sidebar and swaps the
+///     active child form (dashboard, customers, employees, users) into the content panel.
+/// </summary>
 public partial class MainForm : Form
 {
     private const string AdminUsername = "admin";

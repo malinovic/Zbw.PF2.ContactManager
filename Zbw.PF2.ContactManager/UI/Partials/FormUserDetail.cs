@@ -5,6 +5,10 @@ using Zbw.PF2.ContactManager.Service.Auth;
 
 namespace Zbw.PF2.ContactManager.UI.Partials;
 
+/// <summary>
+///     Dialog for creating a new user or editing an existing one, including validation of
+///     username uniqueness and required fields.
+/// </summary>
 public partial class FormUserDetail : Form
 {
     private const string AdminUsername = "admin";
@@ -41,6 +45,11 @@ public partial class FormUserDetail : Form
         }
     }
 
+    /// <summary>
+    ///     Fills the form's fields from an existing user and locks the username field when
+    ///     editing the admin account.
+    /// </summary>
+    /// <param name="user">The user whose data is used to populate the form.</param>
     private void PopulateFields(User user)
     {
         boxUsername.Text = user.Username;
@@ -56,6 +65,9 @@ public partial class FormUserDetail : Form
         }
     }
 
+    /// <summary>
+    ///     Applies the shared font, field, and button styling to the form's controls.
+    /// </summary>
     private void SetupView()
     {
         Font = FontManager.InterRegular;
@@ -66,6 +78,10 @@ public partial class FormUserDetail : Form
         ThemeManager.ApplyButtonStyles(buttonCancel);
     }
 
+    /// <summary>
+    ///     Validates the entered data and creates or updates the user via <see cref="_authService" />,
+    ///     showing validation/error/success feedback and closing the form on success.
+    /// </summary>
     private void buttonSave_Click(object sender, EventArgs e)
     {
         string username = boxUsername.Text.Trim();
@@ -130,6 +146,9 @@ public partial class FormUserDetail : Form
         Close();
     }
 
+    /// <summary>
+    ///     Prompts for confirmation and, if confirmed, closes the form discarding any changes.
+    /// </summary>
     private void buttonCancel_Click(object sender, EventArgs e)
     {
         DialogResult confirmation = MessageBox.Show(

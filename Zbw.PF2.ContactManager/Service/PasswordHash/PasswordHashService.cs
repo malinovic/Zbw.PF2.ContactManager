@@ -3,6 +3,9 @@ using System.Security.Cryptography;
 
 namespace Zbw.PF2.ContactManager.Service.PasswordHash;
 
+/// <summary>
+///     Implements <see cref="IPasswordHashService" /> using PBKDF2 (SHA-256) with a random salt per password.
+/// </summary>
 internal class PasswordHashService : IPasswordHashService
 {
     private const int _saltSize = 16;
@@ -10,6 +13,7 @@ internal class PasswordHashService : IPasswordHashService
     private const int _iterations = 210_000;
     private static readonly HashAlgorithmName _hashAlgo = HashAlgorithmName.SHA256;
 
+    /// <inheritdoc />
     public string Hash(string password)
     {
         byte[]? salt = RandomNumberGenerator.GetBytes(_saltSize);
@@ -18,6 +22,7 @@ internal class PasswordHashService : IPasswordHashService
         return string.Join(';', "PBKDF2", _hashAlgo.Name, Convert.ToBase64String(salt), Convert.ToBase64String(hash));
     }
 
+    /// <inheritdoc />
     public bool Verify(string password, string hashedPassword)
     {
         var parts = hashedPassword.Split(';');
